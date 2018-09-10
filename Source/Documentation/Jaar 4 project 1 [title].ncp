@@ -5,9 +5,9 @@
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
-        <Name>Player</Name>
+        <Name>Soldier</Name>
         <Access>Public</Access>
-        <Location left="1260" top="213" />
+        <Location left="1248" top="565" />
         <Size width="353" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">int health</Member>
@@ -18,25 +18,25 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Normal</Name>
+        <Name>SoldierRifle</Name>
         <Access>Public</Access>
-        <Location left="1113" top="557" />
+        <Location left="1101" top="909" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Brute</Name>
+        <Name>SoldierShotgun</Name>
         <Access>Public</Access>
-        <Location left="1355" top="557" />
+        <Location left="1343" top="909" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Sniper</Name>
+        <Name>SoldierSniper</Name>
         <Access>Public</Access>
-        <Location left="1601" top="557" />
+        <Location left="1589" top="909" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -44,53 +44,134 @@
       <Entity type="Class">
         <Name>Weapon</Name>
         <Access>Public</Access>
-        <Location left="594" top="387" />
+        <Location left="596" top="387" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int currentClip</Member>
         <Member type="Field">private int maxClip</Member>
-        <Member type="Field">private int totalAmmo</Member>
         <Member type="Field">Bullet bulletKind</Member>
-        <Member type="Method">private void ShootBullet()</Member>
+        <Member type="Field">float bulletSpread</Member>
+        <Member type="Field">float bulletVelocity</Member>
+        <Member type="Field">float recoil</Member>
+        <Member type="Method">public void Reload()</Member>
+        <Member type="Method">public virtual void ShootBullet()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>GameManager</Name>
         <Access>Public</Access>
-        <Location left="422" top="33" />
+        <Location left="332" top="33" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public void QuitGame()</Member>
+        <Member type="Method">public void LoadScene(int index)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Bullet</Name>
         <Access>Public</Access>
-        <Location left="359" top="387" />
+        <Location left="345" top="387" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>GunType</Name>
-        <Access>Public</Access>
-        <Location left="761" top="684" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void Fire()</Member>
+        <Member type="Method">public void OnHit()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>UIManager</Name>
         <Access>Public</Access>
-        <Location left="696" top="33" />
+        <Location left="596" top="45" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public void ShowWindow(Transform toShow)</Member>
+        <Member type="Method">public void UpdateUI()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>TurnManager</Name>
         <Access>Public</Access>
-        <Location left="185" top="33" />
+        <Location left="1343" top="10" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">int team</Member>
+        <Member type="Field">List&lt;Team&gt; Teams</Member>
+        <Member type="Method">public void Next()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Team</Name>
+        <Access>Public</Access>
+        <Location left="1343" top="251" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">List&lt;Soldier&gt; soldiers</Member>
+        <Member type="Field">String name</Member>
+        <Member type="Field">int Soldier</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NetworkManager</Name>
+        <Access>Public</Access>
+        <Location left="1928" top="76" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameLobby</Name>
+        <Access>Public</Access>
+        <Location left="1928" top="339" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Next()
+</Text>
+        <Location left="1160" top="136" />
+        <Size width="160" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>SpecialWeapon</Name>
+        <Access>Public</Access>
+        <Location left="596" top="687" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public override void ShootBullet()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Sniper</Name>
+        <Access>Public</Access>
+        <Location left="422" top="687" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Movement</Name>
+        <Access>Public</Access>
+        <Location left="1010" top="565" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">float xInput</Member>
+        <Member type="Field">int yInput</Member>
+        <Member type="Method">void FixedUpdate()</Member>
+        <Member type="Method">public void Move()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>InteractbleObject</Name>
+        <Access>Public</Access>
+        <Location left="834" top="909" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public abstract void InteractEvent()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>WeaponChest</Name>
+        <Access>Public</Access>
+        <Location left="834" top="1217" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -98,18 +179,46 @@
     </Entities>
     <Relationships>
       <Relationship type="Dependency" first="0" second="1">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="0" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="0" second="3">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Dependency" first="4" second="7">
+      <Relationship type="Dependency" first="4" second="13">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="4" second="14">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Dependency" first="6" second="4">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>532</X>
+          <Y>493</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="16" second="17">
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
