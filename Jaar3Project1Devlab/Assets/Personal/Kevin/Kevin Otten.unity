@@ -147,6 +147,7 @@ MonoBehaviour:
   moveSpeed: 10
   rotSpeed: 200
   clampValue: 30
+  canMove: 1
 --- !u!65 &53493383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -389,7 +390,7 @@ Transform:
   m_GameObject: {fileID: 1976010177}
   m_LocalRotation: {x: 0.17364909, y: -0, z: -0, w: 0.9848076}
   m_LocalPosition: {x: 0, y: 2, z: -6}
-  m_LocalScale: {x: 1, y: 0.55848956, z: 0.9415107}
+  m_LocalScale: {x: 1, y: 0.58733433, z: 0.9901375}
   m_Children: []
   m_Father: {fileID: 53493386}
   m_RootOrder: 0
