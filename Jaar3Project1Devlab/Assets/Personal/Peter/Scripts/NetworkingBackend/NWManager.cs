@@ -41,7 +41,6 @@ public class NWManager : Photon.PunBehaviour {
 
     // Update is called once per frame
     void Update () {
-        logText.text = "" + PhotonNetwork.playerList.Length;
 	}
 
     void Connect()
