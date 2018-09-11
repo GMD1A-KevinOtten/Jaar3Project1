@@ -1,5 +1,5 @@
 <Project>
-  <Name>Jaar 4 project 1 [title]</Name>
+  <Name>Jaar 4 project 1 PierenOorlog</Name>
   <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
     <Name>General</Name>
     <Language>CSharp</Language>
@@ -153,10 +153,13 @@
         <Location left="1010" top="565" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">float xInput</Member>
-        <Member type="Field">int yInput</Member>
+        <Member type="Field">float movementSpeed</Member>
+        <Member type="Field">bool canMove</Member>
+        <Member type="Field">float RotationSpeed</Member>
+        <Member type="Field">float clampValue</Member>
         <Member type="Method">void FixedUpdate()</Member>
-        <Member type="Method">public void Move()</Member>
+        <Member type="Method">public void SoldierMovement()</Member>
+        <Member type="Method">public void SoldierRotation()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -179,38 +182,26 @@
     </Entities>
     <Relationships>
       <Relationship type="Dependency" first="0" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="0" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="0" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="4" second="13">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="4" second="14">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
       <Relationship type="Dependency" first="6" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -219,8 +210,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="16" second="17">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
