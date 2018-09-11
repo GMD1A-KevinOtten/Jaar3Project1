@@ -8,15 +8,17 @@ public class NWManager : Photon.PunBehaviour {
 
     public string gameVersion;
     public byte maximumPlayersInRoom = 4;
+    public int playerID;
 
     public List<PhotonPlayer> connectedPlayers = new List<PhotonPlayer>();
+
 
     public static NWManager instance;
 
 	// Use this for initialization
 	void Start () {
         Connect();
-        
+
 	}
 
     void Awake()
@@ -39,7 +41,7 @@ public class NWManager : Photon.PunBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
+        logText.text = "" + PhotonNetwork.playerList.Length;
 	}
 
     void Connect()
@@ -71,6 +73,8 @@ public class NWManager : Photon.PunBehaviour {
 
     public override void OnJoinedRoom()
     {
+       
+
         Debug.Log("Player Joined Room");
         photonView.RPC("AddConnectedClient", PhotonTargets.All);
         SceneManager.LoadScene(1);
@@ -79,7 +83,11 @@ public class NWManager : Photon.PunBehaviour {
     [PunRPC]
     void AddConnectedClient()
     {
-        connectedPlayers.Add(PhotonNetwork.player);
+       
+       
+         playerID = PhotonNetwork.playerList.Length;
+
+        
     }
 
     [PunRPC]
@@ -93,8 +101,7 @@ public class NWManager : Photon.PunBehaviour {
     public  bool CheckClientTeam(int team, PhotonPlayer play) //Doesn't quite work yet
     {
        PhotonPlayer clientPlayer = PhotonNetwork.player;
-
-       int playerTeam = connectedPlayers.IndexOf(clientPlayer);
+        int playerTeam = playerID;
 
         if(play == clientPlayer && team == playerTeam)
         {
