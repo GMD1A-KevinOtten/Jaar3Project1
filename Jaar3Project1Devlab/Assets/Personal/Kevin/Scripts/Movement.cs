@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
+public class Movement : Photon.PunBehaviour {
 	
 	public float moveSpeed;
 	public float rotSpeed;
@@ -15,16 +15,21 @@ public class Movement : MonoBehaviour {
 	void Start()
 	{
 		xRotInput = 20;
+        //Camera.main.transform.SetParent(transform); Keep this around pl0x
+        //Camera.main.transform.localPosition = new Vector3(0, 2, -6);
+        //Camera.main.transform.rotation = new Quaternion(20, 0, 0, 0);
 	}
 
 	void FixedUpdate ()
 	{
-		if(canMove == true)
-		{
+		if(canMove == true) //&& PhotonNetwork.player.IsLocal && GetComponent<PrototypeSoldier>().myTeam == PhotonNetwork.player.ID
+        {
+
 			SoldierMovement();
 			SoldierRotation();
 		}
 	}
+
 
 	public void SoldierMovement()
 	{
