@@ -5,16 +5,11 @@ using UnityEngine;
 public class Movement : Photon.PunBehaviour {
 	
 	public float moveSpeed;
-	public float rotSpeed;
-
-	private float xRotInput;
-	public float clampValue;
-
+	public float horRotSpeed;
 	public bool canMove;
 
 	void Start()
 	{
-		xRotInput = 20;
         //Camera.main.transform.SetParent(transform); Keep this around pl0x
         //Camera.main.transform.localPosition = new Vector3(0, 2, -6);
         //Camera.main.transform.rotation = new Quaternion(20, 0, 0, 0);
@@ -42,13 +37,8 @@ public class Movement : Photon.PunBehaviour {
 
 	public void SoldierRotation()
 	{
-		float yRotInput = Input.GetAxis("Mouse X") * Time.deltaTime * rotSpeed;
+		float yRotInput = Input.GetAxis("Mouse X") * Time.deltaTime * horRotSpeed;
 		transform.Rotate(0, yRotInput, 0);
-
-		xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * rotSpeed;
-		print (xRotInput);
-		xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
-		Camera.main.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
 	}
 
 }
