@@ -10,6 +10,7 @@ public class NWManager : Photon.PunBehaviour {
     public byte maximumPlayersInRoom = 4;
     public int playerID;
 
+
     public List<PhotonPlayer> connectedPlayers = new List<PhotonPlayer>();
 
 
@@ -33,10 +34,12 @@ public class NWManager : Photon.PunBehaviour {
             Destroy(this);
         }
 
+        
 
         PhotonNetwork.autoJoinLobby = false;
 
         PhotonNetwork.automaticallySyncScene = true;
+
     }
 
     // Update is called once per frame
@@ -56,7 +59,7 @@ public class NWManager : Photon.PunBehaviour {
 
     public  void CreateRoom(InputField roomName)
     {
-        PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() { MaxPlayers = maximumPlayersInRoom }, null);
+        PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() {MaxPlayers = maximumPlayersInRoom }, null);
     }
 
     public void LeaveRoom()
@@ -66,7 +69,7 @@ public class NWManager : Photon.PunBehaviour {
 
     public override void OnLeftRoom()
     {
-        photonView.RPC("RemoveConnectedClient", PhotonTargets.All);
+       // photonView.RPC("RemoveConnectedClient", PhotonTargets.All);
         SceneManager.LoadScene(0);
     }
 
@@ -75,32 +78,45 @@ public class NWManager : Photon.PunBehaviour {
        
 
         Debug.Log("Player Joined Room");
-        photonView.RPC("AddConnectedClient", PhotonTargets.All);
+        //photonView.RPC("AddConnectedClient", PhotonTargets.All);
         SceneManager.LoadScene(1);
     }
 
-    [PunRPC]
-    void AddConnectedClient()
+   
+
+    public void LockRoom()
     {
+        if (PhotonNetwork.isMasterClient)
+        {
+            PhotonNetwork.room.IsOpen = false;
+            PhotonNetwork.room.IsVisible = false;
+        }
+    }
+
+
+    //[PunRPC]
+    //void AddConnectedClient()
+    //{
        
        
-         playerID = PhotonNetwork.playerList.Length;
+    //     playerID = PhotonNetwork.playerList.Length;
 
         
-    }
+    //}
 
-    [PunRPC]
-    void RemoveConnectedClient()
-    {
+    //[PunRPC]
+    //void RemoveConnectedClient()
+    //{
        
-        connectedPlayers.Remove(PhotonNetwork.player);
+    //    connectedPlayers.Remove(PhotonNetwork.player);
 
-    }
+    //}
 
+    //[PunRPC]
     public  bool CheckClientTeam(int team, PhotonPlayer play) //Doesn't quite work yet
     {
        PhotonPlayer clientPlayer = PhotonNetwork.player;
-        int playerTeam = playerID;
+        int playerTeam = PhotonNetwork.player.ID;
 
         if(play == clientPlayer && team == playerTeam)
         {

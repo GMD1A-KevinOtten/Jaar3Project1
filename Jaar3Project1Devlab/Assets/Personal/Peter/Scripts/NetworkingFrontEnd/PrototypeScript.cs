@@ -28,5 +28,10 @@ public class PrototypeScript : Photon.PunBehaviour {
 		
 	}
 
-   
+    public void FindNWManager()
+    {
+        NWManager.instance.LockRoom();
+    }
+
+
 }
