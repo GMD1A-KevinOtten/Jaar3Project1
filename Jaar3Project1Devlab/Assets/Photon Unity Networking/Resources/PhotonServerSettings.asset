@@ -45,4 +45,8 @@ MonoBehaviour:
   - AddConnectedClient
   - RemoveConnectedClient
   - DestroySoldier
+  - EndTurn
+  - NextTurn
+  - PreTurnLimbo
+  - StartWait
   DisableAutoOpenWizard: 1

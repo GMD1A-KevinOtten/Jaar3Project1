@@ -17,7 +17,7 @@ public class Movement : Photon.PunBehaviour {
 
 	void FixedUpdate ()
 	{
-		if(canMove == true) //&& PhotonNetwork.player.IsLocal && GetComponent<PrototypeSoldier>().myTeam == PhotonNetwork.player.ID
+		if(canMove == true && PhotonNetwork.player.IsLocal && GetComponent<PrototypeSoldier>().myTeam == PhotonNetwork.player.ID) 
         {
 
 			SoldierMovement();
