@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
+    public enum CameraStates
+    {
+        ThirdPerson,
+        Topview,
+        Idle,
+    }
+
 	public float camMovSpeed;
 	public float camRotSpeed;
 
-	public bool topview;
+    public CameraStates cameraState;
 	public float clampValue;
 	public float vertRotSpeed;
 
@@ -20,15 +27,15 @@ public class CameraMovement : MonoBehaviour {
 
 	void FixedUpdate () 
 	{
-		if(topview == true)
-		{
-			TopViewCamera();
-		}
-
-		else
-		{
-			SoldierCamera();
-		}
+        switch (cameraState)
+        {
+            case CameraStates.Topview:
+                TopViewCamera();
+                break;
+            case CameraStates.ThirdPerson:
+                SoldierCamera();
+                break;
+        }
 	}
 
     /// <summary>

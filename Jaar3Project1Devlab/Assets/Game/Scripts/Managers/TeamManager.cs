@@ -14,15 +14,6 @@ public class TeamManager : MonoBehaviour {
     public int teamIndex;
     public List<Team> allTeams = new List<Team>();
 
-    private bool moveCam;
-    private Vector3 tempPosition;
-
-    private void Update()
-    {
-        if (moveCam)
-        mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, tempPosition, movementSpeed);
-    }
-
     private void Awake()
     {
         //Makes a Singleton
@@ -52,9 +43,23 @@ public class TeamManager : MonoBehaviour {
         }
     }
 
-    public void MoveCameraToPosition(Vector3 moveTo)
+    /// <summary>
+    /// Moves the main camera to the overloaded position. Set camState to the state the camera should be in when it arrives.
+    /// </summary>
+    /// <param name="moveTo"></param>
+    /// <param name="camState"></param>
+    /// <returns></returns>
+    public IEnumerator MoveCamTest(Vector3 moveTo, CameraMovement.CameraStates camState)
     {
-        moveCam = true;
-        tempPosition = moveTo;
+        mainCamera.cameraState = CameraMovement.CameraStates.Idle;
+        while (mainCamera.transform.position != moveTo)
+        {
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, moveTo, movementSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        mainCamera.cameraState = camState;
+
+        yield return null;
     }
 }
