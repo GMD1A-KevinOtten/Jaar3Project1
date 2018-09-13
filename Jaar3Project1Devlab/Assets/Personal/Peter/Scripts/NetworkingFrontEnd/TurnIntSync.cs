@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnIntSync : MonoBehaviour {
+public class TurnIntSync : Photon.PunBehaviour {
 
     public int currentPlayerTurn = 1;
 

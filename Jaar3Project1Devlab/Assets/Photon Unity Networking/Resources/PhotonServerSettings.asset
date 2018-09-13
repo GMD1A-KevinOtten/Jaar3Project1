@@ -52,4 +52,5 @@ MonoBehaviour:
   - WaitFewSeconds
   - UpdateTransform
   - DisableMove
+  - ChangeCanMove
   DisableAutoOpenWizard: 1

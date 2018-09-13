@@ -41,9 +41,16 @@ public class Movement : Photon.PunBehaviour {
 		transform.Rotate(0, yRotInput, 0);
 	}
     [PunRPC]
-    public void UpdateTransform()
+    public void ChangeCanMove()
     {
-        
+        if (!canMove)
+        {
+            canMove = true;
+        }
+        else
+        {
+            canMove = false;
+        }
     }
 
 }

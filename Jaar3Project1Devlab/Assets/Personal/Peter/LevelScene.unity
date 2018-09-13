@@ -248,7 +248,7 @@ Prefab:
     - target: {fileID: 114099842787102572, guid: 74afa1a04259c09479d1158b45609116,
         type: 2}
       propertyPath: canMove
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114699729023115752, guid: 74afa1a04259c09479d1158b45609116,
         type: 2}
@@ -513,7 +513,7 @@ Prefab:
     - target: {fileID: 114099842787102572, guid: 74afa1a04259c09479d1158b45609116,
         type: 2}
       propertyPath: canMove
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114699729023115752, guid: 74afa1a04259c09479d1158b45609116,
         type: 2}
@@ -743,7 +743,6 @@ MonoBehaviour:
   currentPlayerTurn: 0
   clientTeamSoldiers: []
   lastMovedSoldierIndex: 0
-  currentSoldier: {fileID: 1383805332}
 --- !u!114 &551530118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,11 +1425,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74afa1a04259c09479d1158b45609116, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1383805332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1971451991906466, guid: 74afa1a04259c09479d1158b45609116,
-    type: 2}
-  m_PrefabInternal: {fileID: 1383805331}
 --- !u!1 &1499506169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1736,7 @@ Prefab:
     - target: {fileID: 114099842787102572, guid: 74afa1a04259c09479d1158b45609116,
         type: 2}
       propertyPath: canMove
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114699729023115752, guid: 74afa1a04259c09479d1158b45609116,
         type: 2}

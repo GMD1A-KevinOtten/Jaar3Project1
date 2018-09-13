@@ -65,14 +65,14 @@ public class PrototypeTurnManager : Photon.PunBehaviour {
     public void EndTurn()
     {
         Debug.Log("EndTurn()");
-        clientTeamSoldiers[0].gameObject.GetComponent<Movement>().canMove = false;
+        //clientTeamSoldiers[0].gameObject.GetComponent<Movement>().canMove = false;
         photonView.RPC("NextTurn", PhotonTargets.All);
         photonView.RPC("PreTurnLimbo", PhotonTargets.All);
 
         if(TurnIntSync.instance.currentPlayerTurn == PhotonNetwork.player.ID)
         {
-            photonView.RPC("DisableMove", PhotonTargets.Others);
-            clientTeamSoldiers[0].gameObject.GetComponent<Movement>().canMove = true;
+            //photonView.RPC("DisableMove", PhotonTargets.Others);
+            //clientTeamSoldiers[0].gameObject.GetComponent<PhotonView>().RPC("ChangeCanMove", PhotonTargets.All);
         }
     
     }
@@ -98,8 +98,8 @@ public class PrototypeTurnManager : Photon.PunBehaviour {
     public void PreTurnLimbo()
     {
 
-        Camera.main.transform.parent = null;
-        Camera.main.transform.position = new Vector3(0, 4, -6);
+        //Camera.main.transform.parent = null;
+        //Camera.main.transform.position = new Vector3(0, 4, -6);
 
         photonView.RPC("StartWait", PhotonTargets.All);
 
@@ -119,9 +119,9 @@ public class PrototypeTurnManager : Photon.PunBehaviour {
     IEnumerator WaitFewSeconds()
     {
         yield return new WaitForSeconds(2);
-        Camera.main.transform.SetParent(clientTeamSoldiers[0].gameObject.transform); 
-        Camera.main.transform.localPosition = new Vector3(0, 2, -8);
-        Camera.main.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        //Camera.main.transform.SetParent(clientTeamSoldiers[0].gameObject.transform); 
+        //Camera.main.transform.localPosition = new Vector3(0, 2, -8);
+        //Camera.main.transform.localRotation = new Quaternion(0, 0, 0, 0);
     }
 
     [PunRPC]
