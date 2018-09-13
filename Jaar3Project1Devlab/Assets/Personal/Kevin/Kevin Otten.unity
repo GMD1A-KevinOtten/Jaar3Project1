@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   horRotSpeed: 100
-  canMove: 1
+  canMove: 0
 --- !u!65 &53493383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -210,8 +210,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
-  m_Children:
-  - {fileID: 1976010180}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -388,13 +387,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1976010177}
-  m_LocalRotation: {x: 0.17364909, y: -0, z: -0, w: 0.9848076}
-  m_LocalPosition: {x: 0, y: 2, z: -6}
-  m_LocalScale: {x: 1, y: 0.6176687, z: 1.0412757}
+  m_LocalRotation: {x: 0.42261916, y: -0, z: -0, w: 0.9063074}
+  m_LocalPosition: {x: -1.64, y: 20, z: -10.6}
+  m_LocalScale: {x: 1, y: 1.1630837, z: 1.1630831}
   m_Children: []
-  m_Father: {fileID: 53493386}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 50.000004, y: 0, z: 0}
 --- !u!114 &1976010181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56deae5e35103d34485f444953b256da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraState: 0
+  camMovSpeed: 20
+  camRotSpeed: 100
+  cameraState: 1
   clampValue: 30
   vertRotSpeed: 100
 --- !u!1 &2143725086
