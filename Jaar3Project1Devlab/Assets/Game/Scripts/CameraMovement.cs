@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
-	
-	private float xRotInput;
 
 	public float camMovSpeed;
 	public float camRotSpeed;
 
-	public bool cameraState;
+	public bool topview;
 	public float clampValue;
 	public float vertRotSpeed;
 
-	void Start()
+    private float xRotInput;
+
+    void Start()
 	{
 		xRotInput = 20;
 	}
 
 	void FixedUpdate () 
 	{
-		if(cameraState == true)
+		if(topview == true)
 		{
-			TopVieuwCamera();
+			TopViewCamera();
 		}
 
 		else
@@ -31,7 +31,10 @@ public class CameraMovement : MonoBehaviour {
 		}
 	}
 
-	public void TopVieuwCamera()
+    /// <summary>
+    /// Call this function when the camera is hovering above the map.
+    /// </summary>
+	public void TopViewCamera()
 	{
 
 		float horMovement = Input.GetAxis("Horizontal") * Time.deltaTime * camMovSpeed;
@@ -51,10 +54,13 @@ public class CameraMovement : MonoBehaviour {
 		}
 	}
 
+    /// <summary>
+    /// Call this function when the camera is in third person mode
+    /// </summary>
 	public void SoldierCamera()
 	{
 		xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
 		xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
-		Camera.main.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+		transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
 	}
 }
