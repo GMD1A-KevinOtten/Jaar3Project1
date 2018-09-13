@@ -40,5 +40,10 @@ public class Movement : Photon.PunBehaviour {
 		float yRotInput = Input.GetAxis("Mouse X") * Time.deltaTime * horRotSpeed;
 		transform.Rotate(0, yRotInput, 0);
 	}
+    [PunRPC]
+    public void UpdateTransform()
+    {
+        
+    }
 
 }

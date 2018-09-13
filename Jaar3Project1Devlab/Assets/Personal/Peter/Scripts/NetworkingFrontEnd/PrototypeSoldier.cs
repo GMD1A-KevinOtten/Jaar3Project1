@@ -17,10 +17,10 @@ public class PrototypeSoldier : Photon.PunBehaviour {
 
     private void OnMouseDown()
     {
-        if (NWManager.instance.CheckClientTeam(myTeam, PhotonNetwork.player))
-        {
-            photonView.RPC("DestroySoldier", PhotonTargets.All);
-        }
+        //if (NWManager.instance.CheckClientTeam(myTeam, PhotonNetwork.player))
+        //{
+        //    //photonView.RPC("DestroySoldier", PhotonTargets.All);
+        //}
     }
 
     [PunRPC]

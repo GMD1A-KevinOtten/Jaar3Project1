@@ -15,7 +15,7 @@ public class PrototypeScript : Photon.PunBehaviour {
 	// Use this for initialization
 	void Awake () {
 
-       GameObject g = PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity, 0);
+      // GameObject g = PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity, 0);
     }
 
     private void Start()

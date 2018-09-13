@@ -16,6 +16,7 @@ public class NWManager : Photon.PunBehaviour {
 
     public static NWManager instance;
 
+    private bool loading;
 	// Use this for initialization
 	void Start () {
         Connect();
@@ -55,11 +56,15 @@ public class NWManager : Photon.PunBehaviour {
     public void ConnectToRoom(InputField roomName)
     {
         PhotonNetwork.JoinRoom(roomName.text);
+
+        StartCoroutine(WaitBeforeLoad(1));
     }
 
     public  void CreateRoom(InputField roomName)
     {
         PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() {MaxPlayers = maximumPlayersInRoom }, null);
+       
+          StartCoroutine(WaitBeforeLoad(1));
     }
 
     public void LeaveRoom()
@@ -79,7 +84,7 @@ public class NWManager : Photon.PunBehaviour {
 
         Debug.Log("Player Joined Room");
         //photonView.RPC("AddConnectedClient", PhotonTargets.All);
-        SceneManager.LoadScene(1);
+       
     }
 
    
@@ -93,6 +98,17 @@ public class NWManager : Photon.PunBehaviour {
         }
     }
 
+    IEnumerator WaitBeforeLoad(int sceneIndex)
+    {
+        if (!loading)
+        {
+            loading = true;
+            yield return new WaitForSeconds(2);
+            PhotonNetwork.LoadLevel(sceneIndex);
+            loading = false;
+        }
+  
+    }
 
     //[PunRPC]
     //void AddConnectedClient()
