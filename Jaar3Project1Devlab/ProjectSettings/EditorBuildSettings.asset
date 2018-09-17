@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Personal/Peter/Peter Bos.unity
     guid: 145c145ab500a4a47b4d9ad7ba4bd170
   - enabled: 1
+    path: Assets/Personal/Peter/RoomScene.unity
+    guid: 7c53324c009c40543b32906bc03bdbff
+  - enabled: 1
     path: Assets/Personal/Peter/LevelScene.unity
     guid: 67a700744befb4040a3a9d7f23572169
   m_configObjects: {}

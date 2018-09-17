@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class NWManager : Photon.PunBehaviour {
 
     public string gameVersion;
-    public byte maximumPlayersInRoom = 4;
-    public int playerID;
 
 
     public List<PhotonPlayer> connectedPlayers = new List<PhotonPlayer>();
@@ -37,9 +35,9 @@ public class NWManager : Photon.PunBehaviour {
 
         
 
-        PhotonNetwork.autoJoinLobby = false;
+        PhotonNetwork.autoJoinLobby = true;
 
-        PhotonNetwork.automaticallySyncScene = true;
+        PhotonNetwork.automaticallySyncScene = false;
 
     }
 
@@ -53,52 +51,9 @@ public class NWManager : Photon.PunBehaviour {
 
     }
 
-    public void ConnectToRoom(InputField roomName)
-    {
-        PhotonNetwork.JoinRoom(roomName.text);
 
-        StartCoroutine(WaitBeforeLoad(1));
-    }
 
-    public  void CreateRoom(InputField roomName)
-    {
-        PhotonNetwork.CreateRoom(roomName.text, new RoomOptions() {MaxPlayers = maximumPlayersInRoom }, null);
-       
-          StartCoroutine(WaitBeforeLoad(1));
-    }
-
-    public void LeaveRoom()
-    {
-        PhotonNetwork.LeaveRoom();
-    }
-
-    public override void OnLeftRoom()
-    {
-       // photonView.RPC("RemoveConnectedClient", PhotonTargets.All);
-        SceneManager.LoadScene(0);
-    }
-
-    public override void OnJoinedRoom()
-    {
-       
-
-        Debug.Log("Player Joined Room");
-        //photonView.RPC("AddConnectedClient", PhotonTargets.All);
-       
-    }
-
-   
-
-    public void LockRoom()
-    {
-        if (PhotonNetwork.isMasterClient)
-        {
-            PhotonNetwork.room.IsOpen = false;
-            PhotonNetwork.room.IsVisible = false;
-        }
-    }
-
-    IEnumerator WaitBeforeLoad(int sceneIndex)
+    public  IEnumerator WaitBeforeLoad(int sceneIndex)
     {
         if (!loading)
         {
@@ -110,37 +65,10 @@ public class NWManager : Photon.PunBehaviour {
   
     }
 
-    //[PunRPC]
-    //void AddConnectedClient()
-    //{
-       
-       
-    //     playerID = PhotonNetwork.playerList.Length;
-
-        
-    //}
-
-    //[PunRPC]
-    //void RemoveConnectedClient()
-    //{
-       
-    //    connectedPlayers.Remove(PhotonNetwork.player);
-
-    //}
-
-    //[PunRPC]
-    public  bool CheckClientTeam(int team, PhotonPlayer play) //Doesn't quite work yet
+    public void ChangeUserName(InputField nameInput)
     {
-       PhotonPlayer clientPlayer = PhotonNetwork.player;
-        int playerTeam = PhotonNetwork.player.ID;
-
-        if(play == clientPlayer && team == playerTeam)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        PhotonNetwork.player.NickName = null;
+        PhotonNetwork.player.NickName = nameInput.text;
     }
+
 }
