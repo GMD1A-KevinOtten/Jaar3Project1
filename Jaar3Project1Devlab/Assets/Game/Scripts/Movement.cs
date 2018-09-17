@@ -19,7 +19,6 @@ public class Movement : Photon.PunBehaviour {
 	{
 		if(canMove == true && PhotonNetwork.player.IsLocal && GetComponent<PrototypeSoldier>().myTeam == PhotonNetwork.player.ID) 
         {
-
 			SoldierMovement();
 			SoldierRotation();
 		}

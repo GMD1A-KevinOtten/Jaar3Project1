@@ -8,6 +8,7 @@ public class TeamManager : MonoBehaviour {
 
     [Header("Camera proporties")]
     public CameraMovement mainCamera;
+    public Transform cameraPositionSky;
     public float movementSpeed;
 
     [Header("Team Proporties")]
@@ -25,6 +26,18 @@ public class TeamManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        mainCamera = GameObject.FindObjectOfType<CameraMovement>();
+    }
+
+    void Update()
+    {
+        if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
+        {
+            if(Input.GetButtonDown("Enter"))
+            {
+                ToSoldier();
+            }
+        }
     }
 
     /// <summary>
@@ -33,6 +46,7 @@ public class TeamManager : MonoBehaviour {
     /// </summary>
     public void NextTeam()
     {
+        ToTopView();
         if (teamIndex + 1 < allTeams.Count)
         {
             teamIndex += 1;
@@ -40,7 +54,33 @@ public class TeamManager : MonoBehaviour {
         else
         {
             teamIndex = 0;
+            allTeams[teamIndex].NextSoldier();
         }
+        if(allTeams[teamIndex].teamAlive == false)
+        {
+            NextTeam();
+        }
+    }
+
+    /// <summary>
+    /// Call this to move the MainCamera to the current soldier of the current team.
+    /// </summary>
+    public void ToSoldier()
+    {
+        int soldierIndex = allTeams[teamIndex].soldierIndex;
+        Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].playerCamPos;
+        mainCamera.transform.SetParent(playerCamPos);
+        print("sry but gwhat");
+        StartCoroutine(MoveCam(playerCamPos.position , CameraMovement.CameraStates.ThirdPerson));
+    }
+
+    /// <summary>
+    /// Call this to move the MainCamera to the TopView.
+    /// </summary>
+    public void ToTopView()
+    {
+        mainCamera.transform.SetParent(null);
+        MoveCam(cameraPositionSky.position,CameraMovement.CameraStates.Topview);
     }
 
     /// <summary>
@@ -49,8 +89,9 @@ public class TeamManager : MonoBehaviour {
     /// <param name="moveTo"></param>
     /// <param name="camState"></param>
     /// <returns></returns>
-    public IEnumerator MoveCamTest(Vector3 moveTo, CameraMovement.CameraStates camState)
+    public IEnumerator MoveCam(Vector3 moveTo, CameraMovement.CameraStates camState)
     {
+        print("do it");
         mainCamera.cameraState = CameraMovement.CameraStates.Idle;
         while (mainCamera.transform.position != moveTo)
         {
@@ -59,6 +100,15 @@ public class TeamManager : MonoBehaviour {
         }
 
         mainCamera.cameraState = camState;
+        if(camState == CameraMovement.CameraStates.ThirdPerson)
+        {
+            allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].soldierMovement.canMove = true;
+        }
+
+        if(camState == CameraMovement.CameraStates.Topview)
+        {
+            allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].soldierMovement.canMove = false;
+        }
 
         yield return null;
     }

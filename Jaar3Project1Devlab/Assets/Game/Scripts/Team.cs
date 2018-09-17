@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Team {
 
+    public bool teamAlive = true;
     public int soldierIndex;
     public List<Soldier> allSoldiers = new List<Soldier>();
 
@@ -18,5 +19,23 @@ public class Team {
         {
             soldierIndex = 0;
         }
+        if(teamAlive == true && allSoldiers[soldierIndex].isDead == true)
+        {
+                NextSoldier();
+        }
+    }
+
+    public void CheckTeam()
+    {
+        bool soldiersAlive = false;
+        foreach (Soldier soldier in allSoldiers)
+        {
+            if(soldier.isDead != true)
+            {
+                soldiersAlive = true;
+                break;
+            }
+        }
+        teamAlive = soldiersAlive;
     }
 }
