@@ -54,4 +54,5 @@ MonoBehaviour:
   - DisableMove
   - ChangeCanMove
   - RefreshPlayers
+  - StartGame
   DisableAutoOpenWizard: 1

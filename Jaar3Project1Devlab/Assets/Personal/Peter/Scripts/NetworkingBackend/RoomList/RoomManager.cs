@@ -8,9 +8,16 @@ public class RoomManager : Photon.PunBehaviour
     public GameObject playersScrollViewContent;
     public Button playerButtonPrefab;
 
+    public GameObject startGameButton;
+
     private void Start()
     {
         photonView.RPC("RefreshPlayers", PhotonTargets.All);
+
+        if (!PhotonNetwork.isMasterClient)
+        {
+            startGameButton.SetActive(false);
+        }
     }
 
 
@@ -22,6 +29,20 @@ public class RoomManager : Photon.PunBehaviour
             PhotonNetwork.room.IsOpen = false;
             PhotonNetwork.room.IsVisible = false;
         }
+    }
+
+    [PunRPC]
+    private void StartGame()
+    {
+            if(PhotonNetwork.room.PlayerCount > 1)
+            {
+                StartCoroutine(NWManager.instance.WaitBeforeLoad(2));
+            }
+    }
+
+    public void StartGameButtonRPC()
+    {
+        photonView.RPC("StartGame", PhotonTargets.All);
     }
 
     public void LeaveRoom()
