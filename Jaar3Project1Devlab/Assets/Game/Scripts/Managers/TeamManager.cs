@@ -68,9 +68,8 @@ public class TeamManager : MonoBehaviour {
     public void ToSoldier()
     {
         int soldierIndex = allTeams[teamIndex].soldierIndex;
-        Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].playerCamPos;
+        Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
         mainCamera.transform.SetParent(playerCamPos);
-        print("sry but gwhat");
         StartCoroutine(MoveCam(playerCamPos.position , CameraMovement.CameraStates.ThirdPerson));
     }
 
@@ -91,7 +90,6 @@ public class TeamManager : MonoBehaviour {
     /// <returns></returns>
     public IEnumerator MoveCam(Vector3 moveTo, CameraMovement.CameraStates camState)
     {
-        print("do it");
         mainCamera.cameraState = CameraMovement.CameraStates.Idle;
         while (mainCamera.transform.position != moveTo)
         {
@@ -102,12 +100,16 @@ public class TeamManager : MonoBehaviour {
         mainCamera.cameraState = camState;
         if(camState == CameraMovement.CameraStates.ThirdPerson)
         {
-            allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].soldierMovement.canMove = true;
+            Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+            soldier.soldierMovement.canMove = true;
+            soldier.isActive = true;
         }
 
         if(camState == CameraMovement.CameraStates.Topview)
         {
-            allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].soldierMovement.canMove = false;
+            Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+            soldier.soldierMovement.canMove = false;
+            soldier.isActive = false;
         }
 
         yield return null;

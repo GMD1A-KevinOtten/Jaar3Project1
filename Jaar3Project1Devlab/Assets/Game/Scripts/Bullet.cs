@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public void OnHit()
-    {
-        Destroy(gameObject);
-    }
+    public int defaultDamage;
 
     private void OnCollisionEnter(Collision collision)
     {
-        OnHit();
+        OnHit(collision.transform);
     }
+
+    public virtual void OnHit(Transform gotHit)
+    {
+        if (gotHit.tag == "Soldier")
+        {
+            print("Soldier");
+            Soldier soldier = gotHit.GetComponent<Soldier>();
+            soldier.TakeDamage(defaultDamage);
+            Destroy(gameObject);
+        }
+    }
+
+
 }

@@ -17,6 +17,7 @@ public class CameraMovement : MonoBehaviour {
     public CameraStates cameraState;
 	public float clampValue;
 	public float vertRotSpeed;
+    public Weapon gunToRotate;
 
     private float xRotInput;
 
@@ -33,6 +34,8 @@ public class CameraMovement : MonoBehaviour {
                 TopViewCamera();
                 break;
             case CameraStates.ThirdPerson:
+                if (gunToRotate != transform.root.GetComponent<Soldier>().equippedWeapon)
+                    gunToRotate = transform.root.GetComponent<Soldier>().equippedWeapon;
                 SoldierCamera();
                 break;
         }
@@ -69,5 +72,6 @@ public class CameraMovement : MonoBehaviour {
 		xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
 		xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
 		transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-	}
+        gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+    }
 }

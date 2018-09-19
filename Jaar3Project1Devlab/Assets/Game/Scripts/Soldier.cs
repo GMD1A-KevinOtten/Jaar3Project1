@@ -7,9 +7,10 @@ public class Soldier : MonoBehaviour {
     /// <summary>
     /// PlayerCamPos is always the first child of the object that contains the Soldier Class
     /// </summary>
-    public Transform playerCamPos;
+    public Transform thirdPersonCamPos;
     public Movement soldierMovement;
 
+    [Header("Activity Proporties")]
     public int health;
     public bool isDead;
     public bool isActive;
@@ -19,20 +20,27 @@ public class Soldier : MonoBehaviour {
 
     void Start()
     {
-        playerCamPos = transform.GetChild(0).transform;
-        soldierMovement = gameObject.GetComponent<Movement>();
+        thirdPersonCamPos = transform.GetChild(0).transform;
+        soldierMovement = GetComponent<Movement>();
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (isActive)
         {
-            ShootWeapon();
+            equippedWeapon.ShowCrosshair();
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                ShootWeapon();
+            }
         }
+
     }
 
     public void TakeDamage(int toDamage)
     {
+        print("0");
         health -= toDamage;
 
         if (health <= 0)

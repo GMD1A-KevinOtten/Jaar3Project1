@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 136573107765902828}
   - component: {fileID: 54148462506624722}
   - component: {fileID: 114224737368104788}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &114224737368104788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a6852ed5ff62d4cbf23c9169ca8bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultDamage: 10
 --- !u!136 &136573107765902828
 CapsuleCollider:
   m_ObjectHideFlags: 1
