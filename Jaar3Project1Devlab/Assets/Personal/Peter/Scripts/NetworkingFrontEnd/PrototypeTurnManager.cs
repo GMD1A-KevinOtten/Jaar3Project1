@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PrototypeTurnManager : Photon.PunBehaviour {
 
-    public int currentPlayerTurn = 1;
 
+    public PhotonPlayer currentPlayer;
 
-    public List<PrototypeSoldier> clientTeamSoldiers = new List<PrototypeSoldier>();
-
-    public int lastMovedSoldierIndex;
-    //public GameObject currentSoldier;
-
+    public List<Color> playerColors = new List<Color>();
+    public Image playerAvatar;
     public static PrototypeTurnManager instance;
 	// Use this for initialization
 	void Awake () {
@@ -26,107 +24,49 @@ public class PrototypeTurnManager : Photon.PunBehaviour {
             Destroy(this);
         }
 
-        PrototypeSoldier[] allSoldiers = FindObjectsOfType<PrototypeSoldier>();
-
-        foreach (PrototypeSoldier s in allSoldiers)
-        {
-            if(s.myTeam == PhotonNetwork.player.ID)
-            {
-                clientTeamSoldiers.Add(s);
-            }
-        }
-
-        foreach (PrototypeSoldier q in clientTeamSoldiers)
-        {
-            q.photonView.RequestOwnership();
-        }
+      
 
     }
 
     private void Start()
     {
-      
+        if(currentPlayer == null)
+        {
+            currentPlayer = PhotonNetwork.masterClient;
+        }
+
+        playerAvatar.color = new Color(playerColors[PhotonNetwork.player.ID - 1].r, playerColors[PhotonNetwork.player.ID - 1].g, playerColors[PhotonNetwork.player.ID - 1].b, 1); //Temporary client identification
+        
     }
 
     // Update is called once per frame
     void Update () {
-        Debug.Log(TurnIntSync.instance.currentPlayerTurn);
+       if(currentPlayer == PhotonNetwork.player)
+        {
+            if (Input.GetKeyDown("n"))
+            {
+                CallNextTurn();
+            }
+            if (Input.GetKeyDown("c"))
+            {
+                PhotonNetwork.Instantiate("Koob", new Vector3(Random.Range(-5, 5), 1, Random.Range(-5, 5)), Quaternion.identity, 0);
+            }
+        }
 	}
 
- 
-
-    public void ButtonCall()
+    public void CallNextTurn()
     {
-        Debug.Log("ButtonCall");
-        photonView.RPC("EndTurn", PhotonTargets.All);
-    }
-
-    [PunRPC]
-    public void EndTurn()
-    {
-        Debug.Log("EndTurn()");
-        //clientTeamSoldiers[0].gameObject.GetComponent<Movement>().canMove = false;
         photonView.RPC("NextTurn", PhotonTargets.All);
-        photonView.RPC("PreTurnLimbo", PhotonTargets.All);
-
-        if(TurnIntSync.instance.currentPlayerTurn == PhotonNetwork.player.ID)
-        {
-            //photonView.RPC("DisableMove", PhotonTargets.Others);
-            //clientTeamSoldiers[0].gameObject.GetComponent<PhotonView>().RPC("ChangeCanMove", PhotonTargets.All);
-        }
-    
     }
 
     [PunRPC]
-    public void NextTurn()
+    void NextTurn()
     {
-        Debug.Log("NextTurn()");
+        currentPlayer = PhotonNetwork.player.GetNextFor(currentPlayer);
 
-        if (TurnIntSync.instance.currentPlayerTurn < 4)
-        {
-            TurnIntSync.instance.currentPlayerTurn += 1;
-        }
-        else
-        {
-            TurnIntSync.instance.currentPlayerTurn = 1;
-        }
-
-        
     }
 
-    [PunRPC]
-    public void PreTurnLimbo()
-    {
 
-        //Camera.main.transform.parent = null;
-        //Camera.main.transform.position = new Vector3(0, 4, -6);
 
-        photonView.RPC("StartWait", PhotonTargets.All);
 
-        if (currentPlayerTurn == PhotonNetwork.player.ID)
-        {
-            
-            
-        }
-    }
-
-    [PunRPC]
-    void StartWait()
-    {
-        StartCoroutine(WaitFewSeconds());
-    }
-
-    IEnumerator WaitFewSeconds()
-    {
-        yield return new WaitForSeconds(2);
-        //Camera.main.transform.SetParent(clientTeamSoldiers[0].gameObject.transform); 
-        //Camera.main.transform.localPosition = new Vector3(0, 2, -8);
-        //Camera.main.transform.localRotation = new Quaternion(0, 0, 0, 0);
-    }
-
-    [PunRPC]
-    public void DisableMove()
-    {
-        clientTeamSoldiers[lastMovedSoldierIndex].GetComponent<Movement>().canMove = false;
-    }
 }
