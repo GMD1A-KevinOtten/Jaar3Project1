@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameVersion: v1
+  playingMultiplayer: 1
 --- !u!4 &1857039253
 Transform:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ public class NWManager : Photon.PunBehaviour {
 
     public string gameVersion;
 
+    public bool playingMultiplayer;
+
 
     public List<PhotonPlayer> connectedPlayers = new List<PhotonPlayer>();
 

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class TeamManager : MonoBehaviour {
+public class TeamManager : Photon.PunBehaviour {
 
     public static TeamManager instance;
 
@@ -14,6 +15,12 @@ public class TeamManager : MonoBehaviour {
     [Header("Team Proporties")]
     public int teamIndex;
     public List<Team> allTeams = new List<Team>();
+
+    [Header("Networking")]
+    public PhotonPlayer currentPlayer;
+
+    public List<Color> playerColors = new List<Color>();
+    public Image playerAvatar; //Temporary
 
     private void Awake()
     {
@@ -29,14 +36,33 @@ public class TeamManager : MonoBehaviour {
         mainCamera = GameObject.FindObjectOfType<CameraMovement>();
     }
 
+    private void Start()
+    {
+        if (currentPlayer == null)
+        {
+            currentPlayer = PhotonNetwork.masterClient;
+        }
+
+        playerAvatar.color = new Color(playerColors[PhotonNetwork.player.ID - 1].r, playerColors[PhotonNetwork.player.ID - 1].g, playerColors[PhotonNetwork.player.ID - 1].b, 1); //Temporary client identification
+    }
+
     void Update()
     {
         if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
         {
-            if(Input.GetButtonDown("Enter"))
+            if(Input.GetButtonDown("Enter") && currentPlayer == PhotonNetwork.player)
             {
-                ToSoldier();
+                photonView.RPC("ToSoldier", PhotonTargets.All);
             }
+        }
+
+        if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
+        {
+            CallNextTurn();
+            mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+            photonView.RPC("ToTopView", PhotonTargets.All);
+            photonView.RPC("NextTeam", PhotonTargets.All);
+
         }
     }
 
@@ -44,9 +70,11 @@ public class TeamManager : MonoBehaviour {
     /// Sets the active team to the next in the list.
     /// <para>Call NextSoldier() in the active team to set the next soldier in that team </para>
     /// </summary>
+    [PunRPC]
     public void NextTeam()
     {
-        ToTopView();
+        // ToTopView();
+        photonView.RPC("ToTopView", PhotonTargets.All);
         if (teamIndex + 1 < allTeams.Count)
         {
             teamIndex += 1;
@@ -65,21 +93,37 @@ public class TeamManager : MonoBehaviour {
     /// <summary>
     /// Call this to move the MainCamera to the current soldier of the current team.
     /// </summary>
+    [PunRPC]
     public void ToSoldier()
     {
+        if(currentPlayer == PhotonNetwork.player)
+        {
+            mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+        }
+       
+
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
         mainCamera.transform.SetParent(playerCamPos);
         StartCoroutine(MoveCam(playerCamPos.position , CameraMovement.CameraStates.ThirdPerson));
+
+        if (currentPlayer == PhotonNetwork.player)
+        {
+            allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Movement>().canMove = true;
+            allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<PhotonView>().RequestOwnership();
+
+        }
     }
 
     /// <summary>
     /// Call this to move the MainCamera to the TopView.
     /// </summary>
+    [PunRPC]
     public void ToTopView()
     {
         mainCamera.transform.SetParent(null);
-        MoveCam(cameraPositionSky.position,CameraMovement.CameraStates.Topview);
+       // MoveCam(cameraPositionSky.position,CameraMovement.CameraStates.Topview);
+        photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position, CameraMovement.CameraStates.Topview);
     }
 
     /// <summary>
@@ -88,6 +132,7 @@ public class TeamManager : MonoBehaviour {
     /// <param name="moveTo"></param>
     /// <param name="camState"></param>
     /// <returns></returns>
+    [PunRPC]
     public IEnumerator MoveCam(Vector3 moveTo, CameraMovement.CameraStates camState)
     {
         mainCamera.cameraState = CameraMovement.CameraStates.Idle;
@@ -113,5 +158,17 @@ public class TeamManager : MonoBehaviour {
         }
 
         yield return null;
+    }
+
+    public void CallNextTurn()
+    {
+        photonView.RPC("NextTurn", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    void NextTurn()
+    {
+        currentPlayer = PhotonNetwork.player.GetNextFor(currentPlayer);
+
     }
 }

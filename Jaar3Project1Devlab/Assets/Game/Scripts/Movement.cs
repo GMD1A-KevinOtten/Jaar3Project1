@@ -17,10 +17,22 @@ public class Movement : Photon.PunBehaviour {
 
 	void FixedUpdate ()
 	{
-		if(canMove == true/* && PhotonNetwork.player.IsLocal && GetComponent<PrototypeSoldier>().myTeam == PhotonNetwork.player.ID*/) 
+		if(canMove == true) 
         {
-			SoldierMovement();
-			SoldierRotation();
+            if (NWManager.instance.playingMultiplayer)
+            {
+                if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+                {
+                    SoldierMovement();
+                    SoldierRotation();
+                }
+            }
+            else
+            {
+                SoldierMovement();
+                SoldierRotation();
+            }
+		
 		}
 	}
 

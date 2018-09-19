@@ -55,4 +55,8 @@ MonoBehaviour:
   - ChangeCanMove
   - RefreshPlayers
   - StartGame
+  - MoveCam
+  - NextTeam
+  - ToTopView
+  - ToSoldier
   DisableAutoOpenWizard: 1
