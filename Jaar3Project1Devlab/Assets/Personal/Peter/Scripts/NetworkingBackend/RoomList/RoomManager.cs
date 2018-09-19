@@ -74,7 +74,10 @@ public class RoomManager : Photon.PunBehaviour
         foreach (PhotonPlayer p in connectedPlayers)
         {
              Button button = Instantiate(playerButtonPrefab, playersScrollViewContent.transform);
-             button.GetComponentInChildren<Text>().text = p.NickName;
+            if(p.NickName != "")
+            {
+                button.GetComponentInChildren<Text>().text = p.NickName;
+            }
         }
     }
 
