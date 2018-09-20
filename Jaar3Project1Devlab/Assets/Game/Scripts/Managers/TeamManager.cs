@@ -81,9 +81,8 @@ public class TeamManager : Photon.PunBehaviour {
                 {
                     CallNextTurn();
                     mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                    photonView.RPC("ToTopView", PhotonTargets.All);
+                    //photonView.RPC("ToTopView", PhotonTargets.All);
                     photonView.RPC("NextTeam", PhotonTargets.All);
-
                 }
             }
         }
@@ -110,22 +109,22 @@ public class TeamManager : Photon.PunBehaviour {
             ToTopView();
         } 
 
-if(NWManager.instance.playingMultiplayer)
-{
-      if (teamIndex + 1 < allTeams.Count)
-        {
-            teamIndex += 1;
-        }
-        else
-        {
-            teamIndex = 0;
-            allTeams[teamIndex].NextSoldier();
-        }
-        if(allTeams[teamIndex].teamAlive == false)
-        {
-            NextTeam();
-        }
-}
+        // if(NWManager.instance.playingMultiplayer)
+        // {
+        //     if (teamIndex + 1 < allTeams.Count)
+        //     {
+        //         teamIndex += 1;
+        //     }
+        //     else
+        //     {
+        //         teamIndex = 0;
+        //         allTeams[teamIndex].NextSoldier();
+        //     }
+        //     if(allTeams[teamIndex].teamAlive == false)
+        //     {
+        //         NextTeam();
+        //     }
+        // }
       
     }
 
@@ -140,7 +139,7 @@ if(NWManager.instance.playingMultiplayer)
             mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
         }
        
-
+        //pakt de positie waar de camera heen moet gaan van de soldier
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
         mainCamera.transform.SetParent(playerCamPos);
@@ -191,7 +190,6 @@ if(NWManager.instance.playingMultiplayer)
         mainCamera.cameraState = camState;
         if(camState == CameraMovement.CameraStates.ThirdPerson)
         {
-            print("kut");
             Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
             soldier.soldierMovement.canMove = true;
             soldier.isActive = true;
@@ -199,14 +197,11 @@ if(NWManager.instance.playingMultiplayer)
 
         if(camState == CameraMovement.CameraStates.Topview)
         {
-            print(teamIndex);
-            print("hoer");
             Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
             soldier.soldierMovement.canMove = false;
             soldier.isActive = false;
 
-            if(!NWManager.instance.playingMultiplayer)
-                    {
+           
                 if (teamIndex + 1 < allTeams.Count  )
                 {
                     teamIndex += 1;
@@ -220,7 +215,7 @@ if(NWManager.instance.playingMultiplayer)
                 {
                     NextTeam();
                 }
-            }
+            
          
         }
 
