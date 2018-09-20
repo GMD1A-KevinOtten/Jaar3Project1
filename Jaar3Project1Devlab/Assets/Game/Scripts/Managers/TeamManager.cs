@@ -109,6 +109,24 @@ public class TeamManager : Photon.PunBehaviour {
         {
             ToTopView();
         } 
+
+if(NWManager.instance.playingMultiplayer)
+{
+      if (teamIndex + 1 < allTeams.Count)
+        {
+            teamIndex += 1;
+        }
+        else
+        {
+            teamIndex = 0;
+            allTeams[teamIndex].NextSoldier();
+        }
+        if(allTeams[teamIndex].teamAlive == false)
+        {
+            NextTeam();
+        }
+}
+      
     }
 
     /// <summary>
@@ -186,19 +204,24 @@ public class TeamManager : Photon.PunBehaviour {
             Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
             soldier.soldierMovement.canMove = false;
             soldier.isActive = false;
-            if (teamIndex + 1 < allTeams.Count)
-            {
-                teamIndex += 1;
+
+            if(!NWManager.instance.playingMultiplayer)
+                    {
+                if (teamIndex + 1 < allTeams.Count  )
+                {
+                    teamIndex += 1;
+                }
+                else
+                {
+                    teamIndex = 0;
+                    allTeams[teamIndex].NextSoldier();
+                }
+                if(allTeams[teamIndex].teamAlive == false)
+                {
+                    NextTeam();
+                }
             }
-            else
-            {
-                teamIndex = 0;
-                allTeams[teamIndex].NextSoldier();
-            }
-            if(allTeams[teamIndex].teamAlive == false)
-            {
-                NextTeam();
-            }
+         
         }
 
         yield return null;
