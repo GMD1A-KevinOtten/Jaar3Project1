@@ -43,26 +43,49 @@ public class TeamManager : Photon.PunBehaviour {
             currentPlayer = PhotonNetwork.masterClient;
         }
 
-        playerAvatar.color = new Color(playerColors[PhotonNetwork.player.ID - 1].r, playerColors[PhotonNetwork.player.ID - 1].g, playerColors[PhotonNetwork.player.ID - 1].b, 1); //Temporary client identification
+        if(playerAvatar != null)
+        {
+            playerAvatar.color = new Color(playerColors[PhotonNetwork.player.ID - 1].r, playerColors[PhotonNetwork.player.ID - 1].g, playerColors[PhotonNetwork.player.ID - 1].b, 1); //Temporary client identification
+        }
     }
 
     void Update()
     {
         if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
         {
-            if(Input.GetButtonDown("Enter") && currentPlayer == PhotonNetwork.player)
+            if(NWManager.instance != null)
             {
-                photonView.RPC("ToSoldier", PhotonTargets.All);
+                if(NWManager.instance.playingMultiplayer)
+                {
+                    if(Input.GetButtonDown("Enter") && currentPlayer == PhotonNetwork.player)
+                    {
+                        photonView.RPC("ToSoldier", PhotonTargets.All);
+                    }
+                }
             }
+            else
+            {
+                if(Input.GetButtonDown("Enter"))
+                {
+                    ToSoldier();
+                }
+            }
+            
+           
         }
-
-        if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
+        if(NWManager.instance != null)
         {
-            CallNextTurn();
-            mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-            photonView.RPC("ToTopView", PhotonTargets.All);
-            photonView.RPC("NextTeam", PhotonTargets.All);
+            if(NWManager.instance.playingMultiplayer)
+            {
+                if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
+                {
+                    CallNextTurn();
+                    mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                    photonView.RPC("ToTopView", PhotonTargets.All);
+                    photonView.RPC("NextTeam", PhotonTargets.All);
 
+                }
+            }
         }
     }
 
@@ -74,7 +97,14 @@ public class TeamManager : Photon.PunBehaviour {
     public void NextTeam()
     {
         // ToTopView();
-        photonView.RPC("ToTopView", PhotonTargets.All);
+        if(NWManager.instance != null)
+        {
+            if(photonView != null)
+            {
+                photonView.RPC("ToTopView", PhotonTargets.All);
+            }
+        }
+        
         if (teamIndex + 1 < allTeams.Count)
         {
             teamIndex += 1;

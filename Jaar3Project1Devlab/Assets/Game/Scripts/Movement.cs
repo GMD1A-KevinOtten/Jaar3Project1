@@ -19,12 +19,15 @@ public class Movement : Photon.PunBehaviour {
 	{
 		if(canMove == true) 
         {
-            if (NWManager.instance.playingMultiplayer)
+            if(NWManager.instance != null)
             {
-                if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+                 if (NWManager.instance.playingMultiplayer)
                 {
-                    SoldierMovement();
-                    SoldierRotation();
+                    if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+                    {
+                        SoldierMovement();
+                        SoldierRotation();
+                    }
                 }
             }
             else
@@ -32,7 +35,6 @@ public class Movement : Photon.PunBehaviour {
                 SoldierMovement();
                 SoldierRotation();
             }
-		
 		}
 	}
 

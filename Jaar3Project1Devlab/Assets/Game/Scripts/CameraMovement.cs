@@ -46,24 +46,27 @@ public class CameraMovement : MonoBehaviour {
     /// </summary>
 	public void TopViewCamera()
 	{
-        if (NWManager.instance.playingMultiplayer) //Are we playing multiplayer?
+        if(NWManager.instance != null)
         {
-            if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+            if (NWManager.instance.playingMultiplayer) //Are we playing multiplayer?
             {
-                float hornetMovement = Input.GetAxis("Horizontal") * Time.deltaTime * camMovSpeed;
-                float vertnetMovement = Input.GetAxis("Vertical") * Time.deltaTime * camMovSpeed;
-
-                Vector3 tonetMove = new Vector3(hornetMovement, 0, vertnetMovement);
-                transform.Translate(tonetMove, Space.World);
-
-                if (Input.GetButton("Q"))
+                if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
                 {
-                    transform.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
-                }
+                    float hornetMovement = Input.GetAxis("Horizontal") * Time.deltaTime * camMovSpeed;
+                    float vertnetMovement = Input.GetAxis("Vertical") * Time.deltaTime * camMovSpeed;
 
-                if (Input.GetButton("E"))
-                {
-                    transform.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
+                    Vector3 tonetMove = new Vector3(hornetMovement, 0, vertnetMovement);
+                    transform.Translate(tonetMove, Space.World);
+
+                    if (Input.GetButton("Q"))
+                    {
+                        transform.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
+                    }
+
+                    if (Input.GetButton("E"))
+                    {
+                        transform.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
+                    }
                 }
             }
         }
@@ -93,14 +96,17 @@ public class CameraMovement : MonoBehaviour {
     /// </summary>
 	public void SoldierCamera()
 	{
-        if (NWManager.instance.playingMultiplayer)
+        if(NWManager.instance != null)
         {
-            if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+            if (NWManager.instance.playingMultiplayer)
             {
-                xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
-                xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
-                transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-                gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+                {
+                    xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
+                    xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
+                    transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                    gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                }
             }
         }
         else
@@ -108,7 +114,10 @@ public class CameraMovement : MonoBehaviour {
             xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
             xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
             transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-            gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+            if(gunToRotate != null)
+            {
+                gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+            }
         }
 		
     }

@@ -28,11 +28,14 @@ public class Soldier : MonoBehaviour {
     {
         if (isActive)
         {
-            equippedWeapon.ShowCrosshair();
-
-            if (Input.GetButtonDown("Fire1"))
+            if(equippedWeapon != null)
             {
-                ShootWeapon();
+                equippedWeapon.ShowCrosshair();
+
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    ShootWeapon();
+                }
             }
         }
 
