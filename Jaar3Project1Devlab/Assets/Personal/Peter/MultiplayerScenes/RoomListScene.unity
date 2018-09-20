@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5653d879edc16bc42b84f2315ce90e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameVersion: v1
+  gameVersion: v2
   playingMultiplayer: 1
 --- !u!4 &1857039253
 Transform:
