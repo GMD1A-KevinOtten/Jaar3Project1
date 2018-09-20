@@ -81,7 +81,7 @@ public class TeamManager : Photon.PunBehaviour {
                 {
                     CallNextTurn();
                     mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-//                    photonView.RPC("ToTopView", PhotonTargets.All);
+                    photonView.RPC("ToTopView", PhotonTargets.All);
                     photonView.RPC("NextTeam", PhotonTargets.All);
 
                 }
@@ -108,9 +108,7 @@ public class TeamManager : Photon.PunBehaviour {
         else
         {
             ToTopView();
-        }
-        
-        
+        } 
     }
 
     /// <summary>
