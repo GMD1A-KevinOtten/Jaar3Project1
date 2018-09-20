@@ -34,8 +34,16 @@ public class CameraMovement : MonoBehaviour {
                 TopViewCamera();
                 break;
             case CameraStates.ThirdPerson:
-                if (gunToRotate != transform.root.GetComponent<Soldier>().equippedWeapon)
-                    gunToRotate = transform.root.GetComponent<Soldier>().equippedWeapon;
+                if(transform.root != null)
+                    {
+                        if(gunToRotate != null)
+                        {
+                            if (gunToRotate != transform.root.GetComponent<Soldier>().equippedWeapon)
+                            {
+                                gunToRotate = transform.root.GetComponent<Soldier>().equippedWeapon;
+                            }
+                        }
+                    } 
                 SoldierCamera();
                 break;
         }

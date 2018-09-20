@@ -81,11 +81,16 @@ public class TeamManager : Photon.PunBehaviour {
                 {
                     CallNextTurn();
                     mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                    photonView.RPC("ToTopView", PhotonTargets.All);
+//                    photonView.RPC("ToTopView", PhotonTargets.All);
                     photonView.RPC("NextTeam", PhotonTargets.All);
 
                 }
             }
+        }
+
+        if(Input.GetKeyDown("k"))
+        {
+            NextTeam();
         }
     }
 
@@ -96,28 +101,16 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     public void NextTeam()
     {
-        // ToTopView();
         if(NWManager.instance != null)
         {
-            if(photonView != null)
-            {
-                photonView.RPC("ToTopView", PhotonTargets.All);
-            }
-        }
-        
-        if (teamIndex + 1 < allTeams.Count)
-        {
-            teamIndex += 1;
+            photonView.RPC("ToTopView", PhotonTargets.All);
         }
         else
         {
-            teamIndex = 0;
-            allTeams[teamIndex].NextSoldier();
+            ToTopView();
         }
-        if(allTeams[teamIndex].teamAlive == false)
-        {
-            NextTeam();
-        }
+        
+        
     }
 
     /// <summary>
@@ -152,8 +145,15 @@ public class TeamManager : Photon.PunBehaviour {
     public void ToTopView()
     {
         mainCamera.transform.SetParent(null);
-       // MoveCam(cameraPositionSky.position,CameraMovement.CameraStates.Topview);
-        photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position, CameraMovement.CameraStates.Topview);
+       
+       if(NWManager.instance != null)
+       {
+           photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position, CameraMovement.CameraStates.Topview);
+       }
+       else
+       {
+           StartCoroutine(MoveCam(cameraPositionSky.position,CameraMovement.CameraStates.Topview));
+       }
     }
 
     /// <summary>
@@ -175,6 +175,7 @@ public class TeamManager : Photon.PunBehaviour {
         mainCamera.cameraState = camState;
         if(camState == CameraMovement.CameraStates.ThirdPerson)
         {
+            print("kut");
             Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
             soldier.soldierMovement.canMove = true;
             soldier.isActive = true;
@@ -182,9 +183,24 @@ public class TeamManager : Photon.PunBehaviour {
 
         if(camState == CameraMovement.CameraStates.Topview)
         {
+            print(teamIndex);
+            print("hoer");
             Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
             soldier.soldierMovement.canMove = false;
             soldier.isActive = false;
+            if (teamIndex + 1 < allTeams.Count)
+            {
+                teamIndex += 1;
+            }
+            else
+            {
+                teamIndex = 0;
+                allTeams[teamIndex].NextSoldier();
+            }
+            if(allTeams[teamIndex].teamAlive == false)
+            {
+                NextTeam();
+            }
         }
 
         yield return null;

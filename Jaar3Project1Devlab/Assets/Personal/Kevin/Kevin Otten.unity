@@ -886,11 +886,11 @@ MonoBehaviour:
   movementSpeed: 100
   teamIndex: 0
   allTeams:
-  - teamAlive: 0
+  - teamAlive: 1
     soldierIndex: 0
     allSoldiers:
     - {fileID: 53493382}
-  - teamAlive: 0
+  - teamAlive: 1
     soldierIndex: 0
     allSoldiers:
     - {fileID: 77494650}
