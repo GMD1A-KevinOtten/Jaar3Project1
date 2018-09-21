@@ -38,7 +38,7 @@ public class TeamManager : Photon.PunBehaviour {
 
     private void Start()
     {
-        if (currentPlayer == null)
+        if(currentPlayer == null)
         {
             currentPlayer = PhotonNetwork.masterClient;
         }
@@ -53,14 +53,11 @@ public class TeamManager : Photon.PunBehaviour {
     {
         if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
         {
-            if(NWManager.instance != null)
+            if(NWManager.instance.playingMultiplayer)
             {
-                if(NWManager.instance.playingMultiplayer)
+                if(Input.GetButtonDown("Enter") && currentPlayer == PhotonNetwork.player)
                 {
-                    if(Input.GetButtonDown("Enter") && currentPlayer == PhotonNetwork.player)
-                    {
-                        photonView.RPC("ToSoldier", PhotonTargets.All);
-                    }
+                    photonView.RPC("ToSoldier", PhotonTargets.All);
                 }
             }
             else
@@ -70,20 +67,14 @@ public class TeamManager : Photon.PunBehaviour {
                     ToSoldier();
                 }
             }
-            
-           
         }
-        if(NWManager.instance != null)
+        if(NWManager.instance.playingMultiplayer)
         {
-            if(NWManager.instance.playingMultiplayer)
+            if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
             {
-                if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
-                {
-                    CallNextTurn();
-                    mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                    photonView.RPC("ToTopView", PhotonTargets.All);
-                    photonView.RPC("NextTeam", PhotonTargets.All);
-                }
+                CallNextTurn();
+                mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                photonView.RPC("NextTeam", PhotonTargets.All);
             }
         }
 
@@ -100,7 +91,7 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     public void NextTeam()
     {
-        if(NWManager.instance != null)
+        if(NWManager.instance.playingMultiplayer)
         {
             photonView.RPC("ToTopView", PhotonTargets.All);
         }
@@ -108,24 +99,6 @@ public class TeamManager : Photon.PunBehaviour {
         {
             ToTopView();
         } 
-
-        if(NWManager.instance.playingMultiplayer)
-        {
-            if (teamIndex + 1 < allTeams.Count)
-            {
-                teamIndex += 1;
-            }
-            else
-            {
-                teamIndex = 0;
-                allTeams[teamIndex].NextSoldier();
-            }
-            if(allTeams[teamIndex].teamAlive == false)
-            {
-                NextTeam();
-            }
-        }
-      
     }
 
     /// <summary>
@@ -134,10 +107,14 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     public void ToSoldier()
     {
-        if(currentPlayer == PhotonNetwork.player)
+        if(NWManager.instance.playingMultiplayer)
         {
-            mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+            if(currentPlayer == PhotonNetwork.player)
+            {
+                mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+            }
         }
+        
        
         //pakt de positie waar de camera heen moet gaan
         int soldierIndex = allTeams[teamIndex].soldierIndex;
@@ -145,11 +122,14 @@ public class TeamManager : Photon.PunBehaviour {
         mainCamera.transform.SetParent(playerCamPos);
         StartCoroutine(MoveCam(playerCamPos.position , CameraMovement.CameraStates.ThirdPerson));
 
-        if (currentPlayer == PhotonNetwork.player)
+         if(NWManager.instance.playingMultiplayer)
         {
-            allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Movement>().canMove = true;
-            allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<PhotonView>().RequestOwnership();
+            if (currentPlayer == PhotonNetwork.player)
+            {
+                allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Movement>().canMove = true;
+                allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<PhotonView>().RequestOwnership();
 
+            }
         }
     }
 
@@ -161,7 +141,7 @@ public class TeamManager : Photon.PunBehaviour {
     {
         mainCamera.transform.SetParent(null);
        
-       if(NWManager.instance != null)
+       if(NWManager.instance.playingMultiplayer)
        {
            photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position, CameraMovement.CameraStates.Topview);
        }
@@ -201,23 +181,20 @@ public class TeamManager : Photon.PunBehaviour {
             soldier.soldierMovement.canMove = false;
             soldier.isActive = false;
 
-            if(!NWManager.instance.playingMultiplayer)
+           
+            if (teamIndex + 1 < allTeams.Count  )
             {
-                if (teamIndex + 1 < allTeams.Count  )
-                {
-                    teamIndex += 1;
-                }
-                else
-                {
-                    teamIndex = 0;
-                    allTeams[teamIndex].NextSoldier();
-                }
-                if(allTeams[teamIndex].teamAlive == false)
-                {
-                    NextTeam();
-                }
+                teamIndex += 1;
             }
-         
+            else
+            {
+                teamIndex = 0;
+                allTeams[teamIndex].NextSoldier();
+            }
+            if(allTeams[teamIndex].teamAlive == false)
+            {
+                NextTeam();
+            }   
         }
 
         yield return null;

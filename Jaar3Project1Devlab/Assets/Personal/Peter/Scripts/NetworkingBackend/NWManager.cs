@@ -36,11 +36,11 @@ public class NWManager : Photon.PunBehaviour {
         }
 
         
-
+         if(playingMultiplayer)
+        {
         PhotonNetwork.autoJoinLobby = true;
-
         PhotonNetwork.automaticallySyncScene = false;
-
+        }
     }
 
     // Update is called once per frame

@@ -54,31 +54,28 @@ public class CameraMovement : MonoBehaviour {
     /// </summary>
 	public void TopViewCamera()
 	{
-        if(NWManager.instance != null)
+    if (NWManager.instance.playingMultiplayer) //Are we playing multiplayer?
         {
-            if (NWManager.instance.playingMultiplayer) //Are we playing multiplayer?
+            if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
             {
-                if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+                float hornetMovement = Input.GetAxis("Horizontal") * Time.deltaTime * camMovSpeed;
+                float vertnetMovement = Input.GetAxis("Vertical") * Time.deltaTime * camMovSpeed;
+
+                Vector3 tonetMove = new Vector3(hornetMovement, 0, vertnetMovement);
+                transform.Translate(tonetMove, Space.World);
+
+                if (Input.GetButton("Q"))
                 {
-                    float hornetMovement = Input.GetAxis("Horizontal") * Time.deltaTime * camMovSpeed;
-                    float vertnetMovement = Input.GetAxis("Vertical") * Time.deltaTime * camMovSpeed;
+                    transform.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
+                }
 
-                    Vector3 tonetMove = new Vector3(hornetMovement, 0, vertnetMovement);
-                    transform.Translate(tonetMove, Space.World);
-
-                    if (Input.GetButton("Q"))
-                    {
-                        transform.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
-                    }
-
-                    if (Input.GetButton("E"))
-                    {
-                        transform.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
-                    }
+                if (Input.GetButton("E"))
+                {
+                    transform.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
                 }
             }
         }
-        else //Not playing multiplayer
+        else
         {
             float horMovement = Input.GetAxis("Horizontal") * Time.deltaTime * camMovSpeed;
             float vertMovement = Input.GetAxis("Vertical") * Time.deltaTime * camMovSpeed;
@@ -96,7 +93,6 @@ public class CameraMovement : MonoBehaviour {
                 transform.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
             }
         }
-		
 	}
 
     /// <summary>
@@ -104,29 +100,25 @@ public class CameraMovement : MonoBehaviour {
     /// </summary>
 	public void SoldierCamera()
 	{
-        if(NWManager.instance != null)
+        if (NWManager.instance.playingMultiplayer)
         {
-            if (NWManager.instance.playingMultiplayer)
+            if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
             {
-                if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
-                {
-                    xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
-                    xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
-                    transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-                    gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-                }
+                xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
+                xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
+                transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
             }
         }
         else
         {
-            xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
-            xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
-            transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-            if(gunToRotate != null)
+        xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
+        xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
+        transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+        if(gunToRotate != null)
             {
                 gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
             }
         }
-		
     }
 }
