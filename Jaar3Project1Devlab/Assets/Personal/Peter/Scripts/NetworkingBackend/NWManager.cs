@@ -16,7 +16,7 @@ public class NWManager : Photon.PunBehaviour {
 
     public static NWManager instance;
 
-    private bool loading;
+    public bool loading = false;
 	// Use this for initialization
 	void Start () {
         Connect();
@@ -49,7 +49,10 @@ public class NWManager : Photon.PunBehaviour {
 
     void Connect()
     {
-        PhotonNetwork.ConnectUsingSettings(gameVersion);
+        if (playingMultiplayer)
+        {
+            PhotonNetwork.ConnectUsingSettings(gameVersion);
+        }
 
     }
 
