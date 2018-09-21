@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour {
 
     void Start()
 	{
-		xRotInput = 20;
+        xRotInput  = 30;
 	}
 
 	void FixedUpdate () 

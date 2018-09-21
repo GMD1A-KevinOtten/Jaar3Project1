@@ -144,14 +144,14 @@ public class TeamManager : Photon.PunBehaviour {
     public void ToTopView()
     {
         mainCamera.transform.parent.SetParent(null);
-       
+
        if(NWManager.instance.playingMultiplayer)
        {
            photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position, CameraMovement.CameraStates.Topview);
        }
        else
        {
-           StartCoroutine(MoveCam(cameraPositionSky.position,new Quaternion(0,0,0,0),CameraMovement.CameraStates.Topview));
+           StartCoroutine(MoveCam(cameraPositionSky.position,Quaternion.identity,CameraMovement.CameraStates.Topview));
        }
     }
 
@@ -168,11 +168,15 @@ public class TeamManager : Photon.PunBehaviour {
         {
             runningIenumerator = true;
             mainCamera.cameraState = CameraMovement.CameraStates.Idle;
-            while (mainCamera.transform.position != moveTo)
+            while (mainCamera.transform.position != moveTo && mainCamera.transform.parent.rotation != rotateTo)
             {
-                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * Time.deltaTime);
-                mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rotateTo, movementSpeed * Time.deltaTime);
-                //mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, new Quaternion(cameraPositionSky.rotation.x, 0 ,0, 0), movementSpeed * Time.deltaTime);
+                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * 0.01f);
+                mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rotateTo, movementSpeed / 5 * 0.01f);
+                //zet de camera weer met de x rotatie op +- 50
+                if(camState == CameraMovement.CameraStates.Topview)
+                {   
+                    mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraPositionSky.rotation,movementSpeed / 2 * 0.01f);
+                }
                 yield return null;
             }
 
@@ -186,6 +190,7 @@ public class TeamManager : Photon.PunBehaviour {
 
             if(camState == CameraMovement.CameraStates.Topview)
             {
+                mainCamera.transform.parent.rotation = Quaternion.identity;
                 Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
                 soldier.soldierMovement.canMove = false;
                 soldier.isActive = false;
