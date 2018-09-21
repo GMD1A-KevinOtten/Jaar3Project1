@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TeamManager : Photon.PunBehaviour {
 
     public static TeamManager instance;
-    public bool runningIenumerator;
+    private bool runningIenumerator;
 
     [Header("Camera proporties")]
     public CameraMovement mainCamera;
