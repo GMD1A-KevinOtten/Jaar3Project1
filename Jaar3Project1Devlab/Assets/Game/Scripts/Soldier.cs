@@ -32,10 +32,24 @@ public class Soldier : MonoBehaviour {
             {
                 equippedWeapon.ShowCrosshair();
 
-                if (Input.GetButtonDown("Fire1"))
+                if (NWManager.instance.playingMultiplayer)
                 {
-                    ShootWeapon();
+                    if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
+                    {
+                        if (Input.GetButtonDown("Fire1"))
+                        {
+                            ShootWeapon();
+                        }
+                    }
                 }
+                else
+                {
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        ShootWeapon();
+                    }
+                }
+               
             }
         }
 
@@ -60,6 +74,16 @@ public class Soldier : MonoBehaviour {
 
     public void ShootWeapon()
     {
-        equippedWeapon.ShootBullet();
+        if (NWManager.instance.playingMultiplayer)
+        {
+            if (TeamManager.instance.currentPlayer == PhotonNetwork.player)
+            {
+                equippedWeapon.photonView.RPC("ShootBullet", PhotonTargets.All);
+            }
+        }
+        else
+        {
+            equippedWeapon.ShootBullet();
+        }
     }
 }

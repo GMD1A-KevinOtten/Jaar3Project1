@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour {
+public class Weapon : Photon.PunBehaviour {
 
     [Header("Gun proporties")]
     public Transform barrelExit;
@@ -13,15 +13,29 @@ public class Weapon : MonoBehaviour {
     public Vector2 bulletSpread;
     public float recoil;
 
+    private GameObject newGameObject;
+
     [Header("Clip proporties")]
     public int currentClip;
     public int clipMax;
 
     private RaycastHit hit;
 
+    [PunRPC]
     public void ShootBullet()
     {
-        GameObject newGameObject = Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
+        if (NWManager.instance.playingMultiplayer)
+        {
+            if (TeamManager.instance.currentPlayer == PhotonNetwork.player)
+            {
+                newGameObject = PhotonNetwork.Instantiate("Bullet", barrelExit.position, bulletPrefab.transform.rotation, 0);
+            }
+        }
+        else
+        {
+            Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
+        }
+                
         Rigidbody rb = newGameObject.GetComponent<Rigidbody>();
         Vector2 spread = CalculatedBulletSpread();
 
