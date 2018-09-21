@@ -62,16 +62,17 @@ public class CameraMovement : MonoBehaviour {
                 float vertnetMovement = Input.GetAxis("Vertical") * Time.deltaTime * camMovSpeed;
 
                 Vector3 tonetMove = new Vector3(hornetMovement, 0, vertnetMovement);
-                transform.Translate(tonetMove, Space.World);
+                transform.parent.Translate(tonetMove, Space.Self);
+                // transform.Translate(tonetMove, Space.World);
 
                 if (Input.GetButton("Q"))
                 {
-                    transform.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
+                    transform.parent.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
                 }
 
                 if (Input.GetButton("E"))
                 {
-                    transform.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
+                    transform.parent.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
                 }
             }
         }
@@ -81,16 +82,17 @@ public class CameraMovement : MonoBehaviour {
             float vertMovement = Input.GetAxis("Vertical") * Time.deltaTime * camMovSpeed;
 
             Vector3 toMove = new Vector3(horMovement, 0, vertMovement);
-            transform.Translate(toMove, Space.World);
+            transform.parent.Translate(toMove, Space.Self);
+            // transform.Translate(toMove, Space.World);
 
             if (Input.GetButton("Q"))
             {
-                transform.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
+                transform.parent.Rotate(0, -camRotSpeed * Time.deltaTime, 0, Space.World);
             }
 
             if (Input.GetButton("E"))
             {
-                transform.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
+                transform.parent.Rotate(0, camRotSpeed * Time.deltaTime, 0, Space.World);
             }
         }
 	}

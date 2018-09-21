@@ -8,13 +8,6 @@ public class Movement : Photon.PunBehaviour {
 	public float horRotSpeed;
 	public bool canMove;
 
-	void Start()
-	{
-        //Camera.main.transform.SetParent(transform); Keep this around pl0x
-        //Camera.main.transform.localPosition = new Vector3(0, 2, -6);
-        //Camera.main.transform.rotation = new Quaternion(20, 0, 0, 0);
-	}
-
 	void FixedUpdate ()
 	{
 		if(canMove == true) 

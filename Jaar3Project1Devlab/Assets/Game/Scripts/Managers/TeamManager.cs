@@ -120,15 +120,11 @@ public class TeamManager : Photon.PunBehaviour {
             }
         }
         
-       
         //pakt de positie waar de camera heen moet gaan
         int soldierIndex = allTeams[teamIndex].soldierIndex;
-
-        Debug.Log("soldierIndex = " + soldierIndex);
-
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
-        mainCamera.transform.SetParent(playerCamPos);
-        StartCoroutine(MoveCam(playerCamPos.position , CameraMovement.CameraStates.ThirdPerson));
+        mainCamera.transform.parent.SetParent(playerCamPos);
+        StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
 
          if(NWManager.instance.playingMultiplayer)
         {
@@ -147,7 +143,7 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     public void ToTopView()
     {
-        mainCamera.transform.SetParent(null);
+        mainCamera.transform.parent.SetParent(null);
        
        if(NWManager.instance.playingMultiplayer)
        {
@@ -155,7 +151,7 @@ public class TeamManager : Photon.PunBehaviour {
        }
        else
        {
-           StartCoroutine(MoveCam(cameraPositionSky.position,CameraMovement.CameraStates.Topview));
+           StartCoroutine(MoveCam(cameraPositionSky.position,new Quaternion(0,0,0,0),CameraMovement.CameraStates.Topview));
        }
     }
 
@@ -166,7 +162,7 @@ public class TeamManager : Photon.PunBehaviour {
     /// <param name="camState"></param>
     /// <returns></returns>
     [PunRPC]
-    public IEnumerator MoveCam(Vector3 moveTo, CameraMovement.CameraStates camState)
+    public IEnumerator MoveCam(Vector3 moveTo,Quaternion rotateTo, CameraMovement.CameraStates camState)
     {
         if(!runningIenumerator)
         {
@@ -174,7 +170,9 @@ public class TeamManager : Photon.PunBehaviour {
             mainCamera.cameraState = CameraMovement.CameraStates.Idle;
             while (mainCamera.transform.position != moveTo)
             {
-                mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, moveTo, movementSpeed * Time.deltaTime);
+                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * Time.deltaTime);
+                mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rotateTo, movementSpeed * Time.deltaTime);
+                //mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, new Quaternion(cameraPositionSky.rotation.x, 0 ,0, 0), movementSpeed * Time.deltaTime);
                 yield return null;
             }
 
@@ -192,22 +190,17 @@ public class TeamManager : Photon.PunBehaviour {
                 soldier.soldierMovement.canMove = false;
                 soldier.isActive = false;
 
-                Debug.Log("Before the storm");
                 if (teamIndex + 1 < allTeams.Count  )
                 {
-                    Debug.Log("teamIndex += 1");
                     teamIndex += 1;
                 }
                 else
                 {
                     teamIndex = 0;
-                    Debug.Log("teamIndex set to 0");
-
                     allTeams[teamIndex].NextSoldier();
                 }
                 if(allTeams[teamIndex].teamAlive == false)
                 {
-                    Debug.Log("Everyone is ded");
                     NextTeam();
                 }   
             }
