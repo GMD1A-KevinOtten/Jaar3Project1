@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TeamManager : Photon.PunBehaviour {
 
     public static TeamManager instance;
+    public bool runningIenumerator;
 
     [Header("Camera proporties")]
     public CameraMovement mainCamera;
@@ -70,20 +71,22 @@ public class TeamManager : Photon.PunBehaviour {
                 }
             }
         }
-        if(NWManager.instance.playingMultiplayer)
+        if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson)
         {
-            if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
+            if(NWManager.instance.playingMultiplayer)
             {
-                CallNextTurn();
-                mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                photonView.RPC("NextTeam", PhotonTargets.All);
+                if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
+                {
+                    CallNextTurn();
+                    mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                    photonView.RPC("NextTeam", PhotonTargets.All);
+                }
             }
-        }
-
-        if(Input.GetKeyDown("k"))
-        {
-            NextTeam();
-        }
+            else if(Input.GetKeyDown("n"))
+            {
+                NextTeam();
+            }
+        }   
     }
 
     /// <summary>
@@ -165,45 +168,50 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     public IEnumerator MoveCam(Vector3 moveTo, CameraMovement.CameraStates camState)
     {
-        mainCamera.cameraState = CameraMovement.CameraStates.Idle;
-        while (mainCamera.transform.position != moveTo)
+        if(!runningIenumerator)
         {
-            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, moveTo, movementSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        mainCamera.cameraState = camState;
-        if(camState == CameraMovement.CameraStates.ThirdPerson)
-        {
-            Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-            soldier.soldierMovement.canMove = true;
-            soldier.isActive = true;
-        }
-
-        if(camState == CameraMovement.CameraStates.Topview)
-        {
-            Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-            soldier.soldierMovement.canMove = false;
-            soldier.isActive = false;
-
-            Debug.Log("Before the storm");
-            if (teamIndex + 1 < allTeams.Count  )
+            runningIenumerator = true;
+            mainCamera.cameraState = CameraMovement.CameraStates.Idle;
+            while (mainCamera.transform.position != moveTo)
             {
-                Debug.Log("teamIndex += 1");
-                teamIndex += 1;
+                mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, moveTo, movementSpeed * Time.deltaTime);
+                yield return null;
             }
-            else
-            {
-                teamIndex = 0;
-                Debug.Log("teamIndex set to 0");
 
-                allTeams[teamIndex].NextSoldier();
-            }
-            if(allTeams[teamIndex].teamAlive == false)
+            mainCamera.cameraState = camState;
+            if(camState == CameraMovement.CameraStates.ThirdPerson)
             {
-                Debug.Log("Everyone is ded");
-                NextTeam();
-            }   
+                Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+                soldier.soldierMovement.canMove = true;
+                soldier.isActive = true;
+            }
+
+            if(camState == CameraMovement.CameraStates.Topview)
+            {
+                Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+                soldier.soldierMovement.canMove = false;
+                soldier.isActive = false;
+
+                Debug.Log("Before the storm");
+                if (teamIndex + 1 < allTeams.Count  )
+                {
+                    Debug.Log("teamIndex += 1");
+                    teamIndex += 1;
+                }
+                else
+                {
+                    teamIndex = 0;
+                    Debug.Log("teamIndex set to 0");
+
+                    allTeams[teamIndex].NextSoldier();
+                }
+                if(allTeams[teamIndex].teamAlive == false)
+                {
+                    Debug.Log("Everyone is ded");
+                    NextTeam();
+                }   
+            }
+            runningIenumerator = false;
         }
 
         yield return null;
