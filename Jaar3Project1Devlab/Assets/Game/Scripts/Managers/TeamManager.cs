@@ -124,6 +124,7 @@ public class TeamManager : Photon.PunBehaviour {
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
         mainCamera.transform.parent.SetParent(playerCamPos);
+
         StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
 
          if(NWManager.instance.playingMultiplayer)
@@ -147,11 +148,11 @@ public class TeamManager : Photon.PunBehaviour {
 
        if(NWManager.instance.playingMultiplayer)
        {
-           photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position, CameraMovement.CameraStates.Topview);
+           photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position,cameraPositionSky.rotation, CameraMovement.CameraStates.Topview);
        }
        else
        {
-           StartCoroutine(MoveCam(cameraPositionSky.position,Quaternion.identity,CameraMovement.CameraStates.Topview));
+           StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
        }
     }
 
@@ -168,29 +169,10 @@ public class TeamManager : Photon.PunBehaviour {
         {
             runningIenumerator = true;
             mainCamera.cameraState = CameraMovement.CameraStates.Idle;
-            while (mainCamera.transform.position != moveTo && mainCamera.transform.parent.rotation != rotateTo)
-            {
-                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * 0.01f);
-                mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rotateTo, movementSpeed / 5 * 0.01f);
-                //zet de camera weer met de x rotatie op +- 50
-                if(camState == CameraMovement.CameraStates.Topview)
-                {   
-                    mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, cameraPositionSky.rotation,movementSpeed / 2 * 0.01f);
-                }
-                yield return null;
-            }
-
-            mainCamera.cameraState = camState;
-            if(camState == CameraMovement.CameraStates.ThirdPerson)
-            {
-                Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-                soldier.soldierMovement.canMove = true;
-                soldier.isActive = true;
-            }
 
             if(camState == CameraMovement.CameraStates.Topview)
             {
-                mainCamera.transform.parent.rotation = Quaternion.identity;
+                //mainCamera.transform.parent.rotation = Quaternion.identity;
                 Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
                 soldier.soldierMovement.canMove = false;
                 soldier.isActive = false;
@@ -209,6 +191,41 @@ public class TeamManager : Photon.PunBehaviour {
                     NextTeam();
                 }   
             }
+            print(mainCamera.transform.parent.rotation);
+            while (mainCamera.transform.parent.position != moveTo && mainCamera.transform.rotation != rotateTo)
+            {
+                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * 0.01f);
+                mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, rotateTo, movementSpeed / 5 * 0.01f);
+
+                
+                if(camState == CameraMovement.CameraStates.ThirdPerson)
+                {
+                    print("is doing shit");
+                    print(rotateTo.eulerAngles.z);
+                    // Vector3  nnewRotateTo = new Vector3(mainCamera.transform.parent.eulerAngles.x,rotateTo.eulerAngles.y,rotateTo.eulerAngles.z);
+                    // mainCamera.transform.parent.eulerAngles = Vector3.MoveTowards(mainCamera.transform.parent.eulerAngles, nnewRotateTo, movementSpeed / 10 * 0.01f);
+
+                    Quaternion newRotateTo = new Quaternion(-30,rotateTo.y,rotateTo.z, 1);
+                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rotateTo, movementSpeed / 3 * 0.01f);
+                }
+                if(camState == CameraMovement.CameraStates.Topview)
+                {
+                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, Quaternion.identity,movementSpeed / 3 * 0.01f);
+                }
+                yield return null;
+                
+            }
+
+            if(camState == CameraMovement.CameraStates.ThirdPerson)
+            {
+                Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+                soldier.soldierMovement.canMove = true;
+                soldier.isActive = true;
+                mainCamera.xRotInput = 30;
+            }
+
+            mainCamera.cameraState = camState;
+            
             runningIenumerator = false;
         }
 

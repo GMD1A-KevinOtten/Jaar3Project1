@@ -19,12 +19,7 @@ public class CameraMovement : MonoBehaviour {
 	public float vertRotSpeed;
     public Weapon gunToRotate;
 
-    private float xRotInput;
-
-    void Start()
-	{
-        xRotInput  = 30;
-	}
+    public float xRotInput = 30;
 
 	void FixedUpdate () 
 	{
@@ -114,13 +109,13 @@ public class CameraMovement : MonoBehaviour {
         }
         else
         {
-        xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
-        xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
-        transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-        if(gunToRotate != null)
-            {
-                gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-            }
+            xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
+            xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
+            transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+            if(gunToRotate != null)
+                {
+                    gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                }
         }
     }
 }
