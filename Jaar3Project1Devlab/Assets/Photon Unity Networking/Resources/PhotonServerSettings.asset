@@ -60,4 +60,13 @@ MonoBehaviour:
   - ToTopView
   - ToSoldier
   - ShootBullet
+  - ChangeCountdownBool
+  - ChangeTurnTimer
+  - ChangeFloatSetBool
+  - SetTempFloat
+  - SubtractPerSecond
+  - MultiplayerStartTurn
+  - ResetTimer
+  - ResetTurnTime
+  - ChangeCamState
   DisableAutoOpenWizard: 1
