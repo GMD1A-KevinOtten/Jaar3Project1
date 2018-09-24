@@ -23,6 +23,13 @@ public class TeamManager : Photon.PunBehaviour {
     public List<Color> playerColors = new List<Color>();
     public Image playerAvatar; //Temporary
 
+    [Header("Turn Properties")]
+    public float maxTurnTime = 60;
+    private float turnTime;
+    public Text timeText;
+    public Image turnTimerCircle;
+    private bool countingDown;
+
     private void Awake()
     {
         //Makes a Singleton
@@ -48,6 +55,9 @@ public class TeamManager : Photon.PunBehaviour {
         {
             playerAvatar.color = new Color(playerColors[PhotonNetwork.player.ID - 1].r, playerColors[PhotonNetwork.player.ID - 1].g, playerColors[PhotonNetwork.player.ID - 1].b, 1); //Temporary client identification
         }
+
+        turnTime = maxTurnTime;
+        timeText.text = "" + maxTurnTime;
     }
 
     void Update()
@@ -61,6 +71,7 @@ public class TeamManager : Photon.PunBehaviour {
                     Debug.Log("TeamIndex = " + teamIndex);
 
                     photonView.RPC("ToSoldier", PhotonTargets.All);
+                    photonView.RPC("ChangeCountdownBool", PhotonTargets.All);
                 }
             }
             else
@@ -68,6 +79,7 @@ public class TeamManager : Photon.PunBehaviour {
                 if(Input.GetButtonDown("Enter"))
                 {
                     ToSoldier();
+                    ChangeCountdownBool();
                 }
             }
         }
@@ -86,7 +98,20 @@ public class TeamManager : Photon.PunBehaviour {
             {
                 NextTeam();
             }
-        }   
+        }
+
+
+        if (NWManager.instance.playingMultiplayer)
+        {
+            if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson)
+            {
+                photonView.RPC("ChangeTurnTimer", PhotonTargets.All);
+            }
+        }
+        else
+        {
+            ChangeTurnTimer();
+        }
     }
 
     /// <summary>
@@ -216,6 +241,8 @@ public class TeamManager : Photon.PunBehaviour {
                 soldier.soldierMovement.canMove = true;
                 soldier.isActive = true;
                 mainCamera.xRotInput = 30;
+
+                //Start the turn timmy
             }
 
             mainCamera.cameraState = camState;
@@ -236,5 +263,57 @@ public class TeamManager : Photon.PunBehaviour {
     {
         currentPlayer = PhotonNetwork.player.GetNextFor(currentPlayer);
 
+    }
+
+    [PunRPC]
+    void ChangeTurnTimer()
+    {
+        if (countingDown)
+        {
+            turnTime -= Time.deltaTime / 2;
+            turnTimerCircle.fillAmount = turnTime / maxTurnTime;
+
+            int seconds = Mathf.FloorToInt(turnTime);
+            
+            timeText.text = "" + seconds.ToString("F0");
+            
+            
+
+            if(turnTime <= 0)
+            {
+
+                photonView.RPC("ResetTimer", PhotonTargets.All);
+
+                CallNextTurn();
+                mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                photonView.RPC("NextTeam", PhotonTargets.All);
+                turnTime = maxTurnTime;
+                countingDown = false;
+
+            }
+        }
+    }
+
+    [PunRPC]
+    void ResetTimer()
+    {
+        timeText.text = "" + maxTurnTime;
+        turnTimerCircle.fillAmount = 1;
+    }
+
+
+   
+
+    [PunRPC]
+    void ChangeCountdownBool()
+    {
+        if (!countingDown)
+        {
+            countingDown = true;
+        }
+        else
+        {
+            countingDown = false;
+        }
     }
 }
