@@ -78,7 +78,7 @@ public class TeamManager : Photon.PunBehaviour {
                 if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
                 {
                     CallNextTurn();
-                    mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                    mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
                     photonView.RPC("NextTeam", PhotonTargets.All);
                 }
             }
@@ -116,7 +116,7 @@ public class TeamManager : Photon.PunBehaviour {
         {
             if(currentPlayer == PhotonNetwork.player)
             {
-                mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
             }
         }
         
@@ -197,16 +197,10 @@ public class TeamManager : Photon.PunBehaviour {
                 mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * 0.01f);
                 mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, rotateTo, movementSpeed / 5 * 0.01f);
 
-                
                 if(camState == CameraMovement.CameraStates.ThirdPerson)
                 {
-                    print("is doing shit");
-                    print(rotateTo.eulerAngles.z);
-                    // Vector3  nnewRotateTo = new Vector3(mainCamera.transform.parent.eulerAngles.x,rotateTo.eulerAngles.y,rotateTo.eulerAngles.z);
-                    // mainCamera.transform.parent.eulerAngles = Vector3.MoveTowards(mainCamera.transform.parent.eulerAngles, nnewRotateTo, movementSpeed / 10 * 0.01f);
-
-                    Quaternion newRotateTo = new Quaternion(-30,rotateTo.y,rotateTo.z, 1);
-                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rotateTo, movementSpeed / 3 * 0.01f);
+                    Quaternion test = Quaternion.Euler(mainCamera.transform.parent.eulerAngles.x,rotateTo.eulerAngles.y,rotateTo.eulerAngles.z);
+                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, test, movementSpeed / 3 * 0.01f);
                 }
                 if(camState == CameraMovement.CameraStates.Topview)
                 {
