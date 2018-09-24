@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : Photon.PunBehaviour {
 
     [Header("Gun proporties")]
-    public GameObject equipedWeapon;
+    
     public Transform barrelExit;
     public GameObject bulletPrefab;
     public Sprite gunCrosshair;
@@ -23,7 +23,8 @@ public class Weapon : Photon.PunBehaviour {
     private RaycastHit hit;
 
     [PunRPC]
-    public void ShootBullet()
+
+    public virtual void ShootBullet()
     {
         if (NWManager.instance.playingMultiplayer)
         {

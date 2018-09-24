@@ -8,6 +8,7 @@ public class Soldier : MonoBehaviour {
     /// PlayerCamPos is always the first child of the object that contains the Soldier Class
     /// </summary>
     public Transform thirdPersonCamPos;
+    public Transform weaponSpawnLocation;
     public Movement soldierMovement;
 
     [Header("Activity Proporties")]
@@ -15,13 +16,16 @@ public class Soldier : MonoBehaviour {
     public bool isDead;
     public bool isActive;
     
-    public List<Weapon> availableWeapons = new List<Weapon>();
+    public List<GameObject> availableWeaponsPrefabs = new List<GameObject>();
+    private GameObject equippedWeaponObject;
+    [HideInInspector]
     public Weapon equippedWeapon;
 
     void Start()
     {
         thirdPersonCamPos = transform.GetChild(0).transform;
         soldierMovement = GetComponent<Movement>();
+        EquipWeapon(0);
     }
 
     private void Update()
@@ -68,8 +72,17 @@ public class Soldier : MonoBehaviour {
 
     public void EquipWeapon(int weaponIndex)
     {
-        equippedWeapon = availableWeapons[weaponIndex];
-        //Equip weapon animation is played
+        Destroy(equippedWeaponObject);
+        //uitvoeren op het punt waar wapen moet verschijnen
+        equippedWeaponObject = InstantiateWeapon(weaponIndex);
+        equippedWeapon = equippedWeaponObject.GetComponent<Weapon>();
+    }
+
+    public GameObject InstantiateWeapon(int weaponIndex)
+    {
+        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation);
+        currenWeapon.transform.SetParent(transform);
+        return currenWeapon;
     }
 
     public void ShootWeapon()
@@ -91,6 +104,7 @@ public class Soldier : MonoBehaviour {
     {
         isDead = true;
         TeamManager.instance.allTeams[TeamManager.instance.teamIndex].CheckTeam();
+
         //speel animatie af
         //
     }

@@ -60,4 +60,5 @@ MonoBehaviour:
   - ToTopView
   - ToSoldier
   - ShootBullet
+  - Start
   DisableAutoOpenWizard: 1
