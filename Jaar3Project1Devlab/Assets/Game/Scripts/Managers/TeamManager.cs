@@ -78,7 +78,7 @@ public class TeamManager : Photon.PunBehaviour {
                 if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
                 {
                     CallNextTurn();
-                    mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                    mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
                     photonView.RPC("NextTeam", PhotonTargets.All);
                 }
             }
@@ -116,7 +116,7 @@ public class TeamManager : Photon.PunBehaviour {
         {
             if(currentPlayer == PhotonNetwork.player)
             {
-                mainCamera.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
             }
         }
         
