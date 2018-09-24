@@ -62,7 +62,7 @@ public class Soldier : MonoBehaviour {
 
         if (health <= 0)
         {
-            isDead = true;
+            Die();
         }
     }
 
@@ -85,5 +85,13 @@ public class Soldier : MonoBehaviour {
         {
             equippedWeapon.ShootBullet();
         }
+    }
+
+    public void Die()
+    {
+        isDead = true;
+        TeamManager.instance.allTeams[TeamManager.instance.teamIndex].CheckTeam();
+        //speel animatie af
+        //
     }
 }

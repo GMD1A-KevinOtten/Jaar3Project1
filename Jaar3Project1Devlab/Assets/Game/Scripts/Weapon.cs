@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : Photon.PunBehaviour {
 
     [Header("Gun proporties")]
+    public GameObject equipedWeapon;
     public Transform barrelExit;
     public GameObject bulletPrefab;
     public Sprite gunCrosshair;

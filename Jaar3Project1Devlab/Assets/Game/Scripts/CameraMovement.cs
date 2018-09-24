@@ -58,7 +58,6 @@ public class CameraMovement : MonoBehaviour {
 
                 Vector3 tonetMove = new Vector3(hornetMovement, 0, vertnetMovement);
                 transform.parent.Translate(tonetMove, Space.Self);
-                // transform.Translate(tonetMove, Space.World);
 
                 if (Input.GetButton("Q"))
                 {
@@ -78,7 +77,6 @@ public class CameraMovement : MonoBehaviour {
 
             Vector3 toMove = new Vector3(horMovement, 0, vertMovement);
             transform.parent.Translate(toMove, Space.Self);
-            // transform.Translate(toMove, Space.World);
 
             if (Input.GetButton("Q"))
             {
