@@ -74,8 +74,8 @@ public class TeamManager : Photon.PunBehaviour {
 
                     photonView.RPC("ToSoldier", PhotonTargets.All);
                     
-                    InvokeRepeat();
-                    photonView.RPC("InvokeRepeat", PhotonTargets.Others);
+                    //InvokeRepeat();
+                    photonView.RPC("InvokeRepeat", PhotonTargets.All);
                     
             
                     
