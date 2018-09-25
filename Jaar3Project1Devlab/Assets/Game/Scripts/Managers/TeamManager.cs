@@ -58,6 +58,8 @@ public class TeamManager : Photon.PunBehaviour {
 
         turnTime = maxTurnTime;
         timeText.text = "" + maxTurnTime;
+        turnTimerCircle.fillAmount = 1;
+      
     }
 
     void Update()
@@ -71,7 +73,12 @@ public class TeamManager : Photon.PunBehaviour {
                     Debug.Log("TeamIndex = " + teamIndex);
 
                     photonView.RPC("ToSoldier", PhotonTargets.All);
-                    photonView.RPC("ChangeCountdownBool", PhotonTargets.All);
+                    
+                    InvokeRepeat();
+                    photonView.RPC("InvokeRepeat", PhotonTargets.Others);
+                    
+            
+                    
                 }
             }
             else
@@ -79,7 +86,9 @@ public class TeamManager : Photon.PunBehaviour {
                 if(Input.GetButtonDown("Enter"))
                 {
                     ToSoldier();
-                    ChangeCountdownBool();
+
+                    InvokeRepeating("TurnTimer", 1, 1);
+
                 }
             }
         }
@@ -100,18 +109,83 @@ public class TeamManager : Photon.PunBehaviour {
             }
         }
 
+        TurnTimerCircle();
 
-        if (NWManager.instance.playingMultiplayer)
+      
+    }
+
+    [PunRPC]
+    void InvokeRepeat()
+    {
+        if (!countingDown)
         {
-            if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson)
-            {
-                photonView.RPC("ChangeTurnTimer", PhotonTargets.All);
-            }
+            InvokeRepeating("TurnTimer", 1, 1);
+        }
+    }
+
+    [PunRPC]
+    void CancelRepeat()
+    {
+        CancelInvoke();
+    }
+
+    [PunRPC]
+    void ResetTimer()
+    {
+        turnTime = maxTurnTime;
+        turnTimerCircle.fillAmount = 1;
+
+        timeText.text = "" + maxTurnTime;
+    }
+
+    [PunRPC]
+    void ResetCountingDown()
+    {
+        countingDown = false;
+    }
+
+    void TurnTimer()
+    {
+        countingDown = true;
+        if(turnTime > 0)
+        {
+            turnTime--;
         }
         else
         {
-            ChangeTurnTimer();
+            if (NWManager.instance.playingMultiplayer)
+            {
+                photonView.RPC("CancelRepeat", PhotonTargets.All);
+                photonView.RPC("ResetTimer", PhotonTargets.Others);
+
+            }
+            else
+            {
+                CancelInvoke();
+            }
+            turnTime = maxTurnTime;
+            turnTimerCircle.fillAmount = 1;
+
+            if (NWManager.instance.playingMultiplayer)
+            {
+                CallNextTurn();
+                mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                photonView.RPC("NextTeam", PhotonTargets.All);
+            }
+            else
+            {
+                NextTeam();
+            }
+         
         }
+        int seconds = Mathf.FloorToInt(turnTime);
+
+        timeText.text = "" + seconds;
+    }
+
+    void TurnTimerCircle()
+    {
+        turnTimerCircle.fillAmount = turnTime / maxTurnTime;
     }
 
     /// <summary>
@@ -124,10 +198,12 @@ public class TeamManager : Photon.PunBehaviour {
         if(NWManager.instance.playingMultiplayer)
         {
             photonView.RPC("ToTopView", PhotonTargets.All);
+            photonView.RPC("ResetCountingDown", PhotonTargets.All);
         }
         else
         {
             ToTopView();
+            ResetCountingDown();
         } 
     }
 
@@ -158,6 +234,7 @@ public class TeamManager : Photon.PunBehaviour {
             {
                 allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Movement>().canMove = true;
                 allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<PhotonView>().RequestOwnership();
+
 
             }
         }
@@ -265,55 +342,5 @@ public class TeamManager : Photon.PunBehaviour {
 
     }
 
-    [PunRPC]
-    void ChangeTurnTimer()
-    {
-        if (countingDown)
-        {
-            turnTime -= Time.deltaTime / 2;
-            turnTimerCircle.fillAmount = turnTime / maxTurnTime;
-
-            int seconds = Mathf.FloorToInt(turnTime);
-            
-            timeText.text = "" + seconds.ToString("F0");
-            
-            
-
-            if(turnTime <= 0)
-            {
-
-                photonView.RPC("ResetTimer", PhotonTargets.All);
-
-                CallNextTurn();
-                mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                photonView.RPC("NextTeam", PhotonTargets.All);
-                turnTime = maxTurnTime;
-                countingDown = false;
-
-            }
-        }
-    }
-
-    [PunRPC]
-    void ResetTimer()
-    {
-        timeText.text = "" + maxTurnTime;
-        turnTimerCircle.fillAmount = 1;
-    }
-
-
-   
-
-    [PunRPC]
-    void ChangeCountdownBool()
-    {
-        if (!countingDown)
-        {
-            countingDown = true;
-        }
-        else
-        {
-            countingDown = false;
-        }
-    }
+  
 }

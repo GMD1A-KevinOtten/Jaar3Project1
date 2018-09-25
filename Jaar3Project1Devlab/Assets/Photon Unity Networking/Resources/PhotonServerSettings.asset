@@ -61,4 +61,14 @@ MonoBehaviour:
   - ToSoldier
   - ShootBullet
   - Start
+  - ChangeCountdownBool
+  - ChangeTurnTimer
+  - ResetTimer
+  - CamStateRPC
+  - TurnTimer
+  - InvokeTimerRPC
+  - TurnTimerCircle
+  - CancelRepeat
+  - InvokeRepeat
+  - ResetCountingDown
   DisableAutoOpenWizard: 1

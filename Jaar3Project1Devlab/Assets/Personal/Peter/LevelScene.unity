@@ -524,39 +524,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114533711054239664, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
+    - target: {fileID: 114473903050130336, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
         type: 2}
       propertyPath: viewIdField
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114533711054239664, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
+    - target: {fileID: 114473903050130336, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
         type: 2}
       propertyPath: instantiationId
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114498313958675708, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
+    - target: {fileID: 114533711054239664, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
         type: 2}
       propertyPath: viewIdField
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114498313958675708, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
+    - target: {fileID: 114533711054239664, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
         type: 2}
       propertyPath: instantiationId
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114533711054239664, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
-        type: 2}
-      propertyPath: ownershipTransfer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114425552385149198, guid: 4ed412d73bcc29d4ba530d6b69db42e4,
-        type: 2}
-      propertyPath: m_RotationModel.InterpolateRotateTowardsSpeed
-      value: 360
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114055313409108528, guid: 4ed412d73bcc29d4ba530d6b69db42e4, type: 2}
-    - {fileID: 114498313958675708, guid: 4ed412d73bcc29d4ba530d6b69db42e4, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ed412d73bcc29d4ba530d6b69db42e4, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &687995698
