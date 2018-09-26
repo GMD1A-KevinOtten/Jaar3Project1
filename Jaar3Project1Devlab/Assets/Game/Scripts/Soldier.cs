@@ -16,10 +16,12 @@ public class Soldier : MonoBehaviour {
     public bool isDead;
     public bool isActive;
     
+    [Header("Weapon propertys")]
     public List<GameObject> availableWeaponsPrefabs = new List<GameObject>();
     [HideInInspector]
     public Weapon equippedWeapon;
     public int currentWeaponIndex;
+    private bool canSwitch = true;
 
     void Start()
     {
@@ -34,7 +36,6 @@ public class Soldier : MonoBehaviour {
             if(equippedWeapon != null)
             {
                 equippedWeapon.ShowCrosshair();
-
                 if (NWManager.instance.playingMultiplayer)
                 {
                     if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
@@ -52,10 +53,9 @@ public class Soldier : MonoBehaviour {
                         ShootWeapon();
                     }
                 }
-               
             }
+            CheckScroll();
         }
-
     }
 
     public void TakeDamage(int toDamage)
@@ -111,23 +111,45 @@ public class Soldier : MonoBehaviour {
         //speel animatie af
     }
 
-    public void switchGuns()
+    public void CheckScroll()
     {
-        if(Input.GetAxis("Mouse ScrollWheel") < 0)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+         if (canSwitch)
         {
-            if(currentWeaponIndex <= 0)
-            {
-                currentWeaponIndex = availableWeaponsPrefabs.Count - 1;
-            }
-            else
-            {
-                currentWeaponIndex -= 1;
-            }
-        }
+            canSwitch = false;
+            
+            int previouseWeaponIndex = currentWeaponIndex;
 
-         if(Input.GetAxis("Mouse ScrollWheel") > 0)
-        {
+            if(scroll < 0)
+            {
+                print("kaas");
+                if(currentWeaponIndex <= 0)
+                {
+                    currentWeaponIndex = availableWeaponsPrefabs.Count - 1;
+                }
+                else
+                {
+                    currentWeaponIndex --;
+                }
+            }
+            if(scroll > 0)
+            {            
+                print("tosti");
+                if(currentWeaponIndex >= availableWeaponsPrefabs.Count - 1)
+                {
+                    currentWeaponIndex = 0;
+                }
+                else
+                {
+                    currentWeaponIndex ++;
+                }
+            }
 
+            if(previouseWeaponIndex != currentWeaponIndex)
+            {
+                EquipWeapon(currentWeaponIndex);
+            }
+            canSwitch = true;
         }
     }
 }

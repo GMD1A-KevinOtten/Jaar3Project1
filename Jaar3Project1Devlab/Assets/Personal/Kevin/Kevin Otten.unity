@@ -366,6 +366,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114045524528473594, guid: 9864f2f337421fc499b9e4a357c11455,
+        type: 2}
+      propertyPath: availableWeaponsPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.4429371
@@ -428,6 +433,12 @@ Prefab:
       propertyPath: m_TagString
       value: Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 114045524528473594, guid: 9864f2f337421fc499b9e4a357c11455,
+        type: 2}
+      propertyPath: availableWeaponsPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1989339358856240, guid: 38be823892dac2f409f0fa348db03623,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
   m_IsPrefabAsset: 0
@@ -834,6 +845,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114803993470945570, guid: e5d499b896dada7458b3876c33d8ed34,
+        type: 2}
+      propertyPath: bulletHoleSprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5d499b896dada7458b3876c33d8ed34, type: 2}
   m_IsPrefabAsset: 0
@@ -947,6 +963,10 @@ Prefab:
         type: 2}
       propertyPath: instantiationId
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957752997444952, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
@@ -1073,6 +1093,10 @@ Prefab:
       propertyPath: instantiationId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1957752997444952, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
   m_IsPrefabAsset: 0
@@ -1142,6 +1166,8 @@ MonoBehaviour:
   maxTurnTime: 30
   timeText: {fileID: 907705194}
   turnTimerCircle: {fileID: 1584899298}
+  circleStartColor: {r: 0, g: 0, b: 0, a: 0}
+  circleEndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1665056842
 Transform:
   m_ObjectHideFlags: 0
@@ -1272,6 +1298,10 @@ Prefab:
     - target: {fileID: 114634739125784774, guid: 9864f2f337421fc499b9e4a357c11455,
         type: 2}
       propertyPath: instantiationId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957752997444952, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
