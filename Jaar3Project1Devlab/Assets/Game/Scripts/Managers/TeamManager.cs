@@ -26,9 +26,13 @@ public class TeamManager : Photon.PunBehaviour {
     [Header("Turn Properties")]
     public float maxTurnTime = 60;
     private float turnTime;
+    private float tempFloat;
     public Text timeText;
     public Image turnTimerCircle;
     private bool countingDown;
+
+    public Color circleStartColor;
+    public Color circleEndColor;
 
     private void Awake()
     {
@@ -59,7 +63,9 @@ public class TeamManager : Photon.PunBehaviour {
         turnTime = maxTurnTime;
         timeText.text = "" + maxTurnTime;
         turnTimerCircle.fillAmount = 1;
-      
+        turnTimerCircle.color = circleStartColor;
+
+        tempFloat = maxTurnTime;
     }
 
     void Update()
@@ -135,6 +141,7 @@ public class TeamManager : Photon.PunBehaviour {
         turnTimerCircle.fillAmount = 1;
 
         timeText.text = "" + maxTurnTime;
+        turnTimerCircle.color = circleStartColor;
     }
 
     [PunRPC]
@@ -149,6 +156,9 @@ public class TeamManager : Photon.PunBehaviour {
         if(turnTime > 0)
         {
             turnTime--;
+           
+            photonView.RPC("TempFloatRPC", PhotonTargets.All);
+         
         }
         if(turnTime <= 0)
         {
@@ -181,11 +191,34 @@ public class TeamManager : Photon.PunBehaviour {
         int seconds = Mathf.FloorToInt(turnTime);
 
         timeText.text = "" + seconds;
+        turnTimerCircle.color = circleStartColor;
+    }
+
+    [PunRPC]
+    void TempFloatRPC()
+    {
+        if(tempFloat > 0)
+        {
+            tempFloat--;
+        }
+        if(tempFloat <= 0)
+        {
+            tempFloat = maxTurnTime;
+            turnTimerCircle.fillAmount = 1;
+            turnTimerCircle.color = circleStartColor;
+        }
     }
 
     void TurnTimerCircle()
     {
-        turnTimerCircle.fillAmount = turnTime / maxTurnTime;
+        turnTimerCircle.fillAmount = tempFloat / maxTurnTime;
+
+        float t = tempFloat / maxTurnTime;
+
+        Color color = Color.Lerp(circleEndColor, circleStartColor, t);
+        turnTimerCircle.color = color;
+
+        timeText.text = "" + tempFloat;
     }
 
     /// <summary>

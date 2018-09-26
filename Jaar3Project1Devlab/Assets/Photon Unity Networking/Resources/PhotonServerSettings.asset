@@ -73,4 +73,5 @@ MonoBehaviour:
   - ResetCountingDown
   - ResetTurnTimer
   - AddClientRPC
+  - TempFloatRPC
   DisableAutoOpenWizard: 1
