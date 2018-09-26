@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour {
 
     public Clip[] allAudioclips;
     public List<AudioSource> audioSources = new List<AudioSource>();
-
+    public int defaultAudiosourcesAmount;
 
     private void Awake()
     {
@@ -29,6 +29,12 @@ public class AudioManager : MonoBehaviour {
         else
         {
             Destroy(gameObject);
+        }
+
+        for (int i = 0; i < defaultAudiosourcesAmount; i++)
+        {
+            AudioSource source = CreateAudioSource();
+            audioSources.Add(source);
         }
     }
 
@@ -114,10 +120,18 @@ public class AudioManager : MonoBehaviour {
             }
         }
 
-        GameObject newObject = Instantiate(new GameObject(), transform.position, Quaternion.identity);
+        AudioSource source = CreateAudioSource();
+        audioSources.Add(source);
+
+        return source;
+    }
+
+    private AudioSource CreateAudioSource()
+    {
+        GameObject newObject = new GameObject();
+        newObject.transform.position = transform.position;
         newObject.transform.SetParent(transform);
         AudioSource source = newObject.AddComponent<AudioSource>();
-        audioSources.Add(source);
 
         return source;
     }
