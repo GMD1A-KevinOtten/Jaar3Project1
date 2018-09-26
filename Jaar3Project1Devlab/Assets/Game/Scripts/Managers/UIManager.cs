@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour {
 
     public static UIManager instance;
     public Image crosshair;
-    
 
     private void Awake()
     {

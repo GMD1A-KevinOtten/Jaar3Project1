@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4465262068247280}
   - component: {fileID: 33100969984355230}
   - component: {fileID: 23951243948447328}
+  - component: {fileID: 114803993470945570}
   - component: {fileID: 54247108136379436}
   - component: {fileID: 136019283321022718}
   m_Layer: 9
@@ -99,7 +100,20 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!114 &114803993470945570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1757713778583122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a6852ed5ff62d4cbf23c9169ca8bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHoleSprite: {fileID: 21300000, guid: 2625fa1fc5e6b0547b967b8b4726ed4c, type: 3}
+  defaultDamage: 25
 --- !u!136 &136019283321022718
 CapsuleCollider:
   m_ObjectHideFlags: 1
