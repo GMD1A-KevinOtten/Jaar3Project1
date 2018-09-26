@@ -35,7 +35,7 @@ public class Weapon : Photon.PunBehaviour {
         }
         else
         {
-            Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
+            newGameObject = Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
         }
                 
         Rigidbody rb = newGameObject.GetComponent<Rigidbody>();
@@ -59,8 +59,8 @@ public class Weapon : Photon.PunBehaviour {
 
     public void ShowCrosshair()
     {
-        Debug.DrawRay(transform.position, transform.forward * 20, Color.red);
-        Physics.Raycast(transform.position, transform.forward, out hit, 20, crosshairRayMask);
+        Debug.DrawRay(barrelExit.position, barrelExit.forward * 20, Color.red);
+        Physics.Raycast(barrelExit.position, barrelExit.forward, out hit, 20, crosshairRayMask);
 
         if (hit.transform != null)
         {

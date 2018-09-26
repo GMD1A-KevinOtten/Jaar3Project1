@@ -17,13 +17,11 @@ public class Soldier : MonoBehaviour {
     public bool isActive;
     
     public List<GameObject> availableWeaponsPrefabs = new List<GameObject>();
-    private GameObject equippedWeaponObject;
     [HideInInspector]
     public Weapon equippedWeapon;
 
     void Start()
     {
-        thirdPersonCamPos = transform.GetChild(0).transform;
         soldierMovement = GetComponent<Movement>();
         EquipWeapon(0);
     }
@@ -72,16 +70,20 @@ public class Soldier : MonoBehaviour {
 
     public void EquipWeapon(int weaponIndex)
     {
-        Destroy(equippedWeaponObject);
+        if(equippedWeapon != null)
+        {
+            Destroy(equippedWeapon.gameObject);
+        }
         //uitvoeren op het punt waar wapen moet verschijnen
-        equippedWeaponObject = InstantiateWeapon(weaponIndex);
+        GameObject equippedWeaponObject = InstantiateWeapon(weaponIndex);
         equippedWeapon = equippedWeaponObject.GetComponent<Weapon>();
     }
 
     public GameObject InstantiateWeapon(int weaponIndex)
     {
-        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation);
-        currenWeapon.transform.SetParent(transform);
+        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation.position,weaponSpawnLocation.rotation);
+        currenWeapon.transform.SetParent(weaponSpawnLocation);
+        currenWeapon.GetComponent<Rigidbody>().isKinematic = true;
         return currenWeapon;
     }
 
@@ -106,6 +108,18 @@ public class Soldier : MonoBehaviour {
         TeamManager.instance.allTeams[TeamManager.instance.teamIndex].CheckTeam();
 
         //speel animatie af
-        //
+    }
+
+    public void switchGuns()
+    {
+        if(Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+
+        }
+
+         if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+
+        }
     }
 }
