@@ -21,6 +21,7 @@ public class NWManager : Photon.PunBehaviour {
 	void Start () {
         Connect();
 
+
 	}
 
     void Awake()

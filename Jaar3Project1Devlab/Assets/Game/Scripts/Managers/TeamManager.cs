@@ -18,7 +18,7 @@ public class TeamManager : Photon.PunBehaviour {
     public List<Team> allTeams = new List<Team>();
 
     [Header("Networking")]
-    public PhotonPlayer currentPlayer;
+     public PhotonPlayer currentPlayer;
 
     public List<Color> playerColors = new List<Color>();
     public Image playerAvatar; //Temporary
@@ -73,11 +73,9 @@ public class TeamManager : Photon.PunBehaviour {
                     Debug.Log("TeamIndex = " + teamIndex);
 
                     photonView.RPC("ToSoldier", PhotonTargets.All);
-                    
-                    //InvokeRepeat();
-                    photonView.RPC("InvokeRepeat", PhotonTargets.All);
-                    
-            
+
+                    InvokeRepeat();
+                   // photonView.RPC("InvokeRepeat", PhotonTargets.Others); //This code sucks #@!#$
                     
                 }
             }
@@ -100,6 +98,7 @@ public class TeamManager : Photon.PunBehaviour {
                 {
                     CallNextTurn();
                     mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                    mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
                     photonView.RPC("NextTeam", PhotonTargets.All);
                 }
             }
@@ -151,7 +150,7 @@ public class TeamManager : Photon.PunBehaviour {
         {
             turnTime--;
         }
-        else
+        if(turnTime <= 0)
         {
             if (NWManager.instance.playingMultiplayer)
             {
@@ -170,6 +169,7 @@ public class TeamManager : Photon.PunBehaviour {
             {
                 CallNextTurn();
                 mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
                 photonView.RPC("NextTeam", PhotonTargets.All);
             }
             else
@@ -218,6 +218,7 @@ public class TeamManager : Photon.PunBehaviour {
             if(currentPlayer == PhotonNetwork.player)
             {
                 mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
             }
         }
         
@@ -338,8 +339,12 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     void NextTurn()
     {
-        currentPlayer = PhotonNetwork.player.GetNextFor(currentPlayer);
+            Debug.Log("StartOfNexTurn()");
 
+            currentPlayer = PhotonNetwork.player.GetNextFor(currentPlayer);
+            Debug.Log(currentPlayer.NickName + currentPlayer.ID);
+
+            Debug.Log("EndOfNexTurn()");
     }
 
   

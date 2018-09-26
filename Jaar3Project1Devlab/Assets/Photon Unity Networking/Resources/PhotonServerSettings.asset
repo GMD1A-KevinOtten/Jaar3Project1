@@ -71,4 +71,6 @@ MonoBehaviour:
   - CancelRepeat
   - InvokeRepeat
   - ResetCountingDown
+  - ResetTurnTimer
+  - AddClientRPC
   DisableAutoOpenWizard: 1
