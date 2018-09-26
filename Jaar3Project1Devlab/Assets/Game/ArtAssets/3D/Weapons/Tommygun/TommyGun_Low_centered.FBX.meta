@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: e7f12836d3d32b5418450487c5714ec7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ArmStock_Low
+    100002: Barrel_Low
+    100004: BigScopey_Low
+    100006: Drummag_Low
+    100008: ForeGrip_Low
+    100010: HandGrip_Low
+    100012: MainGunBody_Low
+    100014: SmallScope_Low
+    100016: Switch_001_Low
+    100018: Switch_002_Low
+    100020: //RootNode
+    100022: Trigger_Low
+    100024: TriggerHousing_Low
+    100026: UnderbarrelThing_Low
+    400000: ArmStock_Low
+    400002: Barrel_Low
+    400004: BigScopey_Low
+    400006: Drummag_Low
+    400008: ForeGrip_Low
+    400010: HandGrip_Low
+    400012: MainGunBody_Low
+    400014: SmallScope_Low
+    400016: Switch_001_Low
+    400018: Switch_002_Low
+    400020: //RootNode
+    400022: Trigger_Low
+    400024: TriggerHousing_Low
+    400026: UnderbarrelThing_Low
+    2100000: 'Material #53'
+    2300000: ArmStock_Low
+    2300002: Barrel_Low
+    2300004: BigScopey_Low
+    2300006: Drummag_Low
+    2300008: ForeGrip_Low
+    2300010: HandGrip_Low
+    2300012: MainGunBody_Low
+    2300014: SmallScope_Low
+    2300016: Switch_001_Low
+    2300018: Switch_002_Low
+    2300020: Trigger_Low
+    2300022: TriggerHousing_Low
+    2300024: UnderbarrelThing_Low
+    3300000: ArmStock_Low
+    3300002: Barrel_Low
+    3300004: BigScopey_Low
+    3300006: Drummag_Low
+    3300008: ForeGrip_Low
+    3300010: HandGrip_Low
+    3300012: MainGunBody_Low
+    3300014: SmallScope_Low
+    3300016: Switch_001_Low
+    3300018: Switch_002_Low
+    3300020: Trigger_Low
+    3300022: TriggerHousing_Low
+    3300024: UnderbarrelThing_Low
+    4300000: MainGunBody_Low
+    4300002: UnderbarrelThing_Low
+    4300004: TriggerHousing_Low
+    4300006: Trigger_Low
+    4300008: Switch_002_Low
+    4300010: Switch_001_Low
+    4300012: SmallScope_Low
+    4300014: HandGrip_Low
+    4300016: ForeGrip_Low
+    4300018: Drummag_Low
+    4300020: BigScopey_Low
+    4300022: Barrel_Low
+    4300024: ArmStock_Low
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

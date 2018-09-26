@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 54467155671410968}
   - component: {fileID: 65806583415570892}
   m_Layer: 11
-  m_Name: Pre_Weapon_SniperRifle
+  m_Name: PRE_SniperRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 65272487407908368}
   - component: {fileID: 54205288510199232}
   m_Layer: 0
-  m_Name: Pre_Blunderbuss
+  m_Name: PRE_Blunderbuss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

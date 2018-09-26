@@ -162,54 +162,50 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.774048
       objectReference: {fileID: 0}
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.23
       objectReference: {fileID: 0}
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalPosition.z
       value: -2.372
       objectReference: {fileID: 0}
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+    - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1957752997444952, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
-      propertyPath: m_Name
-      value: Soldier 1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114634739125784774, guid: 9864f2f337421fc499b9e4a357c11455,
+    - target: {fileID: 114891193477845016, guid: 56b58ff86ecb0c74086bc18b974d6884,
         type: 2}
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114634739125784774, guid: 9864f2f337421fc499b9e4a357c11455,
+    - target: {fileID: 114891193477845016, guid: 56b58ff86ecb0c74086bc18b974d6884,
         type: 2}
       propertyPath: instantiationId
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &601007708
 GameObject:
@@ -392,7 +388,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &882344122 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114045524528473594, guid: 9864f2f337421fc499b9e4a357c11455,
+  m_CorrespondingSourceObject: {fileID: 114686924062558906, guid: 56b58ff86ecb0c74086bc18b974d6884,
     type: 2}
   m_PrefabInternal: {fileID: 504248545}
   m_Script: {fileID: 11500000, guid: e4f57e81487cad44dbf5f2ba34711f22, type: 3}
@@ -437,6 +433,8 @@ MonoBehaviour:
   maxTurnTime: 60
   timeText: {fileID: 0}
   turnTimerCircle: {fileID: 0}
+  circleStartColor: {r: 0, g: 0, b: 0, a: 0}
+  circleEndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &914100726
 Transform:
   m_ObjectHideFlags: 0
@@ -929,6 +927,7 @@ MonoBehaviour:
     clip: {fileID: 0}
     defaultVolume: 0
   audioSources: []
+  defaultAudiosourcesAmount: 0
 --- !u!4 &2094362820
 Transform:
   m_ObjectHideFlags: 0

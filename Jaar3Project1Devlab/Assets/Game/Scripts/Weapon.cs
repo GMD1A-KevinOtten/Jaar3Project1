@@ -5,7 +5,6 @@ using UnityEngine;
 public class Weapon : Photon.PunBehaviour {
 
     [Header("Gun proporties")]
-    
     public Transform barrelExit;
     public GameObject bulletPrefab;
     public Sprite gunCrosshair;
@@ -14,13 +13,12 @@ public class Weapon : Photon.PunBehaviour {
     public Vector2 bulletSpread;
     public float recoil;
 
-    private GameObject newGameObject;
-
     [Header("Clip proporties")]
     public int currentClip;
     public int clipMax;
 
     private RaycastHit hit;
+    private GameObject newGameObject;
 
     [PunRPC]
 

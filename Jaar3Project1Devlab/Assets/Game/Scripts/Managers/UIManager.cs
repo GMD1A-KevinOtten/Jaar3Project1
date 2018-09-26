@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
     public static UIManager instance;
-    public Image crosshair;
+    public Image crosshairImage;
 
     private void Awake()
     {
@@ -25,13 +25,13 @@ public class UIManager : MonoBehaviour {
 
     public void ShowCrosshairOnScreen(Sprite toShow, Vector3 position)
     {
-        crosshair.sprite = toShow;
-        crosshair.enabled = true;
-        crosshair.transform.position = Camera.main.WorldToScreenPoint(position);
+        crosshairImage.sprite = toShow;
+        crosshairImage.enabled = true;
+        crosshairImage.transform.position = Camera.main.WorldToScreenPoint(position);
     }
 
     public void HideCrosshair()
     {
-        crosshair.enabled = false;
+        crosshairImage.enabled = false;
     }
 }
