@@ -80,7 +80,6 @@ public class TeamManager : Photon.PunBehaviour {
 
                     photonView.RPC("ToSoldier", PhotonTargets.All);
 
-                    InvokeRepeat();
                    // photonView.RPC("InvokeRepeat", PhotonTargets.Others); //This code sucks #@!#$
                     
                 }
@@ -115,6 +114,11 @@ public class TeamManager : Photon.PunBehaviour {
         }
 
         TurnTimerCircle();
+
+        if (!NWManager.instance.playingMultiplayer)
+        {
+            TurnTimerCircleHotseat();
+        }
 
       
     }
@@ -156,9 +160,12 @@ public class TeamManager : Photon.PunBehaviour {
         if(turnTime > 0)
         {
             turnTime--;
-           
-            photonView.RPC("TempFloatRPC", PhotonTargets.All);
-         
+
+            if (NWManager.instance.playingMultiplayer)
+            {
+                photonView.RPC("TempFloatRPC", PhotonTargets.All);
+            }
+
         }
         if(turnTime <= 0)
         {
@@ -209,8 +216,22 @@ public class TeamManager : Photon.PunBehaviour {
         }
     }
 
+    void TurnTimerCircleHotseat()
+    {
+
+        turnTimerCircle.fillAmount = turnTime / maxTurnTime;
+
+        float t = turnTime / maxTurnTime;
+
+        Color color = Color.Lerp(circleEndColor, circleStartColor, t);
+        turnTimerCircle.color = color;
+
+        timeText.text = "" + turnTime;
+    }
+
     void TurnTimerCircle()
     {
+
         turnTimerCircle.fillAmount = tempFloat / maxTurnTime;
 
         float t = tempFloat / maxTurnTime;
@@ -352,6 +373,8 @@ public class TeamManager : Photon.PunBehaviour {
                 soldier.soldierMovement.canMove = true;
                 soldier.isActive = true;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
+
+                InvokeRepeat();
 
                 //Start the turn timmy
             }
