@@ -19,6 +19,7 @@ public class Soldier : MonoBehaviour {
     public List<GameObject> availableWeaponsPrefabs = new List<GameObject>();
     [HideInInspector]
     public Weapon equippedWeapon;
+    public int currentWeaponIndex;
 
     void Start()
     {
@@ -114,7 +115,14 @@ public class Soldier : MonoBehaviour {
     {
         if(Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-
+            if(currentWeaponIndex <= 0)
+            {
+                currentWeaponIndex = availableWeaponsPrefabs.Count - 1;
+            }
+            else
+            {
+                currentWeaponIndex -= 1;
+            }
         }
 
          if(Input.GetAxis("Mouse ScrollWheel") > 0)
