@@ -1139,8 +1139,8 @@ MonoBehaviour:
   maxTurnTime: 30
   timeText: {fileID: 907705194}
   turnTimerCircle: {fileID: 1584899298}
-  circleStartColor: {r: 0, g: 0, b: 0, a: 0}
-  circleEndColor: {r: 0, g: 0, b: 0, a: 0}
+  circleStartColor: {r: 0, g: 1, b: 0.084089994, a: 1}
+  circleEndColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1665056842
 Transform:
   m_ObjectHideFlags: 0
