@@ -351,7 +351,7 @@ public class TeamManager : Photon.PunBehaviour {
                 Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
                 soldier.soldierMovement.canMove = true;
                 soldier.isActive = true;
-                mainCamera.xRotInput = 30;
+                mainCamera.xRotInput = mainCamera.baseXRotInput;
 
                 //Start the turn timmy
             }

@@ -366,11 +366,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114045524528473594, guid: 9864f2f337421fc499b9e4a357c11455,
-        type: 2}
-      propertyPath: availableWeaponsPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4266733442601942, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.4429371
@@ -417,28 +412,6 @@ Prefab:
       propertyPath: instantiationId
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4504914448264862, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.9961947
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504914448264862, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.08715578
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504914448264862, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957752997444952, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
-      propertyPath: m_TagString
-      value: Soldier
-      objectReference: {fileID: 0}
-    - target: {fileID: 114045524528473594, guid: 9864f2f337421fc499b9e4a357c11455,
-        type: 2}
-      propertyPath: availableWeaponsPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1989339358856240, guid: 38be823892dac2f409f0fa348db03623,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9864f2f337421fc499b9e4a357c11455, type: 2}
   m_IsPrefabAsset: 0
@@ -900,7 +873,7 @@ Prefab:
     - target: {fileID: 114740889316441846, guid: 356ea674abe4c2f449a94644742dce05,
         type: 2}
       propertyPath: baseXRotInput
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356ea674abe4c2f449a94644742dce05, type: 2}

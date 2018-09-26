@@ -19,8 +19,14 @@ public class CameraMovement : MonoBehaviour {
 	public float vertRotSpeed;
     public Weapon gunToRotate;
 
-    public float xRotInput = 30;
+    [HideInInspector]
+    public float xRotInput;
+    public float baseXRotInput = 30;
 
+    void Start() 
+    {
+        xRotInput = baseXRotInput;
+    }
 	void FixedUpdate () 
 	{
         switch (cameraState)
