@@ -15,12 +15,12 @@ public class Bullet : MonoBehaviour {
 
     public virtual void OnHit(Collision gotHit)
     {
-        switch (gotHit.transform.tag)
+        switch (gotHit.gameObject.layer)
         {
-            case "Soldier":
+            case 10:
                 HitSoldier(gotHit);
                 break;
-            case "Environment":
+            case 12:
                 HitEnvironment(gotHit);
                 break;
         }
