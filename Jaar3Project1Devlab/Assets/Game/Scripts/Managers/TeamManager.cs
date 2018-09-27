@@ -80,7 +80,6 @@ public class TeamManager : Photon.PunBehaviour {
 
                     photonView.RPC("ToSoldier", PhotonTargets.All);
 
-                   // photonView.RPC("InvokeRepeat", PhotonTargets.Others); //This code sucks #@!#$
                     
                 }
             }
@@ -89,8 +88,6 @@ public class TeamManager : Photon.PunBehaviour {
                 if(Input.GetButtonDown("Enter"))
                 {
                     ToSoldier();
-
-                    InvokeRepeating("TurnTimer", 1, 1);
 
                 }
             }
@@ -113,7 +110,10 @@ public class TeamManager : Photon.PunBehaviour {
             }
         }
 
-        TurnTimerCircle();
+        if(currentPlayer == PhotonNetwork.player)
+        {
+            TurnTimerCircle();
+        }
 
         if (!NWManager.instance.playingMultiplayer)
         {
@@ -126,8 +126,10 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     void InvokeRepeat()
     {
+        Debug.Log("Invoked");
         if (!countingDown)
         {
+            Debug.Log("InvokedAfterIfBool");
             InvokeRepeating("TurnTimer", 1, 1);
         }
     }
@@ -142,6 +144,7 @@ public class TeamManager : Photon.PunBehaviour {
     void ResetTimer()
     {
         turnTime = maxTurnTime;
+        tempFloat = maxTurnTime;
         turnTimerCircle.fillAmount = 1;
 
         timeText.text = "" + maxTurnTime;
@@ -163,7 +166,7 @@ public class TeamManager : Photon.PunBehaviour {
 
             if (NWManager.instance.playingMultiplayer)
             {
-                photonView.RPC("TempFloatRPC", PhotonTargets.All);
+                photonView.RPC("TempFloatRPC", PhotonTargets.Others);
             }
 
         }
@@ -172,7 +175,7 @@ public class TeamManager : Photon.PunBehaviour {
             if (NWManager.instance.playingMultiplayer)
             {
                 photonView.RPC("CancelRepeat", PhotonTargets.All);
-                photonView.RPC("ResetTimer", PhotonTargets.Others);
+                photonView.RPC("ResetTimer", PhotonTargets.All);
 
             }
             else
@@ -180,8 +183,6 @@ public class TeamManager : Photon.PunBehaviour {
                 CancelInvoke();
             }
             turnTime = maxTurnTime;
-            turnTimerCircle.fillAmount = 1;
-
             if (NWManager.instance.playingMultiplayer)
             {
                 CallNextTurn();
@@ -197,8 +198,13 @@ public class TeamManager : Photon.PunBehaviour {
         }
         int seconds = Mathf.FloorToInt(turnTime);
 
-        timeText.text = "" + seconds;
-        turnTimerCircle.color = circleStartColor;
+        if (!NWManager.instance.playingMultiplayer)
+        {
+            turnTimerCircle.fillAmount = 1;
+            timeText.text = "" + seconds;
+            turnTimerCircle.color = circleStartColor;
+        }
+        
     }
 
     [PunRPC]
@@ -207,13 +213,17 @@ public class TeamManager : Photon.PunBehaviour {
         if(tempFloat > 0)
         {
             tempFloat--;
+            turnTimerCircle.fillAmount = tempFloat / maxTurnTime;
+            timeText.text = "" + tempFloat;
         }
         if(tempFloat <= 0)
         {
             tempFloat = maxTurnTime;
             turnTimerCircle.fillAmount = 1;
+            timeText.text = "" + maxTurnTime;
             turnTimerCircle.color = circleStartColor;
         }
+
     }
 
     void TurnTimerCircleHotseat()
@@ -374,6 +384,9 @@ public class TeamManager : Photon.PunBehaviour {
                 soldier.isActive = true;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
 
+                Debug.Log("IEnumerator");
+
+
                 InvokeRepeat();
 
                 //Start the turn timmy
@@ -396,6 +409,7 @@ public class TeamManager : Photon.PunBehaviour {
     void NextTurn()
     {
             Debug.Log("StartOfNexTurn()");
+
 
             currentPlayer = PhotonNetwork.player.GetNextFor(currentPlayer);
             Debug.Log(currentPlayer.NickName + currentPlayer.ID);
