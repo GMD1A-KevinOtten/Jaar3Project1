@@ -106,7 +106,7 @@ public class Soldier : MonoBehaviour {
     public void Die()
     {
         isDead = true;
-        TeamManager.instance.allTeams[TeamManager.instance.teamIndex].CheckTeam();
+        //TeamManager.instance.allTeams[].CheckTeam();
 
         //speel animatie af
     }

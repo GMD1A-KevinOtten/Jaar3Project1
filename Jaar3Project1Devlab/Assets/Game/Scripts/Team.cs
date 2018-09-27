@@ -7,7 +7,13 @@ public class Team {
 
     public bool teamAlive = true;
     public int soldierIndex;
+    public int teamNumber;
     public List<Soldier> allSoldiers = new List<Soldier>();
+
+    void Start() 
+    {
+
+    }
 
     public void NextSoldier()
     {
@@ -33,9 +39,11 @@ public class Team {
             if(soldier.isDead != true)
             {
                 soldiersAlive = true;
+                Debug.Log("But GWy");
                 break;
             }
         }
+        Debug.Log(soldiersAlive);
         teamAlive = soldiersAlive;
     }
 }
