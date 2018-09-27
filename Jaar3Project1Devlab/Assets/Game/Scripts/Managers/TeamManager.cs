@@ -204,9 +204,9 @@ public class TeamManager : Photon.PunBehaviour {
 
         if (!NWManager.instance.playingMultiplayer)
         {
-            turnTimerCircle.fillAmount = 1;
+           // turnTimerCircle.fillAmount = 1;
             timeText.text = "" + seconds;
-            turnTimerCircle.color = circleStartColor;
+            //turnTimerCircle.color = circleStartColor;
         }
         
     }
