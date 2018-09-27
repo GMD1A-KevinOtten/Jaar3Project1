@@ -162,8 +162,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989339358856240}
-  m_LocalRotation: {x: -0, y: 0.00000033527613, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7139815, y: 1.9568433e-17, z: -8.812839}
+  m_LocalRotation: {x: -0, y: 0.7071069, z: -0, w: 0.70710665}
+  m_LocalPosition: {x: -3.481, y: 1.065, z: -2.497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4657492303742256}
@@ -174,7 +174,7 @@ Transform:
   - {fileID: 4702148082832186}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!4 &4657492303742256
 Transform:
   m_ObjectHideFlags: 1
@@ -507,7 +507,7 @@ MonoBehaviour:
   gunCrosshair: {fileID: 21300000, guid: 7e1abc2cce9cc2d4198d2f03538bee5b, type: 3}
   crosshairRayMask:
     serializedVersion: 2
-    m_Bits: 3383
+    m_Bits: 7479
   bulletVelocity: 100
   bulletSpread: {x: 1, y: 1}
   recoil: 0

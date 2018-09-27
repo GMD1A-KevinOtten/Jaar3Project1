@@ -1067,7 +1067,7 @@ MonoBehaviour:
   gunCrosshair: {fileID: 21300000, guid: 7a4c815786bfcff4885d03cc5848ce40, type: 3}
   crosshairRayMask:
     serializedVersion: 2
-    m_Bits: 3383
+    m_Bits: 7479
   bulletVelocity: 10
   bulletSpread: {x: 5, y: 5}
   recoil: 0
