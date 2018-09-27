@@ -45,7 +45,11 @@ public class TeamManager : Photon.PunBehaviour {
         {
             Destroy(gameObject);
         }
-        mainCamera = GameObject.FindObjectOfType<CameraMovement>();
+
+        mainCamera = FindObjectOfType<CameraMovement>();
+
+        mainCamera.transform.root.position = cameraPositionSky.position;
+        mainCamera.transform.root.rotation = Quaternion.LookRotation(cameraPositionSky.forward);
     }
 
     private void Start()
