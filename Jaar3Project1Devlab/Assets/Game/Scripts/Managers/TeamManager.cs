@@ -47,9 +47,9 @@ public class TeamManager : Photon.PunBehaviour {
         }
 
         mainCamera = FindObjectOfType<CameraMovement>();
-
-        mainCamera.transform.root.position = cameraPositionSky.position;
-        mainCamera.transform.root.rotation = Quaternion.LookRotation(cameraPositionSky.forward);
+        Camera.main.transform.parent.position = cameraPositionSky.position;
+        Camera.main.transform.parent.rotation = Quaternion.Euler(Camera.main.transform.parent.eulerAngles.x,cameraPositionSky.eulerAngles.y,cameraPositionSky.eulerAngles.z);
+        Camera.main.transform.rotation = Quaternion.Euler(cameraPositionSky.transform.eulerAngles.x,mainCamera.transform.eulerAngles.y,mainCamera.transform.eulerAngles.z);
     }
 
     private void Start()
@@ -343,7 +343,6 @@ public class TeamManager : Photon.PunBehaviour {
 
             if(camState == CameraMovement.CameraStates.Topview)
             {
-                //mainCamera.transform.parent.rotation = Quaternion.identity;
                 Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
                 soldier.soldierMovement.canMove = false;
                 soldier.isActive = false;
@@ -370,12 +369,12 @@ public class TeamManager : Photon.PunBehaviour {
 
                 if(camState == CameraMovement.CameraStates.ThirdPerson)
                 {
-                    Quaternion test = Quaternion.Euler(mainCamera.transform.parent.eulerAngles.x,rotateTo.eulerAngles.y,rotateTo.eulerAngles.z);
-                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, test, movementSpeed / 3 * 0.01f);
+                    Quaternion rot = Quaternion.Euler(mainCamera.transform.parent.eulerAngles.x,rotateTo.eulerAngles.y,rotateTo.eulerAngles.z);
+                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rot, movementSpeed / 3 * 0.01f);
                 }
                 if(camState == CameraMovement.CameraStates.Topview)
                 {
-                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, Quaternion.identity,movementSpeed / 3 * 0.01f);
+                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, Quaternion.Euler(Camera.main.transform.parent.eulerAngles.x,cameraPositionSky.eulerAngles.y,cameraPositionSky.eulerAngles.z),movementSpeed / 3 * 0.01f);
                 }
                 yield return null;
                 
