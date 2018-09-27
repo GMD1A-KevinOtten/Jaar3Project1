@@ -14,9 +14,9 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_Fog: 1
+  m_FogColor: {r: 0.7803922, g: 0.627451, b: 0.53333336, a: 1}
+  m_FogMode: 2
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.86101335, g: 0.7790319, b: 0.65554535, a: 1}
+  m_IndirectSpecularColor: {r: 0.70081586, g: 0.5601325, b: 0.38116673, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53,11 +53,11 @@ LightmapSettings:
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
-    m_BakeResolution: 40
+    m_BakeResolution: 1
     m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
@@ -122,12 +122,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5096163}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5096163
 Transform:
@@ -188,12 +188,12 @@ GameObject:
   - component: {fileID: 22910367}
   - component: {fileID: 22910366}
   - component: {fileID: 22910365}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &22910364
 Transform:
@@ -274,12 +274,12 @@ GameObject:
   - component: {fileID: 31774233}
   - component: {fileID: 31774232}
   - component: {fileID: 31774231}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &31774230
 Transform:
@@ -358,12 +358,12 @@ GameObject:
   - component: {fileID: 67351528}
   - component: {fileID: 67351530}
   - component: {fileID: 67351529}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tractor Tyre (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &67351528
 Transform:
@@ -431,12 +431,12 @@ GameObject:
   - component: {fileID: 81858231}
   - component: {fileID: 81858230}
   - component: {fileID: 81858229}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &81858228
 Transform:
@@ -517,12 +517,12 @@ GameObject:
   - component: {fileID: 85296826}
   - component: {fileID: 85296825}
   - component: {fileID: 85296824}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &85296823
 Transform:
@@ -603,12 +603,12 @@ GameObject:
   - component: {fileID: 101526151}
   - component: {fileID: 101526150}
   - component: {fileID: 101526149}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &101526148
 Transform:
@@ -745,12 +745,12 @@ GameObject:
   - component: {fileID: 123125518}
   - component: {fileID: 123125517}
   - component: {fileID: 123125516}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &123125515
 Transform:
@@ -831,12 +831,12 @@ GameObject:
   - component: {fileID: 127414117}
   - component: {fileID: 127414116}
   - component: {fileID: 127414115}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crate (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &127414114
 Transform:
@@ -960,12 +960,12 @@ GameObject:
   - component: {fileID: 144531903}
   - component: {fileID: 144531902}
   - component: {fileID: 144531901}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &144531900
 Transform:
@@ -1045,12 +1045,12 @@ GameObject:
   - component: {fileID: 177551864}
   - component: {fileID: 177551863}
   - component: {fileID: 177551862}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &177551861
 Transform:
@@ -1131,12 +1131,12 @@ GameObject:
   - component: {fileID: 183238536}
   - component: {fileID: 183238535}
   - component: {fileID: 183238534}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Abandoned Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &183238534
 BoxCollider:
@@ -1261,12 +1261,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 320517511}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Streetlight (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &320517511
 Transform:
@@ -1294,12 +1294,12 @@ GameObject:
   - component: {fileID: 320526890}
   - component: {fileID: 320526889}
   - component: {fileID: 320526888}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sea Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &320526888
 BoxCollider:
@@ -1379,12 +1379,12 @@ GameObject:
   - component: {fileID: 338749793}
   - component: {fileID: 338749792}
   - component: {fileID: 338749791}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &338749790
 Transform:
@@ -1465,12 +1465,12 @@ GameObject:
   - component: {fileID: 373739374}
   - component: {fileID: 373739373}
   - component: {fileID: 373739372}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &373739371
 Transform:
@@ -1550,12 +1550,12 @@ GameObject:
   - component: {fileID: 390485412}
   - component: {fileID: 390485411}
   - component: {fileID: 390485410}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &390485409
 Transform:
@@ -1636,12 +1636,12 @@ GameObject:
   - component: {fileID: 397813370}
   - component: {fileID: 397813369}
   - component: {fileID: 397813368}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &397813367
 Transform:
@@ -1721,12 +1721,12 @@ GameObject:
   - component: {fileID: 398819735}
   - component: {fileID: 398819734}
   - component: {fileID: 398819733}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &398819732
 Transform:
@@ -1804,12 +1804,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402740441}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Streetlight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &402740441
 Transform:
@@ -1837,12 +1837,12 @@ GameObject:
   - component: {fileID: 415042450}
   - component: {fileID: 415042449}
   - component: {fileID: 415042448}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crate (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &415042447
 Transform:
@@ -1922,12 +1922,12 @@ GameObject:
   - component: {fileID: 423036811}
   - component: {fileID: 423036810}
   - component: {fileID: 423036809}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &423036808
 Transform:
@@ -2007,12 +2007,12 @@ GameObject:
   - component: {fileID: 430302807}
   - component: {fileID: 430302806}
   - component: {fileID: 430302805}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &430302804
 Transform:
@@ -2093,12 +2093,12 @@ GameObject:
   - component: {fileID: 483497646}
   - component: {fileID: 483497645}
   - component: {fileID: 483497644}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &483497643
 Transform:
@@ -2178,12 +2178,12 @@ GameObject:
   - component: {fileID: 503612744}
   - component: {fileID: 503612743}
   - component: {fileID: 503612742}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &503612741
 Transform:
@@ -2261,12 +2261,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 542868571}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sandbags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &542868571
 Transform:
@@ -2300,12 +2300,12 @@ GameObject:
   - component: {fileID: 546971843}
   - component: {fileID: 546971842}
   - component: {fileID: 546971841}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &546971840
 Transform:
@@ -2386,12 +2386,12 @@ GameObject:
   - component: {fileID: 562037041}
   - component: {fileID: 562037040}
   - component: {fileID: 562037039}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &562037038
 Transform:
@@ -2472,12 +2472,12 @@ GameObject:
   - component: {fileID: 566455670}
   - component: {fileID: 566455669}
   - component: {fileID: 566455668}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &566455667
 Transform:
@@ -2558,12 +2558,12 @@ GameObject:
   - component: {fileID: 569559024}
   - component: {fileID: 569559023}
   - component: {fileID: 569559022}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &569559021
 Transform:
@@ -2644,12 +2644,12 @@ GameObject:
   - component: {fileID: 607087761}
   - component: {fileID: 607087760}
   - component: {fileID: 607087759}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &607087758
 Transform:
@@ -2771,12 +2771,12 @@ GameObject:
   - component: {fileID: 628506980}
   - component: {fileID: 628506979}
   - component: {fileID: 628506978}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &628506977
 Transform:
@@ -2857,12 +2857,12 @@ GameObject:
   - component: {fileID: 651396544}
   - component: {fileID: 651396543}
   - component: {fileID: 651396542}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &651396541
 Transform:
@@ -2942,12 +2942,12 @@ GameObject:
   - component: {fileID: 654675307}
   - component: {fileID: 654675306}
   - component: {fileID: 654675305}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crate (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &654675304
 Transform:
@@ -3027,12 +3027,12 @@ GameObject:
   - component: {fileID: 655859468}
   - component: {fileID: 655859467}
   - component: {fileID: 655859466}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &655859465
 Transform:
@@ -3113,12 +3113,12 @@ GameObject:
   - component: {fileID: 662603272}
   - component: {fileID: 662603271}
   - component: {fileID: 662603270}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &662603269
 Transform:
@@ -3227,12 +3227,12 @@ GameObject:
   - component: {fileID: 747939319}
   - component: {fileID: 747939318}
   - component: {fileID: 747939317}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &747939316
 Transform:
@@ -3313,12 +3313,12 @@ GameObject:
   - component: {fileID: 768869067}
   - component: {fileID: 768869066}
   - component: {fileID: 768869065}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &768869064
 Transform:
@@ -3399,12 +3399,12 @@ GameObject:
   - component: {fileID: 770571752}
   - component: {fileID: 770571751}
   - component: {fileID: 770571750}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Oil Barrel (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &770571749
 Transform:
@@ -3485,12 +3485,12 @@ GameObject:
   - component: {fileID: 777772477}
   - component: {fileID: 777772476}
   - component: {fileID: 777772475}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &777772474
 Transform:
@@ -3571,12 +3571,12 @@ GameObject:
   - component: {fileID: 778708799}
   - component: {fileID: 778708798}
   - component: {fileID: 778708797}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sea Container (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &778708796
 Transform:
@@ -3762,12 +3762,12 @@ GameObject:
   - component: {fileID: 799031792}
   - component: {fileID: 799031791}
   - component: {fileID: 799031790}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &799031789
 Transform:
@@ -3844,12 +3844,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 819185275}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sandbags (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &819185275
 Transform:
@@ -3883,12 +3883,12 @@ GameObject:
   - component: {fileID: 829728629}
   - component: {fileID: 829728628}
   - component: {fileID: 829728627}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &829728626
 Transform:
@@ -3969,12 +3969,12 @@ GameObject:
   - component: {fileID: 829902861}
   - component: {fileID: 829902860}
   - component: {fileID: 829902859}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &829902858
 Transform:
@@ -4055,12 +4055,12 @@ GameObject:
   - component: {fileID: 899156899}
   - component: {fileID: 899156898}
   - component: {fileID: 899156897}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &899156896
 Transform:
@@ -4141,12 +4141,12 @@ GameObject:
   - component: {fileID: 901357781}
   - component: {fileID: 901357780}
   - component: {fileID: 901357779}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &901357778
 Transform:
@@ -4215,6 +4215,67 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 901357777}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &940291212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940291214}
+  - component: {fileID: 940291213}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!215 &940291213
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940291212}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 110, y: 10, z: 120}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
+--- !u!4 &940291214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 940291212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 53.297714, y: 53.7, z: 59.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &977231269
 GameObject:
   m_ObjectHideFlags: 0
@@ -4226,12 +4287,12 @@ GameObject:
   - component: {fileID: 977231273}
   - component: {fileID: 977231272}
   - component: {fileID: 977231271}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &977231270
 Transform:
@@ -4308,12 +4369,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991840765}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Streetlight (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &991840765
 Transform:
@@ -4341,12 +4402,12 @@ GameObject:
   - component: {fileID: 1017718855}
   - component: {fileID: 1017718854}
   - component: {fileID: 1017718853}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Oil Barrel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1017718852
 Transform:
@@ -4496,12 +4557,12 @@ GameObject:
   - component: {fileID: 1040348795}
   - component: {fileID: 1040348794}
   - component: {fileID: 1040348793}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1040348792
 Transform:
@@ -4579,12 +4640,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1044423692}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Big Ruin (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1044423692
 Transform:
@@ -4616,12 +4677,12 @@ GameObject:
   - component: {fileID: 1044611421}
   - component: {fileID: 1044611420}
   - component: {fileID: 1044611419}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1044611418
 Transform:
@@ -4773,12 +4834,12 @@ GameObject:
   - component: {fileID: 1071211869}
   - component: {fileID: 1071211868}
   - component: {fileID: 1071211867}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tractor Tyre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &1071211867
 MeshRenderer:
@@ -4843,12 +4904,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076884765}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Streetlight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1076884765
 Transform:
@@ -4876,12 +4937,12 @@ GameObject:
   - component: {fileID: 1088812511}
   - component: {fileID: 1088812510}
   - component: {fileID: 1088812509}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Oil Barrel (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1088812508
 Transform:
@@ -4962,12 +5023,12 @@ GameObject:
   - component: {fileID: 1091704924}
   - component: {fileID: 1091704923}
   - component: {fileID: 1091704922}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1091704921
 Transform:
@@ -5048,12 +5109,12 @@ GameObject:
   - component: {fileID: 1102940462}
   - component: {fileID: 1102940461}
   - component: {fileID: 1102940460}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1102940459
 Transform:
@@ -5134,12 +5195,12 @@ GameObject:
   - component: {fileID: 1104040964}
   - component: {fileID: 1104040963}
   - component: {fileID: 1104040962}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crate (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1104040961
 Transform:
@@ -5219,12 +5280,12 @@ GameObject:
   - component: {fileID: 1107776317}
   - component: {fileID: 1107776316}
   - component: {fileID: 1107776315}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1107776314
 Transform:
@@ -5305,12 +5366,12 @@ GameObject:
   - component: {fileID: 1124434710}
   - component: {fileID: 1124434709}
   - component: {fileID: 1124434708}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Oil Barrel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1124434707
 Transform:
@@ -5391,12 +5452,12 @@ GameObject:
   - component: {fileID: 1144055875}
   - component: {fileID: 1144055874}
   - component: {fileID: 1144055873}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1144055872
 Transform:
@@ -5476,12 +5537,12 @@ GameObject:
   - component: {fileID: 1153838965}
   - component: {fileID: 1153838964}
   - component: {fileID: 1153838963}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1153838962
 Transform:
@@ -5561,12 +5622,12 @@ GameObject:
   - component: {fileID: 1197779861}
   - component: {fileID: 1197779860}
   - component: {fileID: 1197779859}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1197779858
 Transform:
@@ -5645,15 +5706,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 33.38
+      value: 34.51
       objectReference: {fileID: 0}
     - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 51.421
+      value: 50.35
       objectReference: {fileID: 0}
     - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 83.78
+      value: 82.59
       objectReference: {fileID: 0}
     - target: {fileID: 4040945454296272, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5712,12 +5773,12 @@ GameObject:
   - component: {fileID: 1232285644}
   - component: {fileID: 1232285643}
   - component: {fileID: 1232285642}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1232285641
 Transform:
@@ -5798,12 +5859,12 @@ GameObject:
   - component: {fileID: 1244140019}
   - component: {fileID: 1244140018}
   - component: {fileID: 1244140017}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1244140016
 Transform:
@@ -5883,12 +5944,12 @@ GameObject:
   - component: {fileID: 1260676127}
   - component: {fileID: 1260676126}
   - component: {fileID: 1260676125}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1260676125
 BoxCollider:
@@ -5982,8 +6043,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.9913893, g: 1, b: 0.759434, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.9058824, g: 0.7843138, b: 0.6313726, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -6034,12 +6095,12 @@ GameObject:
   - component: {fileID: 1266610247}
   - component: {fileID: 1266610246}
   - component: {fileID: 1266610245}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1266610244
 Transform:
@@ -6117,12 +6178,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1268323258}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sandbags (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1268323258
 Transform:
@@ -6256,12 +6317,12 @@ GameObject:
   - component: {fileID: 1335101008}
   - component: {fileID: 1335101007}
   - component: {fileID: 1335101006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1335101005
 Transform:
@@ -6342,12 +6403,12 @@ GameObject:
   - component: {fileID: 1350630869}
   - component: {fileID: 1350630868}
   - component: {fileID: 1350630867}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1350630866
 Transform:
@@ -6428,12 +6489,12 @@ GameObject:
   - component: {fileID: 1356629764}
   - component: {fileID: 1356629763}
   - component: {fileID: 1356629762}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1356629761
 Transform:
@@ -6514,12 +6575,12 @@ GameObject:
   - component: {fileID: 1358368421}
   - component: {fileID: 1358368420}
   - component: {fileID: 1358368419}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1358368418
 Transform:
@@ -6600,12 +6661,12 @@ GameObject:
   - component: {fileID: 1360105982}
   - component: {fileID: 1360105981}
   - component: {fileID: 1360105980}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1360105979
 Transform:
@@ -6692,12 +6753,12 @@ GameObject:
   - component: {fileID: 1385877081}
   - component: {fileID: 1385877080}
   - component: {fileID: 1385877079}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Abandoned Car (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1385877078
 Transform:
@@ -6774,12 +6835,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1398280061}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sandbags (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1398280061
 Transform:
@@ -6813,12 +6874,12 @@ GameObject:
   - component: {fileID: 1413359841}
   - component: {fileID: 1413359840}
   - component: {fileID: 1413359839}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1413359838
 Transform:
@@ -6895,12 +6956,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414477483}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sandbags (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1414477483
 Transform:
@@ -6934,12 +6995,12 @@ GameObject:
   - component: {fileID: 1417515599}
   - component: {fileID: 1417515598}
   - component: {fileID: 1417515597}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1417515596
 Transform:
@@ -7020,12 +7081,12 @@ GameObject:
   - component: {fileID: 1417778724}
   - component: {fileID: 1417778723}
   - component: {fileID: 1417778722}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1417778721
 Transform:
@@ -7167,12 +7228,12 @@ GameObject:
   - component: {fileID: 1510100916}
   - component: {fileID: 1510100915}
   - component: {fileID: 1510100914}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1510100913
 Transform:
@@ -7253,12 +7314,12 @@ GameObject:
   - component: {fileID: 1518693884}
   - component: {fileID: 1518693883}
   - component: {fileID: 1518693882}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1518693881
 Transform:
@@ -7338,12 +7399,12 @@ GameObject:
   - component: {fileID: 1525961082}
   - component: {fileID: 1525961081}
   - component: {fileID: 1525961080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1525961079
 Transform:
@@ -7424,12 +7485,12 @@ GameObject:
   - component: {fileID: 1573855040}
   - component: {fileID: 1573855039}
   - component: {fileID: 1573855038}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1573855037
 Transform:
@@ -7510,12 +7571,12 @@ GameObject:
   - component: {fileID: 1584489695}
   - component: {fileID: 1584489694}
   - component: {fileID: 1584489693}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1584489692
 Transform:
@@ -7595,12 +7656,12 @@ GameObject:
   - component: {fileID: 1615257389}
   - component: {fileID: 1615257388}
   - component: {fileID: 1615257387}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1615257386
 Transform:
@@ -7680,12 +7741,12 @@ GameObject:
   - component: {fileID: 1651822623}
   - component: {fileID: 1651822622}
   - component: {fileID: 1651822621}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Oil Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!136 &1651822621
 CapsuleCollider:
@@ -7766,12 +7827,12 @@ GameObject:
   - component: {fileID: 1651998342}
   - component: {fileID: 1651998341}
   - component: {fileID: 1651998340}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1651998339
 Transform:
@@ -7852,12 +7913,12 @@ GameObject:
   - component: {fileID: 1652433139}
   - component: {fileID: 1652433138}
   - component: {fileID: 1652433137}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1652433136
 Transform:
@@ -7937,12 +7998,12 @@ GameObject:
   - component: {fileID: 1726120746}
   - component: {fileID: 1726120745}
   - component: {fileID: 1726120744}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1726120743
 Transform:
@@ -8023,12 +8084,12 @@ GameObject:
   - component: {fileID: 1733267953}
   - component: {fileID: 1733267952}
   - component: {fileID: 1733267951}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1733267950
 Transform:
@@ -8109,12 +8170,12 @@ GameObject:
   - component: {fileID: 1772036021}
   - component: {fileID: 1772036020}
   - component: {fileID: 1772036019}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Abandoned Car (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1772036018
 Transform:
@@ -8194,12 +8255,12 @@ GameObject:
   - component: {fileID: 1778962825}
   - component: {fileID: 1778962824}
   - component: {fileID: 1778962823}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1778962822
 Transform:
@@ -8279,12 +8340,12 @@ GameObject:
   - component: {fileID: 1788072050}
   - component: {fileID: 1788072049}
   - component: {fileID: 1788072048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1788072048
 BoxCollider:
@@ -8361,12 +8422,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1814705929}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Big Ruin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1814705929
 Transform:
@@ -8398,12 +8459,12 @@ GameObject:
   - component: {fileID: 1824890042}
   - component: {fileID: 1824890041}
   - component: {fileID: 1824890040}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1824890039
 Transform:
@@ -8487,12 +8548,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868092465}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Streetlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1868092465
 Transform:
@@ -8560,12 +8621,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1906183150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sandbags (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1906183150
 Transform:
@@ -8599,12 +8660,12 @@ GameObject:
   - component: {fileID: 1908782934}
   - component: {fileID: 1908782933}
   - component: {fileID: 1908782932}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1908782931
 Transform:
@@ -8684,12 +8745,12 @@ GameObject:
   - component: {fileID: 1920576550}
   - component: {fileID: 1920576549}
   - component: {fileID: 1920576548}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Oil Barrel (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1920576547
 Transform:
@@ -8767,12 +8828,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930283945}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Streetlight (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1930283945
 Transform:
@@ -8800,12 +8861,12 @@ GameObject:
   - component: {fileID: 1968070033}
   - component: {fileID: 1968070032}
   - component: {fileID: 1968070031}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1968070030
 Transform:
@@ -8886,12 +8947,12 @@ GameObject:
   - component: {fileID: 1997008345}
   - component: {fileID: 1997008344}
   - component: {fileID: 1997008343}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1997008342
 Transform:
@@ -8971,12 +9032,12 @@ GameObject:
   - component: {fileID: 2042977680}
   - component: {fileID: 2042977679}
   - component: {fileID: 2042977678}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2042977677
 Transform:
@@ -9056,12 +9117,12 @@ GameObject:
   - component: {fileID: 2103003868}
   - component: {fileID: 2103003867}
   - component: {fileID: 2103003866}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2103003865
 Transform:
@@ -9142,12 +9203,12 @@ GameObject:
   - component: {fileID: 2110139047}
   - component: {fileID: 2110139046}
   - component: {fileID: 2110139045}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2110139044
 Transform:
@@ -9228,12 +9289,12 @@ GameObject:
   - component: {fileID: 2123296729}
   - component: {fileID: 2123296728}
   - component: {fileID: 2123296727}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2123296726
 Transform:
@@ -9313,12 +9374,12 @@ GameObject:
   - component: {fileID: 2129262763}
   - component: {fileID: 2129262762}
   - component: {fileID: 2129262761}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crate (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2129262760
 Transform:
