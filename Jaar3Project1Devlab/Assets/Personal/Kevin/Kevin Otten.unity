@@ -964,6 +964,7 @@ GameObject:
   - component: {fileID: 1665056841}
   - component: {fileID: 1665056843}
   - component: {fileID: 1665056844}
+  - component: {fileID: 1665056845}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -989,18 +990,22 @@ MonoBehaviour:
   allTeams:
   - teamAlive: 1
     soldierIndex: 0
+    teamNumber: 0
     allSoldiers:
     - {fileID: 1785010163}
   - teamAlive: 1
     soldierIndex: 0
+    teamNumber: 0
     allSoldiers:
     - {fileID: 1776339917}
   - teamAlive: 1
     soldierIndex: 0
+    teamNumber: 0
     allSoldiers:
     - {fileID: 736913103}
   - teamAlive: 1
     soldierIndex: 0
+    teamNumber: 0
     allSoldiers:
     - {fileID: 666040405}
   playerColors: []
@@ -1049,6 +1054,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshairImage: {fileID: 1150446286}
+--- !u!114 &1665056845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665056840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5c086291deea14e9414bf3523ca7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamCount: 4
 --- !u!114 &1776339917 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114548967952439356, guid: 0180e8f5172e8424c9aac4d18e2e4cd6,
