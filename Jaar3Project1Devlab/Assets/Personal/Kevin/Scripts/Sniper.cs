@@ -18,10 +18,6 @@ public class Sniper : Weapon {
     {
         if(gameObject.transform.root.GetComponent<Soldier>() != null)
         {
-            if(currentClip == 0)
-            {
-                StartCoroutine(waitTillTrigger());
-            }
             if(gameObject.transform.root.GetComponent<Soldier>().isActive == true)
             {
                 if(Input.GetButtonDown("Fire2"))
@@ -32,11 +28,7 @@ public class Sniper : Weapon {
         }
     }
 
-    public IEnumerator waitTillTrigger()
-    {
-        yield return new WaitForSeconds(3);
-        TeamManager.instance.NextTeam();
-    }
+    
 
     public void ActivateScope()
     {
