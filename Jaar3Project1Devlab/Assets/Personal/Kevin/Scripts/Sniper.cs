@@ -32,7 +32,7 @@ public class Sniper : Weapon {
 
     public void ActivateScope()
     {
-        Camera.main.GetComponent<Camera>().fieldOfView = fovValue; 
+        //Camera.main.GetComponent<Camera>().fieldOfView = fovValue; Iedere keer als ik ALT+TAB deet hij dit pl0x fix -Peter
         //Scope UI element
         //Play sound
     }

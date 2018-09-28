@@ -112,10 +112,8 @@ public class TeamManager : Photon.PunBehaviour {
             }
         }
 
-        if(currentPlayer == PhotonNetwork.player)
-        {
-            TurnTimerCircle();
-        }
+        
+        TurnTimerCircle();
 
         if (!NWManager.instance.playingMultiplayer)
         {
@@ -166,7 +164,7 @@ public class TeamManager : Photon.PunBehaviour {
 
             if (NWManager.instance.playingMultiplayer)
             {
-                photonView.RPC("TempFloatRPC", PhotonTargets.Others);
+                photonView.RPC("TempFloatRPC", PhotonTargets.All);
             }
 
         }
@@ -216,6 +214,7 @@ public class TeamManager : Photon.PunBehaviour {
         {
             tempFloat--;
             turnTimerCircle.fillAmount = tempFloat / maxTurnTime;
+
             timeText.text = "" + tempFloat;
         }
         if(tempFloat <= 0)
@@ -270,6 +269,10 @@ public class TeamManager : Photon.PunBehaviour {
             teamIndex += 1;
             if(allTeams[teamIndex].teamAlive == false)
             {
+                if (NWManager.instance.playingMultiplayer)
+                {
+                    NextTurn();
+                }
                 NextTeam();
             }
             else
@@ -286,6 +289,10 @@ public class TeamManager : Photon.PunBehaviour {
             teamIndex = 0;
             if(allTeams[teamIndex].teamAlive == false)
             {
+                if (NWManager.instance.playingMultiplayer)
+                {
+                    NextTurn();
+                }
                 NextTeam();
             }
             else
@@ -401,8 +408,18 @@ public class TeamManager : Photon.PunBehaviour {
                 soldier.soldierMovement.canMove = true;
                 soldier.isActive = true;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
-                
-                InvokeRepeat();
+
+                if (!NWManager.instance.playingMultiplayer)
+                {
+                    InvokeRepeat();
+                }
+                else
+                {
+                    if(soldier.soldierMovement.canMove && currentPlayer == PhotonNetwork.player) //Sync host
+                    {
+                        InvokeRepeat();
+                    }
+                }
 
                 //Start the turn timmy
             }

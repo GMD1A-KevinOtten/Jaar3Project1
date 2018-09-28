@@ -372,6 +372,7 @@ MonoBehaviour:
   cameraPositionSky: {fileID: 387375719}
   movementSpeed: 20
   teamIndex: 0
+  lastTeamIndex: 0
   allTeams:
   - teamAlive: 1
     soldierIndex: 0
@@ -1220,6 +1221,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1967739654551756, guid: 8fae74328b683274b9772f12905d9470,
         type: 2}
+    - target: {fileID: 114482773179276378, guid: 0180e8f5172e8424c9aac4d18e2e4cd6,
+        type: 2}
+      propertyPath: canMove
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0180e8f5172e8424c9aac4d18e2e4cd6, type: 2}
   m_IsPrefabAsset: 0
