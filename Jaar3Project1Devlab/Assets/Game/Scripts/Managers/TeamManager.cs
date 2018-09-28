@@ -304,6 +304,8 @@ public class TeamManager : Photon.PunBehaviour {
                 allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Movement>().canMove = true;
                 allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<PhotonView>().RequestOwnership();
 
+                allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Soldier>().equippedWeapon.GetComponent<PhotonView>().RequestOwnership();
+
 
             }
         }
