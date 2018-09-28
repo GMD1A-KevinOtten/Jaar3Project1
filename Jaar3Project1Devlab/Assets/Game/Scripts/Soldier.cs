@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Soldier : MonoBehaviour {
+public class Soldier : Photon.PunBehaviour {
 
     /// <summary>
     /// PlayerCamPos is always the first child of the object that contains the Soldier Class
@@ -58,6 +58,7 @@ public class Soldier : MonoBehaviour {
         }
     }
 
+    [PunRPC]
     public void TakeDamage(int toDamage)
     {
         print("0");
@@ -65,7 +66,14 @@ public class Soldier : MonoBehaviour {
 
         if (health <= 0)
         {
-            Die();
+            if (NWManager.instance.playingMultiplayer)
+            {
+                photonView.RPC("Die", PhotonTargets.All);
+            }
+            else
+            {
+                Die();
+            }
         }
     }
 
@@ -90,7 +98,7 @@ public class Soldier : MonoBehaviour {
         }
         else
         {
-            GameObject currenWeapon = PhotonNetwork.Instantiate(availableWeaponsPrefabs[weaponIndex].ToString(), weaponSpawnLocation.position,weaponSpawnLocation.rotation,0);
+            GameObject currenWeapon = PhotonNetwork.Instantiate("PRE_SniperRifle", weaponSpawnLocation.position,weaponSpawnLocation.rotation,0);
             currenWeapon.transform.SetParent(weaponSpawnLocation);
             currenWeapon.GetComponent<Rigidbody>().isKinematic = true;
             return currenWeapon;
@@ -113,6 +121,7 @@ public class Soldier : MonoBehaviour {
         }
     }
 
+    [PunRPC]
     public void Die()
     {
         isDead = true;

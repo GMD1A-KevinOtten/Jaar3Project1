@@ -74,4 +74,6 @@ MonoBehaviour:
   - ResetTurnTimer
   - AddClientRPC
   - TempFloatRPC
+  - TakeDamage
+  - Die
   DisableAutoOpenWizard: 1

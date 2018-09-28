@@ -30,7 +30,15 @@ public class Bullet : MonoBehaviour {
     {
         print("Soldier");
         Soldier soldier = gotHit.transform.GetComponent<Soldier>();
-        soldier.TakeDamage(defaultDamage);
+
+        if (NWManager.instance.playingMultiplayer)
+        {
+            soldier.transform.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, defaultDamage);
+        }
+        else
+        {
+            soldier.TakeDamage(defaultDamage);
+        }
         Destroy(gameObject);
     }
 
