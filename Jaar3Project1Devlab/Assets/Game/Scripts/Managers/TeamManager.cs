@@ -80,11 +80,7 @@ public class TeamManager : Photon.PunBehaviour {
             {
                 if(Input.GetButtonDown("Enter") && currentPlayer == PhotonNetwork.player)
                 {
-                    Debug.Log("TeamIndex = " + teamIndex);
-
                     photonView.RPC("ToSoldier", PhotonTargets.All);
-
-                    
                 }
             }
             else
@@ -270,6 +266,30 @@ public class TeamManager : Photon.PunBehaviour {
         }
         else
         {
+            Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+            soldier.soldierMovement.canMove = false;
+            soldier.isActive = false;
+
+            if (teamIndex + 1 < allTeams.Count  )
+            {
+                teamIndex += 1;
+                if(allTeams[teamIndex].teamAlive == false)
+                {
+                    NextTeam();
+                }   
+            }
+            else
+            {
+                teamIndex = 0;
+                if(allTeams[teamIndex].teamAlive != false)
+                {
+                    allTeams[teamIndex].NextSoldier();
+                }
+                else
+                {
+                    NextTeam();
+                }
+            }
             ToTopView();
             ResetCountingDown();
         } 
@@ -343,26 +363,10 @@ public class TeamManager : Photon.PunBehaviour {
             runningIenumerator = true;
             mainCamera.cameraState = CameraMovement.CameraStates.Idle;
 
-            if(camState == CameraMovement.CameraStates.Topview)
-            {
-                Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-                soldier.soldierMovement.canMove = false;
-                soldier.isActive = false;
-
-                if (teamIndex + 1 < allTeams.Count  )
-                {
-                    teamIndex += 1;
-                }
-                else
-                {
-                    teamIndex = 0;
-                    allTeams[teamIndex].NextSoldier();
-                }
-                if(allTeams[teamIndex].teamAlive == false)
-                {
-                    NextTeam();
-                }   
-            }
+            // if(camState == CameraMovement.CameraStates.Topview)
+            // {
+                
+            // }
             print(mainCamera.transform.parent.rotation);
             while (mainCamera.transform.parent.position != moveTo && mainCamera.transform.rotation != rotateTo)
             {
