@@ -10,11 +10,6 @@ public class Team {
     public int teamNumber;
     public List<Soldier> allSoldiers = new List<Soldier>();
 
-    void Start() 
-    {
-
-    }
-
     public void NextSoldier()
     {
         if (soldierIndex + 1 < allSoldiers.Count)
@@ -45,5 +40,21 @@ public class Team {
         }
         Debug.Log(soldiersAlive);
         teamAlive = soldiersAlive;
+    }
+
+    public bool SoldierCheck(Soldier checkThis)
+    {
+        bool isHere = false;
+
+        foreach (Soldier sold in allSoldiers)
+        {
+            if(sold == checkThis)
+            {
+                isHere = true;
+                CheckTeam();
+                break;
+            }
+        }
+        return isHere;
     }
 }

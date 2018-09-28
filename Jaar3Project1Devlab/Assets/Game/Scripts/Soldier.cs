@@ -82,10 +82,20 @@ public class Soldier : MonoBehaviour {
 
     public GameObject InstantiateWeapon(int weaponIndex)
     {
-        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation.position,weaponSpawnLocation.rotation);
-        currenWeapon.transform.SetParent(weaponSpawnLocation);
-        currenWeapon.GetComponent<Rigidbody>().isKinematic = true;
-        return currenWeapon;
+        if(!NWManager.instance.playingMultiplayer){
+            GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation.position,weaponSpawnLocation.rotation);
+            currenWeapon.transform.SetParent(weaponSpawnLocation);
+            currenWeapon.GetComponent<Rigidbody>().isKinematic = true;
+            return currenWeapon;
+        }
+        else
+        {
+            GameObject currenWeapon = PhotonNetwork.Instantiate(availableWeaponsPrefabs[weaponIndex].ToString(), weaponSpawnLocation.position,weaponSpawnLocation.rotation,0);
+            currenWeapon.transform.SetParent(weaponSpawnLocation);
+            currenWeapon.GetComponent<Rigidbody>().isKinematic = true;
+            return currenWeapon;
+        }
+       
     }
 
     public void ShootWeapon()
@@ -106,7 +116,13 @@ public class Soldier : MonoBehaviour {
     public void Die()
     {
         isDead = true;
-        //TeamManager.instance.allTeams[].CheckTeam();
+        foreach (Team team in TeamManager.instance.allTeams)
+        {
+            if(team.SoldierCheck(this) == true)
+            {
+                break;
+            }
+        }
 
         //speel animatie af
     }
