@@ -27,6 +27,11 @@ public class Weapon : Photon.PunBehaviour {
 
     [PunRPC]
 
+    void Start() 
+    {
+        FillClip();
+    }
+
     public virtual void ShootBullet()
     {
         if (NWManager.instance.playingMultiplayer)
@@ -77,10 +82,17 @@ public class Weapon : Photon.PunBehaviour {
 
     public virtual void Reload(int reloadSoundIndex)
     {
-        AudioManager.instance.PlayAudio2D(reloadSounds[reloadSoundIndex]);
-
         if (currentClip != clipMax)
+        {
+            AudioManager.instance.PlayAudio2D(reloadSounds[reloadSoundIndex]);
             FillClip();
+            TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
+            TeamManager.instance.NextTeam();
+        }
+        else
+        {
+            //whatever de fuck we willen als reloaden waardenloos is aka max ammo in geweer
+        }
     }
 
     private void FillClip()

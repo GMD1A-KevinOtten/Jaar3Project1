@@ -122,6 +122,8 @@ GameObject:
   - component: {fileID: 114428188394622228}
   - component: {fileID: 54467155671410968}
   - component: {fileID: 65806583415570892}
+  - component: {fileID: 65158212636497406}
+  - component: {fileID: 65214383144366398}
   - component: {fileID: 114007482594637084}
   m_Layer: 11
   m_Name: PRE_SniperRifle
@@ -163,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989339358856240}
   m_LocalRotation: {x: -0, y: 0.7071069, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: -3.481, y: 1.065, z: -2.497}
+  m_LocalPosition: {x: 13.279328, y: 0.114, z: -4.08682}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4657492303742256}
@@ -452,6 +454,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65158212636497406
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989339358856240}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.08484182, z: 1.02}
+  m_Center: {x: -9.237054e-15, y: 0.08551933, z: 0.28000003}
+--- !u!65 &65214383144366398
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989339358856240}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.08, z: 0.38}
+  m_Center: {x: 0, y: 0.0028, z: -0.04}
 --- !u!65 &65806583415570892
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -462,8 +488,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.22, z: 1.02}
-  m_Center: {x: 0, y: 0.08, z: 0.28}
+  m_Size: {x: 0.05, y: 0.06, z: 0.35}
+  m_Center: {x: 0, y: 0.15, z: 0.125}
 --- !u!114 &114007482594637084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7333d85642fd607418e4cf96bd6514a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunID: 0
   barrelExit: {fileID: 4657492303742256}
   bulletPrefab: {fileID: 1757713778583122, guid: e5d499b896dada7458b3876c33d8ed34,
     type: 2}
@@ -511,6 +538,8 @@ MonoBehaviour:
   bulletVelocity: 100
   bulletSpread: {x: 1, y: 1}
   recoil: 0
-  currentClip: 10
+  shotSound: {fileID: 0}
+  reloadSounds: []
+  currentClip: 0
   clipMax: 50
   fovValue: 20

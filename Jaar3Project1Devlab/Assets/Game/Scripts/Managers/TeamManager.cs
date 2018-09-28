@@ -384,7 +384,7 @@ public class TeamManager : Photon.PunBehaviour {
             runningIenumerator = true;
             mainCamera.cameraState = CameraMovement.CameraStates.Idle;
 
-            while (mainCamera.transform.parent.position != moveTo && mainCamera.transform.rotation != rotateTo)
+            while (mainCamera.transform.parent.position != moveTo || mainCamera.transform.rotation != rotateTo)
             {
                 mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * 0.01f);
                 mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, rotateTo, movementSpeed / 5 * 0.01f);
@@ -399,7 +399,6 @@ public class TeamManager : Photon.PunBehaviour {
                     mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, Quaternion.Euler(Camera.main.transform.parent.eulerAngles.x,cameraPositionSky.eulerAngles.y,cameraPositionSky.eulerAngles.z),movementSpeed / 3 * 0.01f);
                 }
                 yield return null;
-                
             }
 
             if(camState == CameraMovement.CameraStates.ThirdPerson)

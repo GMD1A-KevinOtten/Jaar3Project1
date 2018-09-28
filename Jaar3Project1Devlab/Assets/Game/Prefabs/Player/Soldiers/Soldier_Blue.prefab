@@ -448,6 +448,7 @@ MonoBehaviour:
   availableWeaponsPrefabs:
   - {fileID: 1989339358856240, guid: 38be823892dac2f409f0fa348db03623, type: 2}
   - {fileID: 1967739654551756, guid: d4c5cb1da9010514baa5d383f431142d, type: 2}
+  - {fileID: 1746869410240094, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0
 --- !u!114 &114718524193804532

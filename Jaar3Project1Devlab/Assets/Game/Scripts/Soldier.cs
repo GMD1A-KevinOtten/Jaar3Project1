@@ -61,17 +61,20 @@ public class Soldier : Photon.PunBehaviour {
     [PunRPC]
     public void TakeDamage(int toDamage)
     {
-        health -= toDamage;
-
-        if (health <= 0)
+        if(isDead == false)
         {
-            if (NWManager.instance.playingMultiplayer)
+            health -= toDamage;
+
+            if (health <= 0)
             {
-                photonView.RPC("Die", PhotonTargets.All);
-            }
-            else
-            {
-                Die();
+                if (NWManager.instance.playingMultiplayer)
+                {
+                    photonView.RPC("Die", PhotonTargets.All);
+                }
+                else
+                {
+                    Die();
+                }
             }
         }
     }
@@ -131,7 +134,7 @@ public class Soldier : Photon.PunBehaviour {
                 break;
             }
         }
-
+        transform.Rotate(new Vector3(90,0,0),Space.Self);
         //speel animatie af
     }
 

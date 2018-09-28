@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4810993996721302}
   - component: {fileID: 33560221067264838}
   - component: {fileID: 23383988716194866}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4234759852222938}
   - component: {fileID: 33819217898621596}
   - component: {fileID: 23045276247339442}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BlunderbussBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4967586778920526}
   - component: {fileID: 33218681949850138}
   - component: {fileID: 23926299406469266}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4033070827620178}
   - component: {fileID: 33032424212465540}
   - component: {fileID: 23716400998582330}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FloppyThiny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4977927788821010}
   - component: {fileID: 33621253814990598}
   - component: {fileID: 23812976485939906}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DingOmDeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4565206104663494}
   - component: {fileID: 33479845697235164}
   - component: {fileID: 23547720440684162}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268574874152216}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BarrelExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4013580735572186}
   - component: {fileID: 33451633071871100}
   - component: {fileID: 23953237312037770}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BlunderbussBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,9 +155,10 @@ GameObject:
   - component: {fileID: 4037928767443600}
   - component: {fileID: 114159635829024046}
   - component: {fileID: 65272487407908368}
+  - component: {fileID: 65635572052110038}
   - component: {fileID: 54205288510199232}
   - component: {fileID: 114360503282354926}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pre_Blunderbuss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967739654551756}
   m_LocalRotation: {x: -0, y: 0.7071066, z: -0, w: 0.70710695}
-  m_LocalPosition: {x: 3.0090106, y: 0.6544689, z: -2.5897388}
+  m_LocalPosition: {x: 13.11, y: 0.7257, z: -3.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4013580735572186}
@@ -608,8 +609,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.165, y: 0.4, z: 0.65}
-  m_Center: {x: 0, y: 0.05, z: 0.23}
+  m_Size: {x: 0.165, y: 0.17911008, z: 0.6499999}
+  m_Center: {x: -3.6591366e-15, y: 0.12872349, z: 0.23000325}
+--- !u!65 &65635572052110038
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967739654551756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.165, y: 0.18, z: 0.1}
+  m_Center: {x: 0, y: -0.05, z: -0.045}
 --- !u!114 &114159635829024046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -621,16 +634,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffbcf7a2999fb0448197e2485e45000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunID: 0
   barrelExit: {fileID: 4268574874152216}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 1757713778583122, guid: e5d499b896dada7458b3876c33d8ed34,
+    type: 2}
   gunCrosshair: {fileID: 21300000, guid: 55977c004bf45d945be95548092bdf5d, type: 3}
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 7479
-  bulletVelocity: 10
-  bulletSpread: {x: 5, y: 5}
+  bulletVelocity: 20
+  bulletSpread: {x: 10, y: 10}
   recoil: 30
-  currentClip: 1
+  shotSound: {fileID: 0}
+  reloadSounds: []
+  currentClip: 0
   clipMax: 1
 --- !u!114 &114360503282354926
 MonoBehaviour:
