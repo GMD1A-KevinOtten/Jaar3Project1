@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : Photon.PunBehaviour {
 
     [Header("Gun proporties")]
+    public int gunID;
     public Transform barrelExit;
     public GameObject bulletPrefab;
     public Sprite gunCrosshair;
@@ -12,6 +13,10 @@ public class Weapon : Photon.PunBehaviour {
     public float bulletVelocity;
     public Vector2 bulletSpread;
     public float recoil;
+
+    [Header("Gun Sound Effects")]
+    public CustomAudioClip shotSound;
+    public CustomAudioClip[] reloadSounds;
 
     [Header("Clip proporties")]
     public int currentClip;
@@ -68,5 +73,18 @@ public class Weapon : Photon.PunBehaviour {
         {
             UIManager.instance.HideCrosshair();
         }
+    }
+
+    public virtual void Reload(int reloadSoundIndex)
+    {
+        AudioManager.instance.PlayAudio2D(reloadSounds[reloadSoundIndex]);
+
+        if (currentClip != clipMax)
+            FillClip();
+    }
+
+    private void FillClip()
+    {
+        currentClip = clipMax;
     }
 }

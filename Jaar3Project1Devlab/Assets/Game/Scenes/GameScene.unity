@@ -712,11 +712,13 @@ MonoBehaviour:
   allTeams:
   - teamAlive: 0
     soldierIndex: 0
+    teamNumber: 0
     allSoldiers:
     - {fileID: 149696192}
     - {fileID: 909272892}
   - teamAlive: 0
     soldierIndex: 0
+    teamNumber: 0
     allSoldiers:
     - {fileID: 2125001202}
     - {fileID: 1933492728}
@@ -939,7 +941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbd75bdf07d95b47b599e24e845174e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 0}
   allAudioclips: []
   audioSources: []
   defaultAudiosourcesAmount: 0
@@ -1432,12 +1433,12 @@ Prefab:
     - target: {fileID: 114869158463882940, guid: 27b182deb6f82c14187a0753da0a23b1,
         type: 2}
       propertyPath: viewIdField
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114869158463882940, guid: 27b182deb6f82c14187a0753da0a23b1,
         type: 2}
       propertyPath: instantiationId
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4636908989503912, guid: 27b182deb6f82c14187a0753da0a23b1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5817,12 +5818,12 @@ Prefab:
     - target: {fileID: 114040221755360526, guid: 0180e8f5172e8424c9aac4d18e2e4cd6,
         type: 2}
       propertyPath: viewIdField
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114040221755360526, guid: 0180e8f5172e8424c9aac4d18e2e4cd6,
         type: 2}
       propertyPath: instantiationId
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0180e8f5172e8424c9aac4d18e2e4cd6, type: 2}
@@ -6503,12 +6504,12 @@ Prefab:
     - target: {fileID: 114869158463882940, guid: 27b182deb6f82c14187a0753da0a23b1,
         type: 2}
       propertyPath: viewIdField
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114869158463882940, guid: 27b182deb6f82c14187a0753da0a23b1,
         type: 2}
       propertyPath: instantiationId
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4636908989503912, guid: 27b182deb6f82c14187a0753da0a23b1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7405,6 +7406,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4621342718896538, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114940027340468082, guid: 48e5e7753cce11342b61d7cf1b9e7eae,
+        type: 2}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114940027340468082, guid: 48e5e7753cce11342b61d7cf1b9e7eae,
+        type: 2}
+      propertyPath: instantiationId
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8871,12 +8882,12 @@ Prefab:
     - target: {fileID: 114040221755360526, guid: 0180e8f5172e8424c9aac4d18e2e4cd6,
         type: 2}
       propertyPath: viewIdField
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114040221755360526, guid: 0180e8f5172e8424c9aac4d18e2e4cd6,
         type: 2}
       propertyPath: instantiationId
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4732152506311144, guid: 0180e8f5172e8424c9aac4d18e2e4cd6, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y

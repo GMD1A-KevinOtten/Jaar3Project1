@@ -4,18 +4,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-    public AudioManager instance;
+    public static AudioManager instance;
 
-    [System.Serializable]
-    public struct Clip
-    {
-        public string clipName;
-        public AudioClip clip;
-        [Range(0, 1)]
-        public float defaultVolume;
-    }
-
-    public Clip[] allAudioclips;
+    public CustomAudioClip[] allAudioclips;
     public List<AudioSource> audioSources = new List<AudioSource>();
     public int defaultAudiosourcesAmount;
 
@@ -43,7 +34,7 @@ public class AudioManager : MonoBehaviour {
     /// <para>Use FindAudioClip(string clipName) to overload the file you want to play.</para>
     /// </summary>
     /// <param name="toPlay"></param>
-    public void PlayAudio2D(Clip toPlay)
+    public void PlayAudio2D(CustomAudioClip toPlay)
     {
         AudioSource source = GetEmptyAudiosource();
         source.clip = toPlay.clip;
@@ -60,7 +51,7 @@ public class AudioManager : MonoBehaviour {
     /// </summary>
     /// <param name="toPlay"></param>
     /// <param name="playPos"></param>
-    public void PlayAudio3D(Clip toPlay, Vector3 playPos)
+    public void PlayAudio3D(CustomAudioClip toPlay, Vector3 playPos)
     {
         AudioSource source = GetEmptyAudiosource();
         source.clip = toPlay.clip;
@@ -76,7 +67,7 @@ public class AudioManager : MonoBehaviour {
     /// <para>Use FindAudioClip(string clipName) to overload the file you want to stop.</para>
     /// </summary>
     /// <param name="toStop"></param>
-    public void StopAudio(Clip toStop)
+    public void StopAudio(CustomAudioClip toStop)
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
@@ -92,7 +83,7 @@ public class AudioManager : MonoBehaviour {
     /// </summary>
     /// <param name="clipName"></param>
     /// <returns></returns>
-    public Clip FindAudioClip(string clipName)
+    public CustomAudioClip FindAudioClip(string clipName)
     {
         for (int i = 0; i < allAudioclips.Length; i++)
         {
@@ -103,7 +94,7 @@ public class AudioManager : MonoBehaviour {
         }
 
         Debug.LogError("There is no audioclip named: " + clipName);
-        return new Clip();
+        return new CustomAudioClip();
     }
 
     /// <summary>
