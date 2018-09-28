@@ -61,7 +61,6 @@ public class Soldier : Photon.PunBehaviour {
     [PunRPC]
     public void TakeDamage(int toDamage)
     {
-        print("0");
         health -= toDamage;
 
         if (health <= 0)

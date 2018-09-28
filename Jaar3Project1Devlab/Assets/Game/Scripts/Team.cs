@@ -34,11 +34,9 @@ public class Team {
             if(soldier.isDead != true)
             {
                 soldiersAlive = true;
-                Debug.Log("But GWy");
                 break;
             }
         }
-        Debug.Log(soldiersAlive);
         teamAlive = soldiersAlive;
     }
 

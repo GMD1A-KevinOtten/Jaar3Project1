@@ -15,6 +15,7 @@ public class TeamManager : Photon.PunBehaviour {
 
     [Header("Team Proporties")]
     public int teamIndex;
+    public int lastTeamIndex;
     public List<Team> allTeams = new List<Team>();
 
     [Header("Networking")]
@@ -88,7 +89,6 @@ public class TeamManager : Photon.PunBehaviour {
                 if(Input.GetButtonDown("Enter"))
                 {
                     ToSoldier();
-
                 }
             }
         }
@@ -101,11 +101,13 @@ public class TeamManager : Photon.PunBehaviour {
                     CallNextTurn();
                     mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
                     mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                    lastTeamIndex = teamIndex;
                     photonView.RPC("NextTeam", PhotonTargets.All);
                 }
             }
             else if(Input.GetKeyDown("n"))
             {
+                lastTeamIndex = teamIndex;
                 NextTeam();
             }
         }
@@ -126,10 +128,8 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     void InvokeRepeat()
     {
-        Debug.Log("Invoked");
         if (!countingDown)
         {
-            Debug.Log("InvokedAfterIfBool");
             InvokeRepeating("TurnTimer", 1, 1);
         }
     }
@@ -188,10 +188,12 @@ public class TeamManager : Photon.PunBehaviour {
                 CallNextTurn();
                 mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
                 mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
+                lastTeamIndex = teamIndex;
                 photonView.RPC("NextTeam", PhotonTargets.All);
             }
             else
             {
+                lastTeamIndex = teamIndex;
                 NextTeam();
             }
          
@@ -259,6 +261,42 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     public void NextTeam()
     {
+        Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+        soldier.soldierMovement.canMove = false;
+        soldier.isActive = false;
+
+        if (teamIndex + 1 < allTeams.Count)
+        {
+            teamIndex += 1;
+            if(allTeams[teamIndex].teamAlive == false)
+            {
+                NextTeam();
+            }
+            else
+            {
+                allTeams[lastTeamIndex].NextSoldier();
+                if(allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].isDead == true)
+                {
+                    allTeams[teamIndex].NextSoldier();
+                }
+            }
+        }
+        else
+        {
+            teamIndex = 0;
+            if(allTeams[teamIndex].teamAlive == false)
+            {
+                NextTeam();
+            }
+            else
+            {
+                allTeams[lastTeamIndex].NextSoldier();
+                if(allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].isDead == true)
+                {
+                    allTeams[teamIndex].NextSoldier();
+                }
+            }
+        }
         if(NWManager.instance.playingMultiplayer)
         {
             photonView.RPC("ToTopView", PhotonTargets.All);
@@ -266,33 +304,9 @@ public class TeamManager : Photon.PunBehaviour {
         }
         else
         {
-            Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-            soldier.soldierMovement.canMove = false;
-            soldier.isActive = false;
-
-            if (teamIndex + 1 < allTeams.Count  )
-            {
-                teamIndex += 1;
-                if(allTeams[teamIndex].teamAlive == false)
-                {
-                    NextTeam();
-                }   
-            }
-            else
-            {
-                teamIndex = 0;
-                if(allTeams[teamIndex].teamAlive != false)
-                {
-                    allTeams[teamIndex].NextSoldier();
-                }
-                else
-                {
-                    NextTeam();
-                }
-            }
             ToTopView();
             ResetCountingDown();
-        } 
+        }
     }
 
     /// <summary>
@@ -363,11 +377,6 @@ public class TeamManager : Photon.PunBehaviour {
             runningIenumerator = true;
             mainCamera.cameraState = CameraMovement.CameraStates.Idle;
 
-            // if(camState == CameraMovement.CameraStates.Topview)
-            // {
-                
-            // }
-            print(mainCamera.transform.parent.rotation);
             while (mainCamera.transform.parent.position != moveTo && mainCamera.transform.rotation != rotateTo)
             {
                 mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * 0.01f);
@@ -392,10 +401,7 @@ public class TeamManager : Photon.PunBehaviour {
                 soldier.soldierMovement.canMove = true;
                 soldier.isActive = true;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
-
-                Debug.Log("IEnumerator");
-
-
+                
                 InvokeRepeat();
 
                 //Start the turn timmy
