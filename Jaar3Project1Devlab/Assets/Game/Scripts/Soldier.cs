@@ -176,4 +176,9 @@ public class Soldier : Photon.PunBehaviour {
             canSwitch = true;
         }
     }
+
+    public void ReloadSound(int soundIndex)
+    {
+        equippedWeapon.Reload(soundIndex);
+    }
 }
