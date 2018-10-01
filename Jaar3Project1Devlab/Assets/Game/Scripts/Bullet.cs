@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour {
 
     public virtual void HitSoldier(Collision gotHit)
     {
-        Soldier soldier = gotHit.transform.GetComponent<Soldier>();
+        Soldier soldier = gotHit.transform.root.GetComponent<Soldier>();
 
         if (NWManager.instance.playingMultiplayer)
         {
