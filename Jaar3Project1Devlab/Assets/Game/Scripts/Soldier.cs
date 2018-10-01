@@ -7,6 +7,7 @@ public class Soldier : MonoBehaviour {
     /// <summary>
     /// PlayerCamPos is always the first child of the object that contains the Soldier Class
     /// </summary>
+    public int myTeam;
     public Transform thirdPersonCamPos;
     public Transform weaponSpawnLocation;
     public Movement soldierMovement;
@@ -27,6 +28,18 @@ public class Soldier : MonoBehaviour {
     {
         soldierMovement = GetComponent<Movement>();
         EquipWeapon(0);
+
+        foreach (Team team in TeamManager.instance.allTeams)
+        {
+            foreach (Soldier soldier in team.allSoldiers)
+            {
+                if(soldier == this)
+                {
+                    myTeam = TeamManager.instance.allTeams.IndexOf(team);
+                }
+            }
+            
+        }
     }
 
     private void Update()

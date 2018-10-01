@@ -7,7 +7,6 @@ public class Team {
 
     public bool teamAlive = true;
     public int soldierIndex;
-    public int teamNumber;
     public List<Soldier> allSoldiers = new List<Soldier>();
 
     public void NextSoldier()

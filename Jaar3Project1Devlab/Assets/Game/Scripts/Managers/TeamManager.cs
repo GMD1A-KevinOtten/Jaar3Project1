@@ -21,10 +21,8 @@ public class TeamManager : MonoBehaviour {
     [Header("Turn Properties")]
     public float maxTurnTime = 60;
     private float turnTime;
-    private float tempFloat;
     public Text timeText;
     public Image turnTimerCircle;
-    private bool countingDown;
 
     public Color circleStartColor;
     public Color circleEndColor;
@@ -53,8 +51,6 @@ public class TeamManager : MonoBehaviour {
         timeText.text = "" + maxTurnTime;
         turnTimerCircle.fillAmount = 1;
         turnTimerCircle.color = circleStartColor;
-
-        tempFloat = maxTurnTime;
     }
 
     void Update()
@@ -73,57 +69,38 @@ public class TeamManager : MonoBehaviour {
                 lastTeamIndex = teamIndex;
                 NextTeam();
             }
-        }
-    }
-
-    void InvokeRepeat()
-    {
-        if (!countingDown)
-        {
-            InvokeRepeating("TurnTimer", 1, 1);
+            TurnTimer();
         }
     }
 
     void ResetTimer()
     {
         turnTime = maxTurnTime;
-        tempFloat = maxTurnTime;
         turnTimerCircle.fillAmount = 1;
 
         timeText.text = "" + maxTurnTime;
         turnTimerCircle.color = circleStartColor;
     }
 
-    void ResetCountingDown()
-    {
-        countingDown = false;
-    }
-
     void TurnTimer()
     {
-        countingDown = true;
         if(turnTime > 0)
         {
-            turnTime--;
+            turnTime -= Time.deltaTime;
         }
         if(turnTime <= 0)
         {
-            CancelInvoke();
             turnTime = maxTurnTime;
             
             lastTeamIndex = teamIndex;
             NextTeam();
         }
-        int seconds = Mathf.FloorToInt(turnTime);
-    }
 
-    void TurnTimerCircleHotseat()
-    {
         turnTimerCircle.fillAmount = turnTime / maxTurnTime;
         float t = turnTime / maxTurnTime;
         Color color = Color.Lerp(circleEndColor, circleStartColor, t);
         turnTimerCircle.color = color;
-        timeText.text = "" + turnTime;
+        timeText.text = "" + turnTime.ToString("F0");
     }
 
     /// <summary>
@@ -132,6 +109,9 @@ public class TeamManager : MonoBehaviour {
     /// </summary>
     public void NextTeam()
     {
+
+        ResetTimer();
+
         Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
         soldier.soldierMovement.canMove = false;
         soldier.isActive = false;
@@ -169,7 +149,6 @@ public class TeamManager : MonoBehaviour {
             }
         }
         ToTopView();
-        ResetCountingDown();
     }
 
     /// <summary>

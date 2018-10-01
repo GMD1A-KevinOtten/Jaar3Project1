@@ -8,7 +8,7 @@ public class TommyGun : Weapon {
     public float rpm;
 
 
-	void Update() 
+	public override void Update() 
     {
         if(gameObject.transform.root.GetComponent<Soldier>() != null)
         {
