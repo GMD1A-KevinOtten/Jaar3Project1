@@ -26,12 +26,10 @@ ScriptedImporter:
     generateAllOutputs: 0
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://Cracked_asphalt\" label=\"\" >\n  <presetinput
-      identifier=\"$randomseed\" uid=\"3449968065\" type=\"4\" value=\"4589\" />\n
-      \ <presetinput identifier=\"Spots_Color\" uid=\"4014917834\" type=\"3\" value=\"0.830189,0.747114,0.528658,1\"
-      />\n  <presetinput identifier=\"Cracks_Cips\" uid=\"4014917950\" type=\"0\"
-      value=\"2.19\" />\n  <presetinput identifier=\"Normal_Intensity\" uid=\"4014919513\"
-      type=\"0\" value=\"0.11\" />\n  <presetinput identifier=\"Cracks_Height\" uid=\"4014914547\"
-      type=\"0\" value=\"1\" />\n </sbspreset>\n"
+      identifier=\"ShadeColor_Asphalt\" uid=\"4014941552\" type=\"3\" value=\"0.245283,0.245283,0.245283,1\"
+      />\n  <presetinput identifier=\"DirtColor_Asphalt\" uid=\"4014939908\" type=\"3\"
+      value=\"0.784314,0.603922,0.337255,1\" />\n  <presetinput identifier=\"DirtLevel_Asphalt\"
+      uid=\"4014940113\" type=\"0\" value=\"0.4\" />\n </sbspreset>\n"
     shaderName: Standard
     outputNames: Base Color,Normal,Metallic,Height
     texturePackingList:
