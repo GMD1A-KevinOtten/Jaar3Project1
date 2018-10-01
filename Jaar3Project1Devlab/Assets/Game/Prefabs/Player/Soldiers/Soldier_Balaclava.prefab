@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4837115325734300}
   - component: {fileID: 33466232292614614}
   - component: {fileID: 23714277603397330}
+  - component: {fileID: 135416090078741028}
+  - component: {fileID: 136023656966867240}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -189,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1966991795865718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.68, y: 0, z: -7.34}
+  m_LocalPosition: {x: -7.68, y: 0, z: 2.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4737509113840938}
@@ -387,8 +389,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114517452390471114}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 10
-  instantiationId: 10
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114517452390471114
@@ -491,3 +493,28 @@ MonoBehaviour:
   - {fileID: 1746869410240094, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0
+--- !u!135 &135416090078741028
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004335167860400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.13
+  m_Center: {x: 0, y: 1.84, z: 0}
+--- !u!136 &136023656966867240
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004335167860400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.75
+  m_Direction: 1
+  m_Center: {x: -2.0582911e-19, y: 0.86, z: 0.000045001507}

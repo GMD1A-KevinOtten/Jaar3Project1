@@ -482,10 +482,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1411403077754660, guid: 56b58ff86ecb0c74086bc18b974d6884, type: 2}
-      propertyPath: m_Name
-      value: Soldier_Green
-      objectReference: {fileID: 0}
     - target: {fileID: 114891193477845016, guid: 56b58ff86ecb0c74086bc18b974d6884,
         type: 2}
       propertyPath: viewIdField
@@ -590,6 +586,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 1966991795865718, guid: 197312d7a9c646c45ab8bce487c9640d, type: 2}
+      propertyPath: m_Name
+      value: Soldier_Balaclava (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 114501713947195446, guid: 197312d7a9c646c45ab8bce487c9640d,
         type: 2}
       propertyPath: viewIdField
@@ -599,10 +599,6 @@ Prefab:
         type: 2}
       propertyPath: instantiationId
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1966991795865718, guid: 197312d7a9c646c45ab8bce487c9640d, type: 2}
-      propertyPath: m_Name
-      value: Soldier_Balaclava (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197312d7a9c646c45ab8bce487c9640d, type: 2}
