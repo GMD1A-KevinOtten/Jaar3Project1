@@ -41,7 +41,6 @@ public class Soldier : MonoBehaviour {
         }
     }
 
-    [PunRPC]
     public void TakeDamage(int toDamage)
     {
         if(isDead == false)
@@ -74,7 +73,6 @@ public class Soldier : MonoBehaviour {
         return currenWeapon;
     }
 
-    [PunRPC]
     public void Die()
     {
         isDead = true;

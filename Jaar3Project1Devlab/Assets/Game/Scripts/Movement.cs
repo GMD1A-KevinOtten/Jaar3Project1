@@ -32,7 +32,6 @@ public class Movement : MonoBehaviour {
 		float yRotInput = Input.GetAxis("Mouse X") * Time.deltaTime * horRotSpeed;
 		transform.Rotate(0, yRotInput, 0);
 	}
-    [PunRPC]
     public void ChangeCanMove()
     {
         if (!canMove)

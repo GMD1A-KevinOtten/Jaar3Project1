@@ -25,7 +25,6 @@ public class Weapon : MonoBehaviour {
     private RaycastHit hit;
     private GameObject newGameObject;
 
-    [PunRPC]
 
     void Start() 
     {

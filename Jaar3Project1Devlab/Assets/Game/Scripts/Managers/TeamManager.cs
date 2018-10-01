@@ -130,7 +130,6 @@ public class TeamManager : MonoBehaviour {
     /// Sets the active team to the next in the list.
     /// <para>Call NextSoldier() in the active team to set the next soldier in that team </para>
     /// </summary>
-    [PunRPC]
     public void NextTeam()
     {
         Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
@@ -176,7 +175,6 @@ public class TeamManager : MonoBehaviour {
     /// <summary>
     /// Call this to move the MainCamera to the current soldier of the current team.
     /// </summary>
-    [PunRPC]
     public void ToSoldier()
     {
         //pakt de positie waar de camera heen moet gaan
@@ -189,7 +187,6 @@ public class TeamManager : MonoBehaviour {
     /// <summary>
     /// Call this to move the MainCamera to the TopView.
     /// </summary>
-    [PunRPC]
     public void ToTopView()
     {
         mainCamera.transform.parent.SetParent(null);
@@ -202,7 +199,6 @@ public class TeamManager : MonoBehaviour {
     /// <param name="moveTo"></param>
     /// <param name="camState"></param>
     /// <returns></returns>
-    [PunRPC]
     public IEnumerator MoveCam(Vector3 moveTo,Quaternion rotateTo, CameraMovement.CameraStates camState)
     {
         if(!runningIenumerator)
