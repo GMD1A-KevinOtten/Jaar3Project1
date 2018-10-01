@@ -76,4 +76,5 @@ MonoBehaviour:
   - TempFloatRPC
   - TakeDamage
   - Die
+  - SetCamParentRPC
   DisableAutoOpenWizard: 1

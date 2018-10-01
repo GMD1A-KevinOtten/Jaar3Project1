@@ -124,6 +124,12 @@ public class TeamManager : Photon.PunBehaviour {
     }
 
     [PunRPC]
+    void SetCamParentRPC(int i)
+    {
+        mainCamera.transform.parent.parent = allTeams[teamIndex].allSoldiers[i].thirdPersonCamPos.transform;
+    }
+
+    [PunRPC]
     void InvokeRepeat()
     {
         if (!countingDown)
@@ -334,9 +340,17 @@ public class TeamManager : Photon.PunBehaviour {
         //pakt de positie waar de camera heen moet gaan
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
-        mainCamera.transform.parent.SetParent(playerCamPos);
+        if (!NWManager.instance.playingMultiplayer)
+        {
+            mainCamera.transform.parent.SetParent(playerCamPos);
+            StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
+        }
+        else
+        {
+            photonView.RPC("SetCamParentRPC", PhotonTargets.All, soldierIndex);
+            photonView.RPC("MoveCam", PhotonTargets.All, playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson);
+        }
 
-        StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
 
          if(NWManager.instance.playingMultiplayer)
         {
