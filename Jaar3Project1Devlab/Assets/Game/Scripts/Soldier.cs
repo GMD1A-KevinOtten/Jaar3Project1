@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Soldier : Photon.PunBehaviour {
+public class Soldier : MonoBehaviour {
 
     /// <summary>
     /// PlayerCamPos is always the first child of the object that contains the Soldier Class
@@ -36,23 +36,6 @@ public class Soldier : Photon.PunBehaviour {
             if(equippedWeapon != null)
             {
                 equippedWeapon.ShowCrosshair();
-                if (NWManager.instance.playingMultiplayer)
-                {
-                    if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
-                    {
-                        if (Input.GetButtonDown("Fire1"))
-                        {
-                            ShootWeapon();
-                        }
-                    }
-                }
-                else
-                {
-                    if (Input.GetButtonDown("Fire1"))
-                    {
-                        ShootWeapon();
-                    }
-                }
             }
             CheckScroll();
         }
@@ -67,14 +50,7 @@ public class Soldier : Photon.PunBehaviour {
 
             if (health <= 0)
             {
-                if (NWManager.instance.playingMultiplayer)
-                {
-                    photonView.RPC("Die", PhotonTargets.All);
-                }
-                else
-                {
-                    Die();
-                }
+                Die();
             }
         }
     }
@@ -92,35 +68,10 @@ public class Soldier : Photon.PunBehaviour {
 
     public GameObject InstantiateWeapon(int weaponIndex)
     {
-        if(!NWManager.instance.playingMultiplayer){
-            GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation.position,weaponSpawnLocation.rotation);
-            currenWeapon.transform.SetParent(weaponSpawnLocation);
-            currenWeapon.GetComponent<Rigidbody>().isKinematic = true;
-            return currenWeapon;
-        }
-        else
-        {
-            GameObject currenWeapon = PhotonNetwork.Instantiate("PRE_SniperRifle", weaponSpawnLocation.position,weaponSpawnLocation.rotation,0);
-            currenWeapon.transform.SetParent(weaponSpawnLocation);
-            currenWeapon.GetComponent<Rigidbody>().isKinematic = true;
-            return currenWeapon;
-        }
-       
-    }
-
-    public void ShootWeapon()
-    {
-        if (NWManager.instance.playingMultiplayer)
-        {
-            if (TeamManager.instance.currentPlayer == PhotonNetwork.player)
-            {
-                equippedWeapon.photonView.RPC("ShootBullet", PhotonTargets.All);
-            }
-        }
-        else
-        {
-            equippedWeapon.ShootBullet();
-        }
+        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation.position,weaponSpawnLocation.rotation);
+        currenWeapon.transform.SetParent(weaponSpawnLocation);
+        currenWeapon.GetComponent<Rigidbody>().useGravity = false;
+        return currenWeapon;
     }
 
     [PunRPC]
@@ -141,7 +92,7 @@ public class Soldier : Photon.PunBehaviour {
     public void CheckScroll()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-         if (canSwitch)
+        if (canSwitch)
         {
             canSwitch = false;
             

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TeamManager : Photon.PunBehaviour {
+public class TeamManager : MonoBehaviour {
 
     public static TeamManager instance;
     private bool runningIenumerator;
@@ -17,12 +17,6 @@ public class TeamManager : Photon.PunBehaviour {
     public int teamIndex;
     public int lastTeamIndex;
     public List<Team> allTeams = new List<Team>();
-
-    [Header("Networking")]
-     public PhotonPlayer currentPlayer;
-
-    public List<Color> playerColors = new List<Color>();
-    public Image playerAvatar; //Temporary
 
     [Header("Turn Properties")]
     public float maxTurnTime = 60;
@@ -55,16 +49,6 @@ public class TeamManager : Photon.PunBehaviour {
 
     private void Start()
     {
-        if(currentPlayer == null)
-        {
-            currentPlayer = PhotonNetwork.masterClient;
-        }
-
-        if(playerAvatar != null)
-        {
-            playerAvatar.color = new Color(playerColors[PhotonNetwork.player.ID - 1].r, playerColors[PhotonNetwork.player.ID - 1].g, playerColors[PhotonNetwork.player.ID - 1].b, 1); //Temporary client identification
-        }
-
         turnTime = maxTurnTime;
         timeText.text = "" + maxTurnTime;
         turnTimerCircle.fillAmount = 1;
@@ -77,59 +61,21 @@ public class TeamManager : Photon.PunBehaviour {
     {
         if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
         {
-            if(NWManager.instance.playingMultiplayer)
+            if(Input.GetButtonDown("Enter"))
             {
-                if(Input.GetButtonDown("Enter") && currentPlayer == PhotonNetwork.player)
-                {
-                    photonView.RPC("ToSoldier", PhotonTargets.All);
-                }
-            }
-            else
-            {
-                if(Input.GetButtonDown("Enter"))
-                {
-                    ToSoldier();
-                }
+                ToSoldier();
             }
         }
         if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson)
         {
-            if(NWManager.instance.playingMultiplayer)
-            {
-                if (Input.GetKeyDown("n") && currentPlayer == PhotonNetwork.player)
-                {
-                    CallNextTurn();
-                    mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                    mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                    lastTeamIndex = teamIndex;
-                    photonView.RPC("NextTeam", PhotonTargets.All);
-                }
-            }
-            else if(Input.GetKeyDown("n"))
+            if(Input.GetKeyDown("n"))
             {
                 lastTeamIndex = teamIndex;
                 NextTeam();
             }
         }
-
-        
-        TurnTimerCircle();
-
-        if (!NWManager.instance.playingMultiplayer)
-        {
-            TurnTimerCircleHotseat();
-        }
-
-      
     }
 
-    [PunRPC]
-    void SetCamParentRPC(int i)
-    {
-        mainCamera.transform.parent.parent = allTeams[teamIndex].allSoldiers[i].thirdPersonCamPos.transform;
-    }
-
-    [PunRPC]
     void InvokeRepeat()
     {
         if (!countingDown)
@@ -138,13 +84,6 @@ public class TeamManager : Photon.PunBehaviour {
         }
     }
 
-    [PunRPC]
-    void CancelRepeat()
-    {
-        CancelInvoke();
-    }
-
-    [PunRPC]
     void ResetTimer()
     {
         turnTime = maxTurnTime;
@@ -155,7 +94,6 @@ public class TeamManager : Photon.PunBehaviour {
         turnTimerCircle.color = circleStartColor;
     }
 
-    [PunRPC]
     void ResetCountingDown()
     {
         countingDown = false;
@@ -167,96 +105,25 @@ public class TeamManager : Photon.PunBehaviour {
         if(turnTime > 0)
         {
             turnTime--;
-
-            if (NWManager.instance.playingMultiplayer)
-            {
-                photonView.RPC("TempFloatRPC", PhotonTargets.All);
-            }
-
         }
         if(turnTime <= 0)
         {
-            if (NWManager.instance.playingMultiplayer)
-            {
-                photonView.RPC("CancelRepeat", PhotonTargets.All);
-                photonView.RPC("ResetTimer", PhotonTargets.All);
-
-            }
-            else
-            {
-                CancelInvoke();
-            }
+            CancelInvoke();
             turnTime = maxTurnTime;
-            if (NWManager.instance.playingMultiplayer)
-            {
-                CallNextTurn();
-                mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                lastTeamIndex = teamIndex;
-                photonView.RPC("NextTeam", PhotonTargets.All);
-            }
-            else
-            {
-                lastTeamIndex = teamIndex;
-                NextTeam();
-            }
-         
+            
+            lastTeamIndex = teamIndex;
+            NextTeam();
         }
         int seconds = Mathf.FloorToInt(turnTime);
-
-        if (!NWManager.instance.playingMultiplayer)
-        {
-           // turnTimerCircle.fillAmount = 1;
-            timeText.text = "" + seconds;
-            //turnTimerCircle.color = circleStartColor;
-        }
-        
-    }
-
-    [PunRPC]
-    void TempFloatRPC()
-    {
-        if(tempFloat > 0)
-        {
-            tempFloat--;
-            turnTimerCircle.fillAmount = tempFloat / maxTurnTime;
-
-            timeText.text = "" + tempFloat;
-        }
-        if(tempFloat <= 0)
-        {
-            tempFloat = maxTurnTime;
-            turnTimerCircle.fillAmount = 1;
-            timeText.text = "" + maxTurnTime;
-            turnTimerCircle.color = circleStartColor;
-        }
-
     }
 
     void TurnTimerCircleHotseat()
     {
-
         turnTimerCircle.fillAmount = turnTime / maxTurnTime;
-
         float t = turnTime / maxTurnTime;
-
         Color color = Color.Lerp(circleEndColor, circleStartColor, t);
         turnTimerCircle.color = color;
-
         timeText.text = "" + turnTime;
-    }
-
-    void TurnTimerCircle()
-    {
-
-        turnTimerCircle.fillAmount = tempFloat / maxTurnTime;
-
-        float t = tempFloat / maxTurnTime;
-
-        Color color = Color.Lerp(circleEndColor, circleStartColor, t);
-        turnTimerCircle.color = color;
-
-        timeText.text = "" + tempFloat;
     }
 
     /// <summary>
@@ -275,10 +142,6 @@ public class TeamManager : Photon.PunBehaviour {
             teamIndex += 1;
             if(allTeams[teamIndex].teamAlive == false)
             {
-                if (NWManager.instance.playingMultiplayer)
-                {
-                    NextTurn();
-                }
                 NextTeam();
             }
             else
@@ -295,10 +158,6 @@ public class TeamManager : Photon.PunBehaviour {
             teamIndex = 0;
             if(allTeams[teamIndex].teamAlive == false)
             {
-                if (NWManager.instance.playingMultiplayer)
-                {
-                    NextTurn();
-                }
                 NextTeam();
             }
             else
@@ -310,16 +169,8 @@ public class TeamManager : Photon.PunBehaviour {
                 }
             }
         }
-        if(NWManager.instance.playingMultiplayer)
-        {
-            photonView.RPC("ToTopView", PhotonTargets.All);
-            photonView.RPC("ResetCountingDown", PhotonTargets.All);
-        }
-        else
-        {
-            ToTopView();
-            ResetCountingDown();
-        }
+        ToTopView();
+        ResetCountingDown();
     }
 
     /// <summary>
@@ -328,42 +179,11 @@ public class TeamManager : Photon.PunBehaviour {
     [PunRPC]
     public void ToSoldier()
     {
-        if(NWManager.instance.playingMultiplayer)
-        {
-            if(currentPlayer == PhotonNetwork.player)
-            {
-                mainCamera.transform.parent.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-                mainCamera.transform.GetComponent<PhotonView>().TransferOwnership(currentPlayer);
-            }
-        }
-        
         //pakt de positie waar de camera heen moet gaan
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
-        if (!NWManager.instance.playingMultiplayer)
-        {
-            mainCamera.transform.parent.SetParent(playerCamPos);
-            StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
-        }
-        else
-        {
-            photonView.RPC("SetCamParentRPC", PhotonTargets.All, soldierIndex);
-            photonView.RPC("MoveCam", PhotonTargets.All, playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson);
-        }
-
-
-         if(NWManager.instance.playingMultiplayer)
-        {
-            if (currentPlayer == PhotonNetwork.player)
-            {
-                allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Movement>().canMove = true;
-                allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<PhotonView>().RequestOwnership();
-
-                allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Soldier>().equippedWeapon.GetComponent<PhotonView>().RequestOwnership();
-
-
-            }
-        }
+        mainCamera.transform.parent.SetParent(playerCamPos);
+        StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
     }
 
     /// <summary>
@@ -373,15 +193,7 @@ public class TeamManager : Photon.PunBehaviour {
     public void ToTopView()
     {
         mainCamera.transform.parent.SetParent(null);
-
-       if(NWManager.instance.playingMultiplayer)
-       {
-           photonView.RPC("MoveCam", PhotonTargets.All, cameraPositionSky.position,cameraPositionSky.rotation, CameraMovement.CameraStates.Topview);
-       }
-       else
-       {
-           StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
-       }
+        StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
     }
 
     /// <summary>
@@ -421,46 +233,12 @@ public class TeamManager : Photon.PunBehaviour {
                 soldier.soldierMovement.canMove = true;
                 soldier.isActive = true;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
-
-                if (!NWManager.instance.playingMultiplayer)
-                {
-                    InvokeRepeat();
-                }
-                else
-                {
-                    if(soldier.soldierMovement.canMove && currentPlayer == PhotonNetwork.player) //Sync host
-                    {
-                        InvokeRepeat();
-                    }
-                }
-
-                //Start the turn timmy
             }
 
             mainCamera.cameraState = camState;
             
             runningIenumerator = false;
         }
-
         yield return null;
     }
-
-    public void CallNextTurn()
-    {
-        photonView.RPC("NextTurn", PhotonTargets.All);
-    }
-
-    [PunRPC]
-    void NextTurn()
-    {
-            Debug.Log("StartOfNexTurn()");
-
-
-            currentPlayer = PhotonNetwork.player.GetNextFor(currentPlayer);
-            Debug.Log(currentPlayer.NickName + currentPlayer.ID);
-
-            Debug.Log("EndOfNexTurn()");
-    }
-
-  
 }

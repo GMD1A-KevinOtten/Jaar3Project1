@@ -14,8 +14,9 @@ public class Sniper : Weapon {
         baseFovValue = Camera.main.GetComponent<Camera>().fieldOfView;
     }
 
-	void Update() 
+	public override void  Update() 
     {
+        base.Update();
         if(gameObject.transform.root.GetComponent<Soldier>() != null)
         {
             if(gameObject.transform.root.GetComponent<Soldier>().isActive == true)

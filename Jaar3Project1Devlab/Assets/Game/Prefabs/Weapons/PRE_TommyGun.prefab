@@ -176,7 +176,6 @@ GameObject:
   - component: {fileID: 65669735485753214}
   - component: {fileID: 65875170814306280}
   - component: {fileID: 54203868928453354}
-  - component: {fileID: 114940027340468082}
   m_Layer: 11
   m_Name: PRE_TommyGun
   m_TagString: Untagged
@@ -1039,7 +1038,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65340599153957098
 BoxCollider:
@@ -1115,29 +1114,3 @@ MonoBehaviour:
   reloadSounds: []
   currentClip: 0
   clipMax: 50
---- !u!114 &114940027340468082
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1746869410240094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  OwnerShipWasTransfered: 0
-  prefixBackup: -1
-  synchronization: 0
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 1
-  ObservedComponents:
-  - {fileID: 0}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
-  currentMasterID: -1
-  isRuntimeInstantiated: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : Photon.PunBehaviour {
+public class Movement : MonoBehaviour {
 	
 	public float moveSpeed;
 	public float horRotSpeed;
@@ -12,19 +12,8 @@ public class Movement : Photon.PunBehaviour {
 	{
 		if(canMove == true) 
         {
-            if (NWManager.instance.playingMultiplayer)
-            {
-                if(TeamManager.instance.currentPlayer == PhotonNetwork.player)
-                {
-                    SoldierMovement();
-                    SoldierRotation();
-                }
-            }
-            else
-            {
-                SoldierMovement();
-                SoldierRotation();
-            }
+            SoldierMovement();
+            SoldierRotation();
 		}
 	}
 

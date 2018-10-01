@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 65806583415570892}
   - component: {fileID: 65158212636497406}
   - component: {fileID: 65214383144366398}
-  - component: {fileID: 114007482594637084}
   m_Layer: 11
   m_Name: PRE_SniperRifle
   m_TagString: Untagged
@@ -450,9 +449,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65158212636497406
 BoxCollider:
@@ -490,32 +489,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.06, z: 0.35}
   m_Center: {x: 0, y: 0.15, z: 0.125}
---- !u!114 &114007482594637084
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1989339358856240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  OwnerShipWasTransfered: 0
-  prefixBackup: -1
-  synchronization: 0
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 1
-  ObservedComponents:
-  - {fileID: 0}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
-  currentMasterID: -1
-  isRuntimeInstantiated: 0
 --- !u!114 &114428188394622228
 MonoBehaviour:
   m_ObjectHideFlags: 1

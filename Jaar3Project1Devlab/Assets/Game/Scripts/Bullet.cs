@@ -11,6 +11,10 @@ public class Bullet : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         OnHit(collision);
+        if(collision.gameObject.layer == 10)
+        {
+            collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 
     public virtual void OnHit(Collision gotHit)
@@ -29,15 +33,7 @@ public class Bullet : MonoBehaviour {
     public virtual void HitSoldier(Collision gotHit)
     {
         Soldier soldier = gotHit.transform.root.GetComponent<Soldier>();
-
-        if (NWManager.instance.playingMultiplayer)
-        {
-            soldier.transform.GetComponent<PhotonView>().RPC("TakeDamage", PhotonTargets.All, defaultDamage);
-        }
-        else
-        {
-            soldier.TakeDamage(defaultDamage);
-        }
+        soldier.TakeDamage(defaultDamage);
         Destroy(gameObject);
     }
 
