@@ -934,7 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 235250801}
   cameraPositionSky: {fileID: 727818269}
-  movementSpeed: 100
+  movementSpeed: 30
   teamIndex: 0
   lastTeamIndex: 0
   allTeams:
@@ -958,7 +958,7 @@ MonoBehaviour:
     allSoldiers:
     - {fileID: 1675056670}
     - {fileID: 1548886133}
-  maxTurnTime: 60
+  maxTurnTime: 30
   timeText: {fileID: 1851177736}
   turnTimerCircle: {fileID: 781546324}
   circleStartColor: {r: 0.030037642, g: 1, b: 0, a: 1}
@@ -1823,12 +1823,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4229340831933484, guid: 356ea674abe4c2f449a94644742dce05, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114634651790257166, guid: 356ea674abe4c2f449a94644742dce05,
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114740889316441846, guid: 356ea674abe4c2f449a94644742dce05,
+        type: 2}
+      propertyPath: camRotSpeed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356ea674abe4c2f449a94644742dce05, type: 2}
@@ -4757,12 +4762,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 727818268}
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 5.568554, y: 91.24, z: 62.135372}
+  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
+  m_LocalPosition: {x: 50, y: 90, z: 60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!1 &747939315
 GameObject:

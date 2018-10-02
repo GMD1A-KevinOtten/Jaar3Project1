@@ -5,13 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Personal/Peter/MultiplayerScenes/RoomListScene.unity
-    guid: 145c145ab500a4a47b4d9ad7ba4bd170
-  - enabled: 1
-    path: Assets/Personal/Peter/MultiplayerScenes/RoomScene.unity
-    guid: 7c53324c009c40543b32906bc03bdbff
-  - enabled: 1
+  - enabled: 0
     path: Assets/Personal/Peter/LevelScene.unity
     guid: 67a700744befb4040a3a9d7f23572169
+  - enabled: 1
+    path: Assets/Game/Scenes/GameScene.unity
+    guid: 576641d6315467a40b8ab0c49f4ae0c7
   m_configObjects: {}

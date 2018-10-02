@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0556709c9c04854419baa8cfa35b7276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 3
   horRotSpeed: 200
   canMove: 0
 --- !u!114 &114075745103122020
@@ -464,6 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f57e81487cad44dbf5f2ba34711f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTeam: 0
   thirdPersonCamPos: {fileID: 4936550923027024}
   weaponSpawnLocation: {fileID: 4308405418404630}
   soldierMovement: {fileID: 114064139652496362}

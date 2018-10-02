@@ -64,7 +64,7 @@ public class TeamManager : MonoBehaviour {
         }
         if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson)
         {
-            if(Input.GetKeyDown("n"))
+            if(Input.GetButtonDown("Enter"))
             {
                 lastTeamIndex = teamIndex;
                 NextTeam();
@@ -168,6 +168,7 @@ public class TeamManager : MonoBehaviour {
     /// </summary>
     public void ToTopView()
     {
+        UIManager.instance.HideCrosshair();
         mainCamera.transform.parent.SetParent(null);
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
     }
@@ -184,21 +185,26 @@ public class TeamManager : MonoBehaviour {
         {
             runningIenumerator = true;
             mainCamera.cameraState = CameraMovement.CameraStates.Idle;
+            Quaternion cameraRot = Quaternion.Euler(mainCamera.transform.eulerAngles.x,mainCamera.transform.eulerAngles.y,mainCamera.transform.eulerAngles.z);
+            Quaternion cameraToRot = Quaternion.Euler(mainCamera.transform.eulerAngles.x,mainCamera.transform.eulerAngles.y,mainCamera.transform.eulerAngles.z);
 
-            while (mainCamera.transform.parent.position != moveTo || mainCamera.transform.rotation != rotateTo)
+            while (mainCamera.transform.parent.position != moveTo || cameraRot != cameraToRot)
             {
-                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * 0.01f);
-                mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, rotateTo, movementSpeed / 5 * 0.01f);
-
+                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * Time.deltaTime);
+                mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, rotateTo, movementSpeed / 10 * Time.deltaTime);
                 if(camState == CameraMovement.CameraStates.ThirdPerson)
                 {
                     Quaternion rot = Quaternion.Euler(mainCamera.transform.parent.eulerAngles.x,rotateTo.eulerAngles.y,rotateTo.eulerAngles.z);
-                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rot, movementSpeed / 3 * 0.01f);
+                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, rot, movementSpeed / 10 * Time.deltaTime);
                 }
                 if(camState == CameraMovement.CameraStates.Topview)
                 {
-                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, Quaternion.Euler(Camera.main.transform.parent.eulerAngles.x,cameraPositionSky.eulerAngles.y,cameraPositionSky.eulerAngles.z),movementSpeed / 3 * 0.01f);
+                    mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, Quaternion.Euler(Camera.main.transform.parent.eulerAngles.x,cameraPositionSky.eulerAngles.y,cameraPositionSky.eulerAngles.z),movementSpeed / 10 * Time.deltaTime);
                 }
+                // print(moveTo);
+                // print(cameraToRot);
+                // print(mainCamera.transform.parent.position);
+                // print(cameraRot);
                 yield return null;
             }
 
@@ -209,7 +215,7 @@ public class TeamManager : MonoBehaviour {
                 soldier.isActive = true;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
             }
-
+            
             mainCamera.cameraState = camState;
             
             runningIenumerator = false;

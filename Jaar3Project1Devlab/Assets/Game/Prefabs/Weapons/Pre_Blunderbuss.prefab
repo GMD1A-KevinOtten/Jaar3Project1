@@ -647,4 +647,4 @@ MonoBehaviour:
   shotSound: {fileID: 0}
   reloadSounds: []
   currentClip: 0
-  clipMax: 1
+  clipMax: 10

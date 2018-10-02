@@ -9,8 +9,9 @@ public class Sniper : Weapon {
     private float baseFovValue;
     public float fovValue;
 
-    void Start() 
+    public override void Start() 
     {
+        base.Start();
         baseFovValue = Camera.main.GetComponent<Camera>().fieldOfView;
     }
 

@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1776852102519718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 111.3, z: 35.9}
+  m_LocalPosition: {x: 0, y: 20, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4287016395484662}
@@ -65,13 +65,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695639849387114}
-  m_LocalRotation: {x: 0.42261714, y: -0, z: -0, w: 0.9063083}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.061281, z: 0.9485515}
   m_Children: []
   m_Father: {fileID: 4229340831933484}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!20 &20748306967374944
 Camera:
   m_ObjectHideFlags: 1
@@ -148,5 +148,5 @@ MonoBehaviour:
   clampValue: 30
   vertRotSpeed: 100
   gunToRotate: {fileID: 0}
-  xRotInput: 30
-  baseXRotInput: 30
+  xRotInput: 10
+  baseXRotInput: 0

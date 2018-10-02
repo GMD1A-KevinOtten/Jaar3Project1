@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4621342718896538}
-  - component: {fileID: 114926185624356672}
+  - component: {fileID: 114124180412559438}
   - component: {fileID: 65340599153957098}
   - component: {fileID: 65656449019416074}
   - component: {fileID: 65669735485753214}
@@ -1088,7 +1088,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: -0.04, z: -0.21}
---- !u!114 &114926185624356672
+--- !u!114 &114124180412559438
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1746869410240094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d896d3430129082468c220f7daf09a66, type: 3}
+  m_Script: {fileID: 11500000, guid: d5d3ea832a186f3498a4ee5b2ba4b553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gunID: 0
@@ -1114,3 +1114,4 @@ MonoBehaviour:
   reloadSounds: []
   currentClip: 0
   clipMax: 50
+  rpm: 500

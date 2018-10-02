@@ -17,5 +17,14 @@ public class TopViewCharacterPic : MonoBehaviour {
 		{
 			GetComponentInChildren<Image>().color = Color.red;
 		}
+
+		if(transform.root.GetComponent<Soldier>().isDead)
+		{
+			gameObject.SetActive(false);
+		}
+		else
+		{
+			gameObject.SetActive(true);
+		}
 	}
 }

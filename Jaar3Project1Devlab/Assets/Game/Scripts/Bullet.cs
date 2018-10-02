@@ -39,7 +39,6 @@ public class Bullet : MonoBehaviour {
 
     public virtual void HitEnvironment(Collision gotHit)
     {
-        print("Environment");
         GameObject bulletHoleObject = Instantiate(bulletHolePrefab, gotHit.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, gotHit.contacts[0].normal));
         bulletHoleObject.gameObject.name = "BulletHole";
         bulletHoleObject.transform.position = bulletHoleObject.transform.localPosition + bulletHoleObject.transform.forward * 0.001f;

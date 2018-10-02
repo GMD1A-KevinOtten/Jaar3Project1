@@ -22,6 +22,7 @@ public class Soldier : MonoBehaviour {
     [HideInInspector]
     public Weapon equippedWeapon;
     public int currentWeaponIndex;
+    private int previouseWeaponIndex;
     private bool canSwitch = true;
 
     void Start()
@@ -71,6 +72,7 @@ public class Soldier : MonoBehaviour {
     {
         if(equippedWeapon != null)
         {
+            // availableWeaponsPrefabs[previouseWeaponIndex].GetComponent<Weapon>().currentClip = equippedWeapon.currentClip;
             Destroy(equippedWeapon.gameObject);
         }
         //uitvoeren op het punt waar wapen moet verschijnen
@@ -107,11 +109,10 @@ public class Soldier : MonoBehaviour {
         {
             canSwitch = false;
             
-            int previouseWeaponIndex = currentWeaponIndex;
+            previouseWeaponIndex = currentWeaponIndex;
 
             if(scroll < 0)
             {
-                print("kaas");
                 if(currentWeaponIndex <= 0)
                 {
                     currentWeaponIndex = availableWeaponsPrefabs.Count - 1;
@@ -123,7 +124,6 @@ public class Soldier : MonoBehaviour {
             }
             if(scroll > 0)
             {            
-                print("tosti");
                 if(currentWeaponIndex >= availableWeaponsPrefabs.Count - 1)
                 {
                     currentWeaponIndex = 0;

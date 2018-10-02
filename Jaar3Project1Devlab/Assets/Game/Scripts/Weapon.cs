@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour {
     private GameObject newGameObject;
 
 
-    void Start() 
+    public virtual void Start() 
     {
         FillClip();
     }
@@ -52,16 +52,26 @@ public class Weapon : MonoBehaviour {
 
     public virtual void ShootBullet()
     {
-        newGameObject = Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
-        currentClip -= 1;
-                
-        Rigidbody rb = newGameObject.GetComponent<Rigidbody>();
-        Vector2 spread = CalculatedBulletSpread();
+        if(currentClip > 0)
+        {
+            print("shoot");
+            //play shot sound
 
-        Vector3 bulletDirection = barrelExit.forward * bulletVelocity;
-        bulletDirection.x += spread.x;
-        bulletDirection.y += spread.y;
-        rb.velocity = bulletDirection;
+            newGameObject = Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
+            currentClip -= 1;
+                    
+            Rigidbody rb = newGameObject.GetComponent<Rigidbody>();
+            Vector2 spread = CalculatedBulletSpread();
+
+            Vector3 bulletDirection = barrelExit.forward * bulletVelocity;
+            bulletDirection.x += spread.x;
+            bulletDirection.y += spread.y;
+            rb.velocity = bulletDirection;
+        }
+        else
+        {
+            // play empty mag klick
+        }
     }
 
     private Vector2 CalculatedBulletSpread()
@@ -106,6 +116,7 @@ public class Weapon : MonoBehaviour {
 
     private void FillClip()
     {
+        print("test");
         currentClip = clipMax;
     }
 }
