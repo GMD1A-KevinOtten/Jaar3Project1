@@ -86,11 +86,13 @@ public class Weapon : MonoBehaviour {
 
     public void ShowCrosshair()
     {
-        Debug.DrawRay(barrelExit.position, barrelExit.forward * 20, Color.red);
-        Physics.Raycast(barrelExit.position, barrelExit.forward, out hit, 20, crosshairRayMask);
+        Debug.DrawRay(barrelExit.position, barrelExit.forward * 100, Color.red);
+        Physics.Raycast(barrelExit.position, barrelExit.forward, out hit, 100, crosshairRayMask);
 
         if (hit.transform != null)
         {
+            float scale = Mathf.Clamp(100 / Vector3.Distance(transform.position,hit.point) * 2 , 30 , 100);
+            UIManager.instance.crosshairImage.GetComponent<RectTransform>().sizeDelta = new Vector2(scale,scale);
             UIManager.instance.ShowCrosshairOnScreen(gunCrosshair, hit.point);
         }
         else
@@ -116,7 +118,6 @@ public class Weapon : MonoBehaviour {
 
     private void FillClip()
     {
-        print("test");
         currentClip = clipMax;
     }
 }
