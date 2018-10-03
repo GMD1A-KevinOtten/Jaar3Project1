@@ -28,6 +28,14 @@ public class Tank : InteractableObject {
 	// Update is called once per frame
 	void Update () {
         Interact();
+
+        if(TeamManager.instance.turnTime <= .1F)
+        {
+            if (soldierInside)
+            {
+                ExitTank(); //Still doesn't work with premature ENTER pressing
+            }
+        }
 	}
 
     private void FixedUpdate()
@@ -71,7 +79,7 @@ public class Tank : InteractableObject {
         {
             if (Input.GetKeyDown("e"))
             {
-                soldierInsidePos.position = currentSoldier.gameObject.transform.position;
+                soldierOutsidePos = currentSoldier.gameObject.transform.position;
                 currentSoldier.gameObject.transform.position = soldierInsidePos.position;
                 currentSoldier.isActive = false;
                 currentSoldier.soldierMovement.canMove = false;
@@ -83,6 +91,17 @@ public class Tank : InteractableObject {
                 
             }
         }
+    }
+
+    public void ExitTank()
+    {
+        currentSoldier.gameObject.transform.position = soldierOutsidePos;
+        currentSoldier.isActive = true;
+        currentSoldier.soldierMovement.canMove = true;
+
+        TeamManager.instance.mainCamera.GetComponent<Camera>().enabled = true;
+        barrelCam.enabled = false;
+        soldierInside = false;
     }
 
     public bool soldierNearby()

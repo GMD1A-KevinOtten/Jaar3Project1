@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class TeamManager : MonoBehaviour {
 
     public static TeamManager instance;
@@ -20,12 +20,17 @@ public class TeamManager : MonoBehaviour {
 
     [Header("Turn Properties")]
     public float maxTurnTime = 60;
-    private float turnTime;
+    [HideInInspector]
+    public float turnTime;
     public Text timeText;
     public Image turnTimerCircle;
 
     public Color circleStartColor;
     public Color circleEndColor;
+
+    public TextMeshProUGUI betweenTurnsText;
+    public float textDisplayTime = 1.5F;
+    private bool textSet;
 
     private void Awake()
     {
@@ -57,7 +62,12 @@ public class TeamManager : MonoBehaviour {
     {
         if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
         {
-            if(Input.GetButtonDown("Enter"))
+            if (!textSet)
+            {
+                StartCoroutine(SetBetweenTurnsText());
+            }
+
+            if (Input.GetButtonDown("Enter"))
             {
                 ToSoldier();
             }
@@ -71,6 +81,22 @@ public class TeamManager : MonoBehaviour {
             }
             TurnTimer();
         }
+    }
+
+    IEnumerator SetBetweenTurnsText()
+    {
+        textSet = true;
+
+        int tindx = teamIndex + 1;
+        int sindx = allTeams[teamIndex].soldierIndex + 1;
+
+        betweenTurnsText.text = "Player: " + tindx + "\n" + "Soldier: " + sindx;
+        betweenTurnsText.color = allTeams[teamIndex].thisTeamColor;
+
+        yield return new WaitForSeconds(textDisplayTime);
+        betweenTurnsText.text = "";
+        
+
     }
 
     void ResetTimer()
@@ -156,6 +182,9 @@ public class TeamManager : MonoBehaviour {
     /// </summary>
     public void ToSoldier()
     {
+        betweenTurnsText.text = "";
+        textSet = false;
+
         //pakt de positie waar de camera heen moet gaan
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
