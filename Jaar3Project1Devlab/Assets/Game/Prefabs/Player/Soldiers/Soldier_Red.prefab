@@ -228,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1237107153125954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.025604, y: 52.852375, z: 19.118055}
+  m_LocalPosition: {x: -2.56, y: 0, z: 2.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4993297476220226}
@@ -478,6 +478,7 @@ MonoBehaviour:
   - {fileID: 1746869410240094, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0
+  canCastRay: 1
 --- !u!114 &114739990246696206
 MonoBehaviour:
   m_ObjectHideFlags: 1

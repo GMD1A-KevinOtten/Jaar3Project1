@@ -33,13 +33,16 @@ public class Sniper : Weapon {
     public void ToggelScope()
     {
         UIManager.instance.ToggleScope();
-        if(cameraScope.GetComponent<Camera>().depth == -1)
+        if(cameraScope.GetComponent<Camera>().depth < Camera.main.depth)
         {
             cameraScope.GetComponent<Camera>().depth = 1;
+            UIManager.instance.showCroshair = false;
+            UIManager.instance.HideCrosshair();
         }
         else
         {
             cameraScope.GetComponent<Camera>().depth = -1;
+            UIManager.instance.showCroshair = true;
         }
         
         //Scope UI element

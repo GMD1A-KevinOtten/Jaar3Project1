@@ -90,7 +90,7 @@ public class Weapon : MonoBehaviour {
 
         if (hit.transform != null)
         {
-            float scale = Mathf.Clamp(100 / Vector3.Distance(transform.position,hit.point) * 2 , 30 , 100);
+            float scale = Mathf.Clamp(100 / Vector3.Distance(transform.position,hit.point) * 2 , 60 , 160);
             UIManager.instance.crosshairImage.GetComponent<RectTransform>().sizeDelta = new Vector2(scale,scale);
             UIManager.instance.ShowCrosshairOnScreen(gunCrosshair, hit.point);
         }
