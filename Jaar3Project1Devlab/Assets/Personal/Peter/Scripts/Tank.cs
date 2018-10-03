@@ -33,7 +33,15 @@ public class Tank : InteractableObject {
         {
             if (soldierInside)
             {
-                ExitTank(); //Still doesn't work with premature ENTER pressing
+                ExitTank();
+            }
+        }
+
+        if (Input.GetButtonDown("Enter"))
+        {
+            if (soldierInside)
+            {
+                ExitTank(); 
             }
         }
 	}
