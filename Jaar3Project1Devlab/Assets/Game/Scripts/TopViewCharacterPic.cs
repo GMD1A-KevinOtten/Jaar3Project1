@@ -21,8 +21,13 @@ public class TopViewCharacterPic : MonoBehaviour {
         {
             characterPic.color = TeamManager.instance.allTeams[transform.root.GetComponent<Soldier>().myTeam].thisTeamColor; //Ja dit moet in de update omdat de int pas later dan start wordt geassigned
         }
+        if(currentCharacterDot.color != TeamManager.instance.allTeams[transform.root.GetComponent<Soldier>().myTeam].thisTeamColor)
+        {
+            currentCharacterDot.color = TeamManager.instance.allTeams[transform.root.GetComponent<Soldier>().myTeam].thisTeamColor;
+        }
 
-		if (TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.Topview)
+
+        if (TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.Topview)
 		{
 			characterPic.enabled = true;
 			transform.LookAt(Camera.main.transform);
