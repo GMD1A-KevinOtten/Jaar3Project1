@@ -196,8 +196,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967739654551756}
-  m_LocalRotation: {x: -0, y: 0.7071066, z: -0, w: 0.70710695}
-  m_LocalPosition: {x: 13.11, y: 0.7257, z: -3.76}
+  m_LocalRotation: {x: -0.21984643, y: -0.7198464, z: -0.26200294, w: 0.60402256}
+  m_LocalPosition: {x: 43.834, y: 50.74, z: 78.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4013580735572186}
@@ -210,7 +210,7 @@ Transform:
   - {fileID: 4268574874152216}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: -40, y: -100.00001, z: 0}
 --- !u!4 &4234759852222938
 Transform:
   m_ObjectHideFlags: 1
@@ -635,16 +635,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunID: 0
   barrelExit: {fileID: 4268574874152216}
-  bulletPrefab: {fileID: 1757713778583122, guid: e5d499b896dada7458b3876c33d8ed34,
+  bulletPrefab: {fileID: 1702914062282930, guid: adeb39ab92043124f8f6c2d0c4bb928e,
     type: 2}
   gunCrosshair: {fileID: 21300000, guid: 55977c004bf45d945be95548092bdf5d, type: 3}
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 7479
-  bulletVelocity: 20
-  bulletSpread: {x: 10, y: 10}
+  bulletVelocity: 40
+  bulletSpread: {x: 20, y: 20}
   recoil: 30
   shotSound: {fileID: 0}
   reloadSounds: []
   currentClip: 0
-  clipMax: 10
+  clipMax: 20

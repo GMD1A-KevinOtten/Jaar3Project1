@@ -6,13 +6,11 @@ public class Sniper : Weapon {
 
     [Header("Sniper Specific")]
 
-    private float baseFovValue;
-    public float fovValue;
+    public Camera cameraScope;
 
     public override void Start() 
     {
         base.Start();
-        baseFovValue = Camera.main.GetComponent<Camera>().fieldOfView;
     }
 
 	public override void  Update() 
@@ -24,7 +22,7 @@ public class Sniper : Weapon {
             {
                 if(Input.GetButtonDown("Fire2"))
                 {
-                    ActivateScope();
+                    ToggelScope();
                 }
             }
         }
@@ -32,9 +30,18 @@ public class Sniper : Weapon {
 
     
 
-    public void ActivateScope()
+    public void ToggelScope()
     {
-        //Camera.main.GetComponent<Camera>().fieldOfView = fovValue; Iedere keer als ik ALT+TAB deet hij dit pl0x fix -Peter
+        UIManager.instance.ToggleScope();
+        if(cameraScope.GetComponent<Camera>().depth == -1)
+        {
+            cameraScope.GetComponent<Camera>().depth = 1;
+        }
+        else
+        {
+            cameraScope.GetComponent<Camera>().depth = -1;
+        }
+        
         //Scope UI element
         //Play sound
     }

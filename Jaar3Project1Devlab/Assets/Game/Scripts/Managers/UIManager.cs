@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour {
 
     public static UIManager instance;
     public Image crosshairImage;
+    public Image sniperScope;
 
     private void Awake()
     {
@@ -19,8 +20,6 @@ public class UIManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
-        HideCrosshair();
     }
 
     public void ShowCrosshairOnScreen(Sprite toShow, Vector3 position)
@@ -33,5 +32,17 @@ public class UIManager : MonoBehaviour {
     public void HideCrosshair()
     {
         crosshairImage.enabled = false;
+    }
+
+    public void ToggleScope()
+    {
+        if(sniperScope.enabled)
+        {
+            sniperScope.enabled = false;
+        }
+        else
+        {
+            sniperScope.enabled = true;
+        }
     }
 }

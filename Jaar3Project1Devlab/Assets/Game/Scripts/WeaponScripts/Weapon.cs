@@ -54,7 +54,6 @@ public class Weapon : MonoBehaviour {
     {
         if(currentClip > 0)
         {
-            print("shoot");
             //play shot sound
 
             newGameObject = Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
