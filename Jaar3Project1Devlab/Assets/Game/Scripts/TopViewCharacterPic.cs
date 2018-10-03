@@ -8,25 +8,33 @@ public class TopViewCharacterPic : MonoBehaviour {
 	public Image characterPic;
 	public Image currentCharacterDot;
 
-	void Update () 
+
+    private void Start()
+    {
+
+       
+    }
+    void Update () 
 	{
-		if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.Topview)
+
+        if (characterPic.color != TeamManager.instance.allTeams[transform.root.GetComponent<Soldier>().myTeam].thisTeamColor)
+        {
+            characterPic.color = TeamManager.instance.allTeams[transform.root.GetComponent<Soldier>().myTeam].thisTeamColor; //Ja dit moet in de update omdat de int pas later dan start wordt geassigned
+        }
+
+		if (TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.Topview)
 		{
 			characterPic.enabled = true;
 			transform.LookAt(Camera.main.transform);
-			if(transform.root.GetComponent<Soldier>().myTeam == TeamManager.instance.teamIndex && GetComponentInChildren<Image>().color != Color.green)
+			if(transform.root.GetComponent<Soldier>().myTeam == TeamManager.instance.teamIndex)
 			{
-				characterPic.color = Color.green;
 				if(TeamManager.instance.allTeams[transform.root.GetComponent<Soldier>().myTeam].allSoldiers[TeamManager.instance.allTeams[transform.root.GetComponent<Soldier>().myTeam].soldierIndex] == transform.root.GetComponent<Soldier>())
 				{
-					print("ThisSoldier");
-					currentCharacterDot.color = Color.green;
 					currentCharacterDot.enabled = true;
 				}
 			}
-			else if(transform.root.GetComponent<Soldier>().myTeam != TeamManager.instance.teamIndex && GetComponentInChildren<Image>().color != Color.red)
+			else if(transform.root.GetComponent<Soldier>().myTeam != TeamManager.instance.teamIndex)
 			{
-				characterPic.color = Color.red;
 				currentCharacterDot.enabled = false;
 			}
 		}

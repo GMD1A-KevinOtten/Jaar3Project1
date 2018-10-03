@@ -8,6 +8,7 @@ public class Team {
     public bool teamAlive = true;
     public int soldierIndex;
     public List<Soldier> allSoldiers = new List<Soldier>();
+    public Color thisTeamColor;
 
     public void NextSoldier()
     {
