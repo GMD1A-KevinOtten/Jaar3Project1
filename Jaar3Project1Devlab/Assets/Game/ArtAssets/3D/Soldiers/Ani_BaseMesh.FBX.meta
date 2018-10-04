@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 037216e8dddbae64e9b4315b2f1d1e6d
+guid: 8632603d626d49a41a4b3b6fa88e1692
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -509,12 +509,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Sphere002
       parentName: Ani_BaseMesh(Clone)
-      position: {x: 0.032183994, y: 1.8832885, z: 0.0418536}
+      position: {x: 0.032183994, y: 1.9326324, z: 0.048293725}
       rotation: {x: -0.000000057601163, y: -0.70710677, z: -0.00000005760116, w: 0.7071068}
       scale: {x: 1.289153, y: 1.289153, z: 1.289153}
     - name: Sphere003
       parentName: Ani_BaseMesh(Clone)
-      position: {x: -0.03260332, y: 1.8832885, z: 0.042805757}
+      position: {x: -0.03260332, y: 1.9326324, z: 0.049837008}
       rotation: {x: -0.00000005760117, y: -0.70710665, z: -0.000000057601152, w: 0.7071069}
       scale: {x: 1.289153, y: 1.289153, z: 1.289153}
     - name: Bip001

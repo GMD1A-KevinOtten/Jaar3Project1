@@ -1,27 +1,21 @@
 fileFormatVersion: 2
-guid: 23f1f35afadf019409d75f2fcfe8f93a
+guid: a8d71ba1a32139241a2288f29af030fe
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Object
-    100004: Sphere002
-    100006: Sphere003
-    400000: //RootNode
-    400002: Object
-    400004: Sphere002
-    400006: Sphere003
-    2100000: 03 - Default
-    2100002: 01 - Default
-    2300000: Object
-    2300002: Sphere002
-    2300004: Sphere003
-    3300000: Object
-    3300002: Sphere002
-    3300004: Sphere003
-    4300000: Sphere002
-    4300002: Sphere003
-    4300004: Object
+    100000: Low Poly Barrel
+    100002: Low Poly Base
+    100004: //RootNode
+    400000: Low Poly Barrel
+    400002: Low Poly Base
+    400004: //RootNode
+    2100000: 02 - Default
+    2300000: Low Poly Barrel
+    2300002: Low Poly Base
+    3300000: Low Poly Barrel
+    3300002: Low Poly Base
+    4300000: Low Poly Base
+    4300002: Low Poly Barrel
   externalObjects: {}
   materials:
     importMaterials: 1
