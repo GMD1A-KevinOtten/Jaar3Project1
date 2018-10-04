@@ -12,7 +12,6 @@ public class Soldier : MonoBehaviour {
     public Movement soldierMovement;
 
     [Header("Instantiation Properties")]
-    public Transform weaponSpawnLocation;
     public Transform handBone;
 
     [Header("Activity Proporties")]
@@ -21,11 +20,11 @@ public class Soldier : MonoBehaviour {
     public bool isActive;
     
     [Header("Weapon properties")]
-    public List<GameObject> availableWeaponsPrefabs = new List<GameObject>();
+    public List<GameObject> StarterWeaponPrefabs = new List<GameObject>();
+    public List<GameObject> availableWeapons = new List<GameObject>();
     [HideInInspector]
     public Weapon equippedWeapon;
     public int currentWeaponIndex;
-
     private int previouseWeaponIndex;
     private bool canSwitch = true;
     private Animator anim;
@@ -33,7 +32,7 @@ public class Soldier : MonoBehaviour {
     void Start()
     {
         soldierMovement = GetComponent<Movement>();
-        EquipWeapon(0);
+        InstantiateStarterWeapons();
 
         foreach (Team team in TeamManager.instance.allTeams)
         {
@@ -77,22 +76,22 @@ public class Soldier : MonoBehaviour {
 
     public void EquipWeapon(int weaponIndex)
     {
-        if(equippedWeapon != null)
-        {
-            // availableWeaponsPrefabs[previouseWeaponIndex].GetComponent<Weapon>().currentClip = equippedWeapon.currentClip;
-            Destroy(equippedWeapon.gameObject);
-        }
-        //uitvoeren op het punt waar wapen moet verschijnen
-        GameObject equippedWeaponObject = InstantiateWeapon(weaponIndex);
-        equippedWeapon = equippedWeaponObject.GetComponent<Weapon>();
+        availableWeapons[previouseWeaponIndex].SetActive(false);
+        equippedWeapon = availableWeapons[weaponIndex].GetComponent<Weapon>();
+        availableWeapons[weaponIndex].SetActive(true);
     }
 
-    public GameObject InstantiateWeapon(int weaponIndex)
+    public void InstantiateStarterWeapons()
     {
-        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], handBone.position, weaponSpawnLocation.rotation);
-        currenWeapon.transform.SetParent(handBone);
-        currenWeapon.GetComponent<Rigidbody>().useGravity = false;
-        return currenWeapon;
+        foreach (GameObject weapon in StarterWeaponPrefabs)
+        {
+            GameObject thisWeapon = Instantiate(weapon,handBone.transform.position,Quaternion.identity);
+            availableWeapons.Add(thisWeapon);
+            thisWeapon.transform.SetParent(handBone);
+            thisWeapon.GetComponent<Rigidbody>().useGravity = false;
+            thisWeapon.SetActive(false);
+        }
+        EquipWeapon(0);
     }
 
     public void Die()
@@ -122,7 +121,7 @@ public class Soldier : MonoBehaviour {
             {
                 if(currentWeaponIndex <= 0)
                 {
-                    currentWeaponIndex = availableWeaponsPrefabs.Count - 1;
+                    currentWeaponIndex = availableWeapons.Count - 1;
                 }
                 else
                 {
@@ -131,7 +130,7 @@ public class Soldier : MonoBehaviour {
             }
             if(scroll > 0)
             {            
-                if(currentWeaponIndex >= availableWeaponsPrefabs.Count - 1)
+                if(currentWeaponIndex >= availableWeapons.Count - 1)
                 {
                     currentWeaponIndex = 0;
                 }

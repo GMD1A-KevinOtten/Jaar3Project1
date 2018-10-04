@@ -17,28 +17,28 @@ public class WeaponCrate : InteractableObject {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if (soldierNearby())
-        {
-            if(weapons != currentSoldier.availableWeaponsPrefabs)
-            {
-                weapons = currentSoldier.availableWeaponsPrefabs;
-            }
-            if (Input.GetKeyDown("e"))
-            {
-                Interact();
-            }
-        }
-        else
-        {
-            if(currentSoldier != null)
-            {
-                currentSoldier = null;
-            }
-        }
+	// void Update () {
+    //     if (soldierNearby())
+    //     {
+    //         if(weapons != currentSoldier.availableWeaponsPrefabs)
+    //         {
+    //             weapons = currentSoldier.availableWeaponsPrefabs;
+    //         }
+    //         if (Input.GetKeyDown("e"))
+    //         {
+    //             Interact();
+    //         }
+    //     }
+    //     else
+    //     {
+    //         if(currentSoldier != null)
+    //         {
+    //             currentSoldier = null;
+    //         }
+    //     }
 
-        Debug.Log(soldierNearby());
-	}
+    //     Debug.Log(soldierNearby());
+	// }
 
     public override void Interact()
     {
