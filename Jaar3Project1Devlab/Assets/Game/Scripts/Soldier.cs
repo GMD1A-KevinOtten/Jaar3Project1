@@ -9,21 +9,26 @@ public class Soldier : MonoBehaviour {
     /// </summary>
     public int myTeam;
     public Transform thirdPersonCamPos;
-    public Transform weaponSpawnLocation;
     public Movement soldierMovement;
+
+    [Header("Instantiation Properties")]
+    public Transform weaponSpawnLocation;
+    public Transform handBone;
 
     [Header("Activity Proporties")]
     public int health;
     public bool isDead;
     public bool isActive;
     
-    [Header("Weapon propertys")]
+    [Header("Weapon properties")]
     public List<GameObject> availableWeaponsPrefabs = new List<GameObject>();
     [HideInInspector]
     public Weapon equippedWeapon;
     public int currentWeaponIndex;
+
     private int previouseWeaponIndex;
     private bool canSwitch = true;
+    private Animator anim;
 
     void Start()
     {
@@ -41,6 +46,8 @@ public class Soldier : MonoBehaviour {
             }
             
         }
+
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -82,8 +89,8 @@ public class Soldier : MonoBehaviour {
 
     public GameObject InstantiateWeapon(int weaponIndex)
     {
-        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], weaponSpawnLocation.position,weaponSpawnLocation.rotation);
-        currenWeapon.transform.SetParent(weaponSpawnLocation);
+        GameObject currenWeapon = Instantiate(availableWeaponsPrefabs[weaponIndex], handBone.position, weaponSpawnLocation.rotation);
+        currenWeapon.transform.SetParent(handBone);
         currenWeapon.GetComponent<Rigidbody>().useGravity = false;
         return currenWeapon;
     }
@@ -145,5 +152,25 @@ public class Soldier : MonoBehaviour {
     public void ReloadSound(int soundIndex)
     {
         equippedWeapon.Reload(soundIndex);
+    }
+
+    public void SetMoveAnimation(Vector3 currentSpeed)
+    {
+        if (currentSpeed != Vector3.zero)
+        {
+            if (equippedWeapon.weaponKind == Weapon.WeaponKind.Light)
+            {
+                anim.SetBool("isMovingLight", true);
+            }
+            else if (equippedWeapon.weaponKind == Weapon.WeaponKind.Heavy)
+            {
+                anim.SetBool("isMovingHeavy", true);
+            }
+        }
+        else
+        {
+            anim.SetBool("isMovingLight", false);
+            anim.SetBool("isMovingHeavy", false);
+        }
     }
 }

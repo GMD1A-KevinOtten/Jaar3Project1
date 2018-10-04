@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
+    public enum WeaponKind
+    {
+        Light,
+        Heavy,
+    }
+
     [Header("Gun proporties")]
     public int gunID;
+    public WeaponKind weaponKind;
     public Transform barrelExit;
     public GameObject bulletPrefab;
     public Sprite gunCrosshair;

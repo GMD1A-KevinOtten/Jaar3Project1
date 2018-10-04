@@ -634,6 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunID: 0
+  weaponKind: 1
   barrelExit: {fileID: 4268574874152216}
   bulletPrefab: {fileID: 1702914062282930, guid: adeb39ab92043124f8f6c2d0c4bb928e,
     type: 2}

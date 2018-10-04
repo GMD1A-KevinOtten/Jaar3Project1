@@ -8,7 +8,14 @@ public class Movement : MonoBehaviour {
 	public float horRotSpeed;
 	public bool canMove;
 
-	void FixedUpdate ()
+    private Soldier soldier;
+
+    private void Awake()
+    {
+        soldier = GetComponent<Soldier>();
+    }
+
+    void FixedUpdate ()
 	{
 		if(canMove == true) 
         {
@@ -24,7 +31,8 @@ public class Movement : MonoBehaviour {
 		float zInput = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
 
 		Vector3 move = new Vector3(xInput , 0 ,zInput);
-		transform.Translate(move);
+        soldier.SetMoveAnimation(move);
+        transform.Translate(move);
 	}
 
 	public void SoldierRotation()
