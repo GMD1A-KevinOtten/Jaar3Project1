@@ -16,12 +16,16 @@ public class Tank : InteractableObject {
     private Soldier currentSoldier;
     private bool soldierInside;
 
+    private Weapon previousWeapon;
+
     [Header("Clamp properties")]
     public bool clamp;
     public float clampX;
     public float clampY;
-	// Use this for initialization
-	void Start () {
+    private float xRotInput;
+    private float yRotInput;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -58,26 +62,28 @@ public class Tank : InteractableObject {
     {
         Vector2 mousePos = Input.mousePosition;
 
-        if(mousePos.x > Screen.width - screenBoundary)
+        float h = Input.GetAxis("Mouse X");
+        float v = Input.GetAxis("Mouse Y");
+
+        if (!clamp)
         {
-            //Right side
-            turret.transform.Rotate(transform.up * barrelRotationSpeed * Time.deltaTime);
+            turret.transform.Rotate(transform.up * h * barrelRotationSpeed * Time.deltaTime);
+            barrel.transform.Rotate(transform.up * v * barrelRotationSpeed * Time.deltaTime);
         }
-        if (mousePos.x < 0 + screenBoundary)
+        else
         {
-            //Left side
-            turret.transform.Rotate(-transform.up * barrelRotationSpeed * Time.deltaTime);
+            xRotInput += Input.GetAxis("Mouse X") * Time.deltaTime * barrelRotationSpeed;
+            xRotInput = Mathf.Clamp(xRotInput, -clampX, clampX);
+            turret.transform.localRotation = Quaternion.Euler(0, xRotInput, 0);
+
+            yRotInput += Input.GetAxis("Mouse Y") * Time.deltaTime * barrelRotationSpeed;
+            yRotInput = Mathf.Clamp(yRotInput, -clampY, clampY);
+            barrel.transform.localRotation = Quaternion.Euler(0, yRotInput, 0);
+
         }
-        if (mousePos.y > Screen.height - screenBoundary)
-        {
-            //Top side
-            barrel.transform.Rotate(transform.up * barrelRotationSpeed * Time.deltaTime);
-        }
-        if (mousePos.y < 0 + screenBoundary)
-        {
-            //Bottom side
-            barrel.transform.Rotate(-transform.up * barrelRotationSpeed * Time.deltaTime);
-        }
+
+
+
 
     }
 
@@ -87,6 +93,8 @@ public class Tank : InteractableObject {
         {
             if (Input.GetKeyDown("e"))
             {
+                previousWeapon = currentSoldier.equippedWeapon;
+
                 soldierOutsidePos = currentSoldier.gameObject.transform.position;
                 currentSoldier.gameObject.transform.position = soldierInsidePos.position;
                 currentSoldier.isActive = false;
@@ -95,6 +103,7 @@ public class Tank : InteractableObject {
                 Camera.main.enabled = false;
                 barrelCam.enabled = true;
                 soldierInside = true;
+                currentSoldier.equippedWeapon = GetComponentInChildren<Weapon>();
 
                 
             }
@@ -109,6 +118,10 @@ public class Tank : InteractableObject {
 
         TeamManager.instance.mainCamera.GetComponent<Camera>().enabled = true;
         barrelCam.enabled = false;
+
+        currentSoldier.equippedWeapon = previousWeapon;
+        previousWeapon = null;
+
         soldierInside = false;
     }
 

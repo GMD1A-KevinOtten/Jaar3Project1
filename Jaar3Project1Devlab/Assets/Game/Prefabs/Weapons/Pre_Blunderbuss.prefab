@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 65635572052110038}
   - component: {fileID: 54205288510199232}
   m_Layer: 11
-  m_Name: PRE_Blunderbuss
+  m_Name: Pre_Blunderbuss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,6 +645,7 @@ MonoBehaviour:
   bulletVelocity: 40
   bulletSpread: {x: 20, y: 20}
   recoil: 30
+  isTank: 0
   shotSound: {fileID: 0}
   reloadSounds: []
   currentClip: 0

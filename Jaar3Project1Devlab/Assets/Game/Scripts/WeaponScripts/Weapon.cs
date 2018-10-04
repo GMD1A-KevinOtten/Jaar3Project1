@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviour {
     public Vector2 bulletSpread;
     public float recoil;
 
+    public bool isTank;
     [Header("Gun Sound Effects")]
     public CustomAudioClip shotSound;
     public CustomAudioClip[] reloadSounds;
