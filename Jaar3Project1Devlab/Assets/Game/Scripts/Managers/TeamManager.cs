@@ -22,7 +22,7 @@ public class TeamManager : MonoBehaviour {
     public float maxTurnTime = 60;
     [HideInInspector]
     public float turnTime;
-    public Text timeText;
+    public TextMeshProUGUI timeText;
     public Image turnTimerCircle;
 
     public Color circleStartColor;
