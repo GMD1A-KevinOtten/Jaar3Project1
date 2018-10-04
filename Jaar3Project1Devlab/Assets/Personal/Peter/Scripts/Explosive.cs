@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Explosive : Weapon {
 
-    private void Start()
+    public override void Start()
     {
         base.Start();
     }
 
-    private void Update()
+   public override void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (isTank)
         {
-            ShootBullet();
+            if (transform.root.GetComponent<Tank>().soldierInside)
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    ShootBullet();
+                }
+            }
+        
         }
+        
     }
 }

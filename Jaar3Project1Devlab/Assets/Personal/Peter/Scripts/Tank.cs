@@ -14,7 +14,7 @@ public class Tank : InteractableObject {
     public float screenBoundary;
     private Vector3 soldierOutsidePos;
     private Soldier currentSoldier;
-    private bool soldierInside;
+    public bool soldierInside;
 
     private Weapon previousWeapon;
 
