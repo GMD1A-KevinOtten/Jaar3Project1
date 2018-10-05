@@ -18,9 +18,20 @@ public class Blunderbus : Weapon
 
     public override void Inputs()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(mySoldier.canShoot == true)
         {
-            StartCoroutine(ShootBlunderbus());
+            if (Input.GetButtonDown("Fire1"))
+            {
+                StartCoroutine(ShootBlunderbus());
+            }
+        }   
+        if(Input.GetButtonDown("Fire2"))
+        {
+            print("RightKlick");
+            if(mySoldier.canShoot != true)
+            {
+                mySoldier.CombatToggle();
+            }
         }
     }
 

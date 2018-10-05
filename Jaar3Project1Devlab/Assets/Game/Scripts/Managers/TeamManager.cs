@@ -22,6 +22,8 @@ public class TeamManager : MonoBehaviour {
     public float maxTurnTime = 60;
     [HideInInspector]
     public float turnTime;
+    public float combatTurnTime;
+    public bool combatTimer;
     public TextMeshProUGUI timeText;
     public Image turnTimerCircle;
 
@@ -31,6 +33,8 @@ public class TeamManager : MonoBehaviour {
     public TextMeshProUGUI betweenTurnsText;
     public float textDisplayTime = 1.5F;
     private bool textSet;
+
+    public Soldier activeSoldier;
 
     private void Awake()
     {
@@ -79,7 +83,36 @@ public class TeamManager : MonoBehaviour {
                 lastTeamIndex = teamIndex;
                 NextTeam();
             }
-            TurnTimer();
+            if(combatTimer)
+            {
+                CombatTimer();
+            }
+            else
+            {
+                TurnTimer();
+            }
+        }
+    }
+
+    public void GameOverCheck()
+    {
+        int teamsAlive = 0;
+        Team livingTeam = null;
+        foreach (Team team in allTeams)
+        {
+            if(team.teamAlive == true)
+            {
+                teamsAlive += 1;
+                livingTeam = team;
+            }
+        }
+        if(teamsAlive == 0)
+        {
+            GameManager.Instance.GameOverEvent(0);
+        }
+        else if(teamsAlive == 1)
+        {
+            GameManager.Instance.GameOverEvent(livingTeam.allSoldiers[0].myTeam += 1);
         }
     }
 
@@ -99,6 +132,26 @@ public class TeamManager : MonoBehaviour {
 
     }
 
+    public void CombatTimer()
+    {
+        if(turnTime > 0)
+        {
+            turnTime -= Time.deltaTime;
+        }
+        if(turnTime <= 0)
+        {
+            lastTeamIndex = teamIndex;
+            activeSoldier.CombatToggle();
+            NextTeam();
+        }
+
+        turnTimerCircle.fillAmount = turnTime / combatTurnTime;
+        float t = turnTime / combatTurnTime;
+        Color color = Color.Lerp(circleEndColor, circleStartColor, t);
+        turnTimerCircle.color = color;
+        timeText.text = "" + turnTime.ToString("F0");
+    }
+
     void ResetTimer()
     {
         turnTime = maxTurnTime;
@@ -116,8 +169,6 @@ public class TeamManager : MonoBehaviour {
         }
         if(turnTime <= 0)
         {
-            turnTime = maxTurnTime;
-            
             lastTeamIndex = teamIndex;
             NextTeam();
         }
@@ -139,7 +190,7 @@ public class TeamManager : MonoBehaviour {
         ResetTimer();
 
         Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-        soldier.soldierMovement.canMove = false;
+        soldier.soldierMovement.canMoveAndRotate = false;
         soldier.isActive = false;
 
         if (teamIndex + 1 < allTeams.Count)
@@ -230,17 +281,13 @@ public class TeamManager : MonoBehaviour {
                 {
                     mainCamera.transform.parent.rotation = Quaternion.Lerp(mainCamera.transform.parent.rotation, Quaternion.Euler(Camera.main.transform.parent.eulerAngles.x,cameraPositionSky.eulerAngles.y,cameraPositionSky.eulerAngles.z),movementSpeed / 10 * Time.deltaTime);
                 }
-                // print(moveTo);
-                // print(cameraToRot);
-                // print(mainCamera.transform.parent.position);
-                // print(cameraRot);
                 yield return null;
             }
 
             if(camState == CameraMovement.CameraStates.ThirdPerson)
             {
                 Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-                soldier.soldierMovement.canMove = true;
+                soldier.soldierMovement.canMoveAndRotate = true;
                 soldier.isActive = true;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
             }

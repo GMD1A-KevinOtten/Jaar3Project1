@@ -18,6 +18,7 @@ public class Soldier : MonoBehaviour {
     public int health;
     public bool isDead;
     public bool isActive;
+    public bool canShoot;
     
     [Header("Weapon properties")]
     public List<GameObject> StarterWeaponPrefabs = new List<GameObject>();
@@ -29,8 +30,11 @@ public class Soldier : MonoBehaviour {
     private bool canSwitch = true;
     private Animator anim;
 
+    float baseFOV;
+
     void Start()
     {
+        baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
         soldierMovement = GetComponent<Movement>();
         InstantiateStarterWeapons();
 
@@ -57,7 +61,37 @@ public class Soldier : MonoBehaviour {
             {
                 equippedWeapon.ShowCrosshair();
             }
-            CheckScroll();
+            if(canShoot != true)
+            {
+                CheckScroll();
+            }
+        }
+    }
+
+    public void CombatToggle()
+    {
+        if(canShoot == false)
+        {
+            canShoot = true;
+            anim.SetBool("isMovingLight", false);
+            anim.SetBool("isMovingHeavy", false);
+            soldierMovement.canMove = false;
+            Camera.main.GetComponent<Camera>().fieldOfView = 40;
+            TeamManager.instance.combatTimer = true;
+            TeamManager.instance.turnTime = TeamManager.instance.combatTurnTime;
+            TeamManager.instance.activeSoldier = this;
+        }
+        else
+        {
+            canShoot = false;
+            soldierMovement.canMove = true;
+            print(baseFOV);
+            Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
+            TeamManager.instance.combatTimer = false;
+            if(equippedWeapon.specialFunctionality == true)
+            {   
+                equippedWeapon.SpecialFunctionalityToggle();
+            }
         }
     }
 

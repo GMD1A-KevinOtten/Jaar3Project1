@@ -19,7 +19,9 @@ public class Weapon : MonoBehaviour {
     public LayerMask crosshairRayMask;
     public float bulletVelocity;
     public Vector2 bulletSpread;
+    public Soldier mySoldier;
     public float recoil;
+    public bool specialFunctionality;
 
     public bool isTank;
     [Header("Gun Sound Effects")]
@@ -36,14 +38,15 @@ public class Weapon : MonoBehaviour {
 
     public virtual void Start() 
     {
+        mySoldier = gameObject.transform.root.GetComponent<Soldier>();
         FillClip();
     }
 
     public virtual void Update() 
     {
-        if(gameObject.transform.root.GetComponent<Soldier>() != null)
+        if(mySoldier != null)
         {
-            if(transform.root.GetComponent<Soldier>().isActive == true)
+            if(mySoldier.isActive == true)
             {
                 Inputs();
             }
@@ -54,7 +57,30 @@ public class Weapon : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            ShootBullet();
+            if(mySoldier.canShoot == true)
+            {
+                ShootBullet();
+            }
+        }
+        if(Input.GetButtonDown("Fire2"))
+        {
+            print("RightKlick");
+            if(mySoldier.canShoot != true)
+            {
+                mySoldier.CombatToggle();
+            }
+        }
+    }
+
+    public virtual void SpecialFunctionalityToggle()
+    {
+        if(specialFunctionality == false)
+        {
+            specialFunctionality = true;
+        }
+        else
+        {
+            specialFunctionality = false;
         }
     }
 

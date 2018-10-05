@@ -28,10 +28,21 @@ public class TommyGun : Weapon {
     {
         if(canShoot)
         {
-            if (Input.GetButton("Fire1"))
+            if(mySoldier.canShoot == true)
             {
-                canShoot = false;
-                StartCoroutine(ShotWaitTime());
+                if (Input.GetButton("Fire1"))
+                {
+                    canShoot = false;
+                    StartCoroutine(ShotWaitTime());
+                }
+            }
+        }
+        if(Input.GetButtonDown("Fire2"))
+        {
+            print("RightKlick");
+            if(mySoldier.canShoot != true)
+            {
+                mySoldier.CombatToggle();
             }
         }
     }

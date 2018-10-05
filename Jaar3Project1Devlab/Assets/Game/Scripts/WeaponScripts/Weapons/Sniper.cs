@@ -20,9 +20,12 @@ public class Sniper : Weapon {
         {
             if(gameObject.transform.root.GetComponent<Soldier>().isActive == true)
             {
-                if(Input.GetButtonDown("Fire2"))
+                if(mySoldier.canShoot == true)
                 {
-                    ToggelScope();
+                    if(Input.GetButtonDown("Fire2"))
+                    {
+                        SpecialFunctionalityToggle();
+                    }
                 }
             }
         }
@@ -30,8 +33,9 @@ public class Sniper : Weapon {
 
     
 
-    public void ToggelScope()
+    public override void SpecialFunctionalityToggle()
     {
+        base.SpecialFunctionalityToggle();
         UIManager.instance.ToggleScope();
         if(cameraScope.GetComponent<Camera>().depth < Camera.main.depth)
         {

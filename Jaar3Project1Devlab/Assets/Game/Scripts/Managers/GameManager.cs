@@ -57,9 +57,17 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void GameOverEvent()
+	//victoriouse team is the index + 1
+	public void GameOverEvent(int victoriouseTeam)
 	{
-		// UIManager gameover function met variable input voor welk team/player wint (back to menu button, restart game button, quit game button)
+		if(victoriouseTeam > 0)
+		{
+			// UIManager gameover function met variable input voor welk team/player wint (back to menu button, restart game button, quit game button)
+		}
+		else
+		{
+			// gelijk spel scherm
+		}
 	}
 
 	public void QuitGame()

@@ -6,20 +6,24 @@ public class Movement : MonoBehaviour {
 	
 	public float moveSpeed;
 	public float horRotSpeed;
-	public bool canMove;
-
+	public bool canMoveAndRotate;
+    public bool canMove;
     private Soldier soldier;
 
     private void Awake()
     {
         soldier = GetComponent<Soldier>();
+        canMove = true;
     }
 
     void FixedUpdate ()
 	{
-		if(canMove == true) 
+		if(canMoveAndRotate == true) 
         {
-            SoldierMovement();
+            if(canMove == true)
+            {
+                SoldierMovement();
+            }
             SoldierRotation();
 		}
 	}
@@ -42,13 +46,13 @@ public class Movement : MonoBehaviour {
 	}
     public void ChangeCanMove()
     {
-        if (!canMove)
+        if (!canMoveAndRotate)
         {
-            canMove = true;
+            canMoveAndRotate = true;
         }
         else
         {
-            canMove = false;
+            canMoveAndRotate = false;
         }
     }
 
