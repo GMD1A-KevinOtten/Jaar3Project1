@@ -2196,6 +2196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairImage: {fileID: 46485719}
   sniperScope: {fileID: 2095277715}
+  ui_soldierStatuses: []
+  soldierStatusPrefab: {fileID: 0}
+  soldierStatusParent: {fileID: 0}
   showCroshair: 1
 --- !u!114 &1665056845
 MonoBehaviour:
