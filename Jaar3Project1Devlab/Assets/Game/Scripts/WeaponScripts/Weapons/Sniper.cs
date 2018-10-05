@@ -16,17 +16,27 @@ public class Sniper : Weapon {
 	public override void  Update() 
     {
         base.Update();
-        if(gameObject.transform.root.GetComponent<Soldier>() != null)
+    }
+
+    public override void Inputs()
+    {
+        if (Input.GetButtonDown("Fire1"))
         {
-            if(gameObject.transform.root.GetComponent<Soldier>().isActive == true)
+            if(mySoldier.canShoot == true)
             {
-                if(mySoldier.canShoot == true)
-                {
-                    if(Input.GetButtonDown("Fire2"))
-                    {
-                        SpecialFunctionalityToggle();
-                    }
-                }
+                ShootBullet();
+            }
+        }
+        if(Input.GetButtonDown("Fire2"))
+        {
+            print("RightKlick");
+            if(mySoldier.canShoot != true)
+            {
+                mySoldier.CombatToggle();
+            }
+            else
+            {
+                SpecialFunctionalityToggle();
             }
         }
     }

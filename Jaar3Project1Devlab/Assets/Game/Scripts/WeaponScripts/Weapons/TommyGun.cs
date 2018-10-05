@@ -15,13 +15,7 @@ public class TommyGun : Weapon {
 
 	public override void Update() 
     {
-        if(gameObject.transform.root.GetComponent<Soldier>() != null)
-        {
-            if(gameObject.transform.root.GetComponent<Soldier>().isActive == true)
-            {
-                Inputs();
-            }
-        }
+        base.Update();
     }
 
     public override void Inputs()

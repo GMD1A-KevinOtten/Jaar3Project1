@@ -7,13 +7,7 @@ public class Blunderbus : Weapon
 
     public override void Update() 
     {
-        if(gameObject.transform.root.GetComponent<Soldier>() != null)
-        {
-            if(transform.root.GetComponent<Soldier>().isActive == true)
-            {
-                Inputs();
-            }
-        }
+        base.Update();
     }
 
     public override void Inputs()
