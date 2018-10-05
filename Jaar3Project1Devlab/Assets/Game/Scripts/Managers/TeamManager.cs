@@ -80,6 +80,10 @@ public class TeamManager : MonoBehaviour {
         {
             if(Input.GetButtonDown("Enter"))
             {
+                if(combatTimer)
+                {
+                    activeSoldier.CombatToggle();
+                }
                 lastTeamIndex = teamIndex;
                 NextTeam();
             }

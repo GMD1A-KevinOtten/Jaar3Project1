@@ -38,6 +38,10 @@ public class Team {
             }
         }
         teamAlive = soldiersAlive;
+        if(teamAlive == false)
+        {
+            TeamManager.instance.GameOverCheck();
+        }
     }
 
     public bool SoldierCheck(Soldier checkThis)

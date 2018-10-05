@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour {
 	{
 		if(victoriouseTeam > 0)
 		{
-			// UIManager gameover function met variable input voor welk team/player wint (back to menu button, restart game button, quit game button)
+			print(victoriouseTeam);
+			// UIManager gameover function met variable input voor welk team/player wint en UI element popup voor back to menu button, restart game button, quit game button
 		}
 		else
 		{

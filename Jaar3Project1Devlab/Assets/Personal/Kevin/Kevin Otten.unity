@@ -2183,7 +2183,7 @@ MonoBehaviour:
   myTeam: 0
   thirdPersonCamPos: {fileID: 1462728100}
   soldierMovement: {fileID: 0}
-  handBone: {fileID: 89526908}
+  handBone: {fileID: 2095483760}
   health: 100
   isDead: 0
   isActive: 0
