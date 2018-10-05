@@ -94,6 +94,18 @@ public class Soldier : MonoBehaviour {
         EquipWeapon(0);
     }
 
+    public void TakeWeapon(GameObject weapon)
+    {
+        if(availableWeapons.Count != 3)
+        {
+            availableWeapons.Add(weapon);
+        }
+        else
+        {
+            availableWeapons[availableWeapons.Count - 1] = weapon; 
+        }
+    }
+
     public void Die()
     {
         isDead = true;
