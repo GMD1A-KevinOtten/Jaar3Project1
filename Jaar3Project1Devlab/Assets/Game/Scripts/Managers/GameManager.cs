@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void GameOverEvent()
+	{
+		// UIManager gameover function met variable input voor welk team/player wint (back to menu button, restart game button, quit game button)
+	}
+
 	public void QuitGame()
 	{
 #if UNITY_EDITOR
