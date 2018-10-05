@@ -98,7 +98,7 @@ public class Tank : InteractableObject {
                 soldierOutsidePos = currentSoldier.gameObject.transform.position;
                 currentSoldier.gameObject.transform.position = soldierInsidePos.position;
                 currentSoldier.isActive = false;
-                currentSoldier.soldierMovement.canMove = false;
+               // currentSoldier.soldierMovement.canMoveAndRotate = false;
 
                 Camera.main.enabled = false;
                 barrelCam.enabled = true;
@@ -114,7 +114,7 @@ public class Tank : InteractableObject {
     {
         currentSoldier.gameObject.transform.position = soldierOutsidePos;
         currentSoldier.isActive = true;
-        currentSoldier.soldierMovement.canMove = true;
+      //  currentSoldier.soldierMovement.canMoveAndRotate = true;
 
         TeamManager.instance.mainCamera.GetComponent<Camera>().enabled = true;
         barrelCam.enabled = false;

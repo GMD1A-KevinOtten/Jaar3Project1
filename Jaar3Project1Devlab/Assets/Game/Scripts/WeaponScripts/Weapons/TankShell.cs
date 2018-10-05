@@ -39,8 +39,10 @@ public class TankShell : MonoBehaviour {
                     }
                     else
                     {
+
                         dist = Mathf.Clamp(dist, 0, maxDist);
-                        dist = dist / maxDist;
+                        float f = maxDist - minDist;
+                        dist = dist / f;
                         float dmg = damage * dist;
                         dmg = damage - dmg;
 
