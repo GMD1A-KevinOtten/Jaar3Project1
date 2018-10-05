@@ -8,13 +8,21 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance;
     public Image crosshairImage;
     public GameObject sniperScope;
-    public UI_SoldierStatus[] ui_soldierStatuses;
+
+    public List<UI_SoldierStatus> ui_soldierStatuses = new List<UI_SoldierStatus>();
+    public List<Image> weaponIcons = new List<Image>();
+
+    [Header("Windows")]
+    public RectTransform soldierStatusWindow;
+    public RectTransform weaponIconWindow;
 
     [Header("Prefabs")]
     public GameObject soldierStatusPrefab;
+    public GameObject weaponIconPrefab;
 
     [Header("Parents")]
     public RectTransform soldierStatusParent;
+    public RectTransform weaponIconParent;
 
     public bool showCroshair = true;
 
@@ -31,7 +39,7 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public UI_SoldierStatus[] InstantiateSoldierStatus(List<Team> teams)
+    public List<UI_SoldierStatus> InstantiateSoldierStatus(List<Team> teams)
     {
         List<UI_SoldierStatus> toReturn = new List<UI_SoldierStatus>();
 
@@ -46,7 +54,26 @@ public class UIManager : MonoBehaviour {
             }
         }
 
-        return toReturn.ToArray();
+        return toReturn;
+    }
+
+    public void InstantiateWeaponIcons(List<GameObject> availableWeapons)
+    {
+        foreach(Image i in weaponIcons)
+        {
+            Destroy(i);
+        }
+
+        weaponIcons.Clear();
+
+        for (int i = 0; i < availableWeapons.Count; i++)
+        {
+            GameObject newObject = Instantiate(weaponIconPrefab, weaponIconParent.transform.position, weaponIconPrefab.transform.rotation);
+            newObject.transform.SetParent(weaponIconParent, false);
+            Image weaponIcon = newObject.GetComponentInChildren<Image>();
+            //weaponIcon.sprite = availableWeapons[i].icon;
+            weaponIcons.Add(weaponIcon);
+        }
     }
 
     public void UpdateSoldierStatuses()

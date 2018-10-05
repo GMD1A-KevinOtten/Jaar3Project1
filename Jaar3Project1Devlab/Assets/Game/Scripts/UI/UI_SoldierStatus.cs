@@ -7,7 +7,7 @@ public class UI_SoldierStatus : MonoBehaviour {
 
     private Soldier soldier;
 
-    public Image healthBar;
+    public Slider healthBar;
     public Image deathMarker;
     public bool alive;
 
@@ -26,6 +26,6 @@ public class UI_SoldierStatus : MonoBehaviour {
         }
 
         float percent = soldier.health / 100;
-        healthBar.fillAmount = percent;
+        healthBar.value = percent;
     }
 }

@@ -1696,15 +1696,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTeam: 0
   thirdPersonCamPos: {fileID: 4297297562334454}
-  weaponSpawnLocation: {fileID: 4966749969666606}
   soldierMovement: {fileID: 114905621414161576}
+  handBone: {fileID: 4340182093027968}
   health: 100
   isDead: 0
   isActive: 0
-  availableWeaponsPrefabs:
-  - {fileID: 1989339358856240, guid: 38be823892dac2f409f0fa348db03623, type: 2}
+  StarterWeaponPrefabs:
   - {fileID: 1967739654551756, guid: d4c5cb1da9010514baa5d383f431142d, type: 2}
+  - {fileID: 1738159645274556, guid: 4c81a3405e86b4c40b3f2bca6966d790, type: 2}
+  - {fileID: 1989339358856240, guid: 38be823892dac2f409f0fa348db03623, type: 2}
   - {fileID: 1746869410240094, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
+  availableWeapons: []
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0
 --- !u!114 &114905621414161576
