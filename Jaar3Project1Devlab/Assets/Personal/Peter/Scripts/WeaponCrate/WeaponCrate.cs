@@ -41,9 +41,11 @@ public class WeaponCrate : InteractableObject {
             }
         }
 
-        if(usedThisTurn && TeamManager.instance.turnTime <= .1F || Input.GetButtonDown("Enter"))
+        if(usedThisTurn && TeamManager.instance.turnTime <= .1F || Input.GetButtonDown("Enter") && Camera.main.GetComponent<CameraMovement>().cameraState == CameraMovement.CameraStates.ThirdPerson)
         {
             usedThisTurn = false;
+            ResetVars();
+            CloseAnimation(true);
         }
 
         
@@ -72,7 +74,7 @@ public class WeaponCrate : InteractableObject {
                 {
                     GetComponent<Animator>().SetBool("Closed", true);
                     currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
-                    CloseAnimation();
+                    CloseAnimation(false);
                     spawnedWeapon = false;
 
                 }
@@ -105,13 +107,23 @@ public class WeaponCrate : InteractableObject {
         GetComponent<Animator>().SetBool("Open", true);
     }
 
-    public void CloseAnimation()
+    public void CloseAnimation(bool turnEnded)
     {
-        usedThisTurn = true;
+        if (!turnEnded)
+        {
+            usedThisTurn = true;
+        }
         GetComponent<Animator>().SetBool("Open", false);
         GetComponent<Animator>().SetBool("Closed", true);
         GetComponentInChildren<WeaponCrateWeaponAnimBool>().animDone = false;
         GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("Opened", false);
         GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("MoveUp", false);
+    }
+
+    private void ResetVars()
+    {
+        Destroy(weaponObject);
+        weaponObject = null;
+        spawnedWeapon = false;
     }
 }
