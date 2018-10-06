@@ -11,10 +11,12 @@ public class WeaponCrate : InteractableObject {
     private GameObject weaponObject;
     private Soldier currentSoldier;
     private int weaponIndex;
+
+    public bool usedThisTurn;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        GetComponent<Animator>().SetBool("Closed", true);
+    }
 
     //Update is called once per frame
 
@@ -26,7 +28,7 @@ public class WeaponCrate : InteractableObject {
             //{
             //    weapons = currentSoldier.availableWeaponsPrefabs;
             //}
-            if (Input.GetKeyDown("e"))
+            if (Input.GetKeyDown("e") && !usedThisTurn)
             {
                 Interact();
             }
@@ -39,14 +41,20 @@ public class WeaponCrate : InteractableObject {
             }
         }
 
+        if(usedThisTurn && TeamManager.instance.turnTime <= .1F || Input.GetButtonDown("Enter"))
+        {
+            usedThisTurn = false;
+        }
+
         
     }
 
     public override void Interact()
     {
-        if (!spawnedWeapon)
+        if (!spawnedWeapon && GetComponent<Animator>().GetBool("Closed"))
         {
             GetComponent<Animator>().SetBool("Open", true);
+            GetComponent<Animator>().SetBool("Closed", false);
             GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("Opened", true);
 
             weaponIndex = Random.Range(0, weapons.Count);
@@ -56,10 +64,16 @@ public class WeaponCrate : InteractableObject {
             weaponObject.transform.SetParent(GetComponentInChildren<WeaponCrateWeaponAnimBool>().transform);
             spawnedWeapon = true;
         }
-        else
+        else if(spawnedWeapon)
         {
-            currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
-            spawnedWeapon = false;
+            if (!GetComponent<Animator>().GetBool("Closed") && GetComponentInChildren<WeaponCrateWeaponAnimBool>().animDone)
+            {
+                GetComponent<Animator>().SetBool("Closed", true);
+                currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
+                CloseAnimation();
+                spawnedWeapon = false;
+
+            }
         }
         Debug.Log(weaponIndex);
     }
@@ -90,6 +104,11 @@ public class WeaponCrate : InteractableObject {
 
     public void CloseAnimation()
     {
-
+        usedThisTurn = true;
+        GetComponent<Animator>().SetBool("Open", false);
+        GetComponent<Animator>().SetBool("Closed", true);
+        GetComponentInChildren<WeaponCrateWeaponAnimBool>().animDone = false;
+        GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("Opened", false);
+        GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("MoveUp", false);
     }
 }

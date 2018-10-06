@@ -8,12 +8,12 @@ public class TeamManager : MonoBehaviour {
     public static TeamManager instance;
     private bool runningIenumerator;
 
-    [Header("Camera proporties")]
+    [Header("Camera Properties")]
     public CameraMovement mainCamera;
     public Transform cameraPositionSky;
     public float movementSpeed;
 
-    [Header("Team Proporties")]
+    [Header("Team Properties")]
     public int teamIndex;
     public int lastTeamIndex;
     public List<Team> allTeams = new List<Team>();
@@ -254,6 +254,7 @@ public class TeamManager : MonoBehaviour {
     {
         UIManager.instance.HideCrosshair();
         mainCamera.transform.parent.SetParent(null);
+        activeSoldier = null;
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
     }
 
@@ -293,6 +294,7 @@ public class TeamManager : MonoBehaviour {
                 Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
                 soldier.soldierMovement.canMoveAndRotate = true;
                 soldier.isActive = true;
+                activeSoldier = soldier;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
             }
             

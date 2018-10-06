@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponCrateWeaponAnimBool : MonoBehaviour {
-
+    public bool animDone;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,5 +17,10 @@ public class WeaponCrateWeaponAnimBool : MonoBehaviour {
     public void SetThatBool()
     {
         GetComponent<Animator>().SetBool("MoveUp", true);
+    }
+
+    public void AnimDone()
+    {
+        animDone = true;
     }
 }

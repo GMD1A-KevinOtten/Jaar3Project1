@@ -136,8 +136,14 @@ public class Soldier : MonoBehaviour {
         }
         else
         {
-            availableWeapons[availableWeapons.Count - 1] = weapon; 
+            availableWeapons[availableWeapons.Count - 1] = weapon;
         }
+
+        weapon.transform.SetParent(handBone);
+        weapon.transform.localPosition = Vector3.zero;
+        weapon.GetComponent<Rigidbody>().useGravity = false;
+        weapon.GetComponent<Weapon>().mySoldier = this;
+        weapon.SetActive(false);
     }
 
     public void Die()
