@@ -71,8 +71,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4444296723729616}
-  - component: {fileID: 114935800358046726}
   - component: {fileID: 54754339324820648}
+  - component: {fileID: 114939314320728016}
   m_Layer: 0
   m_Name: PRE_Makarov
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738159645274556}
   m_LocalRotation: {x: -0, y: -0.60826236, z: -0, w: 0.7937361}
-  m_LocalPosition: {x: -2.313, y: 0.098, z: -6.495}
+  m_LocalPosition: {x: -10.331083, y: 6.2679383e-18, z: -2.8228283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4005499492256552}
@@ -270,7 +270,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019413432, y: 0.05735321, z: 0.08590538}
   m_Center: {x: -0.000000009410389, y: 0.0006741956, z: -0.000000003805661}
---- !u!114 &114935800358046726
+--- !u!114 &114939314320728016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1738159645274556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d896d3430129082468c220f7daf09a66, type: 3}
+  m_Script: {fileID: 11500000, guid: f1bbae83e15532f4a85f4db84d99c90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gunID: 0
@@ -291,10 +291,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 7479
   bulletVelocity: 50
-  bulletSpread: {x: 3, y: 3}
+  bulletSpread: {x: 2, y: 2}
+  mySoldier: {fileID: 0}
   recoil: 10
+  specialFunctionality: 0
   isTank: 0
   shotSound: {fileID: 0}
   reloadSounds: []
   currentClip: 0
-  clipMax: 0
+  clipMax: 10

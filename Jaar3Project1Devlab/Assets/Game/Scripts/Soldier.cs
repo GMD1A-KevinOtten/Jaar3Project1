@@ -19,6 +19,8 @@ public class Soldier : MonoBehaviour {
     public bool isDead;
     public bool isActive;
     public bool canShoot;
+    public int damageTurns;
+    public int damageOverTime;
     
     [Header("Weapon properties")]
     public List<GameObject> StarterWeaponPrefabs = new List<GameObject>();
@@ -65,6 +67,15 @@ public class Soldier : MonoBehaviour {
             {
                 CheckScroll();
             }
+
+            if(damageTurns != 0)
+            {
+                if(TeamManager.instance.turnTime <= .1F)
+                {
+                    damageTurns -= 1;
+                    TakeDamage(damageOverTime);
+                }
+            }
         }
     }
 
@@ -95,6 +106,11 @@ public class Soldier : MonoBehaviour {
         }
     }
 
+    public void SetDamageOverTime(int turns, int damge)
+    {
+        damageTurns += turns;
+        damageOverTime = damge;
+    }
     public void TakeDamage(int toDamage)
     {
         if(isDead == false)
