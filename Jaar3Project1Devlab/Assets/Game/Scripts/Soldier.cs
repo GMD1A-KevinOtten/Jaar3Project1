@@ -28,7 +28,7 @@ public class Soldier : MonoBehaviour {
     public int currentWeaponIndex;
     private int previouseWeaponIndex;
     private bool canSwitch = true;
-    private Animator anim;
+    public Animator anim;
 
     float baseFOV;
 
@@ -220,8 +220,13 @@ public class Soldier : MonoBehaviour {
         }
         else
         {
-            anim.SetBool("isMovingLight", false);
-            anim.SetBool("isMovingHeavy", false);
+            DisableMovementAnimation();
         }
+    }
+
+    public void DisableMovementAnimation()
+    {
+        anim.SetBool("isMovingLight", false);
+        anim.SetBool("isMovingHeavy", false);
     }
 }

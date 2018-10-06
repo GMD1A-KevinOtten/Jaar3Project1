@@ -51,31 +51,34 @@ public class WeaponCrate : InteractableObject {
 
     public override void Interact()
     {
-        if (!spawnedWeapon && GetComponent<Animator>().GetBool("Closed"))
+        if(currentSoldier.canShoot != true)
         {
-            GetComponent<Animator>().SetBool("Open", true);
-            GetComponent<Animator>().SetBool("Closed", false);
-            GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("Opened", true);
-
-            weaponIndex = Random.Range(0, weapons.Count);
-            Vector3 v = transform.position;
-            
-            weaponObject = Instantiate(weapons[weaponIndex], v, Quaternion.identity);
-            weaponObject.transform.SetParent(GetComponentInChildren<WeaponCrateWeaponAnimBool>().transform);
-            spawnedWeapon = true;
-        }
-        else if(spawnedWeapon)
-        {
-            if (!GetComponent<Animator>().GetBool("Closed") && GetComponentInChildren<WeaponCrateWeaponAnimBool>().animDone)
+            if (!spawnedWeapon && GetComponent<Animator>().GetBool("Closed"))
             {
-                GetComponent<Animator>().SetBool("Closed", true);
-                currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
-                CloseAnimation();
-                spawnedWeapon = false;
+                GetComponent<Animator>().SetBool("Open", true);
+                GetComponent<Animator>().SetBool("Closed", false);
+                GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("Opened", true);
 
+                weaponIndex = Random.Range(0, weapons.Count);
+                Vector3 v = transform.position;
+                
+                weaponObject = Instantiate(weapons[weaponIndex], v, Quaternion.identity);
+                weaponObject.transform.SetParent(GetComponentInChildren<WeaponCrateWeaponAnimBool>().transform);
+                spawnedWeapon = true;
             }
+            else if(spawnedWeapon)
+            {
+                if (!GetComponent<Animator>().GetBool("Closed") && GetComponentInChildren<WeaponCrateWeaponAnimBool>().animDone)
+                {
+                    GetComponent<Animator>().SetBool("Closed", true);
+                    currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
+                    CloseAnimation();
+                    spawnedWeapon = false;
+
+                }
+            }
+            Debug.Log(weaponIndex);
         }
-        Debug.Log(weaponIndex);
     }
 
     public bool soldierNearby()

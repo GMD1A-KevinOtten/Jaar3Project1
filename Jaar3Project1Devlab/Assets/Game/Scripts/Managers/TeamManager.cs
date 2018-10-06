@@ -190,8 +190,9 @@ public class TeamManager : MonoBehaviour {
     /// </summary>
     public void NextTeam()
     {
-
         ResetTimer();
+
+        activeSoldier.DisableMovementAnimation();
 
         Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
         soldier.soldierMovement.canMoveAndRotate = false;
