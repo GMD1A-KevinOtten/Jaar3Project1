@@ -5,27 +5,26 @@ using UnityEngine.UI;
 
 public class UI_SoldierStatus : MonoBehaviour {
 
-    private Soldier soldier;
-
+    internal Soldier mySoldier;
+    public Image soldierIcon;
     public Slider healthBar;
     public Image deathMarker;
-    public bool alive;
-
-    private void Awake()
-    {
-        soldier.transform.root.GetComponent<Soldier>();
-        UpdateStatus();
-    }
+    public bool alive = true;
 
     public void UpdateStatus()
     {
-        if (soldier.health <= 0 || soldier.isDead)
+        if (mySoldier.health <= 0 || mySoldier.isDead)
         {
             deathMarker.gameObject.SetActive(true);
             alive = false;
         }
+        else
+        {
+            deathMarker.gameObject.SetActive(false);
+            alive = true;
+        }
 
-        float percent = soldier.health / 100;
+        float percent = (float)mySoldier.health / mySoldier.maxHealth;
         healthBar.value = percent;
     }
 }

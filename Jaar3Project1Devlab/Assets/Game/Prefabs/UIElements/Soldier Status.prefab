@@ -203,7 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2182aeaac49d81146b972f16911c5676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  mySoldier: {fileID: 0}
+  soldierIcon: {fileID: 114202099751541562}
+  healthBar: {fileID: 114980686996963676}
   deathMarker: {fileID: 114384218425225076}
   alive: 0
 --- !u!114 &114766130986897194

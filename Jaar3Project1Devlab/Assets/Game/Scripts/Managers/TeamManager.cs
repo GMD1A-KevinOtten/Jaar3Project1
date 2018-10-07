@@ -60,6 +60,9 @@ public class TeamManager : MonoBehaviour {
         timeText.text = "" + maxTurnTime;
         turnTimerCircle.fillAmount = 1;
         turnTimerCircle.color = circleStartColor;
+
+        UIManager.instance.InstantiateSoldierStatus(allTeams);
+        UIManager.instance.ShowWindow(UIManager.instance.soldierStatusWindow);
     }
 
     void Update()
@@ -245,6 +248,11 @@ public class TeamManager : MonoBehaviour {
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
         mainCamera.transform.parent.SetParent(playerCamPos);
+
+        UIManager.instance.HideWindow(UIManager.instance.soldierStatusWindow);
+        UIManager.instance.InstantiateWeaponIcons(allTeams[teamIndex].allSoldiers[soldierIndex].availableWeapons);
+        UIManager.instance.ShowWindow(UIManager.instance.weaponIconWindow);
+
         StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
     }
 
@@ -254,6 +262,10 @@ public class TeamManager : MonoBehaviour {
     public void ToTopView()
     {
         UIManager.instance.HideCrosshair();
+        UIManager.instance.HideWindow(UIManager.instance.weaponIconWindow);
+        UIManager.instance.UpdateSoldierStatuses();
+        UIManager.instance.ShowWindow(UIManager.instance.soldierStatusWindow);
+
         mainCamera.transform.parent.SetParent(null);
         activeSoldier = null;
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));

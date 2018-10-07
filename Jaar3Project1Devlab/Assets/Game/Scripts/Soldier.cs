@@ -16,6 +16,7 @@ public class Soldier : MonoBehaviour {
 
     [Header("Activity Proporties")]
     public int health;
+    internal int maxHealth;
     public bool isDead;
     public bool isActive;
     public bool canShoot;
@@ -33,6 +34,11 @@ public class Soldier : MonoBehaviour {
     public Animator anim;
 
     float baseFOV;
+
+    private void Awake()
+    {
+        maxHealth = health;
+    }
 
     void Start()
     {
