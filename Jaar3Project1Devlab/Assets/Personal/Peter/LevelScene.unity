@@ -113,11 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &145211950 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1021863787}
 --- !u!4 &210156429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4340182093027968, guid: b5180f6800870c74e9646f631ca8e63e,
@@ -323,41 +318,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e52f3012112304aa35eb9d57a09a2a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &615038113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1167827303425724, guid: 56463277c2c635a40abaac05601fc8e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1021863787}
---- !u!114 &615038117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 615038113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 300f006819fc26d4cbeccbca8bbb8d64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunID: 0
-  weaponKind: 1
-  barrelExit: {fileID: 145211950}
-  bulletPrefab: {fileID: 1264276920800800, guid: 8df20b942da10e3498ad3f9bc0c83de4,
-    type: 2}
-  gunCrosshair: {fileID: 0}
-  crosshairRayMask:
-    serializedVersion: 2
-    m_Bits: 0
-  bulletVelocity: 50
-  bulletSpread: {x: 0, y: 0}
-  mySoldier: {fileID: 0}
-  recoil: 0
-  specialFunctionality: 0
-  isTank: 1
-  shotSound: {fileID: 0}
-  reloadSounds: []
-  currentClip: 9999
-  clipMax: 9999
 --- !u!1 &682102756
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,49 +579,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114448145875651178, guid: 56463277c2c635a40abaac05601fc8e3,
-        type: 2}
-      propertyPath: weaponKind
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.0605611
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.000100130674
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.000036507845
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190639141430620, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114448145875651178, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1028903707 stripped
@@ -6584,7 +6502,7 @@ Prefab:
     - target: {fileID: 20748306967374944, guid: 356ea674abe4c2f449a94644742dce05,
         type: 2}
       propertyPath: m_Depth
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356ea674abe4c2f449a94644742dce05, type: 2}

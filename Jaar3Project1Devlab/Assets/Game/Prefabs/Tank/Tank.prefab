@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4129217914129778}
   - component: {fileID: 33026468147827092}
   - component: {fileID: 23890068144112668}
-  - component: {fileID: 114448145875651178}
+  - component: {fileID: 114784586381999448}
   m_Layer: 0
   m_Name: Tank Barrel
   m_TagString: Untagged
@@ -360,13 +360,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1131633235609004}
-  m_LocalRotation: {x: 2.0962988e-21, y: 4.9737975e-14, z: -1, w: 0.0000023602229}
-  m_LocalPosition: {x: -1.0603, y: 0.0001, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.0605611, y: 0.000100130674, z: -0.000036507845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4129217914129778}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.00002}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &4222541308886096
 Transform:
   m_ObjectHideFlags: 1
@@ -536,7 +536,7 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1603502897464456}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -555,7 +555,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1039,34 +1039,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1603502897464456}
   m_Enabled: 1
---- !u!114 &114448145875651178
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1167827303425724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d896d3430129082468c220f7daf09a66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunID: 0
-  weaponKind: 0
-  barrelExit: {fileID: 4190639141430620}
-  bulletPrefab: {fileID: 1264276920800800, guid: 8df20b942da10e3498ad3f9bc0c83de4,
-    type: 2}
-  gunCrosshair: {fileID: 0}
-  crosshairRayMask:
-    serializedVersion: 2
-    m_Bits: 0
-  bulletVelocity: 10
-  bulletSpread: {x: 0, y: 0}
-  recoil: 0
-  isTank: 1
-  shotSound: {fileID: 0}
-  reloadSounds: []
-  currentClip: 0
-  clipMax: 1
 --- !u!114 &114563547685641292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1085,9 +1057,40 @@ MonoBehaviour:
   barrel: {fileID: 1167827303425724}
   barrelRotationSpeed: 25
   screenBoundary: 2
+  soldierInside: 0
   clamp: 1
   clampX: 45
   clampY: 15
+--- !u!114 &114784586381999448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167827303425724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300f006819fc26d4cbeccbca8bbb8d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunID: 0
+  weaponKind: 1
+  barrelExit: {fileID: 4190639141430620}
+  bulletPrefab: {fileID: 1264276920800800, guid: 8df20b942da10e3498ad3f9bc0c83de4,
+    type: 2}
+  gunCrosshair: {fileID: 0}
+  crosshairRayMask:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletVelocity: 50
+  bulletSpread: {x: 0, y: 0}
+  mySoldier: {fileID: 0}
+  recoil: 0
+  specialFunctionality: 0
+  isTank: 1
+  shotSound: {fileID: 0}
+  reloadSounds: []
+  currentClip: 9999
+  clipMax: 9999
 --- !u!114 &114991558196643022
 MonoBehaviour:
   m_ObjectHideFlags: 1
