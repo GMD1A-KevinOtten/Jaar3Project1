@@ -14,12 +14,20 @@ public class TankShell : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void OnDrawGizmos () {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(transform.position, explosionRadius);
+
+    }
+
+    private void Update()
+    {
+      
+    }
 
     private void OnCollisionEnter(Collision col)
     {
+        Debug.Log("collidededededed");
         if (!doneThing)
         {
             doneThing = true;
@@ -27,6 +35,7 @@ public class TankShell : MonoBehaviour {
 
             foreach (Collider c in cols)
             {
+                Debug.Log(c);
                 if (c.GetComponentInParent<Soldier>())
                 {
                     Debug.Log("Hit soldat");
@@ -37,26 +46,29 @@ public class TankShell : MonoBehaviour {
                     {
                         c.GetComponentInParent<Soldier>().TakeDamage(Mathf.RoundToInt(damage));
                     }
-                    else
-                    {
+                    else if (dist < maxDist && dist > minDist)
+                   {
 
-                        dist = Mathf.Clamp(dist, 0, maxDist);
-                        float f = maxDist - minDist;
-                        dist = dist / f;
-                        float dmg = damage * dist;
-                        dmg = damage - dmg;
+                       
+                            dist = Mathf.Clamp(dist, minDist, maxDist);
+                            dist -= minDist;
+                            float f = maxDist - minDist;
+                            dist = dist / f;
 
-                        c.GetComponentInParent<Soldier>().TakeDamage(Mathf.RoundToInt(dmg));
+
+                            float dmg = damage * dist;
+                            dmg = damage - dmg;
+
+                            Debug.Log("dmg " + dmg);
+
+                            c.GetComponentInParent<Soldier>().TakeDamage(Mathf.RoundToInt(dmg));
                     }
 
                 }
             }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-      
 
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Destroy(gameObject);
     }
 }

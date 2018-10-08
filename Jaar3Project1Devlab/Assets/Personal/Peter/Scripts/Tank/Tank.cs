@@ -48,7 +48,21 @@ public class Tank : InteractableObject {
                 ExitTank(); 
             }
         }
-	}
+
+        if (Input.GetKeyDown("k"))
+        {
+            if(Cursor.lockState != CursorLockMode.Locked && Cursor.visible == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -98,7 +112,7 @@ public class Tank : InteractableObject {
                 soldierOutsidePos = currentSoldier.gameObject.transform.position;
                 currentSoldier.gameObject.transform.position = soldierInsidePos.position;
                 currentSoldier.isActive = false;
-               // currentSoldier.soldierMovement.canMoveAndRotate = false;
+                currentSoldier.soldierMovement.canMoveAndRotate = false;
 
                 Camera.main.enabled = false;
                 barrelCam.enabled = true;
@@ -114,7 +128,7 @@ public class Tank : InteractableObject {
     {
         currentSoldier.gameObject.transform.position = soldierOutsidePos;
         currentSoldier.isActive = true;
-      //  currentSoldier.soldierMovement.canMoveAndRotate = true;
+        currentSoldier.soldierMovement.canMoveAndRotate = true;
 
         TeamManager.instance.mainCamera.GetComponent<Camera>().enabled = true;
         barrelCam.enabled = false;

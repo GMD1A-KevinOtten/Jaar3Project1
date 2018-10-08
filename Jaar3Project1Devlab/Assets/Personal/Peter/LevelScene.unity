@@ -663,8 +663,8 @@ MonoBehaviour:
   sniperScope: {fileID: 0}
   ui_soldierStatuses: []
   weaponIcons: []
-  soldierStatusWindow: {fileID: 0}
-  weaponIconWindow: {fileID: 0}
+  soldierStatusWindow: {fileID: 234622905}
+  weaponIconWindow: {fileID: 234622905}
   soldierStatusPrefab: {fileID: 0}
   weaponIconPrefab: {fileID: 0}
   soldierStatusParent: {fileID: 0}
