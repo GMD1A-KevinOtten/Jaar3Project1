@@ -129,6 +129,8 @@ public class UIManager : MonoBehaviour {
             newObject.transform.SetParent(teamButtonsParent, false);
 
             Button b = newObject.GetComponent<Button>();
+            Text text = b.transform.GetChild(0).GetComponent<Text>();
+            text.text = "Team " + (i + 1);
 
             delegateIndex = i;
             b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers); }); 
@@ -143,6 +145,8 @@ public class UIManager : MonoBehaviour {
             {
                 Destroy(b.gameObject);
             }
+
+            soldiersInTeamButtons.Clear();
         }
 
         for (int i = 0; i < soldiersToShow.Count; i++)
@@ -153,6 +157,8 @@ public class UIManager : MonoBehaviour {
             newObject.transform.SetParent(soldierButtonsParent, false);
 
             Button b = newObject.GetComponent<Button>();
+            Text text = b.transform.GetChild(0).GetComponent<Text>();
+            text.text = soldiersToShow[i].soldierName;
 
             delegateIndex = i;
             b.onClick.AddListener(delegate { SetActiveSoldierStatus(soldiersToShow[delegateIndex]); });

@@ -12,6 +12,9 @@ public class UI_SoldierStatus : MonoBehaviour {
 
     public void UpdateStatus(Soldier mySoldier)
     {
+        if (!soldierIcon.gameObject.activeInHierarchy)
+            soldierIcon.gameObject.SetActive(true);
+
         if (mySoldier.health <= 0 || mySoldier.isDead)
         {
             deathMarker.gameObject.SetActive(true);
