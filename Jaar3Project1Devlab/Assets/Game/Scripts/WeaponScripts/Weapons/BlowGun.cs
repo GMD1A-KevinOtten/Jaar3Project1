@@ -4,5 +4,12 @@ using UnityEngine;
 
 public class BlowGun : Weapon {
 
-	
+    public Camera blowGunCam;
+
+	public override void SpecialFunctionalityToggle()
+    {
+        base.SpecialFunctionalityToggle();
+
+
+    }
 }
