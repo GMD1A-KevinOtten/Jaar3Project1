@@ -126,7 +126,7 @@ public class Tank : InteractableObject {
         }
         else if (soldierInside)
         {
-            if (Input.GetKeyDown("e") && currentSoldier.canShoot)
+            if (Input.GetKeyDown("e") && !currentSoldier.canShoot)
             {
                 ExitTank();
             }
