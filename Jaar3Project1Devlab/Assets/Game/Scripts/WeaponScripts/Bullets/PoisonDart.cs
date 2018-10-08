@@ -9,7 +9,15 @@ public class PoisonDart : Bullet {
 
 	public override void OnHit(Collision gotHit)
     { 
-        HitSoldier(gotHit);
+        switch (gotHit.gameObject.layer)
+        {
+            case 10:
+                HitSoldier(gotHit);
+                break;
+            case 12:
+                HitEnvironment(gotHit);
+                break;
+        }
 	}
 
 	public override void HitSoldier(Collision gotHit)
@@ -17,6 +25,14 @@ public class PoisonDart : Bullet {
         Soldier soldier = gotHit.transform.root.GetComponent<Soldier>();
         soldier.TakeDamage(defaultDamage);
 		soldier.SetDamageOverTime(turns,poisenDamage);
-        Destroy(gameObject);
+        transform.SetParent(gotHit.transform);
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    public override void HitEnvironment(Collision gotHit)
+    {
+        print("envior");
+        transform.SetParent(gotHit.transform);
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 }

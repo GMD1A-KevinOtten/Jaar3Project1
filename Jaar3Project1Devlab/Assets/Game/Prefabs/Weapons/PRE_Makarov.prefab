@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4029433894738082}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BarrelExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 23223568930203468}
   - component: {fileID: 65800337508908792}
   - component: {fileID: 65062118104864200}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Low Poly Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 33573732282475872}
   - component: {fileID: 23795658378885116}
   - component: {fileID: 65157353170877272}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Low Poly Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4444296723729616}
   - component: {fileID: 54754339324820648}
   - component: {fileID: 114939314320728016}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Makarov
   m_TagString: Untagged
   m_Icon: {fileID: 0}

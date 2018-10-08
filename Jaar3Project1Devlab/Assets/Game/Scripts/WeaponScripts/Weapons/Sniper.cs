@@ -8,16 +8,6 @@ public class Sniper : Weapon {
 
     public Camera cameraScope;
 
-    public override void Start() 
-    {
-        base.Start();
-    }
-
-	public override void  Update() 
-    {
-        base.Update();
-    }
-
     public override void Inputs()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -29,7 +19,6 @@ public class Sniper : Weapon {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            print("RightKlick");
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
