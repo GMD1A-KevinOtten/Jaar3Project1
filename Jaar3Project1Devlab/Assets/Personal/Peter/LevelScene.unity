@@ -425,13 +425,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairImage: {fileID: 1580731618}
   sniperScope: {fileID: 970898899}
-  ui_soldierStatuses: []
+  SoldierStatusOnUI: {fileID: 0}
   weaponIcons: []
   soldierStatusWindow: {fileID: 887540161}
   weaponIconWindow: {fileID: 1963649736}
-  soldierStatusPrefab: {fileID: 887540157}
+  teamButtonPrefab: {fileID: 0}
+  soldierButtonPrefab: {fileID: 0}
   weaponIconPrefab: {fileID: 1963649732}
-  soldierStatusParent: {fileID: 887540161}
+  teamButtonsParent: {fileID: 0}
+  soldierButtonsParent: {fileID: 0}
   weaponIconParent: {fileID: 1963649736}
   showCroshair: 0
 --- !u!114 &777031279
@@ -519,11 +521,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 514450009}
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
---- !u!1 &887540157 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1529358856388696, guid: b2c5d77ff85776a4c874b2531e0a321d,
-    type: 2}
-  m_PrefabInternal: {fileID: 514450009}
 --- !u!224 &887540161 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224139123383751812, guid: b2c5d77ff85776a4c874b2531e0a321d,
@@ -6494,15 +6491,6 @@ Prefab:
     - target: {fileID: 4229340831933484, guid: 356ea674abe4c2f449a94644742dce05, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4229340831933484, guid: 356ea674abe4c2f449a94644742dce05, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20748306967374944, guid: 356ea674abe4c2f449a94644742dce05,
-        type: 2}
-      propertyPath: m_Depth
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356ea674abe4c2f449a94644742dce05, type: 2}
