@@ -61,7 +61,7 @@ public class TeamManager : MonoBehaviour {
         turnTimerCircle.fillAmount = 1;
         turnTimerCircle.color = circleStartColor;
 
-        UIManager.instance.InstantiateSoldierStatus(allTeams);
+        UIManager.instance.InstantiateStatusButtons(allTeams);
         UIManager.instance.ShowWindow(UIManager.instance.soldierStatusWindow);
     }
 
@@ -263,7 +263,6 @@ public class TeamManager : MonoBehaviour {
     {
         UIManager.instance.HideCrosshair();
         UIManager.instance.HideWindow(UIManager.instance.weaponIconWindow);
-        UIManager.instance.UpdateSoldierStatuses();
         UIManager.instance.ShowWindow(UIManager.instance.soldierStatusWindow);
 
         mainCamera.transform.parent.SetParent(null);

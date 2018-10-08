@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour {
     public Image crosshairImage;
     public GameObject sniperScope;
 
-    public List<UI_SoldierStatus> ui_soldierStatuses = new List<UI_SoldierStatus>();
+    public UI_SoldierStatus SoldierStatusOnUI;
     public List<Image> weaponIcons = new List<Image>();
 
     [Header("Windows")]
@@ -18,14 +18,17 @@ public class UIManager : MonoBehaviour {
     public RectTransform weaponIconWindow;
 
     [Header("Prefabs")]
-    public GameObject soldierStatusPrefab;
+    public GameObject teamButtonPrefab;
+    public GameObject soldierButtonPrefab;
     public GameObject weaponIconPrefab;
 
     [Header("Parents")]
-    public RectTransform soldierStatusParent;
+    public RectTransform teamButtonsParent;
+    public RectTransform soldierButtonsParent;
     public RectTransform weaponIconParent;
 
     private List<RectTransform> activeWindows = new List<RectTransform>();
+    private List<Button> soldiersInTeamButtons = new List<Button>();
 
     [HideInInspector]
     public bool showCroshair = true;
@@ -92,33 +95,6 @@ public class UIManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Instantiates the Soldier statuses on the UI. Use this only once in the beginning of the game.
-    /// <para>To update the statuses, use the function UpdateSoldierStatuses()</para>
-    /// </summary>
-    /// <param name="teams"></param>
-    /// <returns></returns>
-    public void InstantiateSoldierStatus(List<Team> teams)
-    { 
-
-        foreach(Team t in teams)
-        {
-            for (int i = 0; i < t.allSoldiers.Count; i++)
-            {
-                GameObject newObject = Instantiate(soldierStatusPrefab, soldierStatusParent.transform.position, soldierStatusPrefab.transform.rotation);
-                newObject.transform.SetParent(soldierStatusParent, false);
-
-                UI_SoldierStatus status = newObject.GetComponent<UI_SoldierStatus>();
-                status.soldierIcon.color = t.thisTeamColor;
-                status.mySoldier = t.allSoldiers[i];
-
-                ui_soldierStatuses.Add(status);
-            }
-        }
-
-        UpdateSoldierStatuses();
-    }
-
-    /// <summary>
     /// Lets the weapon Icons appear on the UI. Use this when changing the camera to Soldier View
     /// </summary>
     /// <param name="availableWeapons"></param>
@@ -143,15 +119,58 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void InstantiateStatusButtons(List<Team> teams)
+    {
+        for (int i = 0; i < teams.Count; i++)
+        {
+            int delegateIndex = 0;
+
+            GameObject newObject = Instantiate(teamButtonPrefab, teamButtonsParent.position, teamButtonPrefab.transform.rotation);
+            newObject.transform.SetParent(teamButtonsParent, false);
+
+            Button b = newObject.GetComponent<Button>();
+
+            delegateIndex = i;
+            b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers); }); 
+        }
+    }
+
+    public void ShowSoldierButtons(List<Soldier> soldiersToShow)
+    {
+        if (soldiersInTeamButtons.Count > 0)
+        {
+            foreach(Button b in soldiersInTeamButtons)
+            {
+                Destroy(b.gameObject);
+            }
+        }
+
+        for (int i = 0; i < soldiersToShow.Count; i++)
+        {
+            int delegateIndex = 0;
+
+            GameObject newObject = Instantiate(soldierButtonPrefab, soldierButtonsParent.position, soldierButtonsParent.rotation);
+            newObject.transform.SetParent(soldierButtonsParent, false);
+
+            Button b = newObject.GetComponent<Button>();
+
+            delegateIndex = i;
+            b.onClick.AddListener(delegate { SetActiveSoldierStatus(soldiersToShow[delegateIndex]); });
+            soldiersInTeamButtons.Add(b);
+        }
+    }
+
+    public void SetActiveSoldierStatus(Soldier toShow)
+    {
+        SoldierStatusOnUI.UpdateStatus(toShow);
+    }
+
     /// <summary>
     /// Updates the existing Soldier statuses in the UI.
     /// </summary>
-    public void UpdateSoldierStatuses()
+    private void UpdateSoldierStatuses(Soldier updateTo)
     {
-        foreach(UI_SoldierStatus status in ui_soldierStatuses)
-        {
-            status.UpdateStatus();
-        }
+        SoldierStatusOnUI.UpdateStatus(updateTo);
     }
 
     /// <summary>

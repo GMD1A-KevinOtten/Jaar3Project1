@@ -15,6 +15,7 @@ public class Soldier : MonoBehaviour {
     public Transform handBone;
 
     [Header("Activity Proporties")]
+    public string soldierName;
     public int health;
     internal int maxHealth;
     public bool isDead;

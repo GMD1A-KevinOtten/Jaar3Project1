@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class UI_SoldierStatus : MonoBehaviour {
 
-    internal Soldier mySoldier;
     public Image soldierIcon;
     public Slider healthBar;
     public Image deathMarker;
     public bool alive = true;
 
-    public void UpdateStatus()
+    public void UpdateStatus(Soldier mySoldier)
     {
         if (mySoldier.health <= 0 || mySoldier.isDead)
         {
