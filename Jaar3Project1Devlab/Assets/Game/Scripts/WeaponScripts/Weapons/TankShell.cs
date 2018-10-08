@@ -27,17 +27,25 @@ public class TankShell : MonoBehaviour {
     private void OnCollisionEnter(Collision col)
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
-
+        List<GameObject> objs = new List<GameObject>();
         foreach (Collider c in cols)
         {
-            if (c.GetComponentInParent<Soldier>())
+            if (!objs.Contains(c.transform.root.gameObject))
+            {
+                objs.Add(c.transform.root.gameObject);
+            }
+        }
+
+        foreach (GameObject g in objs)
+        {
+            if (g.GetComponent<Soldier>())
             {
 
-                float dist = Vector3.Distance(transform.position, c.transform.position);
+                float dist = Vector3.Distance(transform.position, g.transform.position);
                 float damage = GetComponent<Bullet>().defaultDamage;
                 if (dist <= minDist)
                 {
-                    c.GetComponentInParent<Soldier>().TakeDamage(Mathf.RoundToInt(damage));
+                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(damage));
                 }
                 else if (dist < maxDist && dist > minDist)
                 {
@@ -50,7 +58,7 @@ public class TankShell : MonoBehaviour {
                     float dmg = damage * dist;
                     dmg = damage - dmg;
 
-                    c.GetComponentInParent<Soldier>().TakeDamage(Mathf.RoundToInt(dmg));
+                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(dmg));
                 }
 
             }

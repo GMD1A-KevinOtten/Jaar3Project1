@@ -105,7 +105,7 @@ public class Tank : InteractableObject {
     {
         if (soldierNearby())
         {
-            if (Input.GetKeyDown("e"))
+            if (Input.GetKeyDown("e") && !currentSoldier.canShoot)
             {
                 previousWeapon = currentSoldier.equippedWeapon;
 
@@ -114,12 +114,21 @@ public class Tank : InteractableObject {
                 currentSoldier.isActive = false;
                 currentSoldier.soldierMovement.canMoveAndRotate = false;
 
-                Camera.main.enabled = false;
-                barrelCam.enabled = true;
                 soldierInside = true;
                 currentSoldier.equippedWeapon = GetComponentInChildren<Weapon>();
+                GetComponentInChildren<Weapon>().mySoldier = currentSoldier;
 
-                
+                GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
+
+
+
+            }
+        }
+        else if (soldierInside)
+        {
+            if (Input.GetKeyDown("e") && currentSoldier.canShoot)
+            {
+                ExitTank();
             }
         }
     }
@@ -130,11 +139,13 @@ public class Tank : InteractableObject {
         currentSoldier.isActive = true;
         currentSoldier.soldierMovement.canMoveAndRotate = true;
 
-        TeamManager.instance.mainCamera.GetComponent<Camera>().enabled = true;
-        barrelCam.enabled = false;
+        
 
         currentSoldier.equippedWeapon = previousWeapon;
         previousWeapon = null;
+        GetComponentInChildren<Weapon>().mySoldier = null;
+
+        GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
 
         soldierInside = false;
     }
@@ -156,4 +167,5 @@ public class Tank : InteractableObject {
 
         return false;
     }
+
 }

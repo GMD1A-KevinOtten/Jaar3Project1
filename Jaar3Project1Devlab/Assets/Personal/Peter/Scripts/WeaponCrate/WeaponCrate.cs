@@ -13,6 +13,7 @@ public class WeaponCrate : InteractableObject {
     private int weaponIndex;
 
     public bool usedThisTurn;
+    private bool tookWeapon;
 	// Use this for initialization
 	void Start () {
         GetComponent<Animator>().SetBool("Closed", true);
@@ -74,6 +75,7 @@ public class WeaponCrate : InteractableObject {
                 {
                     GetComponent<Animator>().SetBool("Closed", true);
                     currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
+                    tookWeapon = true;
                     CloseAnimation(false);
                     spawnedWeapon = false;
 
@@ -122,8 +124,16 @@ public class WeaponCrate : InteractableObject {
 
     private void ResetVars()
     {
-        Destroy(weaponObject);
+        if (!tookWeapon)
+        {
+            Destroy(weaponObject);
+        }
+        else if (tookWeapon)
+        {
+            tookWeapon = false;
+        }
         weaponObject = null;
         spawnedWeapon = false;
+      
     }
 }

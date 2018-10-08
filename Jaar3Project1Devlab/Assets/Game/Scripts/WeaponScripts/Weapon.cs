@@ -50,6 +50,10 @@ public class Weapon : MonoBehaviour {
             {
                 Inputs();
             }
+            else if(!mySoldier.isActive && isTank)
+            {
+                Inputs();
+            }
         }
     }
 
