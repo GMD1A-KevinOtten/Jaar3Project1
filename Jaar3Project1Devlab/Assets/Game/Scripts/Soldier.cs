@@ -74,15 +74,6 @@ public class Soldier : MonoBehaviour {
             {
                 CheckScroll();
             }
-
-            if(damageTurns != 0)
-            {
-                if(TeamManager.instance.turnTime <= .1F)
-                {
-                    damageTurns -= 1;
-                    TakeDamage(damageOverTime);
-                }
-            }
         }
     }
 
@@ -97,13 +88,11 @@ public class Soldier : MonoBehaviour {
             Camera.main.GetComponent<Camera>().fieldOfView = 40;
             TeamManager.instance.combatTimer = true;
             TeamManager.instance.turnTime = TeamManager.instance.combatTurnTime;
-            TeamManager.instance.activeSoldier = this;
         }
         else
         {
             canShoot = false;
             soldierMovement.canMove = true;
-            print(baseFOV);
             Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
             TeamManager.instance.combatTimer = false;
             if(equippedWeapon.specialFunctionality == true)
@@ -113,6 +102,12 @@ public class Soldier : MonoBehaviour {
         }
     }
 
+    public void TakeDamageOverTime()
+    {
+        damageTurns -= 1;
+        print("damage overtime");
+        TakeDamage(damageOverTime);
+    }
     public void SetDamageOverTime(int turns, int damge)
     {
         damageTurns += turns;

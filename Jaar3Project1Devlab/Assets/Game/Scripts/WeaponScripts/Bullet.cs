@@ -11,10 +11,6 @@ public class Bullet : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         OnHit(collision);
-        if(collision.gameObject.layer == 10)
-        {
-            collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
     }
 
     public virtual void OnHit(Collision gotHit)

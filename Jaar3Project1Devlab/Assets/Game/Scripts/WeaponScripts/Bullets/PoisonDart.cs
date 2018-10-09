@@ -6,18 +6,24 @@ public class PoisonDart : Bullet {
 
 	public int poisenDamage;
 	public int turns;
+    public bool hitTarget;
 
 	public override void OnHit(Collision gotHit)
     { 
-        switch (gotHit.gameObject.layer)
+        if(hitTarget != true)
         {
-            case 10:
-                HitSoldier(gotHit);
-                break;
-            case 12:
-                HitEnvironment(gotHit);
-                break;
-        }
+            hitTarget = true;
+            switch (gotHit.gameObject.layer)
+            {
+                case 10:
+                    HitSoldier(gotHit);
+                    break;
+                case 12:
+                    HitEnvironment(gotHit);
+                    break;
+            }
+            gameObject.GetComponent<Collider>().enabled = false;
+        }  
 	}
 
 	public override void HitSoldier(Collision gotHit)

@@ -282,7 +282,7 @@ MonoBehaviour:
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 7479
-  bulletVelocity: 10
+  bulletVelocity: 25
   bulletSpread: {x: 0, y: 0}
   mySoldier: {fileID: 0}
   recoil: 0

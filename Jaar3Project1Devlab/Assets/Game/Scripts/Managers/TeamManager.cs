@@ -266,6 +266,11 @@ public class TeamManager : MonoBehaviour {
         UIManager.instance.ShowWindow(UIManager.instance.soldierStatusWindow);
 
         mainCamera.transform.parent.SetParent(null);
+        activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        if(activeSoldier.damageTurns != 0)
+        {
+            activeSoldier.TakeDamageOverTime();
+        }
         activeSoldier = null;
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
     }
@@ -307,6 +312,7 @@ public class TeamManager : MonoBehaviour {
                 soldier.soldierMovement.canMoveAndRotate = true;
                 soldier.isActive = true;
                 activeSoldier = soldier;
+                activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
             }
             

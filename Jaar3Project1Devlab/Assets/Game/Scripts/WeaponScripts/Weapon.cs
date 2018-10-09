@@ -68,7 +68,6 @@ public class Weapon : MonoBehaviour {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            print("RightKlick");
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
