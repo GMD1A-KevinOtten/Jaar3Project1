@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33841379415610902}
   - component: {fileID: 23374770375032416}
   - component: {fileID: 95324242200021498}
+  - component: {fileID: 136424018011595542}
   m_Layer: 0
   m_Name: OilBarrel Yellow
   m_TagString: Untagged
@@ -102,3 +103,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &136424018011595542
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1702512914526868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31160998
+  m_Height: 1.0066322
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5033161, z: 0}

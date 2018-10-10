@@ -46,6 +46,7 @@ public class TeamManager : MonoBehaviour {
         else
         {
             Destroy(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
 
         mainCamera = FindObjectOfType<CameraMovement>();
@@ -79,6 +80,18 @@ public class TeamManager : MonoBehaviour {
             if (Input.GetButtonDown("Enter"))
             {
                 ToSoldier();
+            }
+
+            if (Input.GetButtonDown("Tab"))
+            {
+                if (UIManager.instance.soldierStatusWindow.gameObject.activeInHierarchy)
+                {
+                    UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, false);
+                }
+                else
+                {
+                    UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
+                }
             }
         }
         if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson)
