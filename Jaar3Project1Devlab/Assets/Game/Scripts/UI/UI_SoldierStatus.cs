@@ -8,9 +8,12 @@ public class UI_SoldierStatus : MonoBehaviour {
     public Image soldierIcon;
     public Slider healthBar;
     public Image deathMarker;
+    public Text currentClipSize;
+    public Image weaponImage;
     public bool alive = true;
+    internal bool minimal { get; private set; }
 
-    public void UpdateStatus(Soldier mySoldier)
+    public void UpdateStatus(Soldier mySoldier, Color teamColor)
     {
         if (!soldierIcon.gameObject.activeInHierarchy)
             soldierIcon.gameObject.SetActive(true);
@@ -26,7 +29,28 @@ public class UI_SoldierStatus : MonoBehaviour {
             alive = true;
         }
 
+        soldierIcon.color = teamColor;
+        currentClipSize.text = mySoldier.equippedWeapon.currentClip.ToString();
+        weaponImage.sprite = mySoldier.equippedWeapon.weaponSprite;
+
         float percent = (float)mySoldier.health / mySoldier.maxHealth;
         healthBar.value = percent;
+    }
+
+    public void ToggleMinimalism(bool toggle)
+    {
+        if (toggle)
+        {
+            currentClipSize.transform.parent.gameObject.SetActive(false);
+            weaponImage.gameObject.SetActive(false);
+            minimal = true;
+        }
+        else
+        {
+            currentClipSize.transform.parent.gameObject.SetActive(true);
+            weaponImage.gameObject.SetActive(true);
+            minimal = false;
+        }
+
     }
 }

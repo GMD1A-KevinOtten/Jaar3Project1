@@ -74,8 +74,7 @@ public class WeaponCrate : InteractableObject {
                 if (!GetComponent<Animator>().GetBool("Closed") && GetComponentInChildren<WeaponCrateWeaponAnimBool>().animDone)
                 {
                     GetComponent<Animator>().SetBool("Closed", true);
-                    currentSoldier.TakeWeapon(weaponObject);
-                    UIManager.instance.InstantiateWeaponIcons(TeamManager.instance.activeSoldier.availableWeapons);
+                    currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
                     tookWeapon = true;
                     CloseAnimation(false);
                     spawnedWeapon = false;

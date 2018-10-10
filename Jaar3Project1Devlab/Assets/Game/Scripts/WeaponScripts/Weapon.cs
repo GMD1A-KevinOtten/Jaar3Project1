@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour {
     public Transform barrelExit;
     public GameObject bulletPrefab;
     public Sprite gunCrosshair;
+    public Sprite weaponSprite;
     public LayerMask crosshairRayMask;
     public float bulletVelocity;
     public Vector2 bulletSpread;
