@@ -29,9 +29,10 @@ public class UIManager : MonoBehaviour {
 
     private List<RectTransform> activeWindows = new List<RectTransform>();
     private List<Button> soldiersInTeamButtons = new List<Button>();
+    public List<UI_SoldierStatus> worldSpaceStatuses = new List<UI_SoldierStatus>();
 
     [HideInInspector]
-    public bool showCroshair = true;
+    internal bool showCroshair = true;
 
     private void Awake()
     {
@@ -47,29 +48,20 @@ public class UIManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Shows a window in the UI. Typically a panel is the best overload.
+    /// Toggles a window in the UI. 
     /// </summary>
     /// <param name="windowToShow"></param>
-    public void ShowWindow(RectTransform windowToShow)
+    public void ToggleWindow(RectTransform windowToShow, bool toggle)
     {
-        windowToShow.gameObject.SetActive(true);
-        activeWindows.Add(windowToShow);
-    }
-
-    /// <summary>
-    /// Hides a window on the UI. Typically a panel is the best overload.
-    /// </summary>
-    /// <param name="windowToHide"></param>
-    public void HideWindow(RectTransform windowToHide)
-    {
-        if (activeWindows.Contains(windowToHide))
+        if (toggle)
         {
-            windowToHide.gameObject.SetActive(false);
-            activeWindows.Remove(windowToHide);
+            windowToShow.gameObject.SetActive(true);
+            activeWindows.Add(windowToShow);
         }
         else
         {
-            Debug.LogWarning("The window you are trying to hide is not currently active. Windowname: " + windowToHide.name);
+            windowToShow.gameObject.SetActive(false);
+            activeWindows.Remove(windowToShow);
         }
     }
 
@@ -95,7 +87,7 @@ public class UIManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Lets the weapon Icons appear on the UI. Use this when changing the camera to Soldier View
+    /// Lets the weapon Icons appear on the UI. Use this when changing the camera to Soldier View, or when the available weapons change.
     /// </summary>
     /// <param name="availableWeapons"></param>
     public void InstantiateWeaponIcons(List<GameObject> availableWeapons)
@@ -119,6 +111,10 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Shows a buttons for every team.
+    /// </summary>
+    /// <param name="teams"></param>
     public void InstantiateStatusButtons(List<Team> teams)
     {
         for (int i = 0; i < teams.Count; i++)
@@ -133,11 +129,16 @@ public class UIManager : MonoBehaviour {
             text.text = "Team " + (i + 1);
 
             delegateIndex = i;
-            b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers); }); 
+            b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers, teams[delegateIndex].thisTeamColor); }); 
         }
     }
 
-    public void ShowSoldierButtons(List<Soldier> soldiersToShow)
+    /// <summary>
+    /// Shows buttons for every soldier in the overload. 
+    /// </summary>
+    /// <param name="soldiersToShow"></param>
+    /// <param name="teamColor"></param>
+    public void ShowSoldierButtons(List<Soldier> soldiersToShow, Color teamColor)
     {
         if (soldiersInTeamButtons.Count > 0)
         {
@@ -161,22 +162,58 @@ public class UIManager : MonoBehaviour {
             text.text = soldiersToShow[i].soldierName;
 
             delegateIndex = i;
-            b.onClick.AddListener(delegate { SetActiveSoldierStatus(soldiersToShow[delegateIndex]); });
+            b.onClick.AddListener(delegate { SetActiveSoldierStatus(soldiersToShow[delegateIndex], teamColor); });
             soldiersInTeamButtons.Add(b);
         }
     }
-
-    public void SetActiveSoldierStatus(Soldier toShow)
+    
+    /// <summary>
+    /// Updates the Soldier Icon in the solder status window
+    /// </summary>
+    /// <param name="toShow"></param>
+    /// <param name="teamColor"></param>
+    public void SetActiveSoldierStatus(Soldier toShow, Color teamColor)
     {
-        SoldierStatusOnUI.UpdateStatus(toShow);
+        SoldierStatusOnUI.UpdateStatus(toShow, teamColor);
     }
 
     /// <summary>
-    /// Updates the existing Soldier statuses in the UI.
+    /// Updates all the soldier statuses in the world space canvases on each soldier. This function will toggle the minimalism function on the status.
     /// </summary>
-    private void UpdateSoldierStatuses(Soldier updateTo)
+    /// <param name="teams"></param>
+    public void UpdateWorldSpaceStatuses(List<Team> teams)
     {
-        SoldierStatusOnUI.UpdateStatus(updateTo);
+        foreach(Team t in teams)
+        {
+            foreach(Soldier s in t.allSoldiers)
+            {
+                UI_SoldierStatus status = s.GetComponentInChildren<UI_SoldierStatus>(true);
+
+                if (!status.minimal)
+                {
+                    status.ToggleMinimalism(true);
+                }
+
+                status.UpdateStatus(s, t.thisTeamColor);
+
+                if (!worldSpaceStatuses.Contains(status))
+                {
+                    worldSpaceStatuses.Add(status);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Toggles the world space statuses of every soldier.
+    /// </summary>
+    /// <param name="toggle"></param>
+    public void ToggleWorldSpaceStatuses(bool toggle)
+    {
+        foreach(UI_SoldierStatus status in worldSpaceStatuses)
+        {
+            status.gameObject.SetActive(toggle);
+        }
     }
 
     /// <summary>

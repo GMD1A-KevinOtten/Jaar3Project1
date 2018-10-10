@@ -27,7 +27,7 @@ public class Soldier : MonoBehaviour {
     [Header("Weapon properties")]
     public List<GameObject> StarterWeaponPrefabs = new List<GameObject>();
     public List<GameObject> availableWeapons = new List<GameObject>();
-    [HideInInspector]
+    //[HideInInspector]
     public Weapon equippedWeapon;
     public int currentWeaponIndex;
     private int previouseWeaponIndex;
@@ -39,13 +39,15 @@ public class Soldier : MonoBehaviour {
     private void Awake()
     {
         maxHealth = health;
+
+        InstantiateStarterWeapons();
     }
 
     void Start()
     {
         baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
         soldierMovement = GetComponent<Movement>();
-        InstantiateStarterWeapons();
+
 
         foreach (Team team in TeamManager.instance.allTeams)
         {

@@ -62,7 +62,9 @@ public class TeamManager : MonoBehaviour {
         turnTimerCircle.color = circleStartColor;
 
         UIManager.instance.InstantiateStatusButtons(allTeams);
-        UIManager.instance.ShowWindow(UIManager.instance.soldierStatusWindow);
+        UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
+        UIManager.instance.ToggleWorldSpaceStatuses(true);
+        UIManager.instance.UpdateWorldSpaceStatuses(allTeams);
     }
 
     void Update()
@@ -249,9 +251,10 @@ public class TeamManager : MonoBehaviour {
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
         mainCamera.transform.parent.SetParent(playerCamPos);
 
-        UIManager.instance.HideWindow(UIManager.instance.soldierStatusWindow);
+        UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, false);
+        UIManager.instance.ToggleWorldSpaceStatuses(false);
         UIManager.instance.InstantiateWeaponIcons(allTeams[teamIndex].allSoldiers[soldierIndex].availableWeapons);
-        UIManager.instance.ShowWindow(UIManager.instance.weaponIconWindow);
+        UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, true);
 
         StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
     }
@@ -262,8 +265,10 @@ public class TeamManager : MonoBehaviour {
     public void ToTopView()
     {
         UIManager.instance.HideCrosshair();
-        UIManager.instance.HideWindow(UIManager.instance.weaponIconWindow);
-        UIManager.instance.ShowWindow(UIManager.instance.soldierStatusWindow);
+        UIManager.instance.UpdateWorldSpaceStatuses(allTeams);
+        UIManager.instance.ToggleWorldSpaceStatuses(true);
+        UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, false);
+        UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
 
         mainCamera.transform.parent.SetParent(null);
         activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = true;

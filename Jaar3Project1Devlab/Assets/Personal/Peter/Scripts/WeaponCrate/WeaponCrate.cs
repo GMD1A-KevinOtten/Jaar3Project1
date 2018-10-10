@@ -14,14 +14,9 @@ public class WeaponCrate : InteractableObject {
 
     public bool usedThisTurn;
     private bool tookWeapon;
-
-    public bool onCooldown;
-    public int maxCooldownTurns;
-    private int cooldownTurns;
 	// Use this for initialization
 	void Start () {
         GetComponent<Animator>().SetBool("Closed", true);
-        cooldownTurns = maxCooldownTurns;
     }
 
     //Update is called once per frame
@@ -34,13 +29,9 @@ public class WeaponCrate : InteractableObject {
             //{
             //    weapons = currentSoldier.availableWeaponsPrefabs;
             //}
-
-            if (!onCooldown)
+            if (Input.GetKeyDown("e") && !usedThisTurn)
             {
-                if (Input.GetKeyDown("e") && !usedThisTurn)
-                {
-                    Interact();
-                }
+                Interact();
             }
         }
         else
@@ -56,17 +47,6 @@ public class WeaponCrate : InteractableObject {
             usedThisTurn = false;
             ResetVars();
             CloseAnimation(true);
-            if(cooldownTurns > 0 && onCooldown)
-            {
-                cooldownTurns -= 1;
-                if(cooldownTurns <= 0 && onCooldown)
-                {
-                    onCooldown = false;
-                    cooldownTurns = maxCooldownTurns;
-                    Debug.Log("Unlocked");
-                    //Remove padlock icon
-                }
-            }
         }
 
         
@@ -94,15 +74,10 @@ public class WeaponCrate : InteractableObject {
                 if (!GetComponent<Animator>().GetBool("Closed") && GetComponentInChildren<WeaponCrateWeaponAnimBool>().animDone)
                 {
                     GetComponent<Animator>().SetBool("Closed", true);
-                    currentSoldier.TakeWeapon(weaponObject);
-                    UIManager.instance.InstantiateWeaponIcons(TeamManager.instance.activeSoldier.availableWeapons);
+                    currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
                     tookWeapon = true;
                     CloseAnimation(false);
                     spawnedWeapon = false;
-
-                    onCooldown = true;
-                    //Activate padlock icon
-                    Debug.Log("Locked");
 
                 }
             }
