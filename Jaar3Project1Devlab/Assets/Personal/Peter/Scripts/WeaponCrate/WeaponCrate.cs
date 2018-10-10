@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponCrate : InteractableObject {
     public float sphereRadius = 15;
@@ -14,14 +15,20 @@ public class WeaponCrate : InteractableObject {
 
     public bool usedThisTurn;
     private bool tookWeapon;
+
+    public int maxCooldown = 5;
+    private int coolDown;
+    public bool coolingDown;
 	// Use this for initialization
 	void Start () {
         GetComponent<Animator>().SetBool("Closed", true);
+        coolDown = maxCooldown;
+        GetComponentInChildren<Image>().enabled = false;
     }
 
     //Update is called once per frame
 
-     void Update()
+    void Update()
     {
         if (soldierNearby())
         {
@@ -29,7 +36,7 @@ public class WeaponCrate : InteractableObject {
             //{
             //    weapons = currentSoldier.availableWeaponsPrefabs;
             //}
-            if (Input.GetKeyDown("e") && !usedThisTurn)
+            if (Input.GetKeyDown("e") && !usedThisTurn && !coolingDown)
             {
                 Interact();
             }
@@ -47,9 +54,23 @@ public class WeaponCrate : InteractableObject {
             usedThisTurn = false;
             ResetVars();
             CloseAnimation(true);
+
+           
+        }
+        if (coolingDown)
+        {
+            if (coolDown > 0)
+            {
+                coolDown -= 1;
+            }
+            else if(coolDown <= 0)
+            {
+                coolingDown = false;
+                coolDown = maxCooldown;
+                GetComponentInChildren<Image>().enabled = false;
+            }
         }
 
-        
     }
 
     public override void Interact()
@@ -75,6 +96,8 @@ public class WeaponCrate : InteractableObject {
                 {
                     GetComponent<Animator>().SetBool("Closed", true);
                     currentSoldier.TakeWeapon(weaponObject); //Make the parenting shit happen in this function
+                    GetComponentInChildren<Image>().enabled = true;
+                    coolingDown = true;
                     tookWeapon = true;
                     CloseAnimation(false);
                     spawnedWeapon = false;
