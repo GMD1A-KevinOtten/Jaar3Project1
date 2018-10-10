@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33929848697510814}
   - component: {fileID: 23077944203384490}
   - component: {fileID: 95180947637934886}
+  - component: {fileID: 136773254012595866}
   m_Layer: 0
   m_Name: OilBarrel Blue
   m_TagString: Untagged
@@ -102,3 +103,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &136773254012595866
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1638087625784270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31160998
+  m_Height: 1.0066322
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5033161, z: 0}
