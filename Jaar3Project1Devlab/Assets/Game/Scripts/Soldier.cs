@@ -39,7 +39,6 @@ public class Soldier : MonoBehaviour {
     private void Awake()
     {
         maxHealth = health;
-
         InstantiateStarterWeapons();
     }
 
