@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1084785306190246}
+  m_IsPrefabAsset: 1
+--- !u!1 &1084785306190246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4612000899344598}
+  - component: {fileID: 114838701275877894}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4612000899344598
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084785306190246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.827785, y: 53.60757, z: 58.931313}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114838701275877894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084785306190246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d1f133f429e274d893da07cb275730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairImage: {fileID: 0}
+  sniperScope: {fileID: 0}
+  SoldierStatusOnUI: {fileID: 0}
+  weaponIcons: []
+  soldierStatusWindow: {fileID: 0}
+  weaponIconWindow: {fileID: 0}
+  teamButtonPrefab: {fileID: 1178378281687822, guid: 5347b596da0c0c94dab73cb9b3446d06,
+    type: 2}
+  soldierButtonPrefab: {fileID: 1230346003387460, guid: 5ace0f73da5b3df4f83f77debac592e6,
+    type: 2}
+  weaponIconPrefab: {fileID: 1230553943929660, guid: 4e24ec7d14ce1f743822a88d841bd812,
+    type: 2}
+  teamButtonsParent: {fileID: 0}
+  soldierButtonsParent: {fileID: 0}
+  weaponIconParent: {fileID: 0}
+  worldSpaceStatuses: []

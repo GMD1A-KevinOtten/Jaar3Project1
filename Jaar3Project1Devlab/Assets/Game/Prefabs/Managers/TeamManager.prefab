@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1178976042518018}
+  m_IsPrefabAsset: 1
+--- !u!1 &1178976042518018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4597987291798182}
+  - component: {fileID: 114430516104375872}
+  m_Layer: 0
+  m_Name: TeamManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4597987291798182
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1178976042518018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.827785, y: 53.60757, z: 58.931313}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114430516104375872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1178976042518018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcb3eb006ecd9442b1692386b13e919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  cameraPositionSky: {fileID: 0}
+  movementSpeed: 30
+  teamIndex: 0
+  lastTeamIndex: 0
+  allTeams:
+  - teamAlive: 1
+    soldierIndex: 0
+    allSoldiers:
+    - {fileID: 0}
+    thisTeamColor: {r: 1, g: 0, b: 0, a: 1}
+  - teamAlive: 1
+    soldierIndex: 0
+    allSoldiers:
+    - {fileID: 0}
+    thisTeamColor: {r: 0, g: 0.04726863, b: 1, a: 1}
+  - teamAlive: 1
+    soldierIndex: 0
+    allSoldiers:
+    - {fileID: 0}
+    thisTeamColor: {r: 0, g: 0.745283, b: 0.013882688, a: 1}
+  maxTurnTime: 30
+  turnTime: 0
+  combatTurnTime: 0
+  combatTimer: 0
+  timeText: {fileID: 0}
+  turnTimerCircle: {fileID: 0}
+  circleStartColor: {r: 0.030037642, g: 1, b: 0, a: 1}
+  circleEndColor: {r: 1, g: 0, b: 0, a: 1}
+  betweenTurnsText: {fileID: 0}
+  textDisplayTime: 1.5
+  activeSoldier: {fileID: 0}
