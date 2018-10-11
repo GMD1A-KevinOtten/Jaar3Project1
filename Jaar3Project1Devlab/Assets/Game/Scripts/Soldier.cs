@@ -46,10 +46,9 @@ public class Soldier : MonoBehaviour {
     {
         baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
         soldierMovement = GetComponent<Movement>();
-
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
         {
-            // deactivate rigidbody
+            rid.isKinematic = true;
         }
 
         foreach (Team team in TeamManager.instance.allTeams)
@@ -179,8 +178,11 @@ public class Soldier : MonoBehaviour {
                 break;
             }
         }
-        transform.Rotate(new Vector3(90,0,0),Space.Self);
-        //speel animatie af
+        foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
+        {
+            rid.isKinematic = false;
+        }
+        gameObject.GetComponent<Animator>().enabled = false;
     }
 
     public void CheckScroll()

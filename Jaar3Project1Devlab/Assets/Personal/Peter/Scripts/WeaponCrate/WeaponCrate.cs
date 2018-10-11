@@ -82,7 +82,7 @@ public class WeaponCrate : InteractableObject {
 
     public override void Interact()
     {
-        TeamManager.instance.EndTurn = CoolDown; //Find way to make this multi-delegate
+        TeamManager.instance.endTurn = CoolDown; //Find way to make this multi-delegate
 
         if (currentSoldier.canShoot != true)
         {

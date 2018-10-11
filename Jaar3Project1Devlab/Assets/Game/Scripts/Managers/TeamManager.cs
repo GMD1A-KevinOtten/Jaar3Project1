@@ -35,8 +35,8 @@ public class TeamManager : MonoBehaviour {
     private bool textSet;
 
     public Soldier activeSoldier;
-    public delegate void endTurn();
-    public endTurn EndTurn;
+    public delegate void EndTurn();
+    public EndTurn endTurn;
 
     private void Awake()
     {
@@ -106,7 +106,10 @@ public class TeamManager : MonoBehaviour {
                 }
                 lastTeamIndex = teamIndex;
                 NextTeam();
-                EndTurn();
+                if(endTurn != null)
+                {   
+                    endTurn();
+                }
             }
             if(combatTimer)
             {
@@ -168,7 +171,10 @@ public class TeamManager : MonoBehaviour {
             lastTeamIndex = teamIndex;
             activeSoldier.CombatToggle();
             NextTeam();
-            EndTurn();
+            if(endTurn != null)
+            {
+                endTurn();
+            }
         }
 
         turnTimerCircle.fillAmount = turnTime / combatTurnTime;
@@ -196,7 +202,10 @@ public class TeamManager : MonoBehaviour {
         if(turnTime <= 0)
         {
             lastTeamIndex = teamIndex;
-            EndTurn();
+            if(endTurn != null)
+            {
+                endTurn();
+            }
             NextTeam();
         }
 

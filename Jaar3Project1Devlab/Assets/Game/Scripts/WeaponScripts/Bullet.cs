@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour {
     {
         switch (gotHit.gameObject.layer)
         {
-            case 10:
+            case 13:
                 HitSoldier(gotHit);
                 break;
             case 12:
