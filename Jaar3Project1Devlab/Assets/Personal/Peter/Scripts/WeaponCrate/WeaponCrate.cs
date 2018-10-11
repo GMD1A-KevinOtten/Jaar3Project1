@@ -24,6 +24,7 @@ public class WeaponCrate : InteractableObject {
         GetComponent<Animator>().SetBool("Closed", true);
         coolDown = maxCooldown;
         GetComponentInChildren<Image>().enabled = false;
+
     }
 
     //Update is called once per frame
@@ -55,27 +56,35 @@ public class WeaponCrate : InteractableObject {
             ResetVars();
             CloseAnimation(true);
 
-           
-        }
-        if (coolingDown)
-        {
-            if (coolDown > 0)
-            {
-                coolDown -= 1;
-            }
-            else if(coolDown <= 0)
-            {
-                coolingDown = false;
-                coolDown = maxCooldown;
-                GetComponentInChildren<Image>().enabled = false;
-            }
-        }
 
+        }
+    }
+
+    public void CoolDown()
+    {
+            if (coolingDown)
+            {
+                usedThisTurn = false;
+                if (coolDown > 0)
+                {
+                    coolDown -= 1;
+                    Debug.Log("coolDown = " + coolDown);
+                }
+                else if (coolDown <= 0)
+                {
+                    Debug.Log("Cooldown 0");
+                    coolingDown = false;
+                    coolDown = maxCooldown;
+                    GetComponentInChildren<Image>().enabled = false;
+                }
+            }
     }
 
     public override void Interact()
     {
-        if(currentSoldier.canShoot != true)
+        TeamManager.instance.EndTurn = CoolDown;
+
+        if (currentSoldier.canShoot != true)
         {
             if (!spawnedWeapon && GetComponent<Animator>().GetBool("Closed"))
             {
@@ -159,4 +168,6 @@ public class WeaponCrate : InteractableObject {
         spawnedWeapon = false;
       
     }
+
+        
 }
