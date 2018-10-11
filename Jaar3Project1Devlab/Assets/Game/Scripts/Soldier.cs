@@ -47,6 +47,10 @@ public class Soldier : MonoBehaviour {
         baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
         soldierMovement = GetComponent<Movement>();
 
+        foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
+        {
+            // deactivate rigidbody
+        }
 
         foreach (Team team in TeamManager.instance.allTeams)
         {
