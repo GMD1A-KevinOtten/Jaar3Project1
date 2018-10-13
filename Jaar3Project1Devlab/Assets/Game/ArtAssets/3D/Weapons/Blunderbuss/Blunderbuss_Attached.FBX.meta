@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: f3132f0a2d44bc34faf8163676c1f06d
+guid: ffe1f811dbd2c9c45b260474589450b5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Sniper
+    2100000: Blunderbuss
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sniper
+    4300000: BlunderbussBase
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}

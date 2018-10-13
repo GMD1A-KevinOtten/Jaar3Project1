@@ -1,14 +1,21 @@
 fileFormatVersion: 2
-guid: f3132f0a2d44bc34faf8163676c1f06d
+guid: 74015b86c5123804e939ad59fa5ca27f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Sniper
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Sniper
+    100000: DrumMagazine
+    100002: //RootNode
+    100004: TommyGun
+    400000: DrumMagazine
+    400002: //RootNode
+    400004: TommyGun
+    2100000: TommyGun
+    2300000: DrumMagazine
+    2300002: TommyGun
+    3300000: DrumMagazine
+    3300002: TommyGun
+    4300000: TommyGun
+    4300002: DrumMagazine
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}

@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: f3132f0a2d44bc34faf8163676c1f06d
+guid: 4d5c641ab964c2144a7127dc6e7f46e3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Sniper
+    2100000: Grenade Launcher
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sniper
+    4300000: Grenade Launcher
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
