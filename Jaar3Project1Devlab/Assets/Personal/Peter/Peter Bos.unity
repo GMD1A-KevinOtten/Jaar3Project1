@@ -740,6 +740,12 @@ Prefab:
       propertyPath: faceToCam
       value: 
       objectReference: {fileID: 2123214362}
+    - target: {fileID: 114103248198551062, guid: 43e52f3012112304aa35eb9d57a09a2a,
+        type: 2}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e52f3012112304aa35eb9d57a09a2a, type: 2}
   m_IsPrefabAsset: 0
@@ -2199,6 +2205,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114035307609683912, guid: 958bebe140124664185426251e0cdd27,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4138140117428932, guid: 958bebe140124664185426251e0cdd27, type: 2}
       propertyPath: m_LocalPosition.x
       value: 6.83
@@ -2240,6 +2251,24 @@ Prefab:
       propertyPath: faceToCam
       value: 
       objectReference: {fileID: 2123214362}
+    - target: {fileID: 114035307609683912, guid: 958bebe140124664185426251e0cdd27,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae,
+        type: 2}
+    - target: {fileID: 114035307609683912, guid: 958bebe140124664185426251e0cdd27,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d,
+        type: 2}
+    - target: {fileID: 114035307609683912, guid: 958bebe140124664185426251e0cdd27,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 958bebe140124664185426251e0cdd27, type: 2}
   m_IsPrefabAsset: 0
@@ -2426,6 +2455,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4204876839869886, guid: b5180f6800870c74e9646f631ca8e63e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.46
@@ -2471,6 +2505,24 @@ Prefab:
       propertyPath: faceToCam
       value: 
       objectReference: {fileID: 2123214362}
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae,
+        type: 2}
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d,
+        type: 2}
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5180f6800870c74e9646f631ca8e63e, type: 2}
   m_IsPrefabAsset: 0
@@ -4947,6 +4999,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114186991346092108, guid: 63c3dc8a3808de54b9318ce237b05a1c,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4829938710558936, guid: 63c3dc8a3808de54b9318ce237b05a1c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.06
@@ -4988,6 +5045,24 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90.00001
       objectReference: {fileID: 0}
+    - target: {fileID: 114186991346092108, guid: 63c3dc8a3808de54b9318ce237b05a1c,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae,
+        type: 2}
+    - target: {fileID: 114186991346092108, guid: 63c3dc8a3808de54b9318ce237b05a1c,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d,
+        type: 2}
+    - target: {fileID: 114186991346092108, guid: 63c3dc8a3808de54b9318ce237b05a1c,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c3dc8a3808de54b9318ce237b05a1c, type: 2}
   m_IsPrefabAsset: 0
@@ -5135,6 +5210,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4204876839869886, guid: b5180f6800870c74e9646f631ca8e63e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.8
@@ -5176,6 +5256,24 @@ Prefab:
       propertyPath: faceToCam
       value: 
       objectReference: {fileID: 2123214362}
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae,
+        type: 2}
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d,
+        type: 2}
+    - target: {fileID: 114288175885754486, guid: b5180f6800870c74e9646f631ca8e63e,
+        type: 2}
+      propertyPath: StarterWeaponPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5180f6800870c74e9646f631ca8e63e, type: 2}
   m_IsPrefabAsset: 0

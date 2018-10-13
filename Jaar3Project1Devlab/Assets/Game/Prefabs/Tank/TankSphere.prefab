@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletHoleSprite: {fileID: 0}
   bulletHolePrefab: {fileID: 0}
-  defaultDamage: 100
+  defaultDamage: 150
 --- !u!135 &135916850108806542
 SphereCollider:
   m_ObjectHideFlags: 1

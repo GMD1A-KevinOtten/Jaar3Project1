@@ -35,9 +35,29 @@ public class Explosive : Weapon {
                 }
             }
         }
-      
-    }
+        else if (!isTank)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (mySoldier != null)
+                {
+                    if (mySoldier.canShoot)
+                    {
+                        ShootBullet();
+                    }
+                }
 
+            }
+            if (Input.GetButtonDown("Fire2"))
+            {
+                print("RightKlick");
+                if (mySoldier.canShoot != true)
+                {
+                    mySoldier.CombatToggle();
+                }
+            }
+        }
+    }
     public override void SpecialFunctionalityToggle()
     {
         base.SpecialFunctionalityToggle();
