@@ -45,7 +45,7 @@ public class TankShell : MonoBehaviour {
                 float damage = GetComponent<Bullet>().defaultDamage;
                 if (dist <= minDist)
                 {
-                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(damage));
+                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(damage), new Vector3(0,0,0));
                 }
                 else if (dist < maxDist && dist > minDist)
                 {
@@ -58,7 +58,7 @@ public class TankShell : MonoBehaviour {
                     float dmg = damage * dist;
                     dmg = damage - dmg;
 
-                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(dmg));
+                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(dmg), new Vector3(0,0,0));
                 }
 
             }

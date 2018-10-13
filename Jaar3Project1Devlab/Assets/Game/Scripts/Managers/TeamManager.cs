@@ -14,6 +14,7 @@ public class TeamManager : MonoBehaviour {
     public float movementSpeed;
 
     [Header("Team Properties")]
+    public int teamCount;
     public int teamIndex;
     public int lastTeamIndex;
     public List<Team> allTeams = new List<Team>();

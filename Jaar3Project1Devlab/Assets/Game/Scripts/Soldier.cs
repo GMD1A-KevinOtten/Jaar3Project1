@@ -38,12 +38,13 @@ public class Soldier : MonoBehaviour {
 
     private void Awake()
     {
-        maxHealth = health;
-        InstantiateStarterWeapons();
+        
     }
 
     void Start()
     {
+        maxHealth = health;
+        InstantiateStarterWeapons();
         baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
         soldierMovement = GetComponent<Movement>();
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
@@ -110,14 +111,14 @@ public class Soldier : MonoBehaviour {
     {
         damageTurns -= 1;
         print("damage overtime");
-        TakeDamage(damageOverTime);
+        TakeDamage(damageOverTime, new Vector3(0,0,0));
     }
     public void SetDamageOverTime(int turns, int damge)
     {
         damageTurns += turns;
         damageOverTime = damge;
     }
-    public void TakeDamage(int toDamage)
+    public void TakeDamage(int toDamage, Vector3 inpact)
     {
         if(isDead == false)
         {
@@ -125,7 +126,7 @@ public class Soldier : MonoBehaviour {
 
             if (health <= 0)
             {
-                Die();
+                Die(inpact);
             }
         }
     }
@@ -168,7 +169,7 @@ public class Soldier : MonoBehaviour {
         weapon.SetActive(false);
     }
 
-    public void Die()
+    public void Die(Vector3 push)
     {
         isDead = true;
         foreach (Team team in TeamManager.instance.allTeams)
@@ -183,6 +184,7 @@ public class Soldier : MonoBehaviour {
             rid.isKinematic = false;
         }
         gameObject.GetComponent<Animator>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().velocity = push;
     }
 
     public void CheckScroll()

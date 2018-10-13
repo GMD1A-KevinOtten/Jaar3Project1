@@ -29,7 +29,7 @@ public class PoisonDart : Bullet {
 	public override void HitSoldier(Collision gotHit)
     {
         Soldier soldier = gotHit.transform.root.GetComponent<Soldier>();
-        soldier.TakeDamage(defaultDamage);
+        soldier.TakeDamage(defaultDamage, gotHit.relativeVelocity);
 		soldier.SetDamageOverTime(turns,poisenDamage);
         transform.SetParent(gotHit.transform);
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
