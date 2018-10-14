@@ -183,6 +183,8 @@ public class Soldier : MonoBehaviour {
         {
             rid.isKinematic = false;
         }
+        equippedWeapon.GetComponent<Rigidbody>().isKinematic = false;
+        equippedWeapon.GetComponent<Rigidbody>().useGravity = true;
         gameObject.GetComponent<Animator>().enabled = false;
         gameObject.GetComponent<Rigidbody>().velocity = push;
     }
