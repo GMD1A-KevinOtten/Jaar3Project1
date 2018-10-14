@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4315112059071368}
   - component: {fileID: 33136603231739210}
   - component: {fileID: 23675360747094512}
+  - component: {fileID: 64761982277607496}
   m_Layer: 0
   m_Name: TommyGun
   m_TagString: Untagged
@@ -53,7 +54,6 @@ GameObject:
   - component: {fileID: 4597827505003108}
   - component: {fileID: 114062224999050854}
   - component: {fileID: 54984644770922382}
-  - component: {fileID: 65007599286321038}
   m_Layer: 0
   m_Name: PRE_TommyGun
   m_TagString: Untagged
@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 4096446713450818}
   - component: {fileID: 33915512247870294}
   - component: {fileID: 23749276118861522}
+  - component: {fileID: 65744373708658024}
   m_Layer: 0
   m_Name: DrumMagazine
   m_TagString: Untagged
@@ -112,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 1519807869331386}
   m_LocalRotation: {x: 0.00000006657903, y: -0.000000044703484, z: 2.9763145e-15,
     w: 1}
-  m_LocalPosition: {x: -1.9635036, y: 0.753, z: -4.346}
+  m_LocalPosition: {x: -2.261514, y: 0.494, z: -5.2629337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4315112059071368}
@@ -128,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073505311683462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.104, z: 0.432}
+  m_LocalPosition: {x: 0, y: 0.104, z: 0.4411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4597827505003108}
@@ -233,18 +234,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65007599286321038
+--- !u!64 &64761982277607496
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1250869661872892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 74015b86c5123804e939ad59fa5ca27f, type: 3}
+--- !u!65 &65744373708658024
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1519807869331386}
+  m_GameObject: {fileID: 1634629075430364}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.36626554, y: 0.44620967, z: 1}
-  m_Center: {x: -0.0030192435, y: -0.07146084, z: 2.2392332e-16}
+  m_Size: {x: 0.41015428, y: 0.44392312, z: 0.08500004}
+  m_Center: {x: 0.00000009685755, y: -0.22872058, z: -0.020784691}
 --- !u!114 &114062224999050854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,5 +290,5 @@ MonoBehaviour:
   shotSound: {fileID: 11400000, guid: 068c09294a5958a408ee2e1705e5f69a, type: 2}
   reloadSounds: []
   currentClip: 0
-  clipMax: 0
+  clipMax: 30
   rpm: 500

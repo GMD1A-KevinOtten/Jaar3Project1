@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4833291860226674}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Barrel Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,9 +37,11 @@ GameObject:
   - component: {fileID: 33564775797582338}
   - component: {fileID: 23972113891983344}
   - component: {fileID: 114120241848529974}
-  - component: {fileID: 65881620307675628}
   - component: {fileID: 54940936834304960}
-  m_Layer: 0
+  - component: {fileID: 65881620307675628}
+  - component: {fileID: 65945850117635822}
+  - component: {fileID: 65538280865662316}
+  m_Layer: 10
   m_Name: PRE_Makarov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1557032244782776}
   m_LocalRotation: {x: 0.000000021855694, y: 0.00000008742278, z: -1.9106855e-15,
     w: 1}
-  m_LocalPosition: {x: -3.4765904, y: 0.348, z: -3.2176461}
+  m_LocalPosition: {x: -2.8386683, y: 0.898, z: -5.2590985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4833291860226674}
@@ -131,6 +133,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &65538280865662316
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1557032244782776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020455748, y: 0.031758547, z: 0.049428463}
+  m_Center: {x: 0.000000020489097, y: 0.009510883, z: 0.0069109797}
 --- !u!65 &65881620307675628
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -141,8 +155,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.020455748, y: 0.111852005, z: 0.14358413}
-  m_Center: {x: 0.000000020023435, y: 0.0000000037252903, z: 0.000000011175871}
+  m_Size: {x: 0.020455748, y: 0.031998187, z: 0.14358413}
+  m_Center: {x: 0.000000020489097, y: 0.03992691, z: 0.00000001490116}
+--- !u!65 &65945850117635822
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1557032244782776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020455748, y: 0.08109115, z: 0.053585395}
+  m_Center: {x: 0.000000020489097, y: -0.015380427, z: -0.044999354}
 --- !u!114 &114120241848529974
 MonoBehaviour:
   m_ObjectHideFlags: 1
