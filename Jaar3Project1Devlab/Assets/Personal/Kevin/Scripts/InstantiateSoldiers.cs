@@ -25,18 +25,42 @@ public class InstantiateSoldiers : MonoBehaviour {
 				Soldier newSoldierInfo = newSoldier.GetComponent<Soldier>();
 				TeamManager.instance.allTeams[i].allSoldiers.Add(newSoldierInfo);
 				//all soldiers get a pistol
-				newSoldierInfo.StarterWeaponPrefabs.Add(starterWeapons[0]);
+				foreach (GameObject weapon in starterWeapons)
+				{
+					if(weapon.GetComponent<Makarov>())
+					{
+						newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+					}
+				}
 				switch (e)
 				{
 					// soldier 0 adn 1 get the special weapons (snipoer and shotgun) the other 2 get the smg(Tommygun)
 					case 0:
-						newSoldierInfo.StarterWeaponPrefabs.Add(starterWeapons[2]);
+						foreach (GameObject weapon in starterWeapons)
+						{
+							if(weapon.GetComponent<Sniper>())
+							{
+								newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+							}
+						}
 						break;
 					case 1:
-						newSoldierInfo.StarterWeaponPrefabs.Add(starterWeapons[3]);
+						foreach (GameObject weapon in starterWeapons)
+						{
+							if(weapon.GetComponent<Blunderbus>())
+							{
+								newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+							}
+						}
 						break;
 					default:
-						newSoldierInfo.StarterWeaponPrefabs.Add(starterWeapons[1]);
+						foreach (GameObject weapon in starterWeapons)
+						{
+							if(weapon.GetComponent<TommyGun>())
+							{
+								newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+							}
+						}
 						break;
 				}
 				print("FuckyFucky");
