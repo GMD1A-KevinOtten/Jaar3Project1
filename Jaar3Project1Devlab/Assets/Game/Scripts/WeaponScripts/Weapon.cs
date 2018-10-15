@@ -142,7 +142,7 @@ public class Weapon : MonoBehaviour {
     {
         if (currentClip != clipMax)
         {
-            AudioManager.instance.PlayAudio2D(reloadSounds[reloadSoundIndex]);
+            EffectsManager.instance.PlayAudio2D(reloadSounds[reloadSoundIndex]);
             FillClip();
             TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
             TeamManager.instance.NextTeam();
