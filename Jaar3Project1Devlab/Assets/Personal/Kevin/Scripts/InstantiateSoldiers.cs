@@ -43,12 +43,4 @@ public class InstantiateSoldiers : MonoBehaviour {
 			}
 		}
 	}
-
-	public void EquipSoldierInitialWeapon(GameObject soldier)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			
-		}
-	}
 }
