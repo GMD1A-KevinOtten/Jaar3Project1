@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 223986678687079484}
   - component: {fileID: 114889741853651170}
   - component: {fileID: 114585312588601292}
-  - component: {fileID: 114750425417848652}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -110,6 +109,7 @@ GameObject:
   - component: {fileID: 224223392917698652}
   - component: {fileID: 222563364979919160}
   - component: {fileID: 114495022865755566}
+  - component: {fileID: 114824904763692046}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1064850269432830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4952589, y: -4.2616957e-17, z: 9.596485}
+  m_LocalPosition: {x: 42.494648, y: 50.48191, z: 78.089745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4577846533597722}
@@ -476,7 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereRadius: 5
   weapons:
-  - {fileID: 1746869410240094, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
+  - {fileID: 0}
   usedThisTurn: 0
   maxCooldown: 5
   coolingDown: 0
@@ -535,12 +535,12 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114750425417848652
+--- !u!114 &114824904763692046
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1732623211577768}
+  m_GameObject: {fileID: 1777301910657074}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26d53a5e7f267cd4996ec2ba237dc6ba, type: 3}

@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
+public class EffectsManager : MonoBehaviour {
 
-    public static AudioManager instance;
+    public static EffectsManager instance;
 
+    [Header("Audio")]
     public CustomAudioClip[] allAudioclips;
     public List<AudioSource> audioSources = new List<AudioSource>();
     public int defaultAudiosourcesAmount;
+
+    [Header("Particles")]
+    public CustomParticle[] allParticles;
+
 
     private void Awake()
     {
@@ -28,6 +33,8 @@ public class AudioManager : MonoBehaviour {
             audioSources.Add(source);
         }
     }
+
+    //Audio functions:
 
     /// <summary>
     /// Plays an Audioclip in 2D.
@@ -125,5 +132,28 @@ public class AudioManager : MonoBehaviour {
         AudioSource source = newObject.AddComponent<AudioSource>();
 
         return source;
+    }
+
+    //Particle Functions:
+
+    public void PlayParticle(CustomParticle customParticle, Vector3 playPosition, Vector3 lookDirection)
+    {
+        GameObject newObject = Instantiate(customParticle.particlePrefab, playPosition, Quaternion.LookRotation(lookDirection));
+        newObject.transform.localScale = customParticle.defaultScaling;
+        ParticleSystem particle = newObject.GetComponent<ParticleSystem>();
+        particle.Play();
+    }
+
+    public CustomParticle FindParticle(string particleName)
+    {
+        for (int i = 0; i < allParticles.Length; i++)
+        {
+            if (allParticles[i].particleName == particleName)
+            {
+                return allParticles[i];
+            }
+        }
+
+        return null;
     }
 }

@@ -2129,7 +2129,13 @@ MonoBehaviour:
   canShoot: 0
   damageTurns: 0
   damageOverTime: 0
-  StarterWeaponPrefabs: []
+  StarterWeaponPrefabs:
+  - {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d, type: 2}
+  - {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba, type: 2}
+  - {fileID: 1557032244782776, guid: 4c81a3405e86b4c40b3f2bca6966d790, type: 2}
+  - {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d, type: 2}
+  - {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
+  - {fileID: 1962290312298426, guid: 86e1fd903f6dc504f99f63f05c0252ed, type: 2}
   availableWeapons: []
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0
