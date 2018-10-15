@@ -38,13 +38,12 @@ public class Soldier : MonoBehaviour {
 
     private void Awake()
     {
-        
+        InstantiateStarterWeapons();
     }
 
     void Start()
     {
         maxHealth = health;
-        InstantiateStarterWeapons();
         baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
         soldierMovement = GetComponent<Movement>();
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
