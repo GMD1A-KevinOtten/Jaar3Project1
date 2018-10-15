@@ -276,5 +276,5 @@ MonoBehaviour:
   shotSound: {fileID: 11400000, guid: 2a02cf84a728af04d9da5759fa31bc9d, type: 2}
   reloadSounds: []
   currentClip: 0
-  clipMax: 1
+  clipMax: 10
   cameraScope: {fileID: 20334753834180706}

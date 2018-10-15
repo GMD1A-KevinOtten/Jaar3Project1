@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4833291860226674}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Barrel Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65881620307675628}
   - component: {fileID: 65945850117635822}
   - component: {fileID: 65538280865662316}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: PRE_Makarov
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4291294582485198}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BarrelExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 95926588703435358}
   - component: {fileID: 114542405581249660}
   - component: {fileID: 54562313543174416}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_Grenade_Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}

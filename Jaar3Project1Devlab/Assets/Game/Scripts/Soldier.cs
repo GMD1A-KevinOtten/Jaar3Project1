@@ -10,6 +10,8 @@ public class Soldier : MonoBehaviour {
     public int myTeam;
     public Transform thirdPersonCamPos;
     public Movement soldierMovement;
+    public ContactPoint hitPosition;
+    public GameObject hitBone;
 
     [Header("Instantiation Properties")]
     public Transform handBone;
@@ -181,12 +183,16 @@ public class Soldier : MonoBehaviour {
         }
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
         {
-            rid.isKinematic = false;
+            if(rid != transform.GetComponent<Rigidbody>())
+            {
+                rid.isKinematic = false;
+            }
         }
         equippedWeapon.GetComponent<Rigidbody>().isKinematic = false;
         equippedWeapon.GetComponent<Rigidbody>().useGravity = true;
+        equippedWeapon.transform.SetParent(null);
         gameObject.GetComponent<Animator>().enabled = false;
-        gameObject.GetComponent<Rigidbody>().velocity = push;
+        hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000,hitPosition.point,3);
     }
 
     public void CheckScroll()

@@ -28,7 +28,10 @@ public class Bullet : MonoBehaviour {
 
     public virtual void HitSoldier(Collision gotHit)
     {
+        print(gotHit.transform.gameObject);
         Soldier soldier = gotHit.transform.root.GetComponent<Soldier>();
+        soldier.hitPosition = gotHit.contacts[0];
+        soldier.hitBone = gotHit.gameObject;
         soldier.TakeDamage(defaultDamage, gotHit.relativeVelocity);
         Destroy(gameObject);
     }

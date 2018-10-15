@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4907317438841720}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Barrel Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33136603231739210}
   - component: {fileID: 23675360747094512}
   - component: {fileID: 64761982277607496}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TommyGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4597827505003108}
   - component: {fileID: 114062224999050854}
   - component: {fileID: 54984644770922382}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PRE_TommyGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 33915512247870294}
   - component: {fileID: 23749276118861522}
   - component: {fileID: 65744373708658024}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DrumMagazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
