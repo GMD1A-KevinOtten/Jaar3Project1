@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f80a8179a0f3d4f8733d0bfffd8b82, type: 3}
   m_Name: Muzzle Flash
   m_EditorClassIdentifier: 
-  ParticleName: 
-  particlePrefab: {fileID: 0}
-  defaultScaling: {x: 0, y: 0, z: 0}
+  particleName: Muzzle Flash
+  particlePrefab: {fileID: 1297721474444324, guid: 9fc3c2e81032d1e45aac4bd5b8b825ab,
+    type: 2}
+  defaultScaling: {x: 0.1, y: 0.1, z: 0.1}

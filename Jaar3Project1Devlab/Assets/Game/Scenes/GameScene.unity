@@ -1132,6 +1132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123044936}
   - component: {fileID: 123044935}
+  - component: {fileID: 123044937}
   m_Layer: 0
   m_Name: TeamManager
   m_TagString: Untagged
@@ -1196,6 +1197,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123044937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123044934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41025061639eaa43b3dd702a56a58c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierPrefabs:
+  - {fileID: 1999435664256496, guid: b5180f6800870c74e9646f631ca8e63e, type: 2}
+  - {fileID: 1605919089852456, guid: 958bebe140124664185426251e0cdd27, type: 2}
+  - {fileID: 1740126109709558, guid: 63c3dc8a3808de54b9318ce237b05a1c, type: 2}
+  instantiationCords:
+  - {fileID: 1876558714}
+  - {fileID: 1970651443}
+  starterWeapons:
+  - {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d, type: 2}
+  - {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba, type: 2}
+  - {fileID: 1557032244782776, guid: 4c81a3405e86b4c40b3f2bca6966d790, type: 2}
+  - {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d, type: 2}
+  - {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
+  - {fileID: 1962290312298426, guid: 86e1fd903f6dc504f99f63f05c0252ed, type: 2}
 --- !u!1 &123125514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1508,7 @@ MonoBehaviour:
   allAudioclips: []
   audioSources: []
   defaultAudiosourcesAmount: 0
+  allParticles: []
 --- !u!4 &143342111
 Transform:
   m_ObjectHideFlags: 0
@@ -3552,7 +3579,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4204876839869886, guid: b5180f6800870c74e9646f631ca8e63e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114644643433730230, guid: b5180f6800870c74e9646f631ca8e63e,
         type: 2}
@@ -7247,7 +7274,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4138140117428932, guid: 958bebe140124664185426251e0cdd27, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114343544756617772, guid: 958bebe140124664185426251e0cdd27,
         type: 2}
@@ -7979,6 +8006,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1060321470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1060321471}
+  m_Layer: 0
+  m_Name: Instantiation Cord Team Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1060321471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060321470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56.492, y: 50.924, z: 38.355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1876558715}
+  - {fileID: 1970651444}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1071211864
 GameObject:
@@ -12974,6 +13031,34 @@ Transform:
   m_Father: {fileID: 5096163}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: -103.674, z: 0}
+--- !u!1 &1876558714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1876558715}
+  m_Layer: 0
+  m_Name: Crod (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1876558715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876558714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1060321471}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1880124935 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114975506136234772, guid: 7147b84b24890964c9806aebd6066806,
@@ -13374,6 +13459,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1968070029}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1970651443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970651444}
+  m_Layer: 0
+  m_Name: Crod (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970651444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1970651443}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.16, y: 0, z: -4.003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1060321471}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997008341
 GameObject:
   m_ObjectHideFlags: 0
