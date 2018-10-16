@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Blunderbus : Weapon 
 {
+    private bool hasShot;
 
     public override void Update() 
     {
@@ -16,7 +17,13 @@ public class Blunderbus : Weapon
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                StartCoroutine(ShootBlunderbus());
+                if(hasShot == false && currentClip != 0)
+                {
+                    mySoldier.anim.SetTrigger("Shoot");
+                    hasShot = true;
+                    StartCoroutine(ShootBlunderbus());
+                }
+                
             }
         }   
         if(Input.GetButtonDown("Fire2"))
@@ -30,11 +37,11 @@ public class Blunderbus : Weapon
 
     public IEnumerator ShootBlunderbus()
     {
-        mySoldier.anim.SetTrigger("Shoot");
         while(currentClip != 0)
         {
             ShootBullet();
         }
+        hasShot = false;
         yield return null;
     }
 }

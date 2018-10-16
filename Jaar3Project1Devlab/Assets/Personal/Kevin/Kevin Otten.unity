@@ -214,25 +214,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 4272128247171414, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -25.000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 114448145875651178, guid: 56463277c2c635a40abaac05601fc8e3,
-        type: 2}
-      propertyPath: weaponKind
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114448145875651178, guid: 56463277c2c635a40abaac05601fc8e3,
-        type: 2}
-      propertyPath: currentClip
-      value: 99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 114448145875651178, guid: 56463277c2c635a40abaac05601fc8e3,
-        type: 2}
-      propertyPath: clipMax
-      value: 99999
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
   m_IsPrefabAsset: 0
@@ -1278,6 +1259,7 @@ GameObject:
   - component: {fileID: 1665056844}
   - component: {fileID: 1665056845}
   - component: {fileID: 1665056843}
+  - component: {fileID: 1665056846}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1390,6 +1372,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamCount: 4
   loadingProgress: 0
+--- !u!114 &1665056846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665056840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbd75bdf07d95b47b599e24e845174e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allAudioclips: []
+  audioSources: []
+  defaultAudiosourcesAmount: 0
+  allParticles: []
 --- !u!1001 &1767520598
 Prefab:
   m_ObjectHideFlags: 0

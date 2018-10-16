@@ -166,7 +166,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4303797765658002}
   - component: {fileID: 20999746323861868}
-  - component: {fileID: 81266737906115124}
   - component: {fileID: 114991558196643022}
   m_Layer: 0
   m_Name: BarrelCamera
@@ -386,15 +385,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762023685808060}
-  m_LocalRotation: {x: -0, y: -0.9914453, z: -0, w: -0.13052303}
-  m_LocalPosition: {x: -0.99728876, y: -1.74, z: 7.0505204}
+  m_LocalRotation: {x: -0, y: -0.21643566, z: -0, w: 0.9762969}
+  m_LocalPosition: {x: 11.401291, y: 3.0063793e-17, z: -13.539528}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4821933093954530}
   - {fileID: 4435021559617310}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -194.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -25.000002, z: 0}
 --- !u!4 &4303797765658002
 Transform:
   m_ObjectHideFlags: 1
@@ -1032,13 +1031,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1678598761395940}
   m_Mesh: {fileID: 4300000, guid: 94c3664748e3d0a44bab6da93e3b92e1, type: 3}
---- !u!81 &81266737906115124
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1603502897464456}
-  m_Enabled: 1
 --- !u!114 &114563547685641292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1078,6 +1070,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1264276920800800, guid: 8df20b942da10e3498ad3f9bc0c83de4,
     type: 2}
   gunCrosshair: {fileID: 0}
+  weaponSprite: {fileID: 0}
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 0
