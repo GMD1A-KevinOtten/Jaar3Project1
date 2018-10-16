@@ -91,7 +91,7 @@ public class Weapon : MonoBehaviour {
     {
         if(currentClip > 0)
         {
-            //play shot sound
+            mySoldier.anim.SetTrigger("Shoot");
 
             newGameObject = Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
             currentClip -= 1;

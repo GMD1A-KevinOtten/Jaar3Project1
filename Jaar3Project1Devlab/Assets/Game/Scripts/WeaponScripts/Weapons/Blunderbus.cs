@@ -17,12 +17,10 @@ public class Blunderbus : Weapon
             if (Input.GetButtonDown("Fire1"))
             {
                 StartCoroutine(ShootBlunderbus());
-                mySoldier.anim.SetTrigger("Shoot");
             }
         }   
         if(Input.GetButtonDown("Fire2"))
         {
-            print("RightKlick");
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
@@ -32,6 +30,7 @@ public class Blunderbus : Weapon
 
     public IEnumerator ShootBlunderbus()
     {
+        mySoldier.anim.SetTrigger("Shoot");
         while(currentClip != 0)
         {
             ShootBullet();
