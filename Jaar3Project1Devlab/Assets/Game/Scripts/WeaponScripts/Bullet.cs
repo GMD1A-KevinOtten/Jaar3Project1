@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour {
 
     public virtual void HitSoldier(Collision gotHit)
     {
+        EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("BulletInpact Person"), gotHit.transform.position);
         print(gotHit.transform.gameObject);
         Soldier soldier = gotHit.transform.root.GetComponent<Soldier>();
         soldier.hitPosition = gotHit.contacts[0];
@@ -38,6 +39,7 @@ public class Bullet : MonoBehaviour {
 
     public virtual void HitEnvironment(Collision gotHit)
     {
+        EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("BulletInpact Sand"), gotHit.transform.position);
         GameObject bulletHoleObject = Instantiate(bulletHolePrefab, gotHit.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, gotHit.contacts[0].normal));
         bulletHoleObject.gameObject.name = "BulletHole";
         bulletHoleObject.transform.position = bulletHoleObject.transform.localPosition + bulletHoleObject.transform.forward * 0.001f;

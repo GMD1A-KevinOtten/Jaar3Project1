@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 114841255740725168}
   - component: {fileID: 54404973373202668}
   - component: {fileID: 65451508701850400}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Blowgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ MonoBehaviour:
   recoil: 0
   specialFunctionality: 0
   isTank: 0
-  shotSound: {fileID: 0}
+  shotSound: {fileID: 11400000, guid: c18a42d119fbe7f4caf2b411eca1c854, type: 2}
   reloadSounds: []
   currentClip: 0
   clipMax: 1
