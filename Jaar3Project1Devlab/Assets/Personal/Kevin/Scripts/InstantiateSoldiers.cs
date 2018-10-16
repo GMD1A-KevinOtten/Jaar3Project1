@@ -15,15 +15,15 @@ public class InstantiateSoldiers : MonoBehaviour {
 
 	public void InstantiateSoldierPrefabs(int amountOfTeams)
 	{
-		for (int i = 0; i < amountOfTeams; i++)
+		for (int team = 0; team < amountOfTeams; team++)
 		{
 			TeamManager.instance.allTeams.Add(new Team());
-			print("SuckySucky");
 			for (int e = 0; e < 4; e++)
 			{
-				GameObject newSoldier = Instantiate(soldierPrefabs[i], instantiationCords[i].transform.GetChild(e).transform.position, Quaternion.identity);
+				GameObject newSoldier = Instantiate(soldierPrefabs[team], instantiationCords[team].transform.GetChild(e).transform.position, Quaternion.identity);
 				Soldier newSoldierInfo = newSoldier.GetComponent<Soldier>();
-				TeamManager.instance.allTeams[i].allSoldiers.Add(newSoldierInfo);
+				TeamManager.instance.allTeams[team].allSoldiers.Add(newSoldierInfo);
+
 				//all soldiers get a pistol
 				foreach (GameObject weapon in starterWeapons)
 				{
@@ -34,7 +34,7 @@ public class InstantiateSoldiers : MonoBehaviour {
 				}
 				switch (e)
 				{
-					// soldier 0 adn 1 get the special weapons (snipoer and shotgun) the other 2 get the smg(Tommygun)
+					// soldier 0 adn 1 get the special weapons (sniper and shotgun) the other 2 get the smg(Tommygun)
 					case 0:
 						foreach (GameObject weapon in starterWeapons)
 						{
@@ -63,7 +63,6 @@ public class InstantiateSoldiers : MonoBehaviour {
 						}
 						break;
 				}
-				print("FuckyFucky");
 			}
 		}
 	}

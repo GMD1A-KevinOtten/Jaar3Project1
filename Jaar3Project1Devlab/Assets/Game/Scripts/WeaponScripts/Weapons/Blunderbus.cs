@@ -17,6 +17,7 @@ public class Blunderbus : Weapon
             if (Input.GetButtonDown("Fire1"))
             {
                 StartCoroutine(ShootBlunderbus());
+                mySoldier.anim.SetTrigger("Shoot");
             }
         }   
         if(Input.GetButtonDown("Fire2"))

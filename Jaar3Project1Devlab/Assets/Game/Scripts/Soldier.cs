@@ -40,6 +40,7 @@ public class Soldier : MonoBehaviour {
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         maxHealth = health;
         InstantiateStarterWeapons();
         baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
@@ -60,8 +61,6 @@ public class Soldier : MonoBehaviour {
             }
             
         }
-
-        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -84,8 +83,8 @@ public class Soldier : MonoBehaviour {
         if(canShoot == false)
         {
             canShoot = true;
-            anim.SetBool("isMovingLight", false);
-            anim.SetBool("isMovingHeavy", false);
+            anim.SetInteger("WeaponID",equippedWeapon.gunID);
+            anim.SetBool("IsAiming", true);
             soldierMovement.canMove = false;
             Camera.main.GetComponent<Camera>().fieldOfView = 40;
             TeamManager.instance.combatTimer = true;
@@ -94,6 +93,7 @@ public class Soldier : MonoBehaviour {
         else
         {
             canShoot = false;
+            anim.SetBool("IsAiming", false);
             soldierMovement.canMove = true;
             Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
             TeamManager.instance.combatTimer = false;
@@ -143,6 +143,7 @@ public class Soldier : MonoBehaviour {
             availableWeapons.Add(thisWeapon);
             thisWeapon.transform.SetParent(handBone);
             thisWeapon.GetComponent<Rigidbody>().useGravity = false;
+            thisWeapon.GetComponent<Weapon>().mySoldier = this;
             thisWeapon.SetActive(false);
         }
         EquipWeapon(0);
@@ -239,14 +240,7 @@ public class Soldier : MonoBehaviour {
     {
         if (currentSpeed != Vector3.zero)
         {
-            if (equippedWeapon.weaponKind == Weapon.WeaponKind.Light)
-            {
-                anim.SetBool("isMovingLight", true);
-            }
-            else if (equippedWeapon.weaponKind == Weapon.WeaponKind.Heavy)
-            {
-                anim.SetBool("isMovingHeavy", true);
-            }
+            anim.SetBool("IsMoving", true);
         }
         else
         {
@@ -256,7 +250,6 @@ public class Soldier : MonoBehaviour {
 
     public void DisableMovementAnimation()
     {
-        anim.SetBool("isMovingLight", false);
-        anim.SetBool("isMovingHeavy", false);
+        anim.SetBool("IsMoving", false);
     }
 }

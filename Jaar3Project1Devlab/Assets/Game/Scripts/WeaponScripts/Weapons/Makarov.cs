@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class Makarov : Weapon {
 
+
+    public override void Inputs()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if(mySoldier.canShoot == true)
+            {
+                ShootBullet();
+                mySoldier.anim.SetTrigger("Shoot");
+            }
+        }
+        if(Input.GetButtonDown("Fire2"))
+        {
+            if(mySoldier.canShoot != true)
+            {
+                mySoldier.CombatToggle();
+            }
+        }
+    }
+
    public override void SpecialFunctionalityToggle()
    {
        // reload weapon wanerr we dat hebbbem

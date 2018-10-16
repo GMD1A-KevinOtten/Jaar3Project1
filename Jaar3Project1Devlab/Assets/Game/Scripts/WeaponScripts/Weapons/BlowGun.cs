@@ -14,6 +14,7 @@ public class BlowGun : Weapon {
             if(mySoldier.canShoot == true)
             {
                 ShootBullet();
+                mySoldier.anim.SetTrigger("Shoot");
             }
         }
         if(Input.GetButtonDown("Fire2"))

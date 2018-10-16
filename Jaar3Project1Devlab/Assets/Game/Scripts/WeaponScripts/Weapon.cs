@@ -39,7 +39,6 @@ public class Weapon : MonoBehaviour {
 
     public virtual void Start() 
     {
-        mySoldier = gameObject.transform.root.GetComponent<Soldier>();
         FillClip();
     }
 
@@ -150,6 +149,21 @@ public class Weapon : MonoBehaviour {
         else
         {
             //whatever de fuck we willen als reloaden waardenloos is aka max ammo in geweer
+        }
+    }
+
+    private void OnEnable() 
+    {
+        if(mySoldier != null)
+        {
+            if(weaponKind == WeaponKind.Heavy)
+            {
+                mySoldier.anim.SetBool("BigGun", true);
+            }
+            else
+            {
+                mySoldier.anim.SetBool("BigGun", false);
+            }
         }
     }
 
