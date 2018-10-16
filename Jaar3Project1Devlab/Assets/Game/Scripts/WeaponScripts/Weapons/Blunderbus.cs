@@ -33,6 +33,10 @@ public class Blunderbus : Weapon
                 mySoldier.CombatToggle();
             }
         }
+        if(Input.GetButtonDown("R"))
+        {
+            Reload(0);
+        }
     }
 
     public IEnumerator ShootBlunderbus()

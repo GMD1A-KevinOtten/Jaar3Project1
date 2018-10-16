@@ -288,7 +288,8 @@ MonoBehaviour:
   specialFunctionality: 0
   isTank: 0
   shotSound: {fileID: 11400000, guid: 068c09294a5958a408ee2e1705e5f69a, type: 2}
-  reloadSounds: []
+  reloadSounds:
+  - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
   currentClip: 0
   clipMax: 30
   rpm: 500

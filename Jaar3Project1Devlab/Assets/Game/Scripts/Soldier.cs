@@ -12,6 +12,7 @@ public class Soldier : MonoBehaviour {
     public Movement soldierMovement;
     public ContactPoint hitPosition;
     public GameObject hitBone;
+    private AudioSource Movement;
 
     [Header("Instantiation Properties")]
     public Transform handBone;
@@ -40,6 +41,7 @@ public class Soldier : MonoBehaviour {
 
     void Start()
     {
+        Movement = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         maxHealth = health;
         InstantiateStarterWeapons();
@@ -240,6 +242,11 @@ public class Soldier : MonoBehaviour {
     {
         if (currentSpeed != Vector3.zero)
         {
+            if(!Movement.isPlaying)
+            {
+                Movement.Play();
+            }
+           
             anim.SetBool("IsMoving", true);
         }
         else
@@ -250,6 +257,11 @@ public class Soldier : MonoBehaviour {
 
     public void DisableMovementAnimation()
     {
+        if(Movement.isPlaying)
+        {
+            Movement.Stop();
+        }
+        
         anim.SetBool("IsMoving", false);
     }
 }

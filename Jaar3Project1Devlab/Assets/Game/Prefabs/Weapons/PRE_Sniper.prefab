@@ -279,7 +279,8 @@ MonoBehaviour:
   specialFunctionality: 0
   isTank: 0
   shotSound: {fileID: 11400000, guid: 2a02cf84a728af04d9da5759fa31bc9d, type: 2}
-  reloadSounds: []
+  reloadSounds:
+  - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
   currentClip: 0
   clipMax: 10
   cameraScope: {fileID: 20334753834180706}

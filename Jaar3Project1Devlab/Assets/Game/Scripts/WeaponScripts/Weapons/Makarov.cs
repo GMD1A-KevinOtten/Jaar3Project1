@@ -19,12 +19,13 @@ public class Makarov : Weapon {
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
+                SpecialFunctionalityToggle();
             }
         }
     }
-
+    
    public override void SpecialFunctionalityToggle()
    {
-       // reload weapon wanerr we dat hebbbem
+        Reload(0);
    }
 }

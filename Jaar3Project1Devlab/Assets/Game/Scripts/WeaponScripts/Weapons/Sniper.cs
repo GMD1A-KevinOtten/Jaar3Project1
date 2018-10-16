@@ -28,6 +28,10 @@ public class Sniper : Weapon {
                 SpecialFunctionalityToggle();
             }
         }
+        if(Input.GetButtonDown("R"))
+        {
+            Reload(0);
+        }
     }
 
     

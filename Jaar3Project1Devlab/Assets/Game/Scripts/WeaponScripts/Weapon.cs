@@ -73,6 +73,10 @@ public class Weapon : MonoBehaviour {
                 mySoldier.CombatToggle();
             }
         }
+        if(Input.GetButtonDown("R"))
+        {
+            Reload(0);
+        }
     }
 
     public virtual void SpecialFunctionalityToggle()
@@ -144,12 +148,11 @@ public class Weapon : MonoBehaviour {
         {
             EffectsManager.instance.PlayAudio2D(reloadSounds[reloadSoundIndex]);
             FillClip();
-            TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
-            TeamManager.instance.NextTeam();
+            StartCoroutine(AferReloadTeamSwitch());
         }
         else
         {
-            //whatever de fuck we willen als reloaden waardenloos is aka max ammo in geweer
+            EffectsManager.instance.PlayAudio2D(EffectsManager.instance.FindAudioClip("PlaceHolder"));
         }
     }
 
@@ -171,5 +174,12 @@ public class Weapon : MonoBehaviour {
     private void FillClip()
     {
         currentClip = clipMax;
+    }
+
+    public IEnumerator AferReloadTeamSwitch()
+    {
+        yield return new WaitForSeconds(3);
+        TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
+        TeamManager.instance.NextTeam();
     }
 }

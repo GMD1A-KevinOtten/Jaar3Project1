@@ -38,6 +38,10 @@ public class TommyGun : Weapon {
                 mySoldier.CombatToggle();
             }
         }
+        if(Input.GetButtonDown("R"))
+        {
+            Reload(0);
+        }
     }
 
     public float NextShotWaitCalculation()
