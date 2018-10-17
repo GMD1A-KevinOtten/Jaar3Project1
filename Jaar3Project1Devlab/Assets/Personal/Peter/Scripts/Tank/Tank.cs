@@ -48,20 +48,6 @@ public class Tank : InteractableObject {
                 ExitTank(); 
             }
         }
-
-        if (Input.GetKeyDown("k"))
-        {
-            if(Cursor.lockState != CursorLockMode.Locked && Cursor.visible == true)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
-        }
     }
 
     private void FixedUpdate()
@@ -118,10 +104,8 @@ public class Tank : InteractableObject {
                 currentSoldier.equippedWeapon = GetComponentInChildren<Weapon>();
                 GetComponentInChildren<Weapon>().mySoldier = currentSoldier;
 
+                currentSoldier.CombatToggle();
                 GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
-
-
-
             }
         }
         else if (soldierInside)

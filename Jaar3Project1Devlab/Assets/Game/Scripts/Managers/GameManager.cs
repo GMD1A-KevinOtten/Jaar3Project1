@@ -24,6 +24,23 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(this.gameObject);
 	}
 
+	private void Update() 
+	{
+		if (Input.GetKeyDown("k"))
+        {
+            if(Cursor.lockState != CursorLockMode.Locked && Cursor.visible == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
+	}
+	
 	public void ChangeScene(int i)
 	{
 		async = SceneManager.LoadSceneAsync(i);	

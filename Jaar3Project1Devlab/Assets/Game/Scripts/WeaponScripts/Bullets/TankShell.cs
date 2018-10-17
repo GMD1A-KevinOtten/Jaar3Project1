@@ -2,29 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankShell : MonoBehaviour {
+public class TankShell : Bullet {
     public float explosionRadius;
     public float minDist = 1;
     public float maxDist;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void OnDrawGizmos () {
+    public override void OnHit(Collision gotHit)
+    {
+        TankShellEffect(gotHit);
+    }
+
+	void OnDrawGizmos () 
+    {
         Gizmos.color = Color.cyan;
         Gizmos.DrawSphere(transform.position, explosionRadius);
-
     }
 
-    private void Update()
-    {
-      
-    }
-
-    private void OnCollisionEnter(Collision col)
+    private void TankShellEffect(Collision col)
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
         List<GameObject> objs = new List<GameObject>();
@@ -42,10 +36,9 @@ public class TankShell : MonoBehaviour {
             {
 
                 float dist = Vector3.Distance(transform.position, g.transform.position);
-                float damage = GetComponent<Bullet>().defaultDamage;
                 if (dist <= minDist)
                 {
-                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(damage), new Vector3(0,0,0));
+                    g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(defaultDamage), new Vector3(0,0,0));
                 }
                 else if (dist < maxDist && dist > minDist)
                 {
@@ -55,8 +48,8 @@ public class TankShell : MonoBehaviour {
                     dist = dist / f;
 
 
-                    float dmg = damage * dist;
-                    dmg = damage - dmg;
+                    float dmg = defaultDamage * dist;
+                    dmg = defaultDamage - dmg;
 
                     g.GetComponent<Soldier>().TakeDamage(Mathf.RoundToInt(dmg), new Vector3(0,0,0));
                 }

@@ -26,14 +26,6 @@ public class Explosive : Weapon {
                     ShootBullet();
                 }
             }
-            if (Input.GetButtonDown("Fire2"))
-            {
-                print("RightKlick");
-                if (mySoldier.canShoot != true)
-                {
-                    mySoldier.CombatToggle();
-                }
-            }
         }
         else if (!isTank)
         {

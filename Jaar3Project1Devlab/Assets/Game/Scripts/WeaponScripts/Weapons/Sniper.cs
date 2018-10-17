@@ -22,9 +22,6 @@ public class Sniper : Weapon {
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
-            }
-            else
-            {
                 SpecialFunctionalityToggle();
             }
         }

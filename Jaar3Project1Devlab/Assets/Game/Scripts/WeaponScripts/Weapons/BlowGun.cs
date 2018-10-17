@@ -21,9 +21,6 @@ public class BlowGun : Weapon {
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
-            }
-            else
-            {
                 SpecialFunctionalityToggle();
             }
         }

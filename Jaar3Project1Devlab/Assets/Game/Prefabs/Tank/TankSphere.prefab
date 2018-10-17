@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33517536027570170}
   - component: {fileID: 23360909574695426}
   - component: {fileID: 135916850108806542}
-  - component: {fileID: 114767011979747398}
   - component: {fileID: 54545498607784318}
   - component: {fileID: 114626059150697916}
   m_Layer: 0
@@ -113,23 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b5c57504aa4094faec633d34ed3f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletHoleSprite: {fileID: 0}
+  bulletHolePrefab: {fileID: 0}
+  defaultDamage: 0
   explosionRadius: 2
   minDist: 0.5
   maxDist: 2
---- !u!114 &114767011979747398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264276920800800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a6852ed5ff62d4cbf23c9169ca8bf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletHoleSprite: {fileID: 0}
-  bulletHolePrefab: {fileID: 0}
-  defaultDamage: 150
 --- !u!135 &135916850108806542
 SphereCollider:
   m_ObjectHideFlags: 1
