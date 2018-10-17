@@ -24,6 +24,11 @@ public class InstantiateSoldiers : MonoBehaviour {
 				Soldier newSoldierInfo = newSoldier.GetComponent<Soldier>();
 				TeamManager.instance.allTeams[team].allSoldiers.Add(newSoldierInfo);
 
+				if(TeamManager.instance.allTeams[team].thisTeamColor != newSoldierInfo.teamColor)
+				{
+					TeamManager.instance.allTeams[team].thisTeamColor = newSoldierInfo.teamColor;
+				}
+
 				//all soldiers get a pistol
 				foreach (GameObject weapon in starterWeapons)
 				{

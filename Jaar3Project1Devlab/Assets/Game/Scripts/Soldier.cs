@@ -13,6 +13,7 @@ public class Soldier : MonoBehaviour {
     public ContactPoint hitPosition;
     public GameObject hitBone;
     private AudioSource Movement;
+    public Color teamColor;
 
     [Header("Instantiation Properties")]
     public Transform handBone;
@@ -164,6 +165,7 @@ public class Soldier : MonoBehaviour {
 
         weapon.transform.SetParent(handBone);
         weapon.transform.localPosition = Vector3.zero;
+        weapon.transform.rotation = handBone.rotation;
         weapon.GetComponent<Rigidbody>().useGravity = false;
         weapon.GetComponent<Weapon>().mySoldier = this;
         weapon.SetActive(false);
