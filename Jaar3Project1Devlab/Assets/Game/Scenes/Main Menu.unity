@@ -7608,8 +7608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.1}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.000019311905, y: -0.026}
+  m_SizeDelta: {x: 142.37, y: 19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668325428
 MonoBehaviour:
@@ -7697,7 +7697,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 29.42978, y: 15.931015, z: 28.345642, w: 15.26741}
+  m_margin: {x: 29.42978, y: 17.087173, z: 28.345642, w: 22.178726}
   m_textInfo:
     textComponent: {fileID: 668325428}
     characterCount: 8
@@ -8149,8 +8149,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.1}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.00004196167, y: 0.17}
+  m_SizeDelta: {x: 142.37, y: 19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726220112
 MonoBehaviour:
@@ -8238,7 +8238,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 29.42978, y: 15.931015, z: 28.345642, w: 15.26741}
+  m_margin: {x: 29.42978, y: 20.574722, z: 28.345642, w: 18.593521}
   m_textInfo:
     textComponent: {fileID: 726220112}
     characterCount: 5
@@ -9164,8 +9164,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.1}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.000042676926, y: 0.028000802}
+  m_SizeDelta: {x: 142.37, y: 19.043999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807224151
 MonoBehaviour:
@@ -9251,7 +9251,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 29.42978, y: 15.931015, z: 28.345642, w: 15.26741}
+  m_margin: {x: 29.42978, y: 20.268936, z: 28.345642, w: 23.502884}
   m_textInfo:
     textComponent: {fileID: 807224151}
     characterCount: 4
@@ -12176,7 +12176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50.19, y: 52.319763}
+  m_AnchoredPosition: {x: 50.19, y: 52.78}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1193879104
