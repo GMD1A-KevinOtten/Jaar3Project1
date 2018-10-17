@@ -9,48 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1638087625784270}
+  m_RootGameObject: {fileID: 1895202975196552}
   m_IsPrefabAsset: 1
---- !u!1 &1638087625784270
+--- !u!1 &1895202975196552
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4487123466312774}
-  - component: {fileID: 33929848697510814}
-  - component: {fileID: 23077944203384490}
-  - component: {fileID: 95180947637934886}
-  - component: {fileID: 64387230142606002}
+  - component: {fileID: 4606377570150474}
+  - component: {fileID: 33018787906012132}
+  - component: {fileID: 23073248687995232}
+  - component: {fileID: 65763234815464018}
   m_Layer: 0
-  m_Name: OilBarrel Blue
+  m_Name: Streetlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4487123466312774
+--- !u!4 &4606377570150474
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1638087625784270}
-  m_LocalRotation: {x: -0.2717281, y: -0.5682595, z: 0.3220635, w: 0.7067673}
-  m_LocalPosition: {x: 16.011, y: 7.684, z: 26.768}
-  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1}
+  m_GameObject: {fileID: 1895202975196552}
+  m_LocalRotation: {x: 0.000000014010297, y: -0.7675102, z: -0.00000001677448, w: 0.6410368}
+  m_LocalPosition: {x: 60.367954, y: 7.5464516, z: 12.228153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.0350001, y: -78.081, z: 49.836002}
---- !u!23 &23077944203384490
+  m_LocalEulerAnglesHint: {x: 0, y: -100.262, z: 0}
+--- !u!23 &23073248687995232
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1638087625784270}
+  m_GameObject: {fileID: 1895202975196552}
   m_Enabled: 1
-  m_CastShadows: 2
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -58,7 +57,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: eee15df7bd1512d49bd8ba67caec4ac1, type: 2}
+  - {fileID: 2100000, guid: d0dcc69a288a4ad4297b7de7534b57a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,42 +77,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33929848697510814
+--- !u!33 &33018787906012132
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1638087625784270}
-  m_Mesh: {fileID: 4300000, guid: 31c196eb1f9df5c4490a828eb31263aa, type: 3}
---- !u!64 &64387230142606002
-MeshCollider:
+  m_GameObject: {fileID: 1895202975196552}
+  m_Mesh: {fileID: 4300000, guid: 1ac5bb0b3f6b2c44c8331481fc03a833, type: 3}
+--- !u!65 &65763234815464018
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1638087625784270}
+  m_GameObject: {fileID: 1895202975196552}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 31c196eb1f9df5c4490a828eb31263aa, type: 3}
---- !u!95 &95180947637934886
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1638087625784270}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 31c196eb1f9df5c4490a828eb31263aa, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 2
+  m_Size: {x: 0.34340993, y: 6.8587084, z: 0.31465313}
+  m_Center: {x: 0.007335007, y: 3.4293542, z: -0.005829394}
