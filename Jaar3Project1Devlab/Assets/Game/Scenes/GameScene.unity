@@ -980,9 +980,9 @@ MonoBehaviour:
   teamIndex: 0
   lastTeamIndex: 0
   allTeams: []
-  maxTurnTime: 30
+  maxTurnTime: 40
   turnTime: 0
-  combatTurnTime: 0
+  combatTurnTime: 10
   combatTimer: 0
   timeText: {fileID: 1800852655}
   turnTimerCircle: {fileID: 538429412}
