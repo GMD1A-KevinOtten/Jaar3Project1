@@ -1196,7 +1196,7 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
@@ -1204,7 +1204,7 @@ AnimatorState:
   m_Motion: {fileID: 7400000, guid: c2c22dd8c2dabc3479abbc26aae4256c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: IsMoving
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &1102225682756455232
@@ -1257,7 +1257,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 87c7938acbc9d0e43996c994139f90d1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4ef28b7c29e10e648ae22259e017244a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1462,7 +1462,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ANI_ADS_Blunderbuss Reverse
-  m_Speed: 1
+  m_Speed: -1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101920325373004244}
@@ -1470,7 +1470,7 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
@@ -1757,7 +1757,7 @@ AnimatorStateMachine:
     m_Position: {x: -120, y: -240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102596531531245422}
-    m_Position: {x: 168, y: -228, z: 0}
+    m_Position: {x: 156, y: -240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102621088898593576}
     m_Position: {x: -120, y: -12, z: 0}
@@ -1817,7 +1817,7 @@ AnimatorStateMachine:
     m_Position: {x: 912, y: -72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102977660298713868}
-    m_Position: {x: 401.8662, y: 98.89121, z: 0}
+    m_Position: {x: 396, y: 96, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
