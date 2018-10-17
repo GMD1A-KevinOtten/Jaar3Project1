@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Personal/Peter/LevelScene.unity
-    guid: 67a700744befb4040a3a9d7f23572169
+  - enabled: 1
+    path: Assets/Game/Scenes/Main Menu.unity
+    guid: da9f48497b6563149b61dc8a2bf68999
   - enabled: 1
     path: Assets/Game/Scenes/GameScene.unity
     guid: 576641d6315467a40b8ab0c49f4ae0c7
