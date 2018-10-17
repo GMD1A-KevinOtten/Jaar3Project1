@@ -141,7 +141,7 @@ public class Soldier : MonoBehaviour {
     {
         foreach (GameObject weapon in StarterWeaponPrefabs)
         {
-            GameObject thisWeapon = Instantiate(weapon,handBone.transform.position,Quaternion.identity);
+            GameObject thisWeapon = Instantiate(weapon, handBone.transform.position, handBone.transform.rotation);
             availableWeapons.Add(thisWeapon);
             thisWeapon.transform.SetParent(handBone);
             thisWeapon.GetComponent<Rigidbody>().useGravity = false;

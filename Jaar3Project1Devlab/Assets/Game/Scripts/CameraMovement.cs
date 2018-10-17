@@ -78,7 +78,7 @@ public class CameraMovement : MonoBehaviour {
         {
             if (!gunToRotate.isTank)
             {
-                gunToRotate.transform.localRotation = Quaternion.Euler(0, -xRotInput, -90);
+                gunToRotate.transform.localRotation = Quaternion.Euler(0, -xRotInput, 0);
             }
         }
     }

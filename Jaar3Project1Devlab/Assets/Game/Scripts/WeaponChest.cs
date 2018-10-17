@@ -31,7 +31,7 @@ public class WeaponChest : InteractebleObject {
     public void Pickup(Soldier giveTo)
     {
         giveTo.equippedWeapon = containing;
-
+        
         Destroy(spawnedObject);
     }
 
