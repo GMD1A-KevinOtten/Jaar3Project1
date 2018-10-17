@@ -9,6 +9,7 @@ public class Soldier : MonoBehaviour {
     /// </summary>
     public int myTeam;
     public Transform thirdPersonCamPos;
+    public Transform combatCameraPosition;
     public Movement soldierMovement;
     public ContactPoint hitPosition;
     public GameObject hitBone;
@@ -29,7 +30,7 @@ public class Soldier : MonoBehaviour {
     public int damageOverTime;
     
     [Header("Weapon properties")]
-    public List<GameObject> StarterWeaponPrefabs = new List<GameObject>();
+    public List<GameObject> starterWeaponPrefabs = new List<GameObject>();
     public List<GameObject> availableWeapons = new List<GameObject>();
     //[HideInInspector]
     public Weapon equippedWeapon;
@@ -89,16 +90,20 @@ public class Soldier : MonoBehaviour {
             anim.SetInteger("WeaponID",equippedWeapon.gunID);
             anim.SetBool("IsAiming", true);
             soldierMovement.canMove = false;
-            Camera.main.GetComponent<Camera>().fieldOfView = 40;
+            //Camera.main.GetComponent<Camera>().fieldOfView = 40;
             TeamManager.instance.combatTimer = true;
             TeamManager.instance.turnTime = TeamManager.instance.combatTurnTime;
+            if(anim.GetBool("BigGun") == true)
+            {
+                TeamManager.instance.ToCombatVieuw();
+            }
         }
         else
         {
             canShoot = false;
             anim.SetBool("IsAiming", false);
             soldierMovement.canMove = true;
-            Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
+            //Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
             TeamManager.instance.combatTimer = false;
             if(equippedWeapon.specialFunctionality == true)
             {   
@@ -140,7 +145,7 @@ public class Soldier : MonoBehaviour {
 
     public void InstantiateStarterWeapons()
     {
-        foreach (GameObject weapon in StarterWeaponPrefabs)
+        foreach (GameObject weapon in starterWeaponPrefabs)
         {
             GameObject thisWeapon = Instantiate(weapon, handBone.transform.position, handBone.transform.rotation);
             availableWeapons.Add(thisWeapon);

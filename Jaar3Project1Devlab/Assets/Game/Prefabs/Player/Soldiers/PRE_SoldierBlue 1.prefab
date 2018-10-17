@@ -427,6 +427,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1301921889852114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4531151011562418}
+  m_Layer: 10
+  m_Name: Third Person Cam Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1309116525675218
 GameObject:
   m_ObjectHideFlags: 1
@@ -546,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4704329406462702}
   m_Layer: 10
-  m_Name: Third Person Cam Position
+  m_Name: CombatCamPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,6 +1347,7 @@ Transform:
   - {fileID: 4181379325667602}
   - {fileID: 4556837282556992}
   - {fileID: 4293269017018766}
+  - {fileID: 4531151011562418}
   - {fileID: 4704329406462702}
   - {fileID: 224185079242914720}
   m_Father: {fileID: 0}
@@ -1486,6 +1502,19 @@ Transform:
   m_Father: {fileID: 4243190547083480}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4531151011562418
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301921889852114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1, y: 1.6, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4250502790315242}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4534788764493180
 Transform:
   m_ObjectHideFlags: 1
@@ -1594,12 +1623,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514284038146830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 1.6, z: -2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 1.65, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4250502790315242}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4712534067222124
 Transform:
@@ -2341,7 +2370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTeam: 0
-  thirdPersonCamPos: {fileID: 4704329406462702}
+  thirdPersonCamPos: {fileID: 4531151011562418}
+  combatCameraPosition: {fileID: 4704329406462702}
   soldierMovement: {fileID: 114925625895596982}
   hitBone: {fileID: 0}
   teamColor: {r: 0, g: 0.2529378, b: 1, a: 1}
@@ -2353,7 +2383,7 @@ MonoBehaviour:
   canShoot: 0
   damageTurns: 0
   damageOverTime: 0
-  StarterWeaponPrefabs: []
+  starterWeaponPrefabs: []
   availableWeapons: []
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0
@@ -3444,7 +3474,7 @@ RectTransform:
   m_Children:
   - {fileID: 224189591258418484}
   m_Father: {fileID: 4250502790315242}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

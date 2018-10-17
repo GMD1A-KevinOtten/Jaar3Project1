@@ -34,7 +34,7 @@ public class InstantiateSoldiers : MonoBehaviour {
 				{
 					if(weapon.GetComponent<Makarov>())
 					{
-						newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+						newSoldierInfo.starterWeaponPrefabs.Add(weapon);
 					}
 				}
 				switch (e)
@@ -45,7 +45,7 @@ public class InstantiateSoldiers : MonoBehaviour {
 						{
 							if(weapon.GetComponent<Sniper>())
 							{
-								newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+								newSoldierInfo.starterWeaponPrefabs.Add(weapon);
 							}
 						}
 						break;
@@ -54,7 +54,7 @@ public class InstantiateSoldiers : MonoBehaviour {
 						{
 							if(weapon.GetComponent<Blunderbus>())
 							{
-								newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+								newSoldierInfo.starterWeaponPrefabs.Add(weapon);
 							}
 						}
 						break;
@@ -63,7 +63,7 @@ public class InstantiateSoldiers : MonoBehaviour {
 						{
 							if(weapon.GetComponent<TommyGun>())
 							{
-								newSoldierInfo.StarterWeaponPrefabs.Add(weapon);
+								newSoldierInfo.starterWeaponPrefabs.Add(weapon);
 							}
 						}
 						break;

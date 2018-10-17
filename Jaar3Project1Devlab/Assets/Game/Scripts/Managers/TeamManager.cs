@@ -308,6 +308,14 @@ public class TeamManager : MonoBehaviour {
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
     }
 
+    public void ToCombatVieuw()
+    {
+        int soldierIndex = allTeams[teamIndex].soldierIndex;
+        Transform combatCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].combatCameraPosition;
+        mainCamera.transform.parent.SetParent(combatCamPos);
+        StartCoroutine(MoveCam(combatCamPos.position, combatCamPos.rotation, CameraMovement.CameraStates.CombatVieuw));
+    }
+
     /// <summary>
     /// Moves the main camera to the overloaded position. Set camState to the state the camera should be in when it arrives.
     /// </summary>

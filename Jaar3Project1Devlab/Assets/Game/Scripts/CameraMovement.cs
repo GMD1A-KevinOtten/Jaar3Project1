@@ -8,6 +8,7 @@ public class CameraMovement : MonoBehaviour {
     {
         ThirdPerson,
         Topview,
+        CombatVieuw,
         Idle,
     }
 
