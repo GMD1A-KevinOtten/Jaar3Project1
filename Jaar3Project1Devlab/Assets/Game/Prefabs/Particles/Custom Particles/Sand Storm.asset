@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6f80a8179a0f3d4f8733d0bfffd8b82, type: 3}
-  m_Name: Muzzle Flash
+  m_Name: Sand Storm
   m_EditorClassIdentifier: 
-  particleName: Muzzle Flash
-  particlePrefab: {fileID: 1297721474444324, guid: 9fc3c2e81032d1e45aac4bd5b8b825ab,
+  particleName: Sand Storm
+  particlePrefab: {fileID: 1905420551308064, guid: 45e259266c981cd42a0c38ad83836711,
     type: 2}
-  defaultScaling: {x: 0.1, y: 0.1, z: 0.2}
+  defaultScaling: {x: 1, y: 1, z: 1}
