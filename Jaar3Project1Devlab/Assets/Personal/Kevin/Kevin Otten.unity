@@ -824,7 +824,7 @@ Prefab:
     - target: {fileID: 224821218833827976, guid: b2c5d77ff85776a4c874b2531e0a321d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224821218833827976, guid: b2c5d77ff85776a4c874b2531e0a321d,
         type: 2}
@@ -1307,7 +1307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1665056843
 MonoBehaviour:
@@ -1321,9 +1321,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soldierPrefabs:
-  - {fileID: 1999435664256496, guid: b5180f6800870c74e9646f631ca8e63e, type: 2}
-  - {fileID: 1605919089852456, guid: 958bebe140124664185426251e0cdd27, type: 2}
-  - {fileID: 1740126109709558, guid: 63c3dc8a3808de54b9318ce237b05a1c, type: 2}
+  - {fileID: 1059108176483140, guid: 546393d48276af04881021a432afa4ef, type: 2}
+  - {fileID: 1277217436148326, guid: cbb1abbd0e723944e9752aba8752f8fe, type: 2}
+  - {fileID: 1844812236523366, guid: b687133355e405b47ab5ddc234d74793, type: 2}
   instantiationCords:
   - {fileID: 1387298628}
   - {fileID: 1013201864}
