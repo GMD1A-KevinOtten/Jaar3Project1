@@ -953,6 +953,7 @@ GameObject:
   - component: {fileID: 114674670113115938}
   - component: {fileID: 114894020367425944}
   - component: {fileID: 82976938792488152}
+  - component: {fileID: 114340804221084958}
   m_Layer: 10
   m_Name: PRE_SoldierRed 1
   m_TagString: Untagged
@@ -2421,6 +2422,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114340804221084958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1844812236523366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0499f5b0e6d48a440b0e3c724cb2daec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114386347314296520
 MonoBehaviour:
   m_ObjectHideFlags: 1
