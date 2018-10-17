@@ -2383,7 +2383,8 @@ MonoBehaviour:
   canShoot: 0
   damageTurns: 0
   damageOverTime: 0
-  starterWeaponPrefabs: []
+  starterWeaponPrefabs:
+  - {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
   availableWeapons: []
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0

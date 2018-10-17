@@ -97,7 +97,7 @@ public class TeamManager : MonoBehaviour {
                 }
             }
         }
-        if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson)
+        if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson || mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
         {
             if(Input.GetButtonDown("Enter"))
             {
