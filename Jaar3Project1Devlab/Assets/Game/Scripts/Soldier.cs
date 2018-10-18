@@ -17,7 +17,7 @@ public class Soldier : MonoBehaviour {
     public Color teamColor;
 
     [Header("Instantiation Properties")]
-    public Transform handBone;
+    public Transform weaponPos;
 
     [Header("Activity Proporties")]
     public string soldierName;
@@ -90,12 +90,17 @@ public class Soldier : MonoBehaviour {
             anim.SetInteger("WeaponID",equippedWeapon.gunID);
             anim.SetBool("IsAiming", true);
             soldierMovement.canMove = false;
-            //Camera.main.GetComponent<Camera>().fieldOfView = 40;
             TeamManager.instance.combatTimer = true;
             TeamManager.instance.turnTime = TeamManager.instance.combatTurnTime;
+            DisableMovementAnimation();
+            GetComponent<IKControl>().activateIK = true;
             if(anim.GetBool("BigGun") == true)
             {
                 TeamManager.instance.ToCombatVieuw();
+            }
+            else
+            {
+                Camera.main.GetComponent<Camera>().fieldOfView = 40;
             }
         }
         else
@@ -103,8 +108,9 @@ public class Soldier : MonoBehaviour {
             canShoot = false;
             anim.SetBool("IsAiming", false);
             soldierMovement.canMove = true;
-            //Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
+            Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
             TeamManager.instance.combatTimer = false;
+            GetComponent<IKControl>().activateIK = false;
             if(equippedWeapon.specialFunctionality == true)
             {   
                 equippedWeapon.SpecialFunctionalityToggle();
@@ -147,9 +153,9 @@ public class Soldier : MonoBehaviour {
     {
         foreach (GameObject weapon in starterWeaponPrefabs)
         {
-            GameObject thisWeapon = Instantiate(weapon, handBone.transform.position, handBone.transform.rotation);
+            GameObject thisWeapon = Instantiate(weapon, weaponPos.transform.position, weaponPos.transform.rotation);
             availableWeapons.Add(thisWeapon);
-            thisWeapon.transform.SetParent(handBone);
+            thisWeapon.transform.SetParent(weaponPos);
             thisWeapon.GetComponent<Rigidbody>().useGravity = false;
             thisWeapon.GetComponent<Weapon>().mySoldier = this;
             thisWeapon.SetActive(false);
@@ -168,9 +174,9 @@ public class Soldier : MonoBehaviour {
             availableWeapons[availableWeapons.Count - 1] = weapon;
         }
 
-        weapon.transform.SetParent(handBone);
+        weapon.transform.SetParent(weaponPos);
         weapon.transform.localPosition = Vector3.zero;
-        weapon.transform.rotation = handBone.rotation;
+        weapon.transform.rotation = weaponPos.rotation;
         weapon.GetComponent<Rigidbody>().useGravity = false;
         weapon.GetComponent<Weapon>().mySoldier = this;
         weapon.SetActive(false);

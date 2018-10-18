@@ -2444,11 +2444,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1277217436148326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0499f5b0e6d48a440b0e3c724cb2daec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateIK: 0
 --- !u!114 &114385884644185180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2557,7 +2558,7 @@ MonoBehaviour:
   soldierMovement: {fileID: 114402703479401874}
   hitBone: {fileID: 0}
   teamColor: {r: 0, g: 1, b: 0.12321901, a: 1}
-  handBone: {fileID: 4322663950384204}
+  weaponPos: {fileID: 4322663950384204}
   soldierName: Peter
   health: 100
   isDead: 0

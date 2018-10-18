@@ -30,18 +30,17 @@ public class CameraMovement : MonoBehaviour {
     }
 	void FixedUpdate () 
 	{
-        switch (cameraState)
+        if(cameraState == CameraStates.Topview)
         {
-            case CameraStates.Topview:
-                TopViewCamera();
-                break;
-            case CameraStates.ThirdPerson:
-                if (gunToRotate != transform.root.GetComponent<Soldier>().equippedWeapon)
-                {
-                    gunToRotate = transform.root.GetComponent<Soldier>().equippedWeapon;
-                }
-                SoldierCamera();
-                break;
+            TopViewCamera();
+        }
+        else if(cameraState == CameraStates.ThirdPerson || cameraState == CameraStates.CombatVieuw)
+        {
+            if (gunToRotate != transform.root.GetComponent<Soldier>().equippedWeapon)
+            {
+                gunToRotate = transform.root.GetComponent<Soldier>().equippedWeapon;
+            }
+            SoldierCamera();
         }
 	}
 
@@ -75,11 +74,14 @@ public class CameraMovement : MonoBehaviour {
         xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
         xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
         transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-        if(gunToRotate != null)
+        if(cameraState == CameraStates.CombatVieuw)
         {
-            if (!gunToRotate.isTank)
+            if(gunToRotate != null)
             {
-                gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                if (!gunToRotate.isTank)
+                {
+                    gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                }
             }
         }
     }

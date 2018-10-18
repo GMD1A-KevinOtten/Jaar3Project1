@@ -23,6 +23,8 @@ public class Weapon : MonoBehaviour {
     public Soldier mySoldier;
     public float recoil;
     public bool specialFunctionality;
+    public Transform iKPositionLeft;
+    public Transform iKPositionRight;
 
     public bool isTank;
     [Header("Gun Sound Effects")]

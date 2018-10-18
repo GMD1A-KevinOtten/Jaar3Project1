@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1519807869331386}
   m_IsPrefabAsset: 1
+--- !u!1 &1010504899182828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4000743408173468}
+  m_Layer: 11
+  m_Name: HandPosishLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1073505311683462
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,6 +36,21 @@ GameObject:
   - component: {fileID: 4907317438841720}
   m_Layer: 11
   m_Name: Barrel Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1115177694952474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4495625554652090}
+  m_Layer: 11
+  m_Name: HandPosishRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +109,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4000743408173468
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010504899182828}
+  m_LocalRotation: {x: 0.52753335, y: 0.33769652, z: 0.65550417, w: 0.42188147}
+  m_LocalPosition: {x: -0.095, y: -0.052, z: 0.211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4597827505003108}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0.13700001, y: 77.565, z: 114.579}
 --- !u!4 &4096446713450818
 Transform:
   m_ObjectHideFlags: 1
@@ -105,6 +148,19 @@ Transform:
   m_Father: {fileID: 4597827505003108}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4495625554652090
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115177694952474}
+  m_LocalRotation: {x: 0.5275347, y: 0.33770022, z: 0.6555, w: 0.42188317}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4597827505003108}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0.137, y: 77.565, z: 114.579}
 --- !u!4 &4597827505003108
 Transform:
   m_ObjectHideFlags: 1
@@ -113,12 +169,14 @@ Transform:
   m_GameObject: {fileID: 1519807869331386}
   m_LocalRotation: {x: 0.00000006657903, y: -0.000000044703484, z: 2.9763145e-15,
     w: 1}
-  m_LocalPosition: {x: 75.50051, y: 55.13, z: 15.359524}
+  m_LocalPosition: {x: -2.261514, y: 0.494, z: -5.2629337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4315112059071368}
   - {fileID: 4096446713450818}
   - {fileID: 4907317438841720}
+  - {fileID: 4000743408173468}
+  - {fileID: 4495625554652090}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -286,6 +344,8 @@ MonoBehaviour:
   mySoldier: {fileID: 0}
   recoil: 0
   specialFunctionality: 0
+  iKPositionLeft: {fileID: 4000743408173468}
+  iKPositionRight: {fileID: 4495625554652090}
   isTank: 0
   shotSound: {fileID: 11400000, guid: 068c09294a5958a408ee2e1705e5f69a, type: 2}
   reloadSounds:
