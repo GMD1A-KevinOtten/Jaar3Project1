@@ -1,0 +1,80 @@
+fileFormatVersion: 2
+guid: c1bbc8e2a7ee988408f64a2002e08b35
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: Ruin_Bricks/Ruin_Bricks
+    400000: Ruin_Bricks/Ruin_Bricks/Transform
+    2100000: mat.Ruin_Bricks
+    2300000: Ruin_Bricks/Ruin_Bricks/MeshRenderer
+    2800000: Ruin_Bricks_Base Color
+    2800002: Ruin_Bricks_Normal
+    2800004: Ruin_Bricks_Height
+    3300000: Ruin_Bricks/Ruin_Bricks/MeshFilter
+    11400000: sbsar
+    11400002: graph0
+    13500000: Ruin_Bricks/Ruin_Bricks/SphereCollider
+    100100000: Ruin_Bricks
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  mGraphInstanceData:
+  - graphLabel: Ruin_Bricks
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://Ruin_Bricks\" label=\"\" >\n  <presetinput
+      identifier=\"Tile_Y\" uid=\"2372556752\" type=\"4\" value=\"11\" />\n  <presetinput
+      identifier=\"Sand_BaseColor\" uid=\"2372543487\" type=\"3\" value=\"0.760784,0.584314,0.301961,1\"
+      />\n  <presetinput identifier=\"Sand_ShadeColor\" uid=\"2372543438\" type=\"3\"
+      value=\"0.439216,0.317647,0.176471,1\" />\n  <presetinput identifier=\"Roughness\"
+      uid=\"2372543444\" type=\"0\" value=\"1\" />\n  <presetinput identifier=\"Sand_PlacementRandom\"
+      uid=\"2372542209\" type=\"4\" value=\"3\" />\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: Base Color,Normal,Height
+    texturePackingList:
+    - outputName: Base Color
+      alphaSource: Base Color
+    - outputName: Normal
+      alphaSource: Normal
+    - outputName: Roughness
+      alphaSource: Roughness
+    - outputName: Height
+      alphaSource: Height
+    colorSpaceList:
+    - outputName: Base Color
+      bLinear: 0
+    - outputName: Normal
+      bLinear: 1
+    - outputName: Roughness
+      bLinear: 1
+    - outputName: Height
+      bLinear: 1
+    inputTextureMap: []
+    targetSettingList:
+    - label: Default
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 0
+      textureHeight: 0
+      textureFormat: 0
+      loadBehavior: 0
+    - label: Standalone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 0
+      textureHeight: 0
+      textureFormat: 0
+      loadBehavior: 0
+    - label: iPhone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 0
+      textureHeight: 0
+      textureFormat: 0
+      loadBehavior: 0
+    material: {fileID: 2100000, guid: c1bbc8e2a7ee988408f64a2002e08b35, type: 3}

@@ -14,4 +14,4 @@ MonoBehaviour:
   particleName: Sand Bullet Impact
   particlePrefab: {fileID: 1858974977110860, guid: fea68680b6689e6459d8f942518ab7dc,
     type: 2}
-  defaultScaling: {x: 1, y: 1, z: 1}
+  defaultScaling: {x: 0.25, y: 0.25, z: 0.25}
