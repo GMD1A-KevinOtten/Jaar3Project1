@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f80a8179a0f3d4f8733d0bfffd8b82, type: 3}
   m_Name: Blood Spray
   m_EditorClassIdentifier: 
-  particleName: Blood Spray
+  particleName: Person Bullet Impact
   particlePrefab: {fileID: 1099687200733330, guid: 8307c28880d6885439e4aec236588a38,
     type: 2}
   defaultScaling: {x: 1, y: 1, z: 1}

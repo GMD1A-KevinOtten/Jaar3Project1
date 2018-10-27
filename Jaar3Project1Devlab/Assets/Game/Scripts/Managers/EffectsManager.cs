@@ -128,6 +128,7 @@ public class EffectsManager : MonoBehaviour {
     {
         GameObject newObject = new GameObject();
         newObject.transform.position = transform.position;
+        newObject.name = "Audio Source";
         newObject.transform.SetParent(transform);
         AudioSource source = newObject.AddComponent<AudioSource>();
 
@@ -139,7 +140,7 @@ public class EffectsManager : MonoBehaviour {
     public void PlayParticle(CustomParticle customParticle, Vector3 playPosition, Vector3 lookDirection)
     {
         GameObject newObject = Instantiate(customParticle.particlePrefab, playPosition, Quaternion.LookRotation(lookDirection));
-        newObject.transform.localScale = customParticle.defaultScaling;
+        HierarchyHelp.ChangeScaleOfParentAndChildren(newObject.transform, customParticle.defaultScaling);
         ParticleSystem particle = newObject.GetComponent<ParticleSystem>();
         particle.Play();
     }

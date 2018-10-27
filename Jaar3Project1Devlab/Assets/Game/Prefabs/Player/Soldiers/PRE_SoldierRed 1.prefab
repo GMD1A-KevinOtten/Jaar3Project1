@@ -1216,7 +1216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844812236523366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.227143, y: 0, z: -18.588184}
+  m_LocalPosition: {x: 38.65387, y: 50.648586, z: 92.72806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4841935494981322}
@@ -2434,7 +2434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateIK: 0
-  rightHandObj: {fileID: 0}
 --- !u!114 &114386347314296520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2529,7 +2528,7 @@ MonoBehaviour:
   soldierMovement: {fileID: 114894020367425944}
   hitBone: {fileID: 0}
   teamColor: {r: 1, g: 0.025235835, b: 0, a: 1}
-  handBone: {fileID: 4819306501192698}
+  weaponPos: {fileID: 4819306501192698}
   soldierName: Peter
   health: 100
   isDead: 0

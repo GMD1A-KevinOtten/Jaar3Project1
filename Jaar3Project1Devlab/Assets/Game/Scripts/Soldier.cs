@@ -41,6 +41,7 @@ public class Soldier : MonoBehaviour {
 
     float baseFOV;
 
+
     void Start()
     {
         Movement = GetComponent<AudioSource>();

@@ -8,10 +8,10 @@ public class InstantiateSoldiers : MonoBehaviour {
 	public List<GameObject> instantiationCords = new List<GameObject>();
 	public List<GameObject> starterWeapons =  new List<GameObject>();
 
-	void Start () 
-	{
-		InstantiateSoldierPrefabs(TeamManager.instance.teamCount);
-	}
+    private void Awake()
+    {
+        InstantiateSoldierPrefabs(TeamManager.instance.teamCount);
+    }
 
 	public void InstantiateSoldierPrefabs(int amountOfTeams)
 	{
