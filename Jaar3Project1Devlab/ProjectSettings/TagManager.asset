@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Soldier
-  - Environment
+  - Sand
+  - Metal
+  - Person
+  - Wood
   layers:
   - Default
   - TransparentFX

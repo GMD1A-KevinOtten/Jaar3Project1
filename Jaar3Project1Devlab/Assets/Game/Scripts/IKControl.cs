@@ -38,16 +38,12 @@ public class IKControl : MonoBehaviour {
 				rightHandObj = null;
 			}
 		}
-		print("I");
 		if(animator)
 		{
-			print("Am");
 			if(activateIK)
 			{
-				print("Extremely");
 				if(leftHandObj != null) 
 				{
-					print("Gay");
                     animator.SetIKPositionWeight(AvatarIKGoal.LeftHand,1);
                     animator.SetIKRotationWeight(AvatarIKGoal.LeftHand,1);
                     animator.SetIKPosition(AvatarIKGoal.LeftHand,leftHandObj.position);

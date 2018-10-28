@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23552262263072252}
   m_Layer: 0
   m_Name: Sandbag (26)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 23485832777772072}
   m_Layer: 0
   m_Name: Sandbag (19)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 23865219827585990}
   m_Layer: 0
   m_Name: Sandbag (9)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 23204131900877828}
   m_Layer: 0
   m_Name: Sandbag (8)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 23458201218420850}
   m_Layer: 0
   m_Name: Sandbag (23)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 23710669230775926}
   m_Layer: 0
   m_Name: Sandbag (6)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 23487445988351668}
   m_Layer: 0
   m_Name: Sandbag (15)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 23453247101214058}
   m_Layer: 0
   m_Name: Sandbag (2)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 23151893084186378}
   m_Layer: 0
   m_Name: Sandbag (13)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 23217083793012590}
   m_Layer: 0
   m_Name: Sandbag (20)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 65715764692687110}
   m_Layer: 0
   m_Name: Sandbags
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 23531713605400322}
   m_Layer: 0
   m_Name: Sandbag (25)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 23888181940902582}
   m_Layer: 0
   m_Name: Sandbag (12)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 23612460882751866}
   m_Layer: 0
   m_Name: Sandbag (16)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 23898031865420938}
   m_Layer: 0
   m_Name: Sandbag (5)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 23267420105080718}
   m_Layer: 0
   m_Name: Sandbag (24)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 23283971691349396}
   m_Layer: 0
   m_Name: Sandbag (4)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 23701990770673700}
   m_Layer: 0
   m_Name: Sandbag (10)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 23244982872767462}
   m_Layer: 0
   m_Name: Sandbag (14)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 23580312826973558}
   m_Layer: 0
   m_Name: Sandbag (7)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 23509869300644934}
   m_Layer: 0
   m_Name: Sandbag (1)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 23864382326380042}
   m_Layer: 0
   m_Name: Sandbag (21)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 23161443558644736}
   m_Layer: 0
   m_Name: Sandbag (17)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 23752433354852058}
   m_Layer: 0
   m_Name: Sandbag (3)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 23590309258251118}
   m_Layer: 0
   m_Name: Sandbag (11)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -448,7 +448,24 @@ GameObject:
   - component: {fileID: 23884765299865690}
   m_Layer: 0
   m_Name: Sandbag (22)
-  m_TagString: Untagged
+  m_TagString: Sand
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!1 &1915714421379224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4835075065834748}
+  - component: {fileID: 33246207107559722}
+  - component: {fileID: 23003409639712602}
+  m_Layer: 0
+  m_Name: Sandbag (27)
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -465,7 +482,7 @@ GameObject:
   - component: {fileID: 23093048548852348}
   m_Layer: 0
   m_Name: Sandbag (18)
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -633,8 +650,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1237176885472364}
-  m_LocalRotation: {x: -0.018023763, y: 0.5353052, z: 0.015180504, w: 0.84433}
-  m_LocalPosition: {x: 29.635952, y: 8.078453, z: 25.041153}
+  m_LocalRotation: {x: 0.015356749, y: 0.8066803, z: 0.036889605, w: 0.5896358}
+  m_LocalPosition: {x: 25.787, y: 8.058, z: 0.971}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4437624492629470}
@@ -663,9 +680,10 @@ Transform:
   - {fileID: 4435759132617744}
   - {fileID: 4854992715294962}
   - {fileID: 4732447069951722}
+  - {fileID: 4835075065834748}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -2.3730001, y: 107.590004, z: 3.9180002}
 --- !u!4 &4450222321553050
 Transform:
   m_ObjectHideFlags: 1
@@ -764,7 +782,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1131814201112354}
   m_LocalRotation: {x: 0.06201375, y: 0.000000059604638, z: -0.0000000046566124, w: 0.9980753}
-  m_LocalPosition: {x: 0.17342612, y: 0.19586332, z: -0.51932186}
+  m_LocalPosition: {x: 0.173, y: 0.181, z: -0.665}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4442960223930800}
@@ -777,7 +795,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1091946509700896}
   m_LocalRotation: {x: -0.025475789, y: 0.0394526, z: 0.005946777, w: 0.9988789}
-  m_LocalPosition: {x: -0.206, y: 0.247, z: -0.632}
+  m_LocalPosition: {x: 0.173, y: -0.011, z: -0.557}
   m_LocalScale: {x: 1.0000008, y: 1, z: 1.0000007}
   m_Children: []
   m_Father: {fileID: 4442960223930800}
@@ -835,6 +853,19 @@ Transform:
   m_Father: {fileID: 4442960223930800}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 7.215, y: 0, z: 0}
+--- !u!4 &4835075065834748
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915714421379224}
+  m_LocalRotation: {x: -0.002028284, y: -0.00856286, z: 0.04168022, w: 0.9990923}
+  m_LocalPosition: {x: -0.165, y: 0.358, z: -0.788}
+  m_LocalScale: {x: 1.0000014, y: 1.0000002, z: 1.0000014}
+  m_Children: []
+  m_Father: {fileID: 4442960223930800}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: -0.19100001, y: -0.99000007, z: 4.7790003}
 --- !u!4 &4854992715294962
 Transform:
   m_ObjectHideFlags: 1
@@ -848,6 +879,41 @@ Transform:
   m_Father: {fileID: 4442960223930800}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 6.4890003, y: 24.243002, z: 2.914}
+--- !u!23 &23003409639712602
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915714421379224}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 0a6d3e533fd84044d9c97473e06c0119, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23093048548852348
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1813,6 +1879,13 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1161236965499436}
+  m_Mesh: {fileID: 4300000, guid: 8fd705e5a6c57d545a5d620ae3a06188, type: 3}
+--- !u!33 &33246207107559722
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915714421379224}
   m_Mesh: {fileID: 4300000, guid: 8fd705e5a6c57d545a5d620ae3a06188, type: 3}
 --- !u!33 &33248619650256832
 MeshFilter:

@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4606377570150474}
   - component: {fileID: 33018787906012132}
   - component: {fileID: 23073248687995232}
-  - component: {fileID: 65763234815464018}
+  - component: {fileID: 136051870915642852}
   m_Layer: 0
   m_Name: Streetlight
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895202975196552}
   m_LocalRotation: {x: 0.000000014010297, y: -0.7675102, z: -0.00000001677448, w: 0.6410368}
-  m_LocalPosition: {x: 60.367954, y: 7.5464516, z: 12.228153}
+  m_LocalPosition: {x: 43.52989, y: 7.5237885, z: 11.278656}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,8 +84,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895202975196552}
   m_Mesh: {fileID: 4300000, guid: 1ac5bb0b3f6b2c44c8331481fc03a833, type: 3}
---- !u!65 &65763234815464018
-BoxCollider:
+--- !u!136 &136051870915642852
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -93,6 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34340993, y: 6.8587084, z: 0.31465313}
-  m_Center: {x: 0.007335007, y: 3.4293542, z: -0.005829394}
+  m_Radius: 0.17295781
+  m_Height: 5.608271
+  m_Direction: 1
+  m_Center: {x: 0.008593366, y: 2.8041356, z: -0.0058375597}

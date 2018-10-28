@@ -6,6 +6,13 @@ public class EffectsManager : MonoBehaviour {
 
     public static EffectsManager instance;
 
+    [System.Serializable]
+    public struct BulletHoleColor
+    {
+        public string materialName;
+        public Color bulletholeColor;
+    }
+
     [Header("Audio")]
     public CustomAudioClip[] allAudioclips;
     public List<AudioSource> audioSources = new List<AudioSource>();
@@ -13,6 +20,12 @@ public class EffectsManager : MonoBehaviour {
 
     [Header("Particles")]
     public CustomParticle[] allParticles;
+
+    [Header("BulletHoles")]
+    public GameObject bulletHolePrefab;
+    public BulletHoleColor[] bulletHoleColors;
+    public List<Transform> activeBulletHoles = new List<Transform>();
+    public int maxActiveBulletholes;
 
 
     private void Awake()
@@ -135,6 +148,7 @@ public class EffectsManager : MonoBehaviour {
         return source;
     }
 
+
     //Particle Functions:
 
     public void PlayParticle(CustomParticle customParticle, Vector3 playPosition, Vector3 lookDirection)
@@ -156,5 +170,42 @@ public class EffectsManager : MonoBehaviour {
         }
 
         return null;
+    }
+
+    // BulletHole Functions
+
+    public Transform CreateBulletHole(Sprite[] possibleSprites, Vector3 spawnPostion, Quaternion spawnRotation, string materialName)
+    {
+        GameObject newObject = Instantiate(bulletHolePrefab, spawnPostion, spawnRotation);
+        newObject.name = "Bullethole " + (activeBulletHoles.Count - 1).ToString();
+        SpriteRenderer sr = newObject.GetComponent<SpriteRenderer>();
+        sr.sprite = possibleSprites[Random.Range(0, possibleSprites.Length)];
+        sr.color = FindBulletHoleColor(materialName).bulletholeColor;
+        UpdateBulletHoleList(newObject.transform);
+
+        return newObject.transform;
+    }
+
+    private void UpdateBulletHoleList(Transform bulletHole)
+    {
+        activeBulletHoles.Add(bulletHole);
+
+        if(activeBulletHoles.Count > maxActiveBulletholes)
+        {
+            Destroy(activeBulletHoles[0].gameObject);
+            activeBulletHoles.RemoveAt(0);
+        }
+    }
+    private BulletHoleColor FindBulletHoleColor(string colorName)
+    {
+        for (int i = 0; i < bulletHoleColors.Length; i++)
+        {
+            if (bulletHoleColors[i].materialName == colorName)
+            {
+                return bulletHoleColors[i];
+            }
+        }
+
+        return bulletHoleColors[0];
     }
 }

@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4129238926299854}
   - component: {fileID: 33207009754921564}
   - component: {fileID: 23347755956226224}
+  - component: {fileID: 65184284534731672}
   m_Layer: 0
   m_Name: SeaContainer
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,13 +35,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524785189826732}
-  m_LocalRotation: {x: 0.000000021855694, y: -0.0000001509958, z: 3.300118e-15, w: 1}
-  m_LocalPosition: {x: 45.82318, y: 50.630264, z: 75.07124}
+  m_LocalRotation: {x: 0.049960773, y: 0.0018684863, z: 0.037329257, w: 0.9980516}
+  m_LocalPosition: {x: 45.607952, y: 8.116451, z: -1.2018471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.715, y: 0.43, z: 4.3050003}
 --- !u!23 &23347755956226224
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524785189826732}
   m_Mesh: {fileID: 4300000, guid: d069ed429122b2a4d9e6a7ed0f90f939, type: 3}
+--- !u!65 &65184284534731672
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1524785189826732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.1360617, y: 2.4999998, z: 2.4360616}
+  m_Center: {x: 8.802914e-10, y: 1.2500037, z: 0}
