@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 30aab25de60f44f48824a6b2db49616f
+guid: 45bd6d517a4a0a748a85decb6b10055f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Stone Wall texture
+    2100000: stairs texture
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Stone Wall
+    4300000: Ruin Stairs
   externalObjects: {}
   materials:
     importMaterials: 1
