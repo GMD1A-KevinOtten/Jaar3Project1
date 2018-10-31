@@ -101,7 +101,7 @@ public class Weapon : MonoBehaviour {
             EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("Muzzle Flash"), barrelExit.position, barrelExit.forward);
             mySoldier.anim.SetTrigger("Shoot");
 
-            newGameObject = Instantiate(bulletPrefab, barrelExit.position, bulletPrefab.transform.rotation);
+            newGameObject = Instantiate(bulletPrefab, barrelExit.position, barrelExit.rotation);
             currentClip -= 1;
                     
             Rigidbody rb = newGameObject.GetComponent<Rigidbody>();
