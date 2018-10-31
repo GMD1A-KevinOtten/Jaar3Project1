@@ -26,6 +26,6 @@ public class Makarov : Weapon {
     
    public override void SpecialFunctionalityToggle()
    {
-        Reload(0);
+        Reload();
    }
 }

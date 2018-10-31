@@ -35,7 +35,7 @@ public class Blunderbus : Weapon
         }
         if(Input.GetButtonDown("R"))
         {
-            Reload(0);
+            Reload();
         }
     }
 

@@ -9,17 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1178976042518018}
+  m_RootGameObject: {fileID: 1849726472772772}
   m_IsPrefabAsset: 1
---- !u!1 &1178976042518018
+--- !u!1 &1849726472772772
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4597987291798182}
-  - component: {fileID: 114430516104375872}
+  - component: {fileID: 4618417500890366}
+  - component: {fileID: 114656530973448612}
+  - component: {fileID: 114999416730906410}
   m_Layer: 0
   m_Name: TeamManager
   m_TagString: Untagged
@@ -27,25 +28,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4597987291798182
+--- !u!4 &4618417500890366
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1178976042518018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.827785, y: 53.60757, z: 58.931313}
+  m_GameObject: {fileID: 1849726472772772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 46.82779, y: 53.607567, z: 58.931313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114430516104375872
+--- !u!114 &114656530973448612
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1178976042518018}
+  m_GameObject: {fileID: 1849726472772772}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dcb3eb006ecd9442b1692386b13e919, type: 3}
@@ -54,27 +55,13 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   cameraPositionSky: {fileID: 0}
   movementSpeed: 30
+  teamCount: 2
   teamIndex: 0
   lastTeamIndex: 0
-  allTeams:
-  - teamAlive: 1
-    soldierIndex: 0
-    allSoldiers:
-    - {fileID: 0}
-    thisTeamColor: {r: 1, g: 0, b: 0, a: 1}
-  - teamAlive: 1
-    soldierIndex: 0
-    allSoldiers:
-    - {fileID: 0}
-    thisTeamColor: {r: 0, g: 0.04726863, b: 1, a: 1}
-  - teamAlive: 1
-    soldierIndex: 0
-    allSoldiers:
-    - {fileID: 0}
-    thisTeamColor: {r: 0, g: 0.745283, b: 0.013882688, a: 1}
-  maxTurnTime: 30
+  allTeams: []
+  maxTurnTime: 40
   turnTime: 0
-  combatTurnTime: 0
+  combatTurnTime: 10
   combatTimer: 0
   timeText: {fileID: 0}
   turnTimerCircle: {fileID: 0}
@@ -83,3 +70,26 @@ MonoBehaviour:
   betweenTurnsText: {fileID: 0}
   textDisplayTime: 1.5
   activeSoldier: {fileID: 0}
+--- !u!114 &114999416730906410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849726472772772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41025061639eaa43b3dd702a56a58c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierPrefabs:
+  - {fileID: 1059108176483140, guid: 546393d48276af04881021a432afa4ef, type: 2}
+  - {fileID: 1844812236523366, guid: b687133355e405b47ab5ddc234d74793, type: 2}
+  - {fileID: 1277217436148326, guid: cbb1abbd0e723944e9752aba8752f8fe, type: 2}
+  instantiationCords:
+  - {fileID: 0}
+  - {fileID: 0}
+  starterWeapons:
+  - {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d, type: 2}
+  - {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
+  - {fileID: 1557032244782776, guid: 4c81a3405e86b4c40b3f2bca6966d790, type: 2}
+  - {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d, type: 2}

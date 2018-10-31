@@ -247,11 +247,6 @@ public class Soldier : MonoBehaviour {
         }
     }
 
-    public void ReloadSound(int soundIndex)
-    {
-        equippedWeapon.Reload(soundIndex);
-    }
-
     public void SetMoveAnimation(Vector3 currentSpeed)
     {
         if (currentSpeed != Vector3.zero)

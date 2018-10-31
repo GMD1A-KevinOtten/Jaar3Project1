@@ -27,7 +27,7 @@ public class Sniper : Weapon {
         }
         if(Input.GetButtonDown("R"))
         {
-            Reload(0);
+            Reload();
         }
     }
 

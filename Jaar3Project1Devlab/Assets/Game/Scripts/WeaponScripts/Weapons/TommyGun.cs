@@ -40,7 +40,7 @@ public class TommyGun : Weapon {
         }
         if(Input.GetButtonDown("R"))
         {
-            Reload(0);
+            Reload();
         }
     }
 

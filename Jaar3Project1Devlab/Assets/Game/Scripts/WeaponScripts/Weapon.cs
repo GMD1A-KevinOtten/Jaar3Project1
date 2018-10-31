@@ -77,7 +77,7 @@ public class Weapon : MonoBehaviour {
         }
         if(Input.GetButtonDown("R"))
         {
-            Reload(0);
+            Reload();
         }
     }
 
@@ -114,7 +114,7 @@ public class Weapon : MonoBehaviour {
         }
         else
         {
-            // play empty mag klick
+            EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Empty Clip"), transform.position);
         }
     }
 
@@ -145,18 +145,10 @@ public class Weapon : MonoBehaviour {
         }
     }
 
-    public virtual void Reload(int reloadSoundIndex)
+    public virtual void Reload()
     {
-        if (currentClip != clipMax)
-        {
-            EffectsManager.instance.PlayAudio2D(reloadSounds[reloadSoundIndex]);
-            FillClip();
-            StartCoroutine(AferReloadTeamSwitch());
-        }
-        else
-        {
-            EffectsManager.instance.PlayAudio2D(EffectsManager.instance.FindAudioClip("PlaceHolder"));
-        }
+        mySoldier.anim.SetTrigger("Reload");
+        FillClip();
     }
 
     private void OnEnable() 
