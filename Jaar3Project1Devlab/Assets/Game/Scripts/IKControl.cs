@@ -9,6 +9,7 @@ public class IKControl : MonoBehaviour {
 	public bool activateIK;
 	private Transform leftHandObj;
 	private Transform rightHandObj;
+	public Transform rightHand;
 
 	void Start() 
 	{
@@ -50,23 +51,20 @@ public class IKControl : MonoBehaviour {
                     animator.SetIKRotation(AvatarIKGoal.LeftHand,leftHandObj.rotation);
                 }       
 
-				// if(rightHandObj != null) 
-				// {
-				// 	print("Gay");
-                //     animator.SetIKPositionWeight(AvatarIKGoal.RightHand,1);
-                //     // animator.SetIKRotationWeight(AvatarIKGoal.RightHand,1);
-                //     animator.SetIKPosition(AvatarIKGoal.RightHand,rightHandObj.position);
-				// 	// Quaternion handRot = Quaternion.Euler(0,0,rightHandObj.rotation.z);
-                //     // animator.SetIKRotation(AvatarIKGoal.RightHand,handRot);
-                // }         
+				if(rightHandObj != null) 
+				{
+                    // animator.SetIKRotationWeight(AvatarIKGoal.RightHand,1);
+					// Quaternion handRot = Quaternion.Euler(rightHand.transform.rotation.x,rightHandObj.rotation.x,rightHand.transform.rotation.z);
+                    // animator.SetIKRotation(AvatarIKGoal.RightHand,handRot);
+                }         
 			}
 			else 
 			{          
                 animator.SetIKPositionWeight(AvatarIKGoal.LeftHand,0);
                 animator.SetIKRotationWeight(AvatarIKGoal.LeftHand,0); 
 
-				// animator.SetIKPositionWeight(AvatarIKGoal.RightHand,0);
-                // animator.SetIKRotationWeight(AvatarIKGoal.RightHand,0); 
+				animator.SetIKPositionWeight(AvatarIKGoal.RightHand,0);
+                animator.SetIKRotationWeight(AvatarIKGoal.RightHand,0); 
             }
 		}
 	}

@@ -46,6 +46,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1422686393896432
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4370782709522384}
+  m_Layer: 11
+  m_Name: LeftHandObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1464021999991230
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +78,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4370782709522384
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422686393896432}
+  m_LocalRotation: {x: 0.733679, y: 0.017165603, z: 0.6774944, w: 0.04921101}
+  m_LocalPosition: {x: -0.137, y: -0.003, z: 0.187}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4410899470909914}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 177.194, y: -85.569, z: -5.2769775}
 --- !u!4 &4377170926340212
 Transform:
   m_ObjectHideFlags: 1
@@ -87,6 +115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4377170926340212}
+  - {fileID: 4370782709522384}
   m_Father: {fileID: 4780520261483738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.998, y: 0, z: 0}
@@ -223,6 +252,8 @@ MonoBehaviour:
   mySoldier: {fileID: 0}
   recoil: 0
   specialFunctionality: 0
+  iKPositionLeft: {fileID: 4370782709522384}
+  iKPositionRight: {fileID: 0}
   isTank: 0
   shotSound: {fileID: 11400000, guid: a8f3e4845b50e1b41b26dad1a84fbfaa, type: 2}
   reloadSounds:
