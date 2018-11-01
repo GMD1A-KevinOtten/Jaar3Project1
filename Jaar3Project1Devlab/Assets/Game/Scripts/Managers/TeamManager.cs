@@ -65,10 +65,16 @@ public class TeamManager : MonoBehaviour {
         turnTimerCircle.fillAmount = 1;
         turnTimerCircle.color = circleStartColor;
 
+
         UIManager.instance.InstantiateStatusButtons(allTeams);
-        UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
-        UIManager.instance.ToggleWorldSpaceStatuses(true);
-        UIManager.instance.UpdateWorldSpaceStatuses(allTeams);
+
+        StartCoroutine(UIUpdateDelay());
+    }
+
+    private IEnumerator UIUpdateDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        ToTopView();
     }
 
     void Update()
@@ -303,13 +309,17 @@ public class TeamManager : MonoBehaviour {
         UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, false);
         UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
 
-        mainCamera.transform.parent.SetParent(null);
-        activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        if(activeSoldier.damageTurns != 0)
+        if (activeSoldier != null)
         {
-            activeSoldier.TakeDamageOverTime();
+            mainCamera.transform.parent.SetParent(null);
+            activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            if (activeSoldier.damageTurns != 0)
+            {
+                activeSoldier.TakeDamageOverTime();
+            }
+            activeSoldier = null;
         }
-        activeSoldier = null;
+
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
     }
 

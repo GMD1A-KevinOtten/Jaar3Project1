@@ -47,7 +47,9 @@ public class Soldier : MonoBehaviour {
         Movement = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         maxHealth = health;
+
         InstantiateStarterWeapons();
+
         baseFOV = Camera.main.GetComponent<Camera>().fieldOfView;
         soldierMovement = GetComponent<Movement>();
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
@@ -64,7 +66,6 @@ public class Soldier : MonoBehaviour {
                     myTeam = TeamManager.instance.allTeams.IndexOf(team);
                 }
             }
-            
         }
     }
 

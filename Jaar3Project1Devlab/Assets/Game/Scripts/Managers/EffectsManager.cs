@@ -169,6 +169,7 @@ public class EffectsManager : MonoBehaviour {
             }
         }
 
+        Debug.LogError("There is no particle with the name " + particleName);
         return null;
     }
 
