@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4965699410500354}
   - component: {fileID: 33951234685868958}
   - component: {fileID: 23387745538297330}
-  m_Layer: 0
+  - component: {fileID: 65691132678732750}
+  m_Layer: 12
   m_Name: Small Crate
   m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4965699410500354
 Transform:
@@ -34,13 +35,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564645536477778}
-  m_LocalRotation: {x: 0.030497346, y: -0.49094453, z: 0.0028740072, w: 0.8706522}
-  m_LocalPosition: {x: 12.380951, y: 7.7984505, z: 21.708153}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.2833615, y: -0.93566126, z: -0.19325736, w: -0.08304171}
+  m_LocalPosition: {x: 42.17, y: 7.437, z: 6.351}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000007}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 3.206, y: -58.876003, z: -1.4310001}
+  m_LocalEulerAnglesHint: {x: -24.124, y: -182.881, z: -33.082}
 --- !u!23 &23387745538297330
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564645536477778}
   m_Mesh: {fileID: 4300000, guid: c0ab09225fbe13a458aecdf2e5af16b8, type: 3}
+--- !u!65 &65691132678732750
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564645536477778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1, z: 1.0000002}
+  m_Center: {x: 0.000000044703484, y: 0.4999962, z: 0.0000057071447}
