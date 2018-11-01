@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosive : Weapon {
-
+    private bool exiting;
 
     public override void Start()
     {
@@ -24,6 +24,10 @@ public class Explosive : Weapon {
                 if (transform.root.GetComponent<Tank>().soldierInside && mySoldier.canShoot)
                 {
                     ShootBullet();
+                    if (!exiting)
+                    {
+                        StartCoroutine(ExitEnd());
+                    }
                 }
             }
         }
@@ -68,5 +72,17 @@ public class Explosive : Weapon {
         }
 
   
+    }
+
+    private IEnumerator ExitEnd()
+    {
+        exiting = true;
+        yield return new WaitForSeconds(2);
+        transform.root.GetComponent<Tank>().ExitTank();
+        TeamManager.instance.EndTheTurn();
+
+        exiting = false;
+
+
     }
 }

@@ -31,9 +31,13 @@ public class Tank : InteractableObject {
 	
 	// Update is called once per frame
 	void Update () {
-        Interact();
 
-        if(TeamManager.instance.turnTime <= .1F)
+        if(GetComponentInChildren<Weapon>().currentClip > 0)
+        {
+            Interact();
+        }
+
+        if (TeamManager.instance.turnTime <= .1F)
         {
             if (soldierInside)
             {

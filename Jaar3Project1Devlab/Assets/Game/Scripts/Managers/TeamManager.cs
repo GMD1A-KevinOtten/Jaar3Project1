@@ -101,16 +101,7 @@ public class TeamManager : MonoBehaviour {
         {
             if(Input.GetButtonDown("Enter"))
             {
-                if(combatTimer)
-                {
-                    activeSoldier.CombatToggle();
-                }
-                lastTeamIndex = teamIndex;
-                NextTeam();
-                if(endTurn != null)
-                {   
-                    endTurn();
-                }
+                EndTheTurn();
             }
             if(combatTimer)
             {
@@ -120,6 +111,20 @@ public class TeamManager : MonoBehaviour {
             {
                 TurnTimer();
             }
+        }
+    }
+
+    public void EndTheTurn()
+    {
+        if (combatTimer)
+        {
+            activeSoldier.CombatToggle();
+        }
+        lastTeamIndex = teamIndex;
+        NextTeam();
+        if (endTurn != null)
+        {
+            endTurn();
         }
     }
 

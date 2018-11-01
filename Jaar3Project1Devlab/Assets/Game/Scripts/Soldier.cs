@@ -97,7 +97,10 @@ public class Soldier : MonoBehaviour {
             GetComponent<IKControl>().activateIK = true;
             if(anim.GetBool("BigGun") == true)
             {
-                TeamManager.instance.ToCombatVieuw();
+                if (!equippedWeapon.isTank)
+                {
+                    TeamManager.instance.ToCombatVieuw();
+                }
             }
             else
             {
