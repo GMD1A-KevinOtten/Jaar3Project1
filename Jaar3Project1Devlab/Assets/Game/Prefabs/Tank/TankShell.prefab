@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54545498607784318}
   - component: {fileID: 114626059150697916}
   m_Layer: 0
-  m_Name: TankSphere
+  m_Name: TankShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,8 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b5c57504aa4094faec633d34ed3f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletHoleSprite: {fileID: 0}
-  bulletHolePrefab: {fileID: 0}
+  bulletHoleSprites: []
   defaultDamage: 0
   explosionRadius: 2
   minDist: 0.5
