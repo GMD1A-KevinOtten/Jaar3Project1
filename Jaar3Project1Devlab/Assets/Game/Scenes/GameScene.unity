@@ -3704,19 +3704,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4079097125806430, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1361727006341446, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20063344341477780, guid: 56463277c2c635a40abaac05601fc8e3,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56463277c2c635a40abaac05601fc8e3, type: 2}
   m_IsPrefabAsset: 0
@@ -4448,8 +4435,8 @@ Transform:
   - {fileID: 1576699700}
   - {fileID: 1671635620}
   - {fileID: 662109603}
-  - {fileID: 65037628}
   - {fileID: 1997323413}
+  - {fileID: 65037628}
   m_Father: {fileID: 5096163}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 173.44801, z: -2.776}
@@ -7020,25 +7007,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!1 &687376408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1718800118009700, guid: 56463277c2c635a40abaac05601fc8e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 302514258}
---- !u!64 &687376409
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 687376408}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 8344efd61b5ec0d42a51ec4b0cdc7d03, type: 3}
 --- !u!1 &701559851
 GameObject:
   m_ObjectHideFlags: 0
@@ -9315,23 +9283,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4133616743976996, guid: ab423434b8f16f44b85115f9762f4b0c,
     type: 2}
   m_PrefabInternal: {fileID: 994468421}
---- !u!1 &995396152 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1352089989310492, guid: 56463277c2c635a40abaac05601fc8e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 302514258}
---- !u!65 &995396153
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 995396152}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3572912, y: 0.32284117, z: 0.32284105}
-  m_Center: {x: -1.1786382, y: 0.0000011175872, z: -0.00000007162035}
 --- !u!1 &1022687757
 GameObject:
   m_ObjectHideFlags: 0
@@ -9527,23 +9478,6 @@ Transform:
   m_Father: {fileID: 5096163}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1036431422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1303483978126854, guid: 56463277c2c635a40abaac05601fc8e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 302514258}
---- !u!65 &1036431426
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1036431422}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4667279, y: 0.5212732, z: 1.0161804}
-  m_Center: {x: 0.000000014901161, y: -0.00000008940697, z: 0.0000076293945}
 --- !u!1 &1059208229
 GameObject:
   m_ObjectHideFlags: 0
@@ -11295,23 +11229,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1310911001}
   m_Mesh: {fileID: 4300000, guid: 8fd705e5a6c57d545a5d620ae3a06188, type: 3}
---- !u!1 &1317540502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1336756219659336, guid: 56463277c2c635a40abaac05601fc8e3,
-    type: 2}
-  m_PrefabInternal: {fileID: 302514258}
---- !u!65 &1317540506
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1317540502}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.183132, y: 0.94938326, z: 2.861071}
-  m_Center: {x: 0.00000011920935, y: 0.0059554577, z: 0.0000038146973}
 --- !u!1001 &1321995548
 Prefab:
   m_ObjectHideFlags: 0
@@ -14276,7 +14193,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

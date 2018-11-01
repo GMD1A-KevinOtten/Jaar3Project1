@@ -68,7 +68,7 @@ public class Tank : InteractableObject {
         if (!clamp)
         {
             turret.transform.Rotate(transform.up * h * barrelRotationSpeed * Time.deltaTime);
-            barrel.transform.Rotate(transform.up * v * barrelRotationSpeed * Time.deltaTime);
+            barrel.transform.Rotate(Vector3.forward * v * barrelRotationSpeed * Time.deltaTime);
         }
         else
         {
@@ -78,7 +78,7 @@ public class Tank : InteractableObject {
 
             yRotInput += Input.GetAxis("Mouse Y") * Time.deltaTime * barrelRotationSpeed;
             yRotInput = Mathf.Clamp(yRotInput, -clampY, clampY);
-            barrel.transform.localRotation = Quaternion.Euler(0, yRotInput, 0);
+            barrel.transform.localRotation = Quaternion.Euler(0, 0, -yRotInput);
 
         }
 

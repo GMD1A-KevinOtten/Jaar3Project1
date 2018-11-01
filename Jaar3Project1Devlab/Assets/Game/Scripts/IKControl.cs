@@ -21,23 +21,26 @@ public class IKControl : MonoBehaviour {
     {
 		if(GetComponent<Soldier>())
 		{
-			if(GetComponent<Soldier>().equippedWeapon.iKPositionLeft)
-			{
-				leftHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionLeft;
-			}
-			else
-			{
-				leftHandObj = null;
-			}
+            if (!(GetComponent<Soldier>().equippedWeapon.isTank)){
+                if (GetComponent<Soldier>().equippedWeapon.iKPositionLeft)
+                {
+                    leftHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionLeft;
+                }
+                else
+                {
+                    leftHandObj = null;
+                }
 
-			if(GetComponent<Soldier>().equippedWeapon.iKPositionRight)
-			{
-				rightHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionRight;
-			}
-			else
-			{
-				rightHandObj = null;
-			}
+                if (GetComponent<Soldier>().equippedWeapon.iKPositionRight)
+                {
+                    rightHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionRight;
+                }
+                else
+                {
+                    rightHandObj = null;
+                }
+            }
+			
 		}
 		if(animator)
 		{
