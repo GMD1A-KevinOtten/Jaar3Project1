@@ -22,7 +22,7 @@ public class Sniper : Weapon {
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
-                SpecialFunctionalityToggle();
+                //SpecialFunctionalityToggle();
             }
         }
         if(Input.GetButtonDown("R"))

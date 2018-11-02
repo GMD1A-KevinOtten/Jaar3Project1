@@ -84,13 +84,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334026029145846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.118, z: 0.2721}
+  m_LocalRotation: {x: 0.0000028554343, y: 0.000002111366, z: -0.0616205, w: 0.9980996}
+  m_LocalPosition: {x: 0, y: 0.118000135, z: 0.27210048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4901280348455266}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.376, y: 31.014002, z: 0}
 --- !u!4 &4901280348455266
 Transform:
   m_ObjectHideFlags: 1
@@ -277,6 +277,8 @@ MonoBehaviour:
   mySoldier: {fileID: 0}
   recoil: 0
   specialFunctionality: 0
+  iKPositionLeft: {fileID: 0}
+  iKPositionRight: {fileID: 0}
   isTank: 0
   shotSound: {fileID: 11400000, guid: 2a02cf84a728af04d9da5759fa31bc9d, type: 2}
   reloadSounds:

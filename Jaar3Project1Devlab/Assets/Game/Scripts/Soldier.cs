@@ -123,6 +123,11 @@ public class Soldier : MonoBehaviour {
         }
     }
 
+    public void SpecialFunctionalityAnimationToggel()
+    {
+        equippedWeapon.SpecialFunctionalityToggle();
+    }
+
     public void TakeDamageOverTime()
     {
         damageTurns -= 1;
