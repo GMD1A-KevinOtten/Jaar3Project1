@@ -5406,6 +5406,7 @@ MonoBehaviour:
   mainCamAnim: {fileID: 0}
   tankAnim: {fileID: 403073986}
   optionsCanvas: {fileID: 1786753517}
+  sandStormParticle: {fileID: 1328010532}
 --- !u!1 &583794811
 GameObject:
   m_ObjectHideFlags: 0
@@ -12129,6 +12130,11 @@ Transform:
   m_Father: {fileID: 1876511087}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1328010532 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198456500773418446, guid: 45e259266c981cd42a0c38ad83836711,
+    type: 2}
+  m_PrefabInternal: {fileID: 1767028379}
 --- !u!1 &1332734343
 GameObject:
   m_ObjectHideFlags: 0

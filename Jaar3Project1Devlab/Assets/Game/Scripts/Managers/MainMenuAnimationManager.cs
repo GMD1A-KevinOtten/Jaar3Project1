@@ -9,6 +9,8 @@ public class MainMenuAnimationManager : MonoBehaviour {
 
     public GameObject optionsCanvas;
     private bool quitting;
+
+    public ParticleSystem sandStormParticle;
     private void Awake()
     {
         mainCamAnim = Camera.main.GetComponent<Animator>();
@@ -16,6 +18,8 @@ public class MainMenuAnimationManager : MonoBehaviour {
         {
             Debug.LogError("Please assign tankAnim in the inspector");
         }
+
+        sandStormParticle.Pause(true);
     }
 
     public void OptionsToggle()
