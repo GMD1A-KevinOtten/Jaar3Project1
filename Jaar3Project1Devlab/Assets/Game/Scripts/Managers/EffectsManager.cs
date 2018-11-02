@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EffectsManager : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class EffectsManager : MonoBehaviour {
     }
 
     [Header("Audio")]
+    public AudioMixer audioMixer;
     public CustomAudioClip[] allAudioclips;
     public List<AudioSource> audioSources = new List<AudioSource>();
     public int defaultAudiosourcesAmount;
@@ -42,6 +44,7 @@ public class EffectsManager : MonoBehaviour {
 
         for (int i = 0; i < defaultAudiosourcesAmount; i++)
         {
+            print("1");
             AudioSource source = CreateAudioSource();
             audioSources.Add(source);
         }
@@ -144,6 +147,7 @@ public class EffectsManager : MonoBehaviour {
         newObject.name = "Audio Source";
         newObject.transform.SetParent(transform);
         AudioSource source = newObject.AddComponent<AudioSource>();
+        source.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Master")[0];
 
         return source;
     }
@@ -157,6 +161,7 @@ public class EffectsManager : MonoBehaviour {
         HierarchyHelp.ChangeScaleOfParentAndChildren(newObject.transform, customParticle.defaultScaling);
         ParticleSystem particle = newObject.GetComponent<ParticleSystem>();
         particle.Play();
+        StartCoroutine(DeleteFinishedParticle(particle));
     }
 
     public CustomParticle FindParticle(string particleName)
@@ -171,6 +176,12 @@ public class EffectsManager : MonoBehaviour {
 
         Debug.LogError("There is no particle with the name " + particleName);
         return null;
+    }
+
+    public IEnumerator DeleteFinishedParticle(ParticleSystem toDelete)
+    {
+        yield return new WaitForSeconds(toDelete.main.duration);
+        Destroy(toDelete.gameObject);
     }
 
     // BulletHole Functions
