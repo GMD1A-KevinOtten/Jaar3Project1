@@ -152,11 +152,13 @@ public class Soldier : MonoBehaviour {
         }
     }
 
-    public void EquipWeapon(int weaponIndex)
+    public void EquipWeapon()
     {
+        print("Wepaon switched");
+        canSwitch = true;
         availableWeapons[previouseWeaponIndex].SetActive(false);
-        equippedWeapon = availableWeapons[weaponIndex].GetComponent<Weapon>();
-        availableWeapons[weaponIndex].SetActive(true);
+        equippedWeapon = availableWeapons[currentWeaponIndex].GetComponent<Weapon>();
+        availableWeapons[currentWeaponIndex].SetActive(true);
     }
 
     public void InstantiateStarterWeapons()
@@ -170,7 +172,8 @@ public class Soldier : MonoBehaviour {
             thisWeapon.GetComponent<Weapon>().mySoldier = this;
             thisWeapon.SetActive(false);
         }
-        EquipWeapon(0);
+        currentWeaponIndex = 0;
+        EquipWeapon();
     }
 
     public void TakeWeapon(GameObject weapon)
@@ -250,9 +253,14 @@ public class Soldier : MonoBehaviour {
 
             if(previouseWeaponIndex != currentWeaponIndex)
             {
-                EquipWeapon(currentWeaponIndex);
+                print("Check");
+                anim.SetTrigger("Switch");
+                //EquipWeapon();
             }
-            canSwitch = true;
+            else
+            {
+                canSwitch = true;
+            }
         }
     }
 
