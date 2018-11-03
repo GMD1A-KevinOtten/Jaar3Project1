@@ -166,7 +166,7 @@ public class Weapon : MonoBehaviour {
         }
     }
 
-    private void FillClip()
+    public void FillClip()
     {
         currentClip = clipMax;
     }

@@ -6,6 +6,7 @@ public class BlowGun : Weapon {
 
     [Header("BlowGun Specific")]
     public Camera blowGunCam;
+    public Vector3 originalRot;
 
     public override void Inputs()
     {
