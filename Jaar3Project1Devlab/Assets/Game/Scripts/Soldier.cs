@@ -154,7 +154,7 @@ public class Soldier : MonoBehaviour {
 
     public void EquipWeapon()
     {
-        print("Wepaon switched");
+        //play SwitchSound
         canSwitch = true;
         availableWeapons[previouseWeaponIndex].SetActive(false);
         equippedWeapon = availableWeapons[currentWeaponIndex].GetComponent<Weapon>();
