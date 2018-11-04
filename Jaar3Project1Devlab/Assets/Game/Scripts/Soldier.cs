@@ -36,7 +36,7 @@ public class Soldier : MonoBehaviour {
     public Weapon equippedWeapon;
     public int currentWeaponIndex;
     private int previouseWeaponIndex;
-    private bool canSwitch = true;
+    public bool canSwitch = true;
     public Animator anim;
 
     float baseFOV;
@@ -89,7 +89,6 @@ public class Soldier : MonoBehaviour {
         if(canShoot == false)
         {
             canShoot = true;
-            anim.SetInteger("WeaponID",equippedWeapon.gunID);
             anim.SetBool("IsAiming", true);
             soldierMovement.canMove = false;
             TeamManager.instance.combatTimer = true;
@@ -143,6 +142,7 @@ public class Soldier : MonoBehaviour {
     {
         if(isDead == false)
         {
+            anim.SetTrigger("Hit");
             health -= toDamage;
 
             if (health <= 0)
@@ -159,6 +159,7 @@ public class Soldier : MonoBehaviour {
         availableWeapons[previouseWeaponIndex].SetActive(false);
         equippedWeapon = availableWeapons[currentWeaponIndex].GetComponent<Weapon>();
         availableWeapons[currentWeaponIndex].SetActive(true);
+        anim.SetInteger("WeaponID",equippedWeapon.gunID);
     }
 
     public void InstantiateStarterWeapons()

@@ -19,7 +19,7 @@ public class Sniper : Weapon {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true)
+            if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
             {
                 mySoldier.CombatToggle();
                 //SpecialFunctionalityToggle();
@@ -27,7 +27,10 @@ public class Sniper : Weapon {
         }
         if(Input.GetButtonDown("R"))
         {
-            Reload();
+            if(currentClip != clipMax)
+            {
+                Reload();
+            }
         }
     }
 

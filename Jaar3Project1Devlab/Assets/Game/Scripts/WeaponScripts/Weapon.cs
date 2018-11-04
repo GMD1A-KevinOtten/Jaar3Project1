@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour {
     public int clipMax;
 
     private RaycastHit hit;
-    private GameObject newGameObject;
+    public GameObject newGameObject;
 
 
     public virtual void Start() 
@@ -70,14 +70,17 @@ public class Weapon : MonoBehaviour {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true)
+            if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
             {
                 mySoldier.CombatToggle();
             }
         }
         if(Input.GetButtonDown("R"))
         {
-            Reload();
+            if(currentClip != clipMax)
+            {
+                Reload();
+            }
         }
     }
 
@@ -118,7 +121,7 @@ public class Weapon : MonoBehaviour {
         }
     }
 
-    private Vector2 CalculatedBulletSpread()
+    public Vector2 CalculatedBulletSpread()
     {
         float x = Random.Range(bulletSpread.x, -bulletSpread.x);
         float y = Random.Range(bulletSpread.y, -bulletSpread.y);
@@ -147,8 +150,10 @@ public class Weapon : MonoBehaviour {
 
     public virtual void Reload()
     {
+        mySoldier.canSwitch = false;
+        mySoldier.soldierMovement.canMove = false;
         mySoldier.anim.SetTrigger("Reload");
-        FillClip();
+        StartCoroutine(AferReloadTeamSwitch(5));
     }
 
     private void OnEnable() 
@@ -171,9 +176,12 @@ public class Weapon : MonoBehaviour {
         currentClip = clipMax;
     }
 
-    public IEnumerator AferReloadTeamSwitch()
+    public IEnumerator AferReloadTeamSwitch(float time)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(time);
+        FillClip();
+        mySoldier.canSwitch = true;
+        mySoldier.soldierMovement.canMove = true;
         TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
         TeamManager.instance.NextTeam();
     }

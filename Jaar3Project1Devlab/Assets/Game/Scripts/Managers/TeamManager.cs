@@ -105,7 +105,7 @@ public class TeamManager : MonoBehaviour {
         }
         if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson || mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
         {
-            if(Input.GetButtonDown("Enter"))
+            if(Input.GetButtonDown("Enter") && activeSoldier.canSwitch == true)
             {
                 EndTheTurn();
             }
