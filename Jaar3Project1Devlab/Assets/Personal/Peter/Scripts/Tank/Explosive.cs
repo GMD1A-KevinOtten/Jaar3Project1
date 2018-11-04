@@ -40,6 +40,7 @@ public class Explosive : Weapon {
                     if (mySoldier.canShoot)
                     {
                         ShootBullet();
+                        GrenadeLauncherAfterShot();
                     }
                 }
 
@@ -54,6 +55,27 @@ public class Explosive : Weapon {
             }
         }
     }
+
+    public void GrenadeLauncherAfterShot()
+    {
+        mySoldier.availableWeapons.Remove(this.gameObject);
+        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponentInParent<IKControl>().activateIK = false;        
+        gameObject.transform.SetParent(null);
+        mySoldier.canShoot = false;
+        mySoldier.currentWeaponIndex = 0;
+        mySoldier.EquipWeapon();
+        mySoldier.anim.SetBool("IsAiming",false);
+        Invoke("InvokeFunction" , 3);
+    }
+
+    public void InvokeFunction()
+    {
+        mySoldier.canShoot = true;
+        TeamManager.instance.EndTheTurn();
+    }
+
     public override void SpecialFunctionalityToggle()
     {
         base.SpecialFunctionalityToggle();
