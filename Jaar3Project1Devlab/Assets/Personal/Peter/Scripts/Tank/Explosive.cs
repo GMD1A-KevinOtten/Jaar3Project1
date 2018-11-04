@@ -63,6 +63,7 @@ public class Explosive : Weapon {
         GetComponent<Rigidbody>().useGravity = true;
         GetComponentInParent<IKControl>().activateIK = false;        
         gameObject.transform.SetParent(null);
+        GetComponent<Rigidbody>().AddForce(Vector3.back * 2);
         mySoldier.canShoot = false;
         mySoldier.currentWeaponIndex = 0;
         mySoldier.EquipWeapon();

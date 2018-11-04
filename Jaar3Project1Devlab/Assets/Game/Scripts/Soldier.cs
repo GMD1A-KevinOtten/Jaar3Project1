@@ -38,6 +38,7 @@ public class Soldier : MonoBehaviour {
     private int previouseWeaponIndex;
     public bool canSwitch = true;
     public Animator anim;
+    public GameObject leftHand;
 
     float baseFOV;
 
