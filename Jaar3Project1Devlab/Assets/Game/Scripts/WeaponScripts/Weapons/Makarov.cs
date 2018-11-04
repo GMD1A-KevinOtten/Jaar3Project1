@@ -16,10 +16,9 @@ public class Makarov : Weapon {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
+            if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
-                specialFunctionality = true;
             }
         }
     }
@@ -46,13 +45,19 @@ public class Makarov : Weapon {
         else
         {
             EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Empty Clip"), transform.position);
-            mySoldier.CombatToggle();
+            Reload();
         }
     }
 
-    
-   public override void SpecialFunctionalityToggle()
-   {
-        Reload();
-   }
+    public override void Reload()
+    {
+        mySoldier.canShoot = false;
+        FillClip();
+        mySoldier.anim.SetTrigger("Reload");
+    }
+
+    public override void SpecialFunctionalityToggle()
+    {
+        mySoldier.canShoot = true;
+    }
 }

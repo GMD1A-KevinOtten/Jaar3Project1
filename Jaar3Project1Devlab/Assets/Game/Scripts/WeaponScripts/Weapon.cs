@@ -150,6 +150,8 @@ public class Weapon : MonoBehaviour {
 
     public virtual void Reload()
     {
+        print("Reload");
+        FillClip();
         mySoldier.canSwitch = false;
         mySoldier.soldierMovement.canMove = false;
         mySoldier.anim.SetTrigger("Reload");
@@ -179,7 +181,6 @@ public class Weapon : MonoBehaviour {
     public IEnumerator AferReloadTeamSwitch(float time)
     {
         yield return new WaitForSeconds(time);
-        FillClip();
         mySoldier.canSwitch = true;
         mySoldier.soldierMovement.canMove = true;
         TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;

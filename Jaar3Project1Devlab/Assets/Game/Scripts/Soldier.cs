@@ -256,7 +256,6 @@ public class Soldier : MonoBehaviour {
             {
                 print("Check");
                 anim.SetTrigger("Switch");
-                //EquipWeapon();
             }
             else
             {
