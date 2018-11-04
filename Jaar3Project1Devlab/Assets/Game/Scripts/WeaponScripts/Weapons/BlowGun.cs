@@ -15,6 +15,7 @@ public class BlowGun : Weapon {
             if(mySoldier.canShoot == true)
             {
                 ShootBullet();
+                BlowGunAfterShot();
             }
         }
         if(Input.GetButtonDown("Fire2"))
@@ -25,6 +26,28 @@ public class BlowGun : Weapon {
                 SpecialFunctionalityToggle();
             }
         }
+    }
+
+    public void BlowGunAfterShot()
+    {
+        mySoldier.availableWeapons.Remove(this.gameObject);
+        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponentInParent<IKControl>().activateIK = false;        
+        gameObject.transform.SetParent(null);
+        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 2);
+        SpecialFunctionalityToggle();
+        mySoldier.canShoot = false;
+        mySoldier.currentWeaponIndex = 0;
+        mySoldier.EquipWeapon();
+        mySoldier.anim.SetBool("IsAiming",false);
+        Invoke("InvokeFunction" , 3);
+    }
+
+    public void InvokeFunction()
+    {
+        mySoldier.canShoot = true;
+        TeamManager.instance.EndTheTurn();
     }
 
 	public override void SpecialFunctionalityToggle()

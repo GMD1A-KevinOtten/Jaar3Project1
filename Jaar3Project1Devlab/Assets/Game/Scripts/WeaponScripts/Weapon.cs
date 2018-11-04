@@ -151,6 +151,7 @@ public class Weapon : MonoBehaviour {
     public virtual void Reload()
     {
         print("Reload");
+        mySoldier.DisableMovementAnimation();
         FillClip();
         mySoldier.canSwitch = false;
         mySoldier.soldierMovement.canMove = false;
