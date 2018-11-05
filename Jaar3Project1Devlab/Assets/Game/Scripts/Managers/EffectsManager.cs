@@ -110,6 +110,7 @@ public class EffectsManager : MonoBehaviour {
     {
         for (int i = 0; i < allAudioclips.Length; i++)
         {
+            print(clipName);
             if (allAudioclips[i].clipName == clipName)
             {
                 return allAudioclips[i];

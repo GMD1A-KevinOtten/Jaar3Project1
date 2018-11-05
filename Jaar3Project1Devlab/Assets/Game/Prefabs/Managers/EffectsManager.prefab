@@ -62,10 +62,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 173740dc2319492449433ae4e4d7fee7, type: 2}
   - {fileID: 11400000, guid: 2a02cf84a728af04d9da5759fa31bc9d, type: 2}
   - {fileID: 11400000, guid: 068c09294a5958a408ee2e1705e5f69a, type: 2}
-  - {fileID: 11400000, guid: e2eeb3e2ab1f21847894e2780837d17b, type: 2}
   - {fileID: 11400000, guid: d2f91026a9e4a1843947040f14af2b7a, type: 2}
   - {fileID: 11400000, guid: 66aed7bd681189a40ad39f6a16778991, type: 2}
   - {fileID: 11400000, guid: bb230b134ed744140ba57b816eb78629, type: 2}
+  - {fileID: 11400000, guid: 6f6be9da1e672814eaaf5ba97fd6a2f2, type: 2}
+  - {fileID: 11400000, guid: 998c68ad42f612b45bd367fe6f794e50, type: 2}
+  - {fileID: 11400000, guid: 18f8cfdd516c0be469f059c49b5129a1, type: 2}
+  - {fileID: 11400000, guid: 17e5998b525408349b04de3e48525ffd, type: 2}
+  - {fileID: 11400000, guid: 3a5b96dd6ab473c498bc678ce9552108, type: 2}
   audioSources: []
   defaultAudiosourcesAmount: 5
   allParticles:

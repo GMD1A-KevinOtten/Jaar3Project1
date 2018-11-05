@@ -40,6 +40,7 @@ public class Soldier : MonoBehaviour {
     public Animator anim;
     public GameObject leftHand;
 
+    private int lastWalkingsoundIndex;
     float baseFOV;
 
 
@@ -265,15 +266,20 @@ public class Soldier : MonoBehaviour {
         }
     }
 
+    public void PlayWalkingSound()
+    {
+        if (lastWalkingsoundIndex + 1 < 5)
+            lastWalkingsoundIndex += 1;
+        else
+            lastWalkingsoundIndex = 0;
+        
+        EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Running " + lastWalkingsoundIndex.ToString()), transform.position);
+    }
+
     public void SetMoveAnimation(Vector3 currentSpeed)
     {
         if (currentSpeed != Vector3.zero)
-        {
-            if(!Movement.isPlaying)
-            {
-                Movement.Play();
-            }
-           
+        {           
             anim.SetBool("IsMoving", true);
         }
         else
@@ -283,12 +289,7 @@ public class Soldier : MonoBehaviour {
     }
 
     public void DisableMovementAnimation()
-    {
-        if(Movement.isPlaying)
-        {
-            Movement.Stop();
-        }
-        
+    {       
         anim.SetBool("IsMoving", false);
     }
 }
