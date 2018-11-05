@@ -74,6 +74,7 @@ public class TeamManager : MonoBehaviour {
     private IEnumerator UIUpdateDelay()
     {
         yield return new WaitForSeconds(0.1f);
+        UIManager.instance.ToggleMouse();
         ToTopView();
     }
 
@@ -282,6 +283,7 @@ public class TeamManager : MonoBehaviour {
     /// </summary>
     public void ToSoldier()
     {
+        UIManager.instance.ToggleMouse();
         betweenTurnsText.text = "";
         textSet = false;
 
@@ -321,6 +323,8 @@ public class TeamManager : MonoBehaviour {
         }
 
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
+        UIManager.instance.ToggleMouse();
+
     }
 
     public void ToCombatVieuw()
