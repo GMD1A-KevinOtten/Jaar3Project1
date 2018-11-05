@@ -293,13 +293,21 @@ public class UIManager : MonoBehaviour {
     {
         if (open)
         {
-            GameManager.Instance.ToggleTimeScale();
+            Time.timeScale = 0;
             pausePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
-            GameManager.Instance.ToggleTimeScale();
+            Time.timeScale = 1;
             pausePanel.SetActive(false);
+            if(Camera.main.GetComponent<CameraMovement>().cameraState != CameraMovement.CameraStates.Topview)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+         
         }
        
     }
@@ -312,5 +320,19 @@ public class UIManager : MonoBehaviour {
 
 #endif
         Application.Quit();
+    }
+
+    public void ToggleMouse()
+    {
+        if(Cursor.lockState == CursorLockMode.None)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
