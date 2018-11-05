@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1499713425098558}
   m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.955, y: 0.075, z: -5.198}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4683480780798924}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 08d04c69227afda44b720d8e15a80a7c, type: 2}
+  profile: {fileID: 11400000, guid: d20d0882f72c05943b025257e24f7d48, type: 2}
 --- !u!114 &114408062750589610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -268,7 +268,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1757713778583122, guid: e5d499b896dada7458b3876c33d8ed34,
     type: 2}
   gunCrosshair: {fileID: 21300000, guid: 7e1abc2cce9cc2d4198d2f03538bee5b, type: 3}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 0165f38886c74c143ae2e72e3d1f4dec, type: 3}
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 15671
@@ -285,4 +285,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
   currentClip: 0
   clipMax: 10
+  newGameObject: {fileID: 0}
   cameraScope: {fileID: 20334753834180706}

@@ -185,7 +185,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1509282675003872, guid: ee85f82c79431fb4fadb1fa570d8baa5,
     type: 2}
   gunCrosshair: {fileID: 21300000, guid: 9489948384ab0284f882ddcb4b3502b8, type: 3}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 6028ebc101cf90a41badd2d4f40f3b03, type: 3}
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 7479
@@ -194,9 +194,12 @@ MonoBehaviour:
   mySoldier: {fileID: 0}
   recoil: 10
   specialFunctionality: 0
+  iKPositionLeft: {fileID: 0}
+  iKPositionRight: {fileID: 0}
   isTank: 0
   shotSound: {fileID: 11400000, guid: 173740dc2319492449433ae4e4d7fee7, type: 2}
   reloadSounds:
   - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
   currentClip: 0
   clipMax: 10
+  newGameObject: {fileID: 0}

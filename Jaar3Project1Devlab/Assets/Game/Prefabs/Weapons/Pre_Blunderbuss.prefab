@@ -243,7 +243,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1509282675003872, guid: ee85f82c79431fb4fadb1fa570d8baa5,
     type: 2}
   gunCrosshair: {fileID: 21300000, guid: 55977c004bf45d945be95548092bdf5d, type: 3}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 2dff680bb93e615489e48b2a005baf24, type: 3}
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 15671
@@ -260,3 +260,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
   currentClip: 0
   clipMax: 20
+  newGameObject: {fileID: 0}
