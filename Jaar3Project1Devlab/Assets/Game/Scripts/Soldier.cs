@@ -77,6 +77,7 @@ public class Soldier : MonoBehaviour {
         {
             if(equippedWeapon != null)
             {
+                if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
                 equippedWeapon.ShowCrosshair();
             }
             if(canShoot != true)
