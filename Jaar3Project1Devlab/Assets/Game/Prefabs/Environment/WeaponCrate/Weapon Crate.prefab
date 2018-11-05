@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1064850269432830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.494648, y: 50.48191, z: 78.089745}
+  m_LocalPosition: {x: 49.86, y: 50.54, z: 70.761}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4577846533597722}
@@ -476,7 +476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereRadius: 5
   weapons:
-  - {fileID: 0}
+  - {fileID: 1962290312298426, guid: 86e1fd903f6dc504f99f63f05c0252ed, type: 2}
+  - {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba, type: 2}
   usedThisTurn: 0
   maxCooldown: 5
   coolingDown: 0
