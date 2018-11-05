@@ -6,7 +6,6 @@ public class BlowGun : Weapon {
 
     [Header("BlowGun Specific")]
     public Camera blowGunCam;
-    public Vector3 originalRot;
 
     public override void Inputs()
     {
@@ -35,12 +34,17 @@ public class BlowGun : Weapon {
         GetComponent<Rigidbody>().useGravity = true;
         GetComponentInParent<IKControl>().activateIK = false;        
         gameObject.transform.SetParent(null);
-        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 2);
-        SpecialFunctionalityToggle();
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,2000));
         mySoldier.canShoot = false;
         mySoldier.currentWeaponIndex = 0;
         mySoldier.EquipWeapon();
         mySoldier.anim.SetBool("IsAiming",false);
+        Invoke("BlowGunAfterAfterShot" , 2);
+    }
+
+    public void BlowGunAfterAfterShot()
+    {
+        SpecialFunctionalityToggle();
         Invoke("InvokeFunction" , 3);
     }
 

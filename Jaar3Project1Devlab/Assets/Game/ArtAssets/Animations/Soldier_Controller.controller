@@ -3918,7 +3918,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ANI_Impact_SmallGun
-  m_Speed: 1
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101945764556438180}
@@ -3931,7 +3931,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: aae4bd8d78a2f654586cf4e1df35f442, type: 2}
+  m_Motion: {fileID: 7400000, guid: ecfa9bd607006f047adaec51ef33a0e2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -4039,7 +4039,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e41b44775c19e1c41b97e6f1c491ec9f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8ebad718673455e4e9558723d4ab3eb8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
