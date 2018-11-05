@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UIManager : MonoBehaviour {
 
     public static UIManager instance;
@@ -34,16 +34,39 @@ public class UIManager : MonoBehaviour {
     [HideInInspector]
     internal bool showCroshair = true;
 
+    [Header("EndGame Menu")]
+    public GameObject endGamePanel;
+    public TextMeshProUGUI winnerText;
+
+    public GameObject pausePanel;
+    private bool settingsOpen;
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this);
+        }
+
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!settingsOpen)
+            {
+                OpenSettings(true);
+                settingsOpen = true;
+            }
+            else if (settingsOpen)
+            {
+                OpenSettings(false);
+                settingsOpen = false;
+            }
         }
     }
 
@@ -250,5 +273,44 @@ public class UIManager : MonoBehaviour {
         {
             sniperScope.SetActive(true);
         }
+    }
+
+    //Menu
+    public void LoadScene(int sceneIndex)
+    {
+        GameManager.Instance.ChangeScene(sceneIndex);
+    }
+
+    public void GameOver(int victoriousTeam)
+    {
+        endGamePanel.SetActive(true);
+        winnerText.text = "Team " + victoriousTeam + " won!";
+        Time.timeScale = 0;
+
+    }
+
+    public void OpenSettings(bool open)
+    {
+        if (open)
+        {
+            GameManager.Instance.ToggleTimeScale();
+            pausePanel.SetActive(true);
+        }
+        else
+        {
+            GameManager.Instance.ToggleTimeScale();
+            pausePanel.SetActive(false);
+        }
+       
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+
+        UnityEditor.EditorApplication.isPlaying = false;
+
+#endif
+        Application.Quit();
     }
 }

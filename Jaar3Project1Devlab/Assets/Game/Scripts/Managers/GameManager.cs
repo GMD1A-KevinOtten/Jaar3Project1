@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	private AsyncOperation async;
 
 
-	void Start()
+	void Awake()
 	{
 		if (Instance == null)
 		{
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
 	}
 
 	private void Update() 
@@ -43,9 +43,12 @@ public class GameManager : MonoBehaviour {
 	
 	public void ChangeScene(int i)
 	{
-		async = SceneManager.LoadSceneAsync(i);	
-		async.allowSceneActivation = false;
-		StartCoroutine(LoadingScreen());
+        SceneManager.LoadScene(i);
+
+        //Doesn't work
+		//async = SceneManager.LoadSceneAsync(i);	
+		//async.allowSceneActivation = false;
+		//StartCoroutine(LoadingScreen());
 	}
 
 	public void ToggleTimeScale()
@@ -79,13 +82,15 @@ public class GameManager : MonoBehaviour {
 	{
 		if(victoriouseTeam > 0)
 		{
-			print(victoriouseTeam);
-			// UIManager gameover function met variable input voor welk team/player wint en UI element popup voor back to menu button, restart game button, quit game button
+            // UIManager gameover function met variable input voor welk team/player wint en UI element popup voor back to menu button, restart game button, quit game button
+            UIManager.instance.GameOver(victoriouseTeam);
 		}
 		else
 		{
-			// gelijk spel scherm
-		}
+            // gelijk spel scherm
+            UIManager.instance.GameOver(404);
+
+        }
 	}
 
 	public void QuitGame()

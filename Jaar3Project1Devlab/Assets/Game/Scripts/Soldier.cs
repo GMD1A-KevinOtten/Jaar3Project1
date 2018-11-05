@@ -209,7 +209,7 @@ public class Soldier : MonoBehaviour {
         }
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
         {
-            if(rid != transform.GetComponent<Rigidbody>())
+            if (rid != transform.GetComponent<Rigidbody>())
             {
                 rid.isKinematic = false;
             }
@@ -218,7 +218,7 @@ public class Soldier : MonoBehaviour {
         equippedWeapon.GetComponent<Rigidbody>().useGravity = true;
         equippedWeapon.transform.SetParent(null);
         gameObject.GetComponent<Animator>().enabled = false;
-        hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000,hitPosition.point,3);
+        hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000, hitPosition.point, 3);
     }
 
     public void CheckScroll()
