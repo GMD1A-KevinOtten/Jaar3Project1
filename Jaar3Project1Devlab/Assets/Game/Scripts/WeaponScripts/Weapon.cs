@@ -77,9 +77,12 @@ public class Weapon : MonoBehaviour {
         }
         if(Input.GetButtonDown("R"))
         {
-            if(currentClip != clipMax)
+            if(mySoldier.canShoot != true)
             {
-                Reload();
+                if(currentClip != clipMax)
+                {
+                    Reload();
+                }
             }
         }
     }

@@ -45,11 +45,14 @@ public class TommyGun : Weapon {
         }
         if(Input.GetButtonDown("R"))
         {
-            if(currentClip != clipMax)
+            if(mySoldier.canShoot != true)
             {
-                Reload();
-                magazine.transform.parent = null;
-                magazine.GetComponent<Rigidbody>().isKinematic = false;
+                if(currentClip != clipMax)
+                {
+                    Reload();
+                    magazine.transform.parent = null;
+                    magazine.GetComponent<Rigidbody>().isKinematic = false;
+                }
             }
         }
     }
