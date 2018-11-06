@@ -10,11 +10,14 @@ public class BlowGun : Weapon {
     public override void Update()
     {
         base.Update();
-        if(mySoldier.canShoot == false)
+        if(mySoldier != null)
         {
-            if(TeamManager.instance.combatTurnTime <= 0.1f)
+            if(mySoldier.canShoot == false)
             {
-                mySoldier.canShoot = true;
+                if(TeamManager.instance.combatTurnTime <= 0.1f)
+                {
+                    mySoldier.canShoot = true;
+                }
             }
         }
     }
