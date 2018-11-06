@@ -22,6 +22,7 @@ public class InstantiateSoldiers : MonoBehaviour {
 			{
 				GameObject newSoldier = Instantiate(soldierPrefabs[team], instantiationCords[team].transform.GetChild(e).transform.position, Quaternion.identity);
 				Soldier newSoldierInfo = newSoldier.GetComponent<Soldier>();
+                newSoldierInfo.soldierName = "Soldier " + e.ToString();
 				TeamManager.instance.allTeams[team].allSoldiers.Add(newSoldierInfo);
 
 				if(TeamManager.instance.allTeams[team].thisTeamColor != newSoldierInfo.teamColor)
