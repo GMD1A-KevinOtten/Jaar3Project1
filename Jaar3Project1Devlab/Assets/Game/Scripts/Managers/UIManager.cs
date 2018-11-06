@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour {
     [Header("Windows")]
     public RectTransform soldierStatusWindow;
     public RectTransform weaponIconWindow;
+    public UI_Message messageWindow;
 
     [Header("Prefabs")]
     public GameObject teamButtonPrefab;
@@ -50,7 +51,6 @@ public class UIManager : MonoBehaviour {
         {
             Destroy(this);
         }
-
     }
 
     public void Update()
@@ -261,6 +261,16 @@ public class UIManager : MonoBehaviour {
     public void HideCrosshair()
     {
         crosshairImage.enabled = false;
+    }
+
+    /// <summary>
+    /// Call this function to show a message on the UI. Useful for tips or quick tutorials.
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="duration"></param>
+    public void ShowMessageOnUI(string message, float duration)
+    {
+        messageWindow.ShowMessage(message, duration);
     }
 
     public void ToggleScope()

@@ -265,7 +265,7 @@ MonoBehaviour:
   gunID: 4
   weaponKind: 1
   barrelExit: {fileID: 4683480780798924}
-  bulletPrefab: {fileID: 1757713778583122, guid: e5d499b896dada7458b3876c33d8ed34,
+  bulletPrefab: {fileID: 1030998136242932, guid: c0e16892cb4bc844e8930b4e34781dd2,
     type: 2}
   gunCrosshair: {fileID: 21300000, guid: 7e1abc2cce9cc2d4198d2f03538bee5b, type: 3}
   weaponSprite: {fileID: 21300000, guid: 0165f38886c74c143ae2e72e3d1f4dec, type: 3}

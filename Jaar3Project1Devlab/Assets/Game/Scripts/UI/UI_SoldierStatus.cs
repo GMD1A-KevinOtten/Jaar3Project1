@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UI_SoldierStatus : MonoBehaviour {
 
     public Image soldierIcon;
-    public Slider healthBar;
+    public Image healthBar;
     public Image deathMarker;
     public Text currentClipSize;
     public Image weaponImage;
@@ -34,7 +34,8 @@ public class UI_SoldierStatus : MonoBehaviour {
         weaponImage.sprite = mySoldier.equippedWeapon.weaponSprite;
 
         float percent = (float)mySoldier.health / mySoldier.maxHealth;
-        healthBar.value = percent;
+        print(percent.ToString());
+        healthBar.fillAmount = percent;
     }
 
     public void ToggleMinimalism(bool toggle)

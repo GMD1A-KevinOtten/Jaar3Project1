@@ -66,6 +66,8 @@ public class TeamManager : MonoBehaviour {
 
 
         UIManager.instance.InstantiateStatusButtons(allTeams);
+        UIManager.instance.ShowMessageOnUI("Press TAB to hide the status panel", 5);
+        UIManager.instance.ShowMessageOnUI("Press Enter to start the battle!", 5);
 
         StartCoroutine(UIUpdateDelay());
     }
@@ -292,7 +294,7 @@ public class TeamManager : MonoBehaviour {
         mainCamera.transform.parent.SetParent(playerCamPos);
 
         UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, false);
-        UIManager.instance.ToggleWorldSpaceStatuses(false);
+       // UIManager.instance.ToggleWorldSpaceStatuses(false);
         UIManager.instance.InstantiateWeaponIcons(allTeams[teamIndex].allSoldiers[soldierIndex].availableWeapons);
         UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, true);
 
@@ -306,7 +308,7 @@ public class TeamManager : MonoBehaviour {
     {
         UIManager.instance.HideCrosshair();
         UIManager.instance.UpdateWorldSpaceStatuses(allTeams);
-        UIManager.instance.ToggleWorldSpaceStatuses(true);
+        //UIManager.instance.ToggleWorldSpaceStatuses(true);
         UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, false);
         UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
 
