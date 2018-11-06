@@ -13,6 +13,13 @@ public class Explosive : Weapon {
     public override void Update()
     {
         base.Update();
+        if(mySoldier.canShoot == false)
+        {
+            if(TeamManager.instance.combatTurnTime <= 0.1f)
+            {
+                mySoldier.canShoot = true;
+            }
+        }
     }
 
     public override void Inputs()
@@ -37,7 +44,7 @@ public class Explosive : Weapon {
             {
                 if (mySoldier != null)
                 {
-                    if (mySoldier.canShoot)
+                    if (mySoldier.canShoot && currentClip != 0)
                     {
                         ShootBullet();
                         GrenadeLauncherAfterShot();
@@ -78,6 +85,12 @@ public class Explosive : Weapon {
             mySoldier.canShoot = true;
             TeamManager.instance.EndTheTurn();
         }
+        Invoke("SelfDestruct", 3);
+    }
+
+    private void SelfDestruct()
+    {
+        Destroy(this.gameObject);
     }
 
     public override void SpecialFunctionalityToggle()

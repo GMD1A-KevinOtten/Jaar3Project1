@@ -7,6 +7,18 @@ public class BlowGun : Weapon {
     [Header("BlowGun Specific")]
     public Camera blowGunCam;
 
+    public override void Update()
+    {
+        base.Update();
+        if(mySoldier.canShoot == false)
+        {
+            if(TeamManager.instance.combatTurnTime <= 0.1f)
+            {
+                mySoldier.canShoot = true;
+            }
+        }
+    }
+
     public override void Inputs()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -55,6 +67,7 @@ public class BlowGun : Weapon {
             mySoldier.canShoot = true;
             TeamManager.instance.EndTheTurn();
         }
+        Invoke("SelfDestruct",3);
     }
 
 	public override void SpecialFunctionalityToggle()
@@ -76,5 +89,10 @@ public class BlowGun : Weapon {
             UIManager.instance.showCroshair = true;
         }
 
+    }
+
+    private void SelfDestruct()
+    {
+        Destroy(this.gameObject);
     }
 }
