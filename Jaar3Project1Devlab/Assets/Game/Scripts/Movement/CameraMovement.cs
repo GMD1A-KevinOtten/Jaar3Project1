@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour {
 
 	public float camMovSpeed;
 	public float camRotSpeed;
+    public bool cantMoveCamera;
 
     public CameraStates cameraState;
 	public float clampValue;
@@ -30,17 +31,20 @@ public class CameraMovement : MonoBehaviour {
     }
 	void FixedUpdate () 
 	{
-        if(cameraState == CameraStates.Topview)
+        if(!cantMoveCamera)
         {
-            TopViewCamera();
-        }
-        else if(cameraState == CameraStates.ThirdPerson || cameraState == CameraStates.CombatVieuw)
-        {
-            if (gunToRotate != transform.root.GetComponent<Soldier>().equippedWeapon)
+            if(cameraState == CameraStates.Topview)
             {
-                gunToRotate = transform.root.GetComponent<Soldier>().equippedWeapon;
+                TopViewCamera();
             }
-            SoldierCamera();
+            else if(cameraState == CameraStates.ThirdPerson || cameraState == CameraStates.CombatVieuw)
+            {
+                if (gunToRotate != transform.root.GetComponent<Soldier>().equippedWeapon)
+                {
+                    gunToRotate = transform.root.GetComponent<Soldier>().equippedWeapon;
+                }
+                SoldierCamera();
+            }
         }
 	}
 

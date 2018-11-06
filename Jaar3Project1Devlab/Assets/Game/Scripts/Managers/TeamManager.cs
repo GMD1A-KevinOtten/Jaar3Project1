@@ -157,19 +157,27 @@ public class TeamManager : MonoBehaviour {
         }
         if(teamsAlive < 2)
         {
-            EndTheTurn();
-            if(teamsAlive == 0)
-            {
-                gameOver = true;
-                GameManager.Instance.GameOverEvent(0);
-            }
-            else if(teamsAlive == 1)
-            {
-                gameOver = true;
-                GameManager.Instance.GameOverEvent(livingTeam.allSoldiers[0].myTeam += 1);
-            }
+           StartCoroutine(GameOverWait(teamsAlive, livingTeam));
         }
     }
+
+    public IEnumerator GameOverWait(int teamsAlive ,Team livingTeam)
+	{
+		yield return new WaitForSeconds(3);
+        EndTheTurn();
+        if(teamsAlive == 0)
+        {
+            gameOver = true;
+            mainCamera.cantMoveCamera = true;
+            GameManager.Instance.GameOverEvent(0);
+        }
+        else if(teamsAlive == 1)
+        {
+            gameOver = true;
+            mainCamera.cantMoveCamera = true;
+            GameManager.Instance.GameOverEvent(livingTeam.allSoldiers[0].myTeam += 1);
+        }
+	}
 
     IEnumerator SetBetweenTurnsText()
     {

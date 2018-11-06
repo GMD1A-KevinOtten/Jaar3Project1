@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour {
 		{
             // gelijk spel scherm
             UIManager.instance.GameOver(404);
-
         }
 	}
 
