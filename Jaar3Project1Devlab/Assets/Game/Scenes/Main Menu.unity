@@ -2700,7 +2700,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 287042964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.1798285, y: 0.1798285, z: 0.1798285}
   m_Children:
   - {fileID: 2022562052}
@@ -2711,7 +2711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.7, y: 13.904}
+  m_AnchoredPosition: {x: 4.6999993, y: 13.904}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &287042966
@@ -3788,7 +3788,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 369085651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 39978133}
@@ -3797,7 +3797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.77, y: -9.664001}
+  m_AnchoredPosition: {x: -12.6, y: -9.664001}
   m_SizeDelta: {x: 10.361, y: 2.088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &369085653
@@ -4104,7 +4104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2746894, y: 0.4346485}
   m_AnchorMax: {x: 0.6178754, y: 0.4615763}
-  m_AnchoredPosition: {x: -0.33369446, y: -0.21848631}
+  m_AnchoredPosition: {x: -2.1, y: -0.21848631}
   m_SizeDelta: {x: 1.5812199, y: 2.594622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &375799662
@@ -5048,7 +5048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.68, y: -9.664}
+  m_AnchoredPosition: {x: 2.9, y: -9.664}
   m_SizeDelta: {x: 10.361, y: 2.088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516242126
@@ -8119,7 +8119,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778813789}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.17983, y: 0.17983, z: 0.17983}
   m_Children:
   - {fileID: 1940325321}
@@ -8130,7 +8130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.700005, y: 6.4}
+  m_AnchoredPosition: {x: -27.4, y: 13.8}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778813791
@@ -8755,7 +8755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.897, y: 13.8}
+  m_AnchoredPosition: {x: -15.3, y: 4.1}
   m_SizeDelta: {x: 20.495, y: 4.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &889615863
@@ -13266,15 +13266,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4606377570150474, guid: 312abece6c8e1c045ad3abb8c5483931, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 43.907948
+      value: 51.97
       objectReference: {fileID: 0}
     - target: {fileID: 4606377570150474, guid: 312abece6c8e1c045ad3abb8c5483931, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.64
+      value: 5.42
       objectReference: {fileID: 0}
     - target: {fileID: 4606377570150474, guid: 312abece6c8e1c045ad3abb8c5483931, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 17.468155
+      value: 20.81
       objectReference: {fileID: 0}
     - target: {fileID: 4606377570150474, guid: 312abece6c8e1c045ad3abb8c5483931, type: 2}
       propertyPath: m_LocalRotation.x
@@ -15663,7 +15663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 120.00001, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 75.05, y: 67.3}
+  m_AnchoredPosition: {x: 75.05, y: 69.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1787726776
