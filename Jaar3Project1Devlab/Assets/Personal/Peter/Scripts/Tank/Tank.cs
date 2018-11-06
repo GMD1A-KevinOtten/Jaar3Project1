@@ -17,6 +17,7 @@ public class Tank : InteractableObject {
     public bool soldierInside;
 
     private Weapon previousWeapon;
+    public Camera thirdPersonCamera;
 
     [Header("Clamp properties")]
     public bool clamp;
@@ -59,6 +60,13 @@ public class Tank : InteractableObject {
         if (soldierInside)
         {
             Movement();
+            if (Input.GetMouseButtonDown(1) && !currentSoldier.canShoot)
+            {
+                currentSoldier.CombatToggle();
+                thirdPersonCamera.depth = -1;
+                Camera.main.depth = 1;
+                GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
+            }
         }
     }
 
@@ -108,8 +116,9 @@ public class Tank : InteractableObject {
                 currentSoldier.equippedWeapon = GetComponentInChildren<Weapon>();
                 GetComponentInChildren<Weapon>().mySoldier = currentSoldier;
 
-                currentSoldier.CombatToggle();
-                GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
+                thirdPersonCamera.depth = 1;
+                Camera.main.depth = -1;
+               
             }
         }
         else if (soldierInside)
@@ -134,7 +143,8 @@ public class Tank : InteractableObject {
         GetComponentInChildren<Weapon>().mySoldier = null;
 
         GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
-
+        thirdPersonCamera.depth = -1;
+        Camera.main.depth = 1;
         soldierInside = false;
     }
 

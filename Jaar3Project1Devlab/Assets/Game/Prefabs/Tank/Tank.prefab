@@ -135,6 +135,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1916474475380242
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4139002836149398}
+  - component: {fileID: 20818814566601820}
+  - component: {fileID: 81324241233710184}
+  m_Layer: 0
+  m_Name: ThirdPersonTankCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1940446227440116
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940446227440116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.11, z: 0}
+  m_LocalPosition: {x: 0, y: -20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4134995311251464}
@@ -184,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718800118009700}
   m_LocalRotation: {x: 0.000000021670765, y: -0.1298123, z: -0.0000000028371416, w: 0.9915386}
-  m_LocalPosition: {x: 59.68, y: 50.38, z: 62.18}
+  m_LocalPosition: {x: 11.908716, y: 54.798183, z: 77.7962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4295252135097234}
@@ -192,6 +209,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -14.918001, z: 0}
+--- !u!4 &4139002836149398
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1916474475380242}
+  m_LocalRotation: {x: 0.09229582, y: -0.7010564, z: 0.092295706, w: 0.70105845}
+  m_LocalPosition: {x: 4.5265994, y: 2.7414718, z: 0.009128047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4295252135097234}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 15.000001, y: -90.00001, z: 0}
 --- !u!4 &4278595382575302
 Transform:
   m_ObjectHideFlags: 1
@@ -219,6 +249,7 @@ Transform:
   m_Children:
   - {fileID: 4037018061844368}
   - {fileID: 4867001438664800}
+  - {fileID: 4139002836149398}
   m_Father: {fileID: 4134995311251464}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -268,6 +299,46 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1361727006341446}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!20 &20818814566601820
+Camera:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1916474475380242}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -562,6 +633,13 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.183132, y: 0.94938326, z: 2.861071}
   m_Center: {x: 0.00000011920935, y: 0.0059554577, z: 0.0000038146973}
+--- !u!81 &81324241233710184
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1916474475380242}
+  m_Enabled: 1
 --- !u!81 &81452881561947020
 AudioListener:
   m_ObjectHideFlags: 1
@@ -603,6 +681,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
   currentClip: 1
   clipMax: 1
+  newGameObject: {fileID: 0}
 --- !u!114 &114256846289136242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,6 +713,7 @@ MonoBehaviour:
   barrelRotationSpeed: 25
   screenBoundary: 2
   soldierInside: 0
+  thirdPersonCamera: {fileID: 20818814566601820}
   clamp: 1
   clampX: 45
   clampY: 15
