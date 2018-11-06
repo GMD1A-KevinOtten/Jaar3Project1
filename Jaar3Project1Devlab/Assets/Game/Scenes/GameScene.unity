@@ -7258,6 +7258,24 @@ Prefab:
       propertyPath: instantiationCords.Array.data[1]
       value: 
       objectReference: {fileID: 1923095382}
+    - target: {fileID: 114999416730906410, guid: 34f9e07e0ae15674eb730654d4da3a69,
+        type: 2}
+      propertyPath: soldierPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1852125219093936, guid: b0869c3aff007a24f9a13314f7daeb47,
+        type: 2}
+    - target: {fileID: 114999416730906410, guid: 34f9e07e0ae15674eb730654d4da3a69,
+        type: 2}
+      propertyPath: soldierPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1256991378289666, guid: b68d703296be3ea44836cfa033c9b8fa,
+        type: 2}
+    - target: {fileID: 114999416730906410, guid: 34f9e07e0ae15674eb730654d4da3a69,
+        type: 2}
+      propertyPath: soldierPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1240581273647682, guid: 3d48e1051cb08244e85cbb936757ef49,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f9e07e0ae15674eb730654d4da3a69, type: 2}
   m_IsPrefabAsset: 0
