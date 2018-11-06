@@ -75,7 +75,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4938600349355742}
   - component: {fileID: 20063344341477780}
-  - component: {fileID: 81452881561947020}
   - component: {fileID: 114256846289136242}
   m_Layer: 0
   m_Name: Barrel Cam
@@ -144,7 +143,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4139002836149398}
   - component: {fileID: 20818814566601820}
-  - component: {fileID: 81324241233710184}
   m_Layer: 0
   m_Name: ThirdPersonTankCamera
   m_TagString: Untagged
@@ -200,15 +198,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718800118009700}
-  m_LocalRotation: {x: 0.000000021670765, y: -0.1298123, z: -0.0000000028371416, w: 0.9915386}
-  m_LocalPosition: {x: 11.908716, y: 54.798183, z: 77.7962}
+  m_LocalRotation: {x: 0.000000018424455, y: 0.5379062, z: 0.00000001175631, w: 0.8430047}
+  m_LocalPosition: {x: 14.82, y: 0.24, z: -23.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4295252135097234}
   - {fileID: 4079097125806430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -14.918001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 65.082, z: 0}
 --- !u!4 &4139002836149398
 Transform:
   m_ObjectHideFlags: 1
@@ -633,20 +631,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.183132, y: 0.94938326, z: 2.861071}
   m_Center: {x: 0.00000011920935, y: 0.0059554577, z: 0.0000038146973}
---- !u!81 &81324241233710184
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1916474475380242}
-  m_Enabled: 1
---- !u!81 &81452881561947020
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1361727006341446}
-  m_Enabled: 1
 --- !u!114 &114235357024311260
 MonoBehaviour:
   m_ObjectHideFlags: 1

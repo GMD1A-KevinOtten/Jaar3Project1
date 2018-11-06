@@ -1659,7 +1659,7 @@ Prefab:
     - target: {fileID: 224872312183790808, guid: b2c5d77ff85776a4c874b2531e0a321d,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -12.356201
+      value: -12.685303
       objectReference: {fileID: 0}
     - target: {fileID: 114720601068721072, guid: b2c5d77ff85776a4c874b2531e0a321d,
         type: 2}
@@ -2071,6 +2071,7 @@ MonoBehaviour:
   weaponIcons: []
   soldierStatusWindow: {fileID: 1447061553}
   weaponIconWindow: {fileID: 731816211}
+  messageWindow: {fileID: 0}
   teamButtonPrefab: {fileID: 1178378281687822, guid: 5347b596da0c0c94dab73cb9b3446d06,
     type: 2}
   soldierButtonPrefab: {fileID: 1230346003387460, guid: 5ace0f73da5b3df4f83f77debac592e6,
@@ -2120,7 +2121,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 068c09294a5958a408ee2e1705e5f69a, type: 2}
   - {fileID: 11400000, guid: 3cc34ef6d64cb9644a944a4e8c3f48b2, type: 2}
   - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
-  - {fileID: 11400000, guid: e2eeb3e2ab1f21847894e2780837d17b, type: 2}
+  - {fileID: 0}
   audioSources: []
   defaultAudiosourcesAmount: 0
   allParticles:

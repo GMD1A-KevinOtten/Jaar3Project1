@@ -44,7 +44,7 @@ public class Sniper : Weapon {
 
     public override void SpecialFunctionalityToggle()
     {
-        print("Toggled");
+        print("Toggled snip");
         base.SpecialFunctionalityToggle();
         UIManager.instance.ToggleScope();
         if(cameraScope.GetComponent<Camera>().depth < Camera.main.depth)
