@@ -24,7 +24,6 @@ public class Sniper : Weapon {
                 if(currentClip != 0)
                 {
                     mySoldier.CombatToggle();
-                    //SpecialFunctionalityToggle();
                 }
             }
         }
@@ -44,22 +43,22 @@ public class Sniper : Weapon {
 
     public override void SpecialFunctionalityToggle()
     {
-        print("Toggled snip");
-        base.SpecialFunctionalityToggle();
-        UIManager.instance.ToggleScope();
-        if(cameraScope.GetComponent<Camera>().depth < Camera.main.depth)
+        if(mySoldier.isActive)
         {
-            cameraScope.GetComponent<Camera>().depth = 1;
-            UIManager.instance.showCroshair = false;
-            UIManager.instance.HideCrosshair();
+            base.SpecialFunctionalityToggle();
+            UIManager.instance.ToggleScope();
+            if(cameraScope.GetComponent<Camera>().depth < Camera.main.depth)
+            {
+                cameraScope.GetComponent<Camera>().depth = 1;
+                UIManager.instance.showCroshair = false;
+                UIManager.instance.HideCrosshair();
+            }
+            else
+            {
+                cameraScope.GetComponent<Camera>().depth = -1;
+                UIManager.instance.showCroshair = true;
+            }
+            //Play sound
         }
-        else
-        {
-            cameraScope.GetComponent<Camera>().depth = -1;
-            UIManager.instance.showCroshair = true;
-        }
-        
-        //Scope UI element
-        //Play sound
     }
 }

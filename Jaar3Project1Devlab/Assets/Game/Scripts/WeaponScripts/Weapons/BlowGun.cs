@@ -75,23 +75,25 @@ public class BlowGun : Weapon {
 
 	public override void SpecialFunctionalityToggle()
     {
-        base.SpecialFunctionalityToggle();
-        if(blowGunCam.GetComponent<Camera>().depth < Camera.main.depth)
+        if(mySoldier.isActive)
         {
-            //crosshair & camera
-            blowGunCam.GetComponent<Camera>().depth = 1;
-            UIManager.instance.showCroshair = false;
-            UIManager.instance.HideCrosshair();
+            base.SpecialFunctionalityToggle();
+            if(blowGunCam.GetComponent<Camera>().depth < Camera.main.depth)
+            {
+                //crosshair & camera
+                blowGunCam.GetComponent<Camera>().depth = 1;
+                UIManager.instance.showCroshair = false;
+                UIManager.instance.HideCrosshair();
 
-            //camera effects
+                //camera effects
 
+            }
+            else
+            {
+                blowGunCam.GetComponent<Camera>().depth = -1;
+                UIManager.instance.showCroshair = true;
+            }
         }
-        else
-        {
-            blowGunCam.GetComponent<Camera>().depth = -1;
-            UIManager.instance.showCroshair = true;
-        }
-
     }
 
     private void SelfDestruct()
