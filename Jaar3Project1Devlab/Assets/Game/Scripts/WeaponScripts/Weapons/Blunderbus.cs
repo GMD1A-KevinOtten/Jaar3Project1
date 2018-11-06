@@ -48,7 +48,27 @@ public class Blunderbus : Weapon
         {
             ShootBullet();
         }
-        hasShot = false;
+        Reload();
         yield return null;
+    }
+
+    public override IEnumerator AferReloadTeamSwitch(float time)
+    {
+        print("blunderbus ienum");
+        yield return new WaitForSeconds(4);
+        if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle)
+        {
+            mySoldier.CombatToggle();
+            mySoldier.canSwitch = true;
+            mySoldier.soldierMovement.canMove = true;
+            TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
+            TeamManager.instance.NextTeam();
+            hasShot = false;
+        }
+        else
+        {
+            yield return null;
+            hasShot = false;
+        }
     }
 }

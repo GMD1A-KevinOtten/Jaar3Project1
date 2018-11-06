@@ -73,8 +73,11 @@ public class Explosive : Weapon {
 
     public void InvokeFunction()
     {
-        mySoldier.canShoot = true;
-        TeamManager.instance.EndTheTurn();
+        if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview)
+        {
+            mySoldier.canShoot = true;
+            TeamManager.instance.EndTheTurn();
+        }
     }
 
     public override void SpecialFunctionalityToggle()

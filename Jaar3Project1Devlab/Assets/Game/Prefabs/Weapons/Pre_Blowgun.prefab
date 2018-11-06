@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 114126335986418344}
   - component: {fileID: 54501386545556104}
   m_Layer: 11
-  m_Name: PRE_Blowgun
+  m_Name: Pre_Blowgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

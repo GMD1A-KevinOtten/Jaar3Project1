@@ -72,7 +72,10 @@ public class Weapon : MonoBehaviour {
         {
             if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
             {
-                mySoldier.CombatToggle();
+                if(currentClip != 0)
+                {
+                    mySoldier.CombatToggle();
+                }
             }
         }
         if(Input.GetButtonDown("R"))
@@ -153,7 +156,6 @@ public class Weapon : MonoBehaviour {
 
     public virtual void Reload()
     {
-        print("Reload");
         mySoldier.DisableMovementAnimation();
         FillClip();
         mySoldier.canSwitch = false;
@@ -182,12 +184,20 @@ public class Weapon : MonoBehaviour {
         currentClip = clipMax;
     }
 
-    public IEnumerator AferReloadTeamSwitch(float time)
+    public virtual IEnumerator AferReloadTeamSwitch(float time)
     {
         yield return new WaitForSeconds(time);
-        mySoldier.canSwitch = true;
-        mySoldier.soldierMovement.canMove = true;
-        TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
-        TeamManager.instance.NextTeam();
+        if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle)
+        {
+            mySoldier.CombatToggle();
+            mySoldier.canSwitch = true;
+            mySoldier.soldierMovement.canMove = true;
+            TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
+            TeamManager.instance.NextTeam();
+        }
+        else
+        {
+            yield return null;
+        }
     }
 }

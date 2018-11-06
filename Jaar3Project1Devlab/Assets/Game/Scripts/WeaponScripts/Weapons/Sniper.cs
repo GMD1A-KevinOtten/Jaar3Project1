@@ -21,8 +21,11 @@ public class Sniper : Weapon {
         {
             if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
             {
-                mySoldier.CombatToggle();
-                //SpecialFunctionalityToggle();
+                if(currentClip != 0)
+                {
+                    mySoldier.CombatToggle();
+                    //SpecialFunctionalityToggle();
+                }
             }
         }
         if(Input.GetButtonDown("R"))

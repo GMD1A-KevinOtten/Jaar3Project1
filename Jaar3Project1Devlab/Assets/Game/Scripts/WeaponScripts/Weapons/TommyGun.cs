@@ -40,7 +40,10 @@ public class TommyGun : Weapon {
         {
             if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
             {
-                mySoldier.CombatToggle();
+                if(currentClip != 0)
+                {
+                    mySoldier.CombatToggle();
+                }
             }
         }
         if(Input.GetButtonDown("R"))
