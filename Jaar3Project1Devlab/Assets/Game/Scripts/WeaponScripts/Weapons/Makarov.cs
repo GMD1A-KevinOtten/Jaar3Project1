@@ -19,6 +19,7 @@ public class Makarov : Weapon {
             if(mySoldier.canShoot != true)
             {
                 mySoldier.CombatToggle();
+                TeamManager.instance.mainCamera.cameraState = CameraMovement.CameraStates.CombatVieuw;
             }
         }
     }

@@ -77,8 +77,12 @@ public class Soldier : MonoBehaviour {
         {
             if(equippedWeapon != null)
             {
+                print("Weapon");
                 if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
-                equippedWeapon.ShowCrosshair();
+                {
+                    print("correct state");
+                    equippedWeapon.ShowCrosshair();
+                }
             }
             if(canShoot != true)
             {
@@ -90,7 +94,8 @@ public class Soldier : MonoBehaviour {
     public void CombatToggle()
     {
         if(canShoot == false)
-        {
+        {   
+            print("on");
             canShoot = true;
             anim.SetBool("IsAiming", true);
             soldierMovement.canMove = false;
@@ -112,6 +117,7 @@ public class Soldier : MonoBehaviour {
         }
         else
         {
+            print("off");
             canShoot = false;
             anim.SetBool("IsAiming", false);
             soldierMovement.canMove = true;
