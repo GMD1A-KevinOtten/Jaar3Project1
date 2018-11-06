@@ -14,6 +14,7 @@ public class TeamManager : MonoBehaviour {
     public float movementSpeed;
 
     [Header("Team Properties")]
+    private bool gameOver;
     public int teamCount;
     public int teamIndex;
     public int lastTeamIndex;
@@ -81,43 +82,46 @@ public class TeamManager : MonoBehaviour {
 
     void Update()
     {
-        if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
+        if(!gameOver)
         {
-            if (!textSet)
+            if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
             {
-                StartCoroutine(SetBetweenTurnsText());
-            }
-
-            if (Input.GetButtonDown("Enter"))
-            {
-                ToSoldier();
-            }
-
-            if (Input.GetButtonDown("Tab"))
-            {
-                if (UIManager.instance.soldierStatusWindow.gameObject.activeInHierarchy)
+                if (!textSet)
                 {
-                    UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, false);
+                    StartCoroutine(SetBetweenTurnsText());
+                }
+
+                if (Input.GetButtonDown("Enter"))
+                {
+                    ToSoldier();
+                }
+
+                if (Input.GetButtonDown("Tab"))
+                {
+                    if (UIManager.instance.soldierStatusWindow.gameObject.activeInHierarchy)
+                    {
+                        UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, false);
+                    }
+                    else
+                    {
+                        UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
+                    }
+                }
+            }
+            if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson || mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
+            {
+                if(Input.GetButtonDown("Enter") && activeSoldier.canSwitch == true)
+                {
+                    EndTheTurn();
+                }
+                if(combatTimer)
+                {
+                    CombatTimer();
                 }
                 else
                 {
-                    UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
+                    TurnTimer();
                 }
-            }
-        }
-        if(mainCamera.cameraState == CameraMovement.CameraStates.ThirdPerson || mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
-        {
-            if(Input.GetButtonDown("Enter") && activeSoldier.canSwitch == true)
-            {
-                EndTheTurn();
-            }
-            if(combatTimer)
-            {
-                CombatTimer();
-            }
-            else
-            {
-                TurnTimer();
             }
         }
     }
@@ -129,7 +133,10 @@ public class TeamManager : MonoBehaviour {
             activeSoldier.CombatToggle();
         }
         lastTeamIndex = teamIndex;
+        if(!gameOver)
+        {
         NextTeam();
+        }
         if (endTurn != null)
         {
             endTurn();
@@ -148,13 +155,19 @@ public class TeamManager : MonoBehaviour {
                 livingTeam = team;
             }
         }
-        if(teamsAlive == 0)
+        if(teamsAlive < 2)
         {
-            GameManager.Instance.GameOverEvent(0);
-        }
-        else if(teamsAlive == 1)
-        {
-            GameManager.Instance.GameOverEvent(livingTeam.allSoldiers[0].myTeam += 1);
+            EndTheTurn();
+            if(teamsAlive == 0)
+            {
+                gameOver = true;
+                GameManager.Instance.GameOverEvent(0);
+            }
+            else if(teamsAlive == 1)
+            {
+                gameOver = true;
+                GameManager.Instance.GameOverEvent(livingTeam.allSoldiers[0].myTeam += 1);
+            }
         }
     }
 
