@@ -1490,7 +1490,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240581273647682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.4675, y: 50.536137, z: 63.019775}
+  m_LocalPosition: {x: -4.64, y: 0, z: -20.758118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4218314351769298}
@@ -2425,12 +2425,7 @@ MonoBehaviour:
   canShoot: 0
   damageTurns: 0
   damageOverTime: 0
-  starterWeaponPrefabs:
-  - {fileID: 1519807869331386, guid: 48e5e7753cce11342b61d7cf1b9e7eae, type: 2}
-  - {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba, type: 2}
-  - {fileID: 1962290312298426, guid: 86e1fd903f6dc504f99f63f05c0252ed, type: 2}
-  - {fileID: 1464021999991230, guid: d4c5cb1da9010514baa5d383f431142d, type: 2}
-  - {fileID: 1499713425098558, guid: 45d43f51f5e48904280bf011bdf0356d, type: 2}
+  starterWeaponPrefabs: []
   availableWeapons: []
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0
