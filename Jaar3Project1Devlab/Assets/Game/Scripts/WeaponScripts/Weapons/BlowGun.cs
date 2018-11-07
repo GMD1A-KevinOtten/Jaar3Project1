@@ -58,6 +58,7 @@ public class BlowGun : Weapon {
         mySoldier.canShoot = false;
         mySoldier.currentWeaponIndex = 0;
         mySoldier.EquipWeapon();
+        mySoldier.canSwitch = false;
         mySoldier.anim.SetBool("IsAiming",false);
         Invoke("BlowGunAfterAfterShot" , 2);
     }
@@ -103,6 +104,7 @@ public class BlowGun : Weapon {
 
     private void SelfDestruct()
     {
+        mySoldier.canSwitch = true;
         mySoldier.canShoot = false;
         Destroy(this.gameObject);
     }

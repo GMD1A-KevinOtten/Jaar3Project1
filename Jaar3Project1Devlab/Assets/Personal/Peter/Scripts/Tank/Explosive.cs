@@ -77,6 +77,7 @@ public class Explosive : Weapon {
         mySoldier.canShoot = false;
         mySoldier.currentWeaponIndex = 0;
         mySoldier.EquipWeapon();
+        mySoldier.canSwitch = false;
         mySoldier.anim.SetBool("IsAiming",false);
         Invoke("InvokeFunction" , 3);
     }
@@ -93,7 +94,7 @@ public class Explosive : Weapon {
 
     private void SelfDestruct()
     {
-   
+        mySoldier.canSwitch = true;   
         print("Explosive");
         Destroy(this.gameObject);
     }
