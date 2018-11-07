@@ -294,6 +294,8 @@ public class UIManager : MonoBehaviour {
     public void GameOver(int victoriousTeam)
     {
         endGamePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         winnerText.text = "Team " + victoriousTeam + " won!";
         Time.timeScale = 0;
 
