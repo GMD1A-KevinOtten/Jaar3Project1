@@ -163,7 +163,10 @@ public class Soldier : MonoBehaviour {
     {
         //play SwitchSound
         canSwitch = true;
-        availableWeapons[previouseWeaponIndex].SetActive(false);
+        if(previouseWeaponIndex < availableWeapons.Count -1)
+        {
+            availableWeapons[previouseWeaponIndex].SetActive(false);
+        }
         equippedWeapon = availableWeapons[currentWeaponIndex].GetComponent<Weapon>();
         availableWeapons[currentWeaponIndex].SetActive(true);
         anim.SetInteger("WeaponID",equippedWeapon.gunID);

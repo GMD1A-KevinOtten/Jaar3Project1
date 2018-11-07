@@ -674,20 +674,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114103248198551062, guid: 43e52f3012112304aa35eb9d57a09a2a,
         type: 2}
-      propertyPath: weapons.Array.data[0]
-      value: 
-      objectReference: {fileID: 1962290312298426, guid: 86e1fd903f6dc504f99f63f05c0252ed,
-        type: 2}
-    - target: {fileID: 114103248198551062, guid: 43e52f3012112304aa35eb9d57a09a2a,
-        type: 2}
       propertyPath: weapons.Array.data[1]
       value: 
       objectReference: {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba,
         type: 2}
-    - target: {fileID: 4020542014946762, guid: 43e52f3012112304aa35eb9d57a09a2a, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -179.99998
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e52f3012112304aa35eb9d57a09a2a, type: 2}
   m_IsPrefabAsset: 0
