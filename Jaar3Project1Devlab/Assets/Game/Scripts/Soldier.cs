@@ -206,9 +206,7 @@ public class Soldier : MonoBehaviour {
     public void Die(Vector3 push)
     {
         isDead = true;
-        equippedWeapon.GetComponent<Rigidbody>().isKinematic = false;
-        equippedWeapon.GetComponent<Rigidbody>().useGravity = true;
-        equippedWeapon.transform.SetParent(null);
+        equippedWeapon.Death();
         gameObject.GetComponent<Animator>().enabled = false;
         hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000, hitPosition.point, 3);
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())

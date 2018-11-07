@@ -96,6 +96,13 @@ public class Weapon : MonoBehaviour {
         }
     }
 
+    public virtual void Death()
+    {
+        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<Rigidbody>().useGravity = true;
+        transform.SetParent(null);
+    }
+
     public virtual void SpecialFunctionalityToggle()
     {
         if(specialFunctionality == false)
