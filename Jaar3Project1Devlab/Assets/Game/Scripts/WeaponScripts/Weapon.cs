@@ -202,7 +202,10 @@ public class Weapon : MonoBehaviour {
         yield return new WaitForSeconds(time);
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle)
         {
-            mySoldier.CombatToggle();
+            if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
+            {
+                mySoldier.CombatToggle();
+            }
             mySoldier.canSwitch = true;
             mySoldier.soldierMovement.canMove = true;
             TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;
