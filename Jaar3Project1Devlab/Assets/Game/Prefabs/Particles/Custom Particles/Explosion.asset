@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f80a8179a0f3d4f8733d0bfffd8b82, type: 3}
   m_Name: Explosion
   m_EditorClassIdentifier: 
-  particleName: Explosion
+  particleName: Explosion01
   particlePrefab: {fileID: 1069095092382552, guid: 6cd1a31847ac8f841bdb73233faea614,
     type: 2}
   defaultScaling: {x: 0.5, y: 0.5, z: 0.5}
