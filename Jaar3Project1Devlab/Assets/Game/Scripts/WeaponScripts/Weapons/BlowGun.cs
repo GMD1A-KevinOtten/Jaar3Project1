@@ -6,6 +6,7 @@ public class BlowGun : Weapon {
 
     [Header("BlowGun Specific")]
     public Camera blowGunCam;
+    public bool shot;
 
     public override void Update()
     {
@@ -28,13 +29,14 @@ public class BlowGun : Weapon {
         {
             if(mySoldier.canShoot == true)
             {
+                shot = true;
                 ShootBullet();
                 BlowGunAfterShot();
             }
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true)
+            if(mySoldier.canShoot != true && !shot)
             {
                 mySoldier.CombatToggle();
                 SpecialFunctionalityToggle();
@@ -47,7 +49,10 @@ public class BlowGun : Weapon {
         mySoldier.availableWeapons.Remove(this.gameObject);
         GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<Rigidbody>().useGravity = true;
-        GetComponentInParent<IKControl>().activateIK = false;        
+        if(GetComponentInParent<IKControl>() != null)
+        {
+            GetComponentInParent<IKControl>().activateIK = false;
+        }
         gameObject.transform.SetParent(null);
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,2000));
         mySoldier.canShoot = false;
@@ -60,6 +65,7 @@ public class BlowGun : Weapon {
     public void BlowGunAfterAfterShot()
     {
         SpecialFunctionalityToggle();
+        TeamManager.instance.EndTheTurn();
         Invoke("InvokeFunction" , 3);
     }
 
@@ -67,8 +73,8 @@ public class BlowGun : Weapon {
     {
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview)
         {
+            
             mySoldier.canShoot = true;
-            TeamManager.instance.EndTheTurn();
         }
         Invoke("SelfDestruct",3);
     }
@@ -98,6 +104,7 @@ public class BlowGun : Weapon {
 
     private void SelfDestruct()
     {
+        mySoldier.canShoot = false;
         Destroy(this.gameObject);
     }
 }
