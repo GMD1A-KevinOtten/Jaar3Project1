@@ -208,7 +208,6 @@ public class Soldier : MonoBehaviour {
         isDead = true;
         equippedWeapon.Death();
         gameObject.GetComponent<Animator>().enabled = false;
-        hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000, hitPosition.point, 3);
         foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
         {
             if (rid != transform.GetComponent<Rigidbody>())
@@ -216,6 +215,7 @@ public class Soldier : MonoBehaviour {
                 rid.isKinematic = false;
             }
         }
+        hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000, hitPosition.point, 3);
         foreach (Team team in TeamManager.instance.allTeams)
         {
             if(team.SoldierCheck(this) == true)
