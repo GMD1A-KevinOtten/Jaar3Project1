@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletHoleSprites: []
-  defaultDamage: 0
+  defaultDamage: 150
   explosionRadius: 2
   minDist: 0.5
   maxDist: 2
