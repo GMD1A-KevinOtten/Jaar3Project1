@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Makarov : Weapon {
 
+    public bool reloading;
 
     public override void Inputs()
     {
@@ -16,7 +17,7 @@ public class Makarov : Weapon {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true)
+            if(mySoldier.canShoot != true && reloading == false)
             {
                 mySoldier.CombatToggle();
                 TeamManager.instance.mainCamera.cameraState = CameraMovement.CameraStates.CombatVieuw;
@@ -52,6 +53,7 @@ public class Makarov : Weapon {
 
     public override void Reload()
     {
+        reloading = true;
         mySoldier.canShoot = false;
         FillClip();
         mySoldier.anim.SetTrigger("Reload");
@@ -59,6 +61,7 @@ public class Makarov : Weapon {
 
     public override void SpecialFunctionalityToggle()
     {
+        reloading = false;
         mySoldier.canShoot = true;
     }
 }
