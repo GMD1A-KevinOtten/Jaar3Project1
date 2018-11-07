@@ -148,6 +148,7 @@ public class Soldier : MonoBehaviour {
     {
         if(isDead == false)
         {
+            GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
             anim.SetTrigger("Hit");
             health -= toDamage;
 
