@@ -25,6 +25,9 @@ public class Tank : InteractableObject {
     public float clampY;
     private float xRotInput;
     private float yRotInput;
+
+    private bool shownTutorial;
+
     // Use this for initialization
     void Start () {
 		
@@ -103,6 +106,13 @@ public class Tank : InteractableObject {
     {
         if (soldierNearby())
         {
+            if (!shownTutorial)
+            {
+                UIManager.instance.ShowMessageOnUI("Press E to enter the tank", 5);
+                shownTutorial = true;
+            }
+
+
             if (Input.GetKeyDown("e") && !currentSoldier.canShoot)
             {
                 previousWeapon = currentSoldier.equippedWeapon;

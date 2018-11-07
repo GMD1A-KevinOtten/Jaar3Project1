@@ -18,6 +18,7 @@ public class WeaponCrate : InteractableObject {
 
     public int maxCooldown = 5;
     private int coolDown;
+    private bool shownTutorial;
     public bool coolingDown;
 	// Use this for initialization
 	void Start () {
@@ -37,6 +38,13 @@ public class WeaponCrate : InteractableObject {
             //{
             //    weapons = currentSoldier.availableWeaponsPrefabs;
             //}
+            if (shownTutorial == false)
+            {
+                UIManager.instance.ShowMessageOnUI("Press E to open the weapon crate", 5);
+                shownTutorial = true;
+            }
+
+
             if (Input.GetKeyDown("e") && !usedThisTurn && !coolingDown)
             {
                 Interact();

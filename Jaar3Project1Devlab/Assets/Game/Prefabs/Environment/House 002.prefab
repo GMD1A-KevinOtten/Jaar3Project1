@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4064934894676554}
   - component: {fileID: 33646663403332418}
   - component: {fileID: 23600482415950128}
+  - component: {fileID: 65307914563396256}
   m_Layer: 12
   m_Name: House02
   m_TagString: Untagged
@@ -79,15 +80,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1011427275628942}
-  m_LocalRotation: {x: 0.12161776, y: 0.9911842, z: 0.00640179, w: 0.052174572}
-  m_LocalPosition: {x: 5.1679516, y: 10.906452, z: 45.348152}
+  m_LocalRotation: {x: 0.016883738, y: 0.3230763, z: -0.041106418, w: 0.945329}
+  m_LocalPosition: {x: -0.44204903, y: 10.1664505, z: 31.138153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064934894676554}
   - {fileID: 4568184814099226}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 173.97401, z: 13.990001}
+  m_LocalEulerAnglesHint: {x: 3.3530002, y: 37.624, z: -3.8370001}
 --- !u!4 &4568184814099226
 Transform:
   m_ObjectHideFlags: 1
@@ -185,3 +186,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357162266018346}
   m_Mesh: {fileID: 4300002, guid: cf4800bfec7f7f44b9095da180666112, type: 3}
+--- !u!65 &65307914563396256
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062174426832872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 3.020007, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
