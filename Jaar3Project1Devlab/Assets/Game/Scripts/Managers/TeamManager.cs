@@ -382,6 +382,7 @@ public class TeamManager : MonoBehaviour {
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform combatCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].combatCameraPosition;
         mainCamera.transform.parent.SetParent(combatCamPos);
+        mainCamera.transform.parent.localPosition = Vector3.zero;
         StartCoroutine(MoveCam(combatCamPos.position, combatCamPos.rotation, CameraMovement.CameraStates.CombatVieuw));
     }
 

@@ -82,13 +82,16 @@ public class CameraMovement : MonoBehaviour {
         xRotInput -= Input.GetAxis("Mouse Y") * Time.deltaTime * vertRotSpeed;
         xRotInput = Mathf.Clamp(xRotInput, -clampValue, clampValue);
         transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
-        if(cameraState == CameraStates.CombatVieuw)
+        if(cameraState == CameraStates.CombatVieuw || cameraState == CameraStates.Idle)
         {
             if(gunToRotate != null)
             {
-                if (!gunToRotate.isTank)
+                if (gunToRotate.transform.root.GetComponent<Soldier>().isActive)
                 {
-                    gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                    if (!gunToRotate.isTank)
+                    {
+                        gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                    }
                 }
             }
         }
