@@ -44,7 +44,6 @@ public class EffectsManager : MonoBehaviour {
 
         for (int i = 0; i < defaultAudiosourcesAmount; i++)
         {
-            print("1");
             AudioSource source = CreateAudioSource();
             audioSources.Add(source);
         }
@@ -110,7 +109,6 @@ public class EffectsManager : MonoBehaviour {
     {
         for (int i = 0; i < allAudioclips.Length; i++)
         {
-            print(clipName);
             if (allAudioclips[i].clipName == clipName)
             {
                 return allAudioclips[i];

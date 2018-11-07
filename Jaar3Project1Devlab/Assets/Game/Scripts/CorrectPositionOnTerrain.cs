@@ -12,7 +12,6 @@ public class CorrectPositionOnTerrain : MonoBehaviour {
         {
             if (hit.transform.GetComponent<Terrain>() != null)
             {
-                print(transform.gameObject.name + ": " + hit.point);
                 transform.position = hit.point;
                 transform.rotation = Quaternion.LookRotation(transform.forward, hit.normal);
             }

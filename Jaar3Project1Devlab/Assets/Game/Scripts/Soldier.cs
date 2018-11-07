@@ -77,7 +77,6 @@ public class Soldier : MonoBehaviour {
         {
             if(equippedWeapon != null)
             {
-                print("Weapon");
                 if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
                 {
                     print("correct state");
@@ -95,7 +94,6 @@ public class Soldier : MonoBehaviour {
     {
         if(canShoot == false)
         {   
-            print("on");
             canShoot = true;
             anim.SetBool("IsAiming", true);
             soldierMovement.canMove = false;
@@ -117,7 +115,6 @@ public class Soldier : MonoBehaviour {
         }
         else
         {
-            print("off");
             canShoot = false;
             anim.SetBool("IsAiming", false);
             soldierMovement.canMove = true;

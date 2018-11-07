@@ -34,7 +34,6 @@ public class UI_SoldierStatus : MonoBehaviour {
         weaponImage.sprite = mySoldier.equippedWeapon.weaponSprite;
 
         float percent = (float)mySoldier.health / mySoldier.maxHealth;
-        print(percent.ToString());
         healthBar.fillAmount = percent;
     }
 
