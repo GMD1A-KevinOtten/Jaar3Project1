@@ -152,7 +152,7 @@ public class EffectsManager : MonoBehaviour {
     }
 
 
-    //Particle Functions:
+    //Particle Functions.
 
     public void PlayParticle(CustomParticle customParticle, Vector3 playPosition, Vector3 lookDirection)
     {
