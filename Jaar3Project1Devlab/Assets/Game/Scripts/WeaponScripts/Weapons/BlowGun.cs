@@ -73,7 +73,6 @@ public class BlowGun : Weapon {
     {
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview)
         {
-            
             mySoldier.canShoot = true;
         }
         Invoke("SelfDestruct",3);

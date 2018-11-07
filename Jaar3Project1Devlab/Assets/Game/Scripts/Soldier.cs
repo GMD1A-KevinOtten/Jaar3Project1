@@ -163,7 +163,8 @@ public class Soldier : MonoBehaviour {
     {
         //play SwitchSound
         canSwitch = true;
-        if(previouseWeaponIndex < availableWeapons.Count -1)
+        print(previouseWeaponIndex);
+        if(previouseWeaponIndex <= availableWeapons.Count - 1)
         {
             availableWeapons[previouseWeaponIndex].SetActive(false);
         }
