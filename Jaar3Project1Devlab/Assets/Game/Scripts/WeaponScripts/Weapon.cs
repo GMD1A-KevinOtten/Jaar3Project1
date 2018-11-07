@@ -50,7 +50,13 @@ public class Weapon : MonoBehaviour {
         {
             if(mySoldier.isActive == true)
             {
-                Inputs();
+                float x = Input.GetAxis("Horizontal");
+                float y = Input.GetAxis("Vertical");
+
+                if(x == 0 && y == 0)
+                {
+                    Inputs();
+                }
             }
             else if(!mySoldier.isActive && isTank)
             {
