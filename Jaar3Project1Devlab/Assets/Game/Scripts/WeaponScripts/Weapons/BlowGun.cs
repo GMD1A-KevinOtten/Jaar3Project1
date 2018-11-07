@@ -60,21 +60,24 @@ public class BlowGun : Weapon {
         mySoldier.EquipWeapon();
         mySoldier.canSwitch = false;
         mySoldier.anim.SetBool("IsAiming",false);
-        Invoke("BlowGunAfterAfterShot" , 2);
+        Invoke("InvokeFunction" , 2);
     }
 
     public void BlowGunAfterAfterShot()
     {
-        SpecialFunctionalityToggle();
-        TeamManager.instance.EndTheTurn();
+        print("test1");
         Invoke("InvokeFunction" , 3);
     }
 
     public void InvokeFunction()
     {
+        print("test2");
+        SpecialFunctionalityToggle();
+
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview)
         {
             mySoldier.canShoot = true;
+            TeamManager.instance.EndTheTurn();  
         }
         Invoke("SelfDestruct",3);
     }
