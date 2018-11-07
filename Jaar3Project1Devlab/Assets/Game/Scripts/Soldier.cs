@@ -227,6 +227,8 @@ public class Soldier : MonoBehaviour {
                 break;
             }
         }
+
+        TeamManager.instance.GameOverCheck();
     }
 
     public void CheckScroll()

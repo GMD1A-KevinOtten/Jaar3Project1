@@ -284,7 +284,10 @@ public class TeamManager : MonoBehaviour {
     {
         ResetTimer();
 
-        activeSoldier.DisableMovementAnimation();
+        if(activeSoldier != null)
+        {
+            activeSoldier.DisableMovementAnimation();
+        }
 
         Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
         soldier.soldierMovement.canMoveAndRotate = false;
