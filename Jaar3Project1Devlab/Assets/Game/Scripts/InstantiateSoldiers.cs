@@ -23,7 +23,7 @@ public class InstantiateSoldiers : MonoBehaviour {
                 RaycastHit hit;
                 Physics.Raycast(instantiationCords[team].transform.GetChild(e).transform.position, -Vector3.up, out hit, 5);
 
-				GameObject newSoldier = Instantiate(soldierPrefabs[team], hit.point, Quaternion.identity);
+				GameObject newSoldier = Instantiate(soldierPrefabs[team], hit.point, instantiationCords[team].transform.GetChild(e).transform.rotation);
 				Soldier newSoldierInfo = newSoldier.GetComponent<Soldier>();
                 newSoldierInfo.soldierName = "Soldier " + e.ToString();
 				TeamManager.instance.allTeams[team].allSoldiers.Add(newSoldierInfo);
