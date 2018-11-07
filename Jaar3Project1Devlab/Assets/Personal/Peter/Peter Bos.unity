@@ -192,6 +192,10 @@ Prefab:
       propertyPath: weaponIconParent
       value: 
       objectReference: {fileID: 1645930389}
+    - target: {fileID: 4782206725338924, guid: ce4b86346c76d6a4d924f350bb6de399, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce4b86346c76d6a4d924f350bb6de399, type: 2}
   m_IsPrefabAsset: 0
@@ -735,17 +739,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114750425417848652, guid: 43e52f3012112304aa35eb9d57a09a2a,
-        type: 2}
-      propertyPath: faceToCam
-      value: 
-      objectReference: {fileID: 2123214362}
-    - target: {fileID: 114103248198551062, guid: 43e52f3012112304aa35eb9d57a09a2a,
-        type: 2}
-      propertyPath: weapons.Array.data[0]
-      value: 
-      objectReference: {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e52f3012112304aa35eb9d57a09a2a, type: 2}
   m_IsPrefabAsset: 0
@@ -3347,6 +3340,10 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 558119989}
+    - target: {fileID: 4618417500890366, guid: 34f9e07e0ae15674eb730654d4da3a69, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f9e07e0ae15674eb730654d4da3a69, type: 2}
   m_IsPrefabAsset: 0

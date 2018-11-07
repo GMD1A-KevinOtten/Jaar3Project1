@@ -402,8 +402,8 @@ public class TeamManager : MonoBehaviour {
 
             while (mainCamera.transform.parent.position != moveTo || cameraRot != cameraToRot)
             {
-                mainCamera.transform.parent.position = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * Time.deltaTime);
-                mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, rotateTo, movementSpeed / 10 * Time.deltaTime);
+                mainCamera.transform.parent.localPosition = Vector3.MoveTowards(mainCamera.transform.parent.position, moveTo, movementSpeed * Time.deltaTime);
+                mainCamera.transform.localRotation = Quaternion.Lerp(mainCamera.transform.rotation, rotateTo, movementSpeed / 10 * Time.deltaTime);
                 if(camState == CameraMovement.CameraStates.ThirdPerson)
                 {
                     Quaternion rot = Quaternion.Euler(mainCamera.transform.parent.eulerAngles.x,rotateTo.eulerAngles.y,rotateTo.eulerAngles.z);
