@@ -93,8 +93,7 @@ public class Explosive : Weapon {
 
     private void SelfDestruct()
     {
-        EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Explosion01"), transform.position);
-        EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("Explosion01"), transform.position, Vector3.up);
+   
         print("Explosive");
         Destroy(this.gameObject);
     }

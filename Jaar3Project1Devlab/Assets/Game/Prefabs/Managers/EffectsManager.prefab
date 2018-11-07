@@ -70,6 +70,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18f8cfdd516c0be469f059c49b5129a1, type: 2}
   - {fileID: 11400000, guid: 17e5998b525408349b04de3e48525ffd, type: 2}
   - {fileID: 11400000, guid: 3a5b96dd6ab473c498bc678ce9552108, type: 2}
+  - {fileID: 11400000, guid: 1bff273c5f8904644b5def82596742f8, type: 2}
   audioSources: []
   defaultAudiosourcesAmount: 5
   allParticles:
@@ -81,6 +82,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f7987b6d4c12fa3498be09d627e2e6e0, type: 2}
   - {fileID: 11400000, guid: 5a80f13b9e9e8c142a2121945b4c5637, type: 2}
   - {fileID: 11400000, guid: 3290a685284123f489adf48077fd3143, type: 2}
+  - {fileID: 11400000, guid: 421df0efc8104124caaa6fa31435eb0d, type: 2}
   bulletHolePrefab: {fileID: 1891772913860766, guid: ad3aebbe4a769d142ba5e19ec10b8c22,
     type: 2}
   bulletHoleColors:
