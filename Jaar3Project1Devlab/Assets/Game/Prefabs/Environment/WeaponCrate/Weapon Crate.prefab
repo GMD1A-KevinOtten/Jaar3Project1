@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23400246788468766}
   m_Layer: 0
   m_Name: Crate vulling
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 23012143553500558}
   m_Layer: 0
   m_Name: Deksel
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 23621306715512112}
   m_Layer: 0
   m_Name: Bak
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,8 +157,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1064850269432830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.86, y: 50.54, z: 70.761}
+  m_LocalRotation: {x: -0, y: -0.9999807, z: -0, w: -0.006220862}
+  m_LocalPosition: {x: 46.303, y: 50.563, z: 44.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4577846533597722}
@@ -168,7 +168,7 @@ Transform:
   - {fileID: 224961602971603272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.713, z: 0}
 --- !u!4 &4401144108575198
 Transform:
   m_ObjectHideFlags: 1

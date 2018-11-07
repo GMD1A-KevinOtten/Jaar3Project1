@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65245053296234638}
   m_Layer: 0
   m_Name: Tank Barrel Holder
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 65652484676115826}
   m_Layer: 0
   m_Name: Tank Head
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 65036233099703022}
   m_Layer: 0
   m_Name: Tank Barrel
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114256846289136242}
   m_Layer: 0
   m_Name: Barrel Cam
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 64598216106632574}
   m_Layer: 0
   m_Name: Tank
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 23677348817306358}
   m_Layer: 0
   m_Name: Tank Lid
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 4921881740378452}
   m_Layer: 0
   m_Name: BulletExitPos
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 20818814566601820}
   m_Layer: 0
   m_Name: ThirdPersonTankCamera
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4079097125806430}
   m_Layer: 0
   m_Name: Soldier inside
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,8 +198,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1718800118009700}
-  m_LocalRotation: {x: 0.000000018424455, y: 0.5379062, z: 0.00000001175631, w: 0.8430047}
-  m_LocalPosition: {x: 14.82, y: 0.24, z: -23.49}
+  m_LocalRotation: {x: 0.000000021670765, y: -0.1298123, z: -0.0000000028371416, w: 0.9915386}
+  m_LocalPosition: {x: 59.68, y: 50.38, z: 62.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4295252135097234}

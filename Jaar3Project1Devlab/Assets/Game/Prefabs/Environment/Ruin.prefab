@@ -21,13 +21,13 @@ GameObject:
   - component: {fileID: 4992228786013942}
   - component: {fileID: 33338254744122350}
   - component: {fileID: 23779351115795584}
-  - component: {fileID: 65183055385027900}
-  m_Layer: 0
+  - component: {fileID: 64955103533352898}
+  m_Layer: 12
   m_Name: Prop_RuinWall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1058170713991234
 GameObject:
@@ -40,12 +40,12 @@ GameObject:
   - component: {fileID: 33117120318304172}
   - component: {fileID: 23041816621718394}
   - component: {fileID: 65543806809659818}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_WallIntact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1065138083015938
 GameObject:
@@ -58,12 +58,12 @@ GameObject:
   - component: {fileID: 33185174728852746}
   - component: {fileID: 23180939983963870}
   - component: {fileID: 65693620651765248}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_RuinDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1148708929228274
 GameObject:
@@ -75,12 +75,12 @@ GameObject:
   - component: {fileID: 4176526777467462}
   - component: {fileID: 33815041103343758}
   - component: {fileID: 23766307054459488}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_RuinWall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1350547882107494
 GameObject:
@@ -92,13 +92,13 @@ GameObject:
   - component: {fileID: 4323567490629470}
   - component: {fileID: 33648504997450450}
   - component: {fileID: 23196474839967534}
-  - component: {fileID: 65663132060579264}
-  m_Layer: 0
+  - component: {fileID: 64946971053965224}
+  m_Layer: 12
   m_Name: Prop_RuinWall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1412273363103364
 GameObject:
@@ -110,12 +110,12 @@ GameObject:
   - component: {fileID: 4108513230615354}
   - component: {fileID: 33742384776362988}
   - component: {fileID: 23835203369106378}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_WallDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1463941786567290
 GameObject:
@@ -128,12 +128,12 @@ GameObject:
   - component: {fileID: 33578048781376834}
   - component: {fileID: 23266759994717780}
   - component: {fileID: 65148394984495670}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_WallBroken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1478810293941290
 GameObject:
@@ -145,12 +145,13 @@ GameObject:
   - component: {fileID: 4319879160403118}
   - component: {fileID: 33041239768666828}
   - component: {fileID: 23177976143908494}
-  m_Layer: 0
+  - component: {fileID: 65825367840123526}
+  m_Layer: 12
   m_Name: Prop_RuinFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1512815144429310
 GameObject:
@@ -163,12 +164,12 @@ GameObject:
   - component: {fileID: 33546925173083376}
   - component: {fileID: 23645134437629820}
   - component: {fileID: 64956526734386184}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_RuinWall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1545401555160418
 GameObject:
@@ -178,12 +179,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4068002093068878}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ruin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1619936502477254
 GameObject:
@@ -196,12 +197,12 @@ GameObject:
   - component: {fileID: 33134803731891784}
   - component: {fileID: 23727443099299146}
   - component: {fileID: 64378275115823282}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_RuinStairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1806002265066054
 GameObject:
@@ -214,12 +215,12 @@ GameObject:
   - component: {fileID: 33522168629791582}
   - component: {fileID: 23969488992245280}
   - component: {fileID: 65122459788283690}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prop_WallIntact (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4009337879165964
 Transform:
@@ -240,9 +241,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1545401555160418}
-  m_LocalRotation: {x: 0.000000021815543, y: -0.06058652, z: -0.0000000013241612,
-    w: 0.9981629}
-  m_LocalPosition: {x: 65.06611, y: 55.08522, z: 83.53561}
+  m_LocalRotation: {x: -0.00411962, y: -0.9981291, z: 0.057823606, w: -0.019434603}
+  m_LocalPosition: {x: 40.49795, y: 11.346451, z: 44.408157}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4108513230615354}
@@ -258,7 +258,7 @@ Transform:
   - {fileID: 4742503623398106}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -6.9470005, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.6380005, y: -182.211, z: 0.34500003}
 --- !u!4 &4108513230615354
 Transform:
   m_ObjectHideFlags: 1
@@ -865,6 +865,34 @@ MeshCollider:
   m_CookingOptions: -2
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 45bd6d517a4a0a748a85decb6b10055f, type: 3}
+--- !u!64 &64946971053965224
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350547882107494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 98b1f0c0a0fd28d44be7fdd5602e5a1d, type: 3}
+--- !u!64 &64955103533352898
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022427599315198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 6b1ad3bb5e7af7948b56b113341bcd50, type: 3}
 --- !u!64 &64956526734386184
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -903,18 +931,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24718925, y: 4.014402, z: 7.1721582}
   m_Center: {x: -0.123593986, y: 2.007201, z: -0.07391822}
---- !u!65 &65183055385027900
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1022427599315198}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.24678273, y: 7.0094833, z: 1.7710325}
-  m_Center: {x: 7.263293e-13, y: 1.2952335e-10, z: 0.8855161}
 --- !u!65 &65543806809659818
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -927,18 +943,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.677782, y: 3.93569, z: 0.24718855}
   m_Center: {x: -0.17326963, y: 1.9678452, z: -0.12359206}
---- !u!65 &65663132060579264
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1350547882107494}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.020669, y: 1.7634845, z: 0.246783}
-  m_Center: {x: -0.04804647, y: 0.8837184, z: -0.013380624}
 --- !u!65 &65693620651765248
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -951,3 +955,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2120021, y: 2.0699935, z: 1.2618734}
   m_Center: {x: -0.0000076216834, y: 1.0349987, z: -0.000003875345}
+--- !u!65 &65825367840123526
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478810293941290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.856937, y: 0.04885299, z: 7.172159}
+  m_Center: {x: 6.505213e-18, y: 0.000003819354, z: 3.469447e-17}

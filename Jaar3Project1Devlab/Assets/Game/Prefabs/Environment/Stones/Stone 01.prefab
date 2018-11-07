@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33766771878830924}
   - component: {fileID: 23183279409408918}
   - component: {fileID: 64329620420624426}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Stone 01
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4488769545852940
 Transform:
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142119274873016}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 63.62936, y: 50.662388, z: 43.13781}
+  m_LocalPosition: {x: 29.166996, y: 8.060238, z: 0.32277298}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
