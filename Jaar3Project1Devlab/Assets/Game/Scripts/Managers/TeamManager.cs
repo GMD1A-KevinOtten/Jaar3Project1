@@ -40,6 +40,7 @@ public class TeamManager : MonoBehaviour {
     public delegate void EndTurn();
     public EndTurn endTurn;
 
+
     private void Awake()
     {
         //Makes a Singleton
@@ -71,13 +72,15 @@ public class TeamManager : MonoBehaviour {
         UIManager.instance.ShowMessageOnUI("Press Enter to start the battle!", 5);
 
         StartCoroutine(UIUpdateDelay());
+
+        UIManager.instance.ToggleMouse();
     }
 
     private IEnumerator UIUpdateDelay()
     {
         yield return new WaitForSeconds(0.1f);
         UIManager.instance.ToggleMouse();
-        ToTopView();
+        ToTopView(false);
     }
 
     void Update()
@@ -86,6 +89,17 @@ public class TeamManager : MonoBehaviour {
         {
             if(mainCamera.cameraState == CameraMovement.CameraStates.Topview)
             {
+
+                if(turnTime < maxTurnTime)
+                {
+                    ResetTimer();
+                }
+                if(Cursor.lockState == CursorLockMode.Locked || Cursor.visible == false)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+
                 if (!textSet)
                 {
                     StartCoroutine(SetBetweenTurnsText());
@@ -122,6 +136,17 @@ public class TeamManager : MonoBehaviour {
                 {
                     TurnTimer();
                 }
+            }
+            else if(mainCamera.cameraState == CameraMovement.CameraStates.Idle)
+            {
+                if (combatTimer)
+                {
+                    CombatTimer();
+                }
+            }
+            if(activeSoldier == null && mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
+            {
+                ToTopView(true);
             }
         }
     }
@@ -297,7 +322,7 @@ public class TeamManager : MonoBehaviour {
                 }
             }
         }
-        ToTopView();
+        ToTopView(true);
     }
 
     /// <summary>
@@ -325,7 +350,7 @@ public class TeamManager : MonoBehaviour {
     /// <summary>
     /// Call this to move the MainCamera to the TopView.
     /// </summary>
-    public void ToTopView()
+    public void ToTopView(bool toggleCursor)
     {
         UIManager.instance.HideCrosshair();
         UIManager.instance.UpdateWorldSpaceStatuses(allTeams);
@@ -345,7 +370,10 @@ public class TeamManager : MonoBehaviour {
         }
 
         StartCoroutine(MoveCam(cameraPositionSky.position,cameraPositionSky.rotation,CameraMovement.CameraStates.Topview));
-        UIManager.instance.ToggleMouse();
+        if (toggleCursor)
+        {
+            UIManager.instance.ToggleMouse();
+        }
 
     }
 

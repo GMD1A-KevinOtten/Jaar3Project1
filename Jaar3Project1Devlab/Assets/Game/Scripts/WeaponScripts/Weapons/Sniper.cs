@@ -7,6 +7,7 @@ public class Sniper : Weapon {
     [Header("Sniper Specific")]
 
     public Camera cameraScope;
+    public bool aiming;
 
     public override void Inputs()
     {
@@ -19,12 +20,13 @@ public class Sniper : Weapon {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
+            if(mySoldier.canShoot != true && mySoldier.canSwitch == true && !aiming)
             {
                 if(currentClip != 0)
                 {
                     mySoldier.CombatToggle();
                 }
+                
             }
         }
         if(Input.GetButtonDown("R"))
@@ -52,11 +54,14 @@ public class Sniper : Weapon {
                 cameraScope.GetComponent<Camera>().depth = 1;
                 UIManager.instance.showCroshair = false;
                 UIManager.instance.HideCrosshair();
+                aiming = true;
             }
             else
             {
+
                 cameraScope.GetComponent<Camera>().depth = -1;
                 UIManager.instance.showCroshair = true;
+                aiming = false;
             }
             //Play sound
         }
