@@ -18,6 +18,7 @@ public class Soldier : MonoBehaviour {
 
     [Header("Instantiation Properties")]
     public Transform weaponPos;
+    public GameObject myCanvas;
 
     [Header("Activity Proporties")]
     public string soldierName;
@@ -29,7 +30,6 @@ public class Soldier : MonoBehaviour {
     public int damageTurns;
     public int damageOverTime;
     public TextMeshProUGUI takeDamageText;
-    private Animator takeDamageTextAnim;
     private bool takingDamage;
     
     [Header("Weapon properties")]
@@ -51,7 +51,6 @@ public class Soldier : MonoBehaviour {
     {
         Movement = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
-        takeDamageTextAnim = takeDamageText.GetComponent<Animator>();
         maxHealth = health;
 
         InstantiateStarterWeapons();
@@ -153,8 +152,13 @@ public class Soldier : MonoBehaviour {
     {
         if(isDead == false)
         {
-            takeDamageText.text = "" + toDamage;
-            takeDamageTextAnim.Play("ANI_TakeDamageText", 0);
+            TextMeshProUGUI txt = Instantiate(takeDamageText);
+            txt.transform.SetParent(myCanvas.transform);
+            txt.GetComponent<RectTransform>().transform.localPosition = Vector2.zero;
+
+            txt.text = "" + toDamage;
+            txt.GetComponent<Animator>().Play("ANI_TakeDamageText", 0);
+            
             //if (!takingDamage)
             //{
             //    takeDamageTextAnim.SetBool("TakeDamage", true);
@@ -164,7 +168,7 @@ public class Soldier : MonoBehaviour {
             //    takingDamage = false;
             //    takeDamageTextAnim.SetBool("TakeDamage", true);
             //}
-            StartCoroutine(DamageTextGoAway());
+           //StartCoroutine(DamageTextGoAway());
             GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
             anim.SetTrigger("Hit");
             health -= toDamage;
@@ -176,18 +180,18 @@ public class Soldier : MonoBehaviour {
         }
     }
 
-    private IEnumerator DamageTextGoAway()
-    {
-        if (!takingDamage)
-        {
-            takingDamage = true;
-            yield return new WaitForSeconds(takeDamageTextAnim.GetCurrentAnimatorStateInfo(0).length);
-            takeDamageText.text = "";
-            takeDamageTextAnim.SetBool("TakeDamage", false);
-            takingDamage = false;
-        }
+    //private IEnumerator DamageTextGoAway()
+    //{
+    //    if (!takingDamage)
+    //    {
+    //        takingDamage = true;
+    //        yield return new WaitForSeconds(takeDamageTextAnim.GetCurrentAnimatorStateInfo(0).length);
+    //        takeDamageText.text = "";
+    //        takeDamageTextAnim.SetBool("TakeDamage", false);
+    //        takingDamage = false;
+    //    }
      
-    }
+    //}
 
     public void EquipWeapon()
     {
