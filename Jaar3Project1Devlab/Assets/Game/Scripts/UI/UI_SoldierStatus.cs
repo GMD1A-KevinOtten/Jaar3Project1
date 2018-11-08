@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UI_SoldierStatus : MonoBehaviour {
 
+    private Soldier mySoldier;
+    public Image nextSoldierDot;
     public Image soldierIcon;
     public Image healthBar;
     public Image deathMarker;
@@ -13,8 +15,26 @@ public class UI_SoldierStatus : MonoBehaviour {
     public bool alive = true;
     internal bool minimal { get; private set; }
 
+    void Start()
+    {
+        mySoldier = transform.root.GetComponent<Soldier>();
+    }
+
     public void UpdateStatus(Soldier mySoldier, Color teamColor)
     {
+        if(TeamManager.instance.teamIndex == mySoldier.myTeam)
+        {
+            nextSoldierDot.color = teamColor;
+            if(TeamManager.instance.allTeams[mySoldier.myTeam].allSoldiers[TeamManager.instance.allTeams[mySoldier.myTeam].soldierIndex] == transform.root.GetComponent<Soldier>())
+            {
+                nextSoldierDot.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            nextSoldierDot.gameObject.SetActive(false);
+        }
+
         if (!soldierIcon.gameObject.activeInHierarchy)
             soldierIcon.gameObject.SetActive(true);
 
