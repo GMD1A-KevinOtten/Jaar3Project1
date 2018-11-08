@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4607513202801646}
   - component: {fileID: 33517536027570170}
   - component: {fileID: 23360909574695426}
-  - component: {fileID: 135916850108806542}
+  - component: {fileID: 65589754287446584}
   - component: {fileID: 54545498607784318}
   - component: {fileID: 114626059150697916}
   m_Layer: 0
@@ -38,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1264276920800800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.217, y: -0.953, z: 2.648}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 59.78259, y: 52.22, z: 57.953964}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ff0b59048bef2444bfbb6a48c26070e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +85,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1264276920800800}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 51ca822e08465e74298b884a27b79a2e, type: 3}
 --- !u!54 &54545498607784318
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -101,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65589754287446584
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1264276920800800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11085571, y: 0.11256583, z: 0.17283073}
+  m_Center: {x: 0, y: 0.0000000018626451, z: 0}
 --- !u!114 &114626059150697916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,18 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletHoleSprites: []
   defaultDamage: 150
-  explosionRadius: 2
-  minDist: 0.5
-  maxDist: 2
---- !u!135 &135916850108806542
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1264276920800800}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  explosionRadius: 4
+  minDist: 1
+  maxDist: 3

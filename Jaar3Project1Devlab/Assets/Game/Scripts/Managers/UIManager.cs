@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour {
     public GameObject sniperScope;
 
     public UI_SoldierStatus SoldierStatusOnUI;
-    public List<Image> weaponIcons = new List<Image>();
+    public List<Transform> weaponIcons = new List<Transform>();
 
     [Header("Windows")]
     public RectTransform soldierStatusWindow;
@@ -116,9 +116,9 @@ public class UIManager : MonoBehaviour {
     public void InstantiateWeaponIcons(List<GameObject> availableWeapons)
     {
         //Clears the existing weapon icons so that the new ones can be instantiated
-        foreach(Image i in weaponIcons)
+        foreach(Transform t in weaponIcons)
         {
-            Destroy(i.gameObject);
+            Destroy(t.gameObject);
         }
 
         weaponIcons.Clear();
@@ -128,9 +128,9 @@ public class UIManager : MonoBehaviour {
         {
             GameObject newObject = Instantiate(weaponIconPrefab, weaponIconParent.transform.position, weaponIconPrefab.transform.rotation);
             newObject.transform.SetParent(weaponIconParent, false);
-            Image weaponIcon = newObject.GetComponentInChildren<Image>();
-            //weaponIcon.sprite = availableWeapons[i].icon;
-            weaponIcons.Add(weaponIcon);
+            Image weaponIcon = newObject.transform.GetChild(0).GetComponent<Image>();
+            weaponIcon.sprite = availableWeapons[i].GetComponent<Weapon>().weaponSprite;
+            weaponIcons.Add(newObject.transform);
         }
     }
 
