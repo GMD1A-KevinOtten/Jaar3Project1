@@ -379,10 +379,6 @@ public class TeamManager : MonoBehaviour {
         {
             mainCamera.transform.parent.SetParent(null);
             activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            if (activeSoldier.damageTurns != 0)
-            {
-                activeSoldier.TakeDamageOverTime();
-            }
             activeSoldier = null;
         }
 
@@ -442,6 +438,10 @@ public class TeamManager : MonoBehaviour {
                 activeSoldier = soldier;
                 activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
+                if (activeSoldier.damageTurns != 0)
+                {
+                    activeSoldier.TakeDamageOverTime();
+                }
             }
             
             mainCamera.cameraState = camState;

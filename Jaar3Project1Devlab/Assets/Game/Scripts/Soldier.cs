@@ -7,6 +7,7 @@ public class Soldier : MonoBehaviour {
     /// <summary>
     /// PlayerCamPos is always the first child of the object that contains the Soldier Class
     /// </summary>
+    private Color colorToUse;
     public int myTeam;
     public Transform thirdPersonCamPos;
     public Transform combatCameraPosition;
@@ -141,6 +142,7 @@ public class Soldier : MonoBehaviour {
     {
         damageTurns -= 1;
         print("damage overtime");
+        colorToUse = Color.green;
         TakeDamage(damageOverTime, new Vector3(0,0,0));
     }
     public void SetDamageOverTime(int turns, int damge)
@@ -155,6 +157,8 @@ public class Soldier : MonoBehaviour {
             TextMeshProUGUI txt = Instantiate(takeDamageText);
             txt.transform.SetParent(myCanvas.transform);
             txt.GetComponent<RectTransform>().transform.localPosition = Vector2.zero;
+            //kleur van text zet ik onderaan deze functie terug naar basis kleur en in damage over time naar groen voor poison effect
+            txt.color = colorToUse;
 
             txt.text = "" + toDamage;
             txt.GetComponent<Animator>().Play("ANI_TakeDamageText", 0);
@@ -172,6 +176,9 @@ public class Soldier : MonoBehaviour {
             GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
             anim.SetTrigger("Hit");
             health -= toDamage;
+
+            //base kleur van de tekst pas aan als je niet rood wilt. Ik pas de kleur aan in damage over time voor poison damage feedback
+            colorToUse = Color.red;
 
             if (health <= 0)
             {
