@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Soldier : MonoBehaviour {
 
     /// <summary>
@@ -28,6 +28,9 @@ public class Soldier : MonoBehaviour {
     public bool canShoot;
     public int damageTurns;
     public int damageOverTime;
+    public TextMeshProUGUI takeDamageText;
+    private Animator takeDamageTextAnim;
+    private bool takingDamage;
     
     [Header("Weapon properties")]
     public List<GameObject> starterWeaponPrefabs = new List<GameObject>();
@@ -48,6 +51,7 @@ public class Soldier : MonoBehaviour {
     {
         Movement = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+        takeDamageTextAnim = takeDamageText.GetComponent<Animator>();
         maxHealth = health;
 
         InstantiateStarterWeapons();
@@ -148,6 +152,9 @@ public class Soldier : MonoBehaviour {
     {
         if(isDead == false)
         {
+            takeDamageText.text = "" + toDamage;
+            takeDamageTextAnim.SetBool("TakeDamage", true);
+            StartCoroutine(DamageTextGoAway());
             GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
             anim.SetTrigger("Hit");
             health -= toDamage;
@@ -157,6 +164,19 @@ public class Soldier : MonoBehaviour {
                 Die(inpact);
             }
         }
+    }
+
+    private IEnumerator DamageTextGoAway()
+    {
+        if (!takingDamage)
+        {
+            takingDamage = true;
+            yield return new WaitForSeconds(takeDamageTextAnim.GetCurrentAnimatorStateInfo(0).length);
+            takeDamageText.text = "";
+            takeDamageTextAnim.SetBool("TakeDamage", false);
+            takingDamage = false;
+        }
+     
     }
 
     public void EquipWeapon()
