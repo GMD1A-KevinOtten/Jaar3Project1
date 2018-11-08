@@ -366,7 +366,7 @@ MonoBehaviour:
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 15671
-  bulletVelocity: 50
+  bulletVelocity: 100
   bulletSpread: {x: 1, y: 1}
   mySoldier: {fileID: 0}
   recoil: 0

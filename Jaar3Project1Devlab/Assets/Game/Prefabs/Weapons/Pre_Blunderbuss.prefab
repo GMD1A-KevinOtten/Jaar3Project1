@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 114034851891174534}
   - component: {fileID: 54903655127904190}
   m_Layer: 11
-  m_Name: Pre_Blunderbuss
+  m_Name: PRE_Blunderbuss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 15671
-  bulletVelocity: 40
+  bulletVelocity: 80
   bulletSpread: {x: 20, y: 20}
   mySoldier: {fileID: 0}
   recoil: 0

@@ -13,49 +13,49 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: BigGun
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsAiming
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: WeaponID
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Shoot
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Reload
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Switch
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Hit
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1555,9 +1555,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.05449897
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.9408657
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1699,9 +1699,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.10030675
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.8913769
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2266,9 +2266,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.07549423
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.9245058
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2413,9 +2413,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.117893696
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.8890593
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2611,9 +2611,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.04018417
   m_TransitionOffset: 0
-  m_ExitTime: 0.24999994
+  m_ExitTime: 0.87085885
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -3304,9 +3304,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.091854155
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.90814584
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -3670,7 +3670,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ANI_Shooting_Makarov
-  m_Speed: 0.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101719273536139584}
@@ -3857,7 +3857,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ANI_Shooting_Makarov 0
-  m_Speed: 0.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101963069682638976}
@@ -4785,7 +4785,7 @@ AnimatorStateMachine:
     m_Position: {x: -996, y: 156, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102423360760313848}
-    m_Position: {x: 888, y: 84, z: 0}
+    m_Position: {x: 924, y: 84, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102142017172435110}
     m_Position: {x: -792, y: -120, z: 0}
@@ -4812,13 +4812,13 @@ AnimatorStateMachine:
     m_Position: {x: -1200, y: 444, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102584193813272250}
-    m_Position: {x: 888, y: 0, z: 0}
+    m_Position: {x: 924, y: -24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102383097269135534}
-    m_Position: {x: -1200, y: 204, z: 0}
+    m_Position: {x: -1224, y: 216, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102583164532165286}
-    m_Position: {x: -1200, y: 120, z: 0}
+    m_Position: {x: -1224, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102654653493156330}
     m_Position: {x: -1200, y: 360, z: 0}

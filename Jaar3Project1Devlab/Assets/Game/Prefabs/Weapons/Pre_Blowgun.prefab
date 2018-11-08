@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 114126335986418344}
   - component: {fileID: 54501386545556104}
   m_Layer: 11
-  m_Name: Pre_Blowgun
+  m_Name: PRE_Blowgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   crosshairRayMask:
     serializedVersion: 2
     m_Bits: 7479
-  bulletVelocity: 25
+  bulletVelocity: 50
   bulletSpread: {x: 0, y: 0}
   mySoldier: {fileID: 0}
   recoil: 0
@@ -306,6 +306,7 @@ MonoBehaviour:
   clipMax: 1
   newGameObject: {fileID: 0}
   blowGunCam: {fileID: 20989014625891284}
+  shot: 0
 --- !u!114 &114142855395154126
 MonoBehaviour:
   m_ObjectHideFlags: 1
