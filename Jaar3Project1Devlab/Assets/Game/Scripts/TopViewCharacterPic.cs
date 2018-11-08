@@ -14,6 +14,8 @@ public class TopViewCharacterPic : MonoBehaviour {
 
        
     }
+
+	//This is old and only use for refrence incase needed
     void Update () 
 	{
 
