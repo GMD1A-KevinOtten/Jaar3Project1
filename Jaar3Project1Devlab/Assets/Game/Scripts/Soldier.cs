@@ -219,7 +219,10 @@ public class Soldier : MonoBehaviour {
                 rid.isKinematic = false;
             }
         }
-        hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000, hitPosition.point, 3);
+        if(hitBone != null)
+        {
+            hitBone.GetComponent<Rigidbody>().AddExplosionForce(20000, hitPosition.point, 3);
+        }
         foreach (Team team in TeamManager.instance.allTeams)
         {
             if(team.SoldierCheck(this) == true)
