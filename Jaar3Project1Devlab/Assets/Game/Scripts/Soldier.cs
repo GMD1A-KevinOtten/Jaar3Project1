@@ -184,11 +184,16 @@ public class Soldier : MonoBehaviour {
             {
                 if(this == TeamManager.instance.activeSoldier)
                 {
-                    TeamManager.instance.EndTheTurn();
+                    Invoke("WaitToEndTurn", 3);
                 }
                 Die(inpact);
             }
         }
+    }
+
+    private void WaitToEndTurn()
+    {
+        TeamManager.instance.EndTheTurn();
     }
 
     //private IEnumerator DamageTextGoAway()
