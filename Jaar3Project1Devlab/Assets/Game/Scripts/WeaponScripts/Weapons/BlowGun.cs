@@ -54,7 +54,8 @@ public class BlowGun : Weapon {
             GetComponentInParent<IKControl>().activateIK = false;
         }
         gameObject.transform.SetParent(null);
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,2000));
+        blowGunCam.transform.SetParent(null);
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,500));
         mySoldier.canShoot = false;
         mySoldier.currentWeaponIndex = 0;
         mySoldier.EquipWeapon();
@@ -104,6 +105,7 @@ public class BlowGun : Weapon {
     {
         mySoldier.canSwitch = true;
         mySoldier.canShoot = false;
+        Destroy(blowGunCam.gameObject);
         Destroy(this.gameObject);
     }
 }
