@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour {
 	public bool canMoveAndRotate;
     public bool canMove;
     private Soldier soldier;
+    private AnimatorStateInfo stateInfo;
 
     private void Awake()
     {
@@ -37,7 +38,10 @@ public class Movement : MonoBehaviour {
 		Vector3 move = new Vector3(xInput , 0 ,zInput);
         soldier.SetMoveAnimation(move);
         transform.Translate(move);
-	}
+
+       soldier.anim.SetFloat("VerticalAxisMovement", Input.GetAxis("Vertical"));
+
+    }
 
 	public void SoldierRotation()
 	{
