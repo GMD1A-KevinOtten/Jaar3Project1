@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour {
     public TextMeshProUGUI winnerText;
 
     public GameObject pausePanel;
-    private bool settingsOpen;
+    public bool settingsOpen;
     private void Awake()
     {
         if (instance == null)

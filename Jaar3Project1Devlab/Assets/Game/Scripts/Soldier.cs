@@ -96,7 +96,7 @@ public class Soldier : MonoBehaviour {
 
     public void CombatToggle()
     {
-        if(canShoot == false)
+        if(canShoot == false  && !UIManager.instance.settingsOpen)
         {   
             canShoot = true;
             anim.SetBool("IsAiming", true);
