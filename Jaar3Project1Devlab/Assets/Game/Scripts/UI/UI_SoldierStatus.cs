@@ -30,7 +30,14 @@ public class UI_SoldierStatus : MonoBehaviour {
         }
 
         soldierIcon.color = teamColor;
-        currentClipSize.text = mySoldier.equippedWeapon.currentClip.ToString();
+        if(currentClipSize != null)
+        {
+            currentClipSize.text = mySoldier.equippedWeapon.currentClip.ToString();
+        }
+        else
+        {
+            Debug.LogError("There is no currentclipsize text");
+        }
         weaponImage.sprite = mySoldier.equippedWeapon.weaponSprite;
 
         float percent = (float)mySoldier.health / mySoldier.maxHealth;

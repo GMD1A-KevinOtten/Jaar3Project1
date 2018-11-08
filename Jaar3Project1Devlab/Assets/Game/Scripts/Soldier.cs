@@ -154,7 +154,16 @@ public class Soldier : MonoBehaviour {
         if(isDead == false)
         {
             takeDamageText.text = "" + toDamage;
-            takeDamageTextAnim.SetBool("TakeDamage", true);
+            takeDamageTextAnim.Play("ANI_TakeDamageText", 0);
+            //if (!takingDamage)
+            //{
+            //    takeDamageTextAnim.SetBool("TakeDamage", true);
+            //}
+            //else
+            //{
+            //    takingDamage = false;
+            //    takeDamageTextAnim.SetBool("TakeDamage", true);
+            //}
             StartCoroutine(DamageTextGoAway());
             GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
             anim.SetTrigger("Hit");
