@@ -48,18 +48,24 @@ public class Bullet : MonoBehaviour {
             case ("Sand"):
                 EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("BulletImpact Sand"), gotHit.contacts[0].point);
                 EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("BulletImpact Sand"), gotHit.contacts[0].point, gotHit.contacts[0].normal);
+                EffectsManager.instance.CreateBulletHole(bulletHoleSprites, gotHit.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, gotHit.contacts[0].normal), materialName);
                 break;
             case ("Metal"):
                 EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("BulletImpact Metal"), gotHit.contacts[0].point);
                 EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("BulletImpact Metal"), gotHit.contacts[0].point, gotHit.contacts[0].normal);
+                EffectsManager.instance.CreateBulletHole(bulletHoleSprites, gotHit.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, gotHit.contacts[0].normal), materialName);
                 break;
             case ("Wood"):
                 EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("BulletImpact Wood"), gotHit.contacts[0].point);
                 EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("BulletImpact Wood"), gotHit.contacts[0].point, gotHit.contacts[0].normal);
+                EffectsManager.instance.CreateBulletHole(bulletHoleSprites, gotHit.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, gotHit.contacts[0].normal), materialName);
+                break;
+            case ("Terrain"):
+                EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("BulletImpact Sand"), gotHit.contacts[0].point);
+                EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("BulletImpact Sand"), gotHit.contacts[0].point, gotHit.contacts[0].normal);
                 break;
         }
 
-        EffectsManager.instance.CreateBulletHole(bulletHoleSprites, gotHit.contacts[0].point, Quaternion.FromToRotation(Vector3.forward, gotHit.contacts[0].normal), materialName);
         Destroy(gameObject);
     }
 

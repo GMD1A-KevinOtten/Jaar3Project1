@@ -8,6 +8,7 @@ TagManager:
   - Metal
   - Person
   - Wood
+  - Terrain
   layers:
   - Default
   - TransparentFX

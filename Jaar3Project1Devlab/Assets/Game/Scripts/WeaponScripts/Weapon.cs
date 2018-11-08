@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour {
     private RaycastHit hit;
     public GameObject newGameObject;
 
+    private bool reloadTutorial;
 
     public virtual void Start() 
     {
@@ -136,6 +137,11 @@ public class Weapon : MonoBehaviour {
         }
         else
         {
+            if (!reloadTutorial)
+            {
+                UIManager.instance.ShowMessageOnUI("Press R to reload the weapon.", 5);
+                reloadTutorial = true;
+            }
             EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Empty Clip"), transform.position);
         }
     }

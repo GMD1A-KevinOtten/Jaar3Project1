@@ -143,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4139002836149398}
   - component: {fileID: 20818814566601820}
+  - component: {fileID: 114630219484595430}
   m_Layer: 0
   m_Name: ThirdPersonTankCamera
   m_TagString: Metal
@@ -701,3 +702,15 @@ MonoBehaviour:
   clamp: 1
   clampX: 45
   clampY: 15
+--- !u!114 &114630219484595430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1916474475380242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: d20d0882f72c05943b025257e24f7d48, type: 2}
