@@ -58,7 +58,7 @@ public class Explosive : Weapon {
             if (Input.GetButtonDown("Fire2"))
             {
                 print("RightKlick");
-                if (mySoldier.canShoot != true)
+                if (mySoldier.canShoot != true && mySoldier.canSwitch)
                 {
                     mySoldier.CombatToggle();
                 }

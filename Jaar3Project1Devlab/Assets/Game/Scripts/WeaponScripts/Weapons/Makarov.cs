@@ -17,7 +17,7 @@ public class Makarov : Weapon {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true && reloading == false)
+            if(mySoldier.canShoot != true && reloading == false && mySoldier.canSwitch)
             {
                 mySoldier.CombatToggle();
                 TeamManager.instance.mainCamera.cameraState = CameraMovement.CameraStates.CombatVieuw;

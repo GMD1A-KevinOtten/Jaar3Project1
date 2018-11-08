@@ -36,7 +36,7 @@ public class BlowGun : Weapon {
         }
         if(Input.GetButtonDown("Fire2"))
         {
-            if(mySoldier.canShoot != true && !shot)
+            if(mySoldier.canShoot == false && !shot && mySoldier.canSwitch)
             {
                 mySoldier.CombatToggle();
                 SpecialFunctionalityToggle();
@@ -61,12 +61,6 @@ public class BlowGun : Weapon {
         mySoldier.canSwitch = false;
         mySoldier.anim.SetBool("IsAiming",false);
         Invoke("InvokeFunction" , 2);
-    }
-
-    public void BlowGunAfterAfterShot()
-    {
-        print("test1");
-        Invoke("InvokeFunction" , 3);
     }
 
     public void InvokeFunction()
