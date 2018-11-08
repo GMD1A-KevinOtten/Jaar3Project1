@@ -21,7 +21,10 @@ GameObject:
   - component: {fileID: 4133616743976996}
   - component: {fileID: 33922632718935340}
   - component: {fileID: 23227300464650212}
-  - component: {fileID: 64280402702539050}
+  - component: {fileID: 65074515704902026}
+  - component: {fileID: 65256277045169130}
+  - component: {fileID: 65429850732234072}
+  - component: {fileID: 65575016401778256}
   m_Layer: 12
   m_Name: Tractor Wheel
   m_TagString: Sand
@@ -37,11 +40,11 @@ Transform:
   m_GameObject: {fileID: 1597597230141972}
   m_LocalRotation: {x: -0, y: -0, z: -0.16815755, w: 0.9857602}
   m_LocalPosition: {x: -0.18139574, y: 4.073038, z: 0}
-  m_LocalScale: {x: 1.1000012, y: 1.1000012, z: 1.1}
+  m_LocalScale: {x: 1.1000015, y: 1.1000017, z: 1.1000003}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -111.70701}
+  m_LocalEulerAnglesHint: {x: -46.564003, y: -36.831, z: -51.512}
 --- !u!23 &23227300464650212
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -84,8 +87,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1597597230141972}
   m_Mesh: {fileID: 4300000, guid: ebda58bb5966125499fae194f0fe5279, type: 3}
---- !u!64 &64280402702539050
-MeshCollider:
+--- !u!65 &65074515704902026
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -93,8 +96,42 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: -1
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: ebda58bb5966125499fae194f0fe5279, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.6170819, y: 0.44539434, z: 1.0821372}
+  m_Center: {x: 0.0000034457616, y: -0.78397816, z: -0.031520035}
+--- !u!65 &65256277045169130
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597597230141972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6170819, y: 1.1552247, z: 0.4523817}
+  m_Center: {x: 0.0000040205105, y: -0.019614104, z: 0.7603188}
+--- !u!65 &65429850732234072
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597597230141972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6170819, y: 1.1552247, z: 0.42620307}
+  m_Center: {x: 0.0000040232485, y: -0.019614307, z: -0.79783267}
+--- !u!65 &65575016401778256
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1597597230141972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6170819, y: 0.44539434, z: 1.0821372}
+  m_Center: {x: 0.0000034457616, y: 0.78, z: -0.031520035}

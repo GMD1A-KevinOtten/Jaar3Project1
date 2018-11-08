@@ -14,7 +14,7 @@ public class TeamManager : MonoBehaviour {
     public float movementSpeed;
 
     [Header("Team Properties")]
-    private bool gameOver;
+    public bool gameOver;
     public int teamCount;
     public int teamIndex;
     public int lastTeamIndex;
@@ -182,7 +182,9 @@ public class TeamManager : MonoBehaviour {
         }
         if(teamsAlive < 2)
         {
-           StartCoroutine(GameOverWait(teamsAlive, livingTeam));
+            print("infinity test 2");
+            gameOver = true;
+            StartCoroutine(GameOverWait(teamsAlive, livingTeam));
         }
     }
 
@@ -192,13 +194,11 @@ public class TeamManager : MonoBehaviour {
         EndTheTurn();
         if(teamsAlive == 0)
         {
-            gameOver = true;
             mainCamera.cantMoveCamera = true;
             GameManager.Instance.GameOverEvent(0);
         }
         else if(teamsAlive == 1)
         {
-            gameOver = true;
             mainCamera.cantMoveCamera = true;
             GameManager.Instance.GameOverEvent(livingTeam.allSoldiers[0].myTeam += 1);
         }
@@ -282,50 +282,54 @@ public class TeamManager : MonoBehaviour {
     /// </summary>
     public void NextTeam()
     {
-        ResetTimer();
-
-        if(activeSoldier != null)
+        if(!gameOver)
         {
-            activeSoldier.DisableMovementAnimation();
-        }
+            print("infinity test 1");
+            ResetTimer();
 
-        Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
-        soldier.soldierMovement.canMoveAndRotate = false;
-        soldier.isActive = false;
-
-        if (teamIndex + 1 < allTeams.Count)
-        {
-            teamIndex += 1;
-            if(allTeams[teamIndex].teamAlive == false)
+            if(activeSoldier != null)
             {
-                NextTeam();
+                activeSoldier.DisableMovementAnimation();
+            }
+
+            Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
+            soldier.soldierMovement.canMoveAndRotate = false;
+            soldier.isActive = false;
+
+            if (teamIndex + 1 < allTeams.Count)
+            {
+                teamIndex += 1;
+                if(allTeams[teamIndex].teamAlive == false)
+                {
+                    NextTeam();
+                }
+                else
+                {
+                    allTeams[lastTeamIndex].NextSoldier();
+                    if(allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].isDead == true)
+                    {
+                        allTeams[teamIndex].NextSoldier();
+                    }
+                }
             }
             else
             {
-                allTeams[lastTeamIndex].NextSoldier();
-                if(allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].isDead == true)
+                teamIndex = 0;
+                if(allTeams[teamIndex].teamAlive == false)
                 {
-                    allTeams[teamIndex].NextSoldier();
+                    NextTeam();
+                }
+                else
+                {
+                    allTeams[lastTeamIndex].NextSoldier();
+                    if(allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].isDead == true)
+                    {
+                        allTeams[teamIndex].NextSoldier();
+                    }
                 }
             }
+            ToTopView(true);
         }
-        else
-        {
-            teamIndex = 0;
-            if(allTeams[teamIndex].teamAlive == false)
-            {
-                NextTeam();
-            }
-            else
-            {
-                allTeams[lastTeamIndex].NextSoldier();
-                if(allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex].isDead == true)
-                {
-                    allTeams[teamIndex].NextSoldier();
-                }
-            }
-        }
-        ToTopView(true);
     }
 
     /// <summary>

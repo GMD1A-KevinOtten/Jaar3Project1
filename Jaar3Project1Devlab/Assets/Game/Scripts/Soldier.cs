@@ -165,7 +165,6 @@ public class Soldier : MonoBehaviour {
         if(health > 0)
         {
             canSwitch = true;
-            print(previouseWeaponIndex);
             if (previouseWeaponIndex <= availableWeapons.Count - 1)
             {
                 availableWeapons[previouseWeaponIndex].SetActive(false);

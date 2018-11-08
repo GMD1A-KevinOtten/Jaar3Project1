@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65837337483588856}
   - component: {fileID: 96143263579885862}
   m_Layer: 9
-  m_Name: Sniper Bullet Prefab
+  m_Name: Tommygun Bullet Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,5 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletHoleSprites:
-  - {fileID: 21300000, guid: 7160fb95235da0446bcbfb52e4346629, type: 3}
-  defaultDamage: 25
+  - {fileID: 21300000, guid: d33a99516af7e7942a45c882eb4defe3, type: 3}
+  - {fileID: 21300000, guid: 6909f3e8109bed84c826b14b996dd189, type: 3}
+  - {fileID: 21300000, guid: d0812b1e935fddb41876259c2e4185b3, type: 3}
+  defaultDamage: 5

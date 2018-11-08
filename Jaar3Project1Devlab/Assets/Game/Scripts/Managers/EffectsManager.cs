@@ -35,7 +35,7 @@ public class EffectsManager : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+           // DontDestroyOnLoad(this);
         }
         else
         {
@@ -188,12 +188,13 @@ public class EffectsManager : MonoBehaviour {
     public Transform CreateBulletHole(Sprite[] possibleSprites, Vector3 spawnPostion, Quaternion spawnRotation, string materialName)
     {
         GameObject newObject = Instantiate(bulletHolePrefab, spawnPostion, spawnRotation);
-        newObject.name = "Bullethole " + (activeBulletHoles.Count - 1).ToString();
+        print(newObject);
+        newObject.name = "Bullethole " + (activeBulletHoles.Count).ToString();
         SpriteRenderer sr = newObject.GetComponent<SpriteRenderer>();
         sr.sprite = possibleSprites[Random.Range(0, possibleSprites.Length)];
         sr.color = FindBulletHoleColor(materialName).bulletholeColor;
         UpdateBulletHoleList(newObject.transform);
-
+        print("Bullethole");
         return newObject.transform;
     }
 
