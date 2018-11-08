@@ -162,15 +162,19 @@ public class Soldier : MonoBehaviour {
     public void EquipWeapon()
     {
         //play SwitchSound
-        canSwitch = true;
-        print(previouseWeaponIndex);
-        if(previouseWeaponIndex <= availableWeapons.Count - 1)
+        if(health > 0)
         {
-            availableWeapons[previouseWeaponIndex].SetActive(false);
+            canSwitch = true;
+            print(previouseWeaponIndex);
+            if (previouseWeaponIndex <= availableWeapons.Count - 1)
+            {
+                availableWeapons[previouseWeaponIndex].SetActive(false);
+            }
+            equippedWeapon = availableWeapons[currentWeaponIndex].GetComponent<Weapon>();
+            availableWeapons[currentWeaponIndex].SetActive(true);
+            anim.SetInteger("WeaponID", equippedWeapon.gunID);
         }
-        equippedWeapon = availableWeapons[currentWeaponIndex].GetComponent<Weapon>();
-        availableWeapons[currentWeaponIndex].SetActive(true);
-        anim.SetInteger("WeaponID",equippedWeapon.gunID);
+     
     }
 
     public void InstantiateStarterWeapons()
