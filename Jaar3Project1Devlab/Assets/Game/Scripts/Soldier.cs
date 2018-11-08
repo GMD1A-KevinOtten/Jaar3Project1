@@ -182,6 +182,10 @@ public class Soldier : MonoBehaviour {
 
             if (health <= 0)
             {
+                if(this == TeamManager.instance.activeSoldier)
+                {
+                    TeamManager.instance.EndTheTurn();
+                }
                 Die(inpact);
             }
         }
