@@ -20,9 +20,11 @@ public class Team {
         {
             soldierIndex = 0;
         }
+        
+        
         if(teamAlive == true && allSoldiers[soldierIndex].isDead == true)
-        {
-                NextSoldier();
+        {                
+            NextSoldier();
         }
     }
 

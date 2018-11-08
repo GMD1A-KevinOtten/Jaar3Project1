@@ -87,6 +87,7 @@ public class Explosive : Weapon {
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview)
         {
             mySoldier.canShoot = true;
+            print("ok");
             TeamManager.instance.EndTheTurn();
         }
         Invoke("SelfDestruct", 3);
