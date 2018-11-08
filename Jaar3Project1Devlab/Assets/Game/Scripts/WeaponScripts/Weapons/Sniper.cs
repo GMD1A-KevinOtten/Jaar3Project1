@@ -8,14 +8,16 @@ public class Sniper : Weapon {
 
     public Camera cameraScope;
     public bool aiming;
+    public bool alreadyShot;
 
     public override void Inputs()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if(mySoldier.canShoot == true)
+            if(mySoldier.canShoot == true && alreadyShot == false)
             {
                 ShootBullet();
+                alreadyShot = true;
             }
         }
         if(Input.GetButtonDown("Fire2"))
@@ -62,6 +64,7 @@ public class Sniper : Weapon {
                 cameraScope.GetComponent<Camera>().depth = -1;
                 UIManager.instance.showCroshair = true;
                 aiming = false;
+                alreadyShot = false;
             }
             //Play sound
         }

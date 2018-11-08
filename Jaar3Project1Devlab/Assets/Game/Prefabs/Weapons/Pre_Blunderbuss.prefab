@@ -259,5 +259,5 @@ MonoBehaviour:
   reloadSounds:
   - {fileID: 11400000, guid: b6cb2fb2d30ad534bb21b2d1a3f195da, type: 2}
   currentClip: 0
-  clipMax: 20
+  clipMax: 16
   newGameObject: {fileID: 0}
