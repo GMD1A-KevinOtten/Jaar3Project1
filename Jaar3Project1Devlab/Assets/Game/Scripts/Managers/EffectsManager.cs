@@ -80,6 +80,18 @@ public class EffectsManager : MonoBehaviour {
         source.volume = toPlay.defaultVolume;
         source.transform.position = playPos;
         source.spatialBlend = 1;
+        source.minDistance = 1;
+
+        source.Play();
+    }
+    public void PlayAudio3D(CustomAudioClip toPlay, Vector3 playPos, float minDistance)
+    {
+        AudioSource source = GetEmptyAudiosource();
+        source.clip = toPlay.clip;
+        source.volume = toPlay.defaultVolume;
+        source.transform.position = playPos;
+        source.spatialBlend = 1;
+        source.minDistance = minDistance;
 
         source.Play();
     }
@@ -188,13 +200,12 @@ public class EffectsManager : MonoBehaviour {
     public Transform CreateBulletHole(Sprite[] possibleSprites, Vector3 spawnPostion, Quaternion spawnRotation, string materialName)
     {
         GameObject newObject = Instantiate(bulletHolePrefab, spawnPostion, spawnRotation);
-        print(newObject);
         newObject.name = "Bullethole " + (activeBulletHoles.Count).ToString();
         SpriteRenderer sr = newObject.GetComponent<SpriteRenderer>();
         sr.sprite = possibleSprites[Random.Range(0, possibleSprites.Length)];
         sr.color = FindBulletHoleColor(materialName).bulletholeColor;
         UpdateBulletHoleList(newObject.transform);
-        print("Bullethole");
+
         return newObject.transform;
     }
 

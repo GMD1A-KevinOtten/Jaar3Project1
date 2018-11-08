@@ -63,7 +63,7 @@ public class TankShell : Bullet {
 
     public void OnCollisionEnter(Collision col)
     {
-        EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Explosion01"), transform.position);
+        EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Explosion01"), transform.position, 30);
         EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("Explosion01"), transform.position, Vector3.up);
         TankShellEffect(col);
     }
