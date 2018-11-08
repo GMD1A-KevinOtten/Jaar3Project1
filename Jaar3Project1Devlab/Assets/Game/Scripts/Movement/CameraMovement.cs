@@ -86,13 +86,17 @@ public class CameraMovement : MonoBehaviour {
         {
             if(gunToRotate != null)
             {
-                if (gunToRotate.transform.root.GetComponent<Soldier>().isActive)
+                if(gunToRotate.transform.root.GetComponent<Soldier>() != null)
                 {
-                    if (!gunToRotate.isTank)
+                    if (gunToRotate.transform.root.GetComponent<Soldier>().isActive)
                     {
-                        gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                        if (!gunToRotate.isTank)
+                        {
+                            gunToRotate.transform.localRotation = Quaternion.Euler(xRotInput, 0, 0);
+                        }
                     }
                 }
+               
             }
         }
     }
