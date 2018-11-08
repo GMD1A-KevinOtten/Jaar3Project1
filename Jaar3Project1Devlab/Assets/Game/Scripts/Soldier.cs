@@ -129,6 +129,7 @@ public class Soldier : MonoBehaviour {
             {   
                 equippedWeapon.SpecialFunctionalityToggle();
             }
+            anim.ResetTrigger("Shoot");
         }
     }
 
