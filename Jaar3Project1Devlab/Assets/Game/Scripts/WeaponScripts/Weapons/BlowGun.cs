@@ -59,6 +59,7 @@ public class BlowGun : Weapon {
         mySoldier.currentWeaponIndex = 0;
         mySoldier.EquipWeapon();
         mySoldier.canSwitch = false;
+        print("switch 2");
         mySoldier.anim.SetBool("IsAiming",false);
         Invoke("InvokeFunction" , 2);
     }
