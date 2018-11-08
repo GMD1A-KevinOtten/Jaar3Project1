@@ -35,6 +35,7 @@ public class TeamManager : MonoBehaviour {
     public TextMeshProUGUI betweenTurnsText;
     public float textDisplayTime = 1.5F;
     private bool textSet;
+    private bool inTopView;
 
     public Soldier activeSoldier;
     public delegate void EndTurn();
@@ -79,8 +80,17 @@ public class TeamManager : MonoBehaviour {
     private IEnumerator UIUpdateDelay()
     {
         yield return new WaitForSeconds(0.1f);
-        UIManager.instance.ToggleMouse();
-        ToTopView(false);
+        UIManager.instance.UpdateWorldSpaceStatuses(allTeams);
+
+        if (inTopView)
+        {
+            UIManager.instance.HideCrosshair();
+
+            UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, false);
+            UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
+            UIManager.instance.ToggleMouse();
+        }
+
     }
 
     void Update()
