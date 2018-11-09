@@ -170,6 +170,7 @@ public class Soldier : MonoBehaviour {
             GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
 
             TextMeshProUGUI txt = Instantiate(takeDamageText);
+
             txt.transform.SetParent(myCanvas.transform);
             txt.GetComponent<RectTransform>().transform.localPosition = Vector2.zero;
             //kleur van text zet ik onderaan deze functie terug naar basis kleur en in damage over time naar groen voor poison effect
@@ -178,7 +179,7 @@ public class Soldier : MonoBehaviour {
             txt.text = "" + toDamage;
             txt.GetComponent<Animator>().Play("ANI_TakeDamageText", 0);
             
-            Destroy(txt, 2);
+            Destroy(txt.gameObject, 2);
             //base kleur van de tekst pas aan als je niet rood wilt. Ik pas de kleur aan in damage over time voor poison damage feedback
             colorToUse = Color.red;
 
