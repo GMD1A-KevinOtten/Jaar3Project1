@@ -9,57 +9,78 @@ public class Sniper : Weapon {
     public Camera cameraScope;
     public bool aiming;
     public bool alreadyShot;
-    public float timeToHoldBreath;
+    public float timeToHoldBreathMax;
+    public float timeToHoldBreathcurrent;
     public float holdBreathSpeed;
+
+    public override void Start() 
+    {
+        base.Start();
+        timeToHoldBreathcurrent = timeToHoldBreathMax;
+    }
 
     public override void Inputs()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(mySoldier.isActive)
         {
-            if(mySoldier.canShoot == true && alreadyShot == false)
+            if (Input.GetButtonDown("Fire1"))
             {
-                ShootBullet();
-                alreadyShot = true;
-            }
-        }
-        if(Input.GetButtonDown("Fire2"))
-        {
-            if(mySoldier.canShoot != true && mySoldier.canSwitch == true && !aiming)
-            {
-                if(currentClip != 0)
+                if(mySoldier.canShoot == true && alreadyShot == false)
                 {
-                    mySoldier.CombatToggle();
-                }
-                
-            }
-        }
-        if(Input.GetButtonDown("R"))
-        {
-            if(mySoldier.canShoot != true)
-            {
-                if(currentClip != clipMax)
-                {
-                    Reload();
+                    ShootBullet();
+                    alreadyShot = true;
                 }
             }
-        }
-        if(Input.GetButton("Shift"))
-        {
-            SlowAimingAniamtion();
-        }
-        if(Input.GetButtonUp("Shift"))
-        {
-            ResetAimingAnimation();
+            if(Input.GetButtonDown("Fire2"))
+            {
+                if(mySoldier.canShoot != true && mySoldier.canSwitch == true && !aiming)
+                {
+                    if(currentClip != 0)
+                    {
+                        mySoldier.CombatToggle();
+                    }
+                    
+                }
+            }
+            if(Input.GetButtonDown("R"))
+            {
+                if(mySoldier.canShoot != true)
+                {
+                    if(currentClip != clipMax)
+                    {
+                        Reload();
+                    }
+                }
+            }
+            if(Input.GetButton("Shift") && aiming)
+            {
+                SlowAimingAniamtion();
+            }
+            if(Input.GetButtonUp("Shift") && aiming)
+            {
+                ResetAimingAnimation();
+            }
         }
     }
 
     public void SlowAimingAniamtion()
     {
-        mySoldier.anim.SetFloat("SniperHoldBreath", holdBreathSpeed);
+        if(timeToHoldBreathcurrent > 0)
+        {
+            timeToHoldBreathcurrent -= Time.deltaTime;
+            mySoldier.anim.SetFloat("SniperHoldBreath", holdBreathSpeed);
+        }
+        else if(mySoldier.anim.GetFloat("SniperHoldBreath") != 1)
+        {
+            mySoldier.anim.SetFloat("SniperHoldBreath", 1);
+        }
     }
     public void ResetAimingAnimation()
     {
-        mySoldier.anim.SetFloat("SniperHoldBreath", 1);
+        if(mySoldier.anim.GetFloat("SniperHoldBreath") != 1)
+        {
+            mySoldier.anim.SetFloat("SniperHoldBreath", 1);
+        }
     }
     
 
@@ -83,6 +104,8 @@ public class Sniper : Weapon {
                 UIManager.instance.showCroshair = true;
                 aiming = false;
                 alreadyShot = false;
+                timeToHoldBreathcurrent = timeToHoldBreathMax;
+                ResetAimingAnimation();
             }
             //Play sound
         }

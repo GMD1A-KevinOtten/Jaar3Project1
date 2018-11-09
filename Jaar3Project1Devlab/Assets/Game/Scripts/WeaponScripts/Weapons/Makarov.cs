@@ -8,19 +8,22 @@ public class Makarov : Weapon {
 
     public override void Inputs()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(mySoldier.isActive)
         {
-            if(mySoldier.canShoot == true)
+            if (Input.GetButtonDown("Fire1"))
             {
-                ShootBullet();
+                if(mySoldier.canShoot == true)
+                {
+                    ShootBullet();
+                }
             }
-        }
-        if(Input.GetButtonDown("Fire2"))
-        {
-            if(mySoldier.canShoot != true && reloading == false && mySoldier.canSwitch)
+            if(Input.GetButtonDown("Fire2"))
             {
-                mySoldier.CombatToggle();
-                TeamManager.instance.mainCamera.cameraState = CameraMovement.CameraStates.CombatVieuw;
+                if(mySoldier.canShoot != true && reloading == false && mySoldier.canSwitch)
+                {
+                    mySoldier.CombatToggle();
+                    TeamManager.instance.mainCamera.cameraState = CameraMovement.CameraStates.CombatVieuw;
+                }
             }
         }
     }

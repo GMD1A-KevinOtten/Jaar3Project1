@@ -25,21 +25,24 @@ public class BlowGun : Weapon {
 
     public override void Inputs()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if(mySoldier.isActive)
         {
-            if(mySoldier.canShoot == true)
+            if (Input.GetButtonDown("Fire1"))
             {
-                shot = true;
-                ShootBullet();
-                BlowGunAfterShot();
+                if(mySoldier.canShoot == true)
+                {
+                    shot = true;
+                    ShootBullet();
+                    BlowGunAfterShot();
+                }
             }
-        }
-        if(Input.GetButtonDown("Fire2"))
-        {
-            if(mySoldier.canShoot == false && !shot && mySoldier.canSwitch)
+            if(Input.GetButtonDown("Fire2"))
             {
-                mySoldier.CombatToggle();
-                SpecialFunctionalityToggle();
+                if(mySoldier.canShoot == false && !shot && mySoldier.canSwitch)
+                {
+                    mySoldier.CombatToggle();
+                    SpecialFunctionalityToggle();
+                }
             }
         }
     }

@@ -2492,9 +2492,7 @@ MonoBehaviour:
   damageOverTime: 0
   takeDamageText: {fileID: 114362587386470950, guid: 31871153e22fd0c42a330782f6f1eb53,
     type: 2}
-  starterWeaponPrefabs:
-  - {fileID: 1576836258160466, guid: dd04a01dcd8810041b3af193c793f2ba, type: 2}
-  - {fileID: 1962290312298426, guid: 86e1fd903f6dc504f99f63f05c0252ed, type: 2}
+  starterWeaponPrefabs: []
   availableWeapons: []
   equippedWeapon: {fileID: 0}
   currentWeaponIndex: 0

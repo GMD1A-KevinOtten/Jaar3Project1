@@ -1424,7 +1424,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1879101047627130, guid: d957382947170ca4190c5fd074e7e2a5, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224699867356104390, guid: d957382947170ca4190c5fd074e7e2a5,
         type: 2}
@@ -1713,6 +1713,7 @@ MonoBehaviour:
   teamButtonsParent: {fileID: 0}
   soldierButtonsParent: {fileID: 0}
   weaponIconParent: {fileID: 0}
+  teamButtons: []
   worldSpaceStatuses: []
   endGamePanel: {fileID: 0}
   winnerText: {fileID: 0}

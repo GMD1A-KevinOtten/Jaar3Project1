@@ -332,4 +332,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d33a99516af7e7942a45c882eb4defe3, type: 3}
   - {fileID: 21300000, guid: 6909f3e8109bed84c826b14b996dd189, type: 3}
   - {fileID: 21300000, guid: d0812b1e935fddb41876259c2e4185b3, type: 3}
-  defaultDamage: 5
+  defaultDamage: 3

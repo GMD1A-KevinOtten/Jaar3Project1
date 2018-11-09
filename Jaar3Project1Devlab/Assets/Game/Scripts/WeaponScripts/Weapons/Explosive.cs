@@ -41,7 +41,7 @@ public class Explosive : Weapon {
                 }
             }
         }
-        else if (!isTank)
+        else if (!isTank && mySoldier.isActive)
         {
             if (Input.GetButtonDown("Fire1"))
             {

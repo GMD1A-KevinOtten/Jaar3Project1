@@ -25,36 +25,39 @@ public class TommyGun : Weapon {
 
     public override void Inputs()
     {
-        if(canShoot)
+        if(mySoldier.isActive)
         {
-            if(mySoldier.canShoot == true)
+            if(canShoot)
             {
-                if (Input.GetButton("Fire1"))
+                if(mySoldier.canShoot == true)
                 {
-                    canShoot = false;
-                    StartCoroutine(ShotWaitTime());
+                    if (Input.GetButton("Fire1"))
+                    {
+                        canShoot = false;
+                        StartCoroutine(ShotWaitTime());
+                    }
                 }
             }
-        }
-        if(Input.GetButtonDown("Fire2"))
-        {
-            if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
+            if(Input.GetButtonDown("Fire2"))
             {
-                if(currentClip != 0)
+                if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
                 {
-                    mySoldier.CombatToggle();
+                    if(currentClip != 0)
+                    {
+                        mySoldier.CombatToggle();
+                    }
                 }
             }
-        }
-        if(Input.GetButtonDown("R"))
-        {
-            if(mySoldier.canShoot != true)
+            if(Input.GetButtonDown("R"))
             {
-                if(currentClip != clipMax)
+                if(mySoldier.canShoot != true)
                 {
-                    Reload();
-                    magazine.transform.parent = null;
-                    magazine.GetComponent<Rigidbody>().isKinematic = false;
+                    if(currentClip != clipMax)
+                    {
+                        Reload();
+                        magazine.transform.parent = null;
+                        magazine.GetComponent<Rigidbody>().isKinematic = false;
+                    }
                 }
             }
         }

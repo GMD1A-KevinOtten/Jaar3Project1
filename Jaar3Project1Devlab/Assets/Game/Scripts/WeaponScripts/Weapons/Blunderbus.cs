@@ -13,31 +13,34 @@ public class Blunderbus : Weapon
 
     public override void Inputs()
     {
-        if(mySoldier.canShoot == true)
+        if(mySoldier.isActive)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if(mySoldier.canShoot == true)
             {
-                if(hasShot == false && currentClip != 0)
+                if (Input.GetButtonDown("Fire1"))
                 {
-                    mySoldier.anim.SetTrigger("Shoot");
-                    hasShot = true;
-                    StartCoroutine(ShootBlunderbus());
+                    if(hasShot == false && currentClip != 0)
+                    {
+                        mySoldier.anim.SetTrigger("Shoot");
+                        hasShot = true;
+                        StartCoroutine(ShootBlunderbus());
+                    }
+                    
                 }
-                
-            }
-        }   
-        if(Input.GetButtonDown("Fire2"))
-        {
-            if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
+            }   
+            if(Input.GetButtonDown("Fire2"))
             {
-                mySoldier.CombatToggle();
+                if(mySoldier.canShoot != true && mySoldier.canSwitch == true)
+                {
+                    mySoldier.CombatToggle();
+                }
             }
-        }
-        if(Input.GetButtonDown("R"))
-        {
-            if(currentClip != clipMax)
+            if(Input.GetButtonDown("R"))
             {
-                Reload();
+                if(currentClip != clipMax)
+                {
+                    Reload();
+                }
             }
         }
     }
