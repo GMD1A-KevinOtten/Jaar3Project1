@@ -20,6 +20,8 @@ public class WeaponCrate : InteractableObject {
     private int coolDown;
     private bool shownTutorial;
     public bool coolingDown;
+
+    public float timeBuffer = 6;
 	// Use this for initialization
 	void Start () {
         GetComponent<Animator>().SetBool("Closed", true);
@@ -92,10 +94,11 @@ public class WeaponCrate : InteractableObject {
     {
         TeamManager.instance.endTurn = CoolDown; //Find way to make this multi-delegate
 
-        if (currentSoldier.canShoot != true)
+        if (currentSoldier.canShoot != true && TeamManager.instance.turnTime > 0.1F && currentSoldier.anim.GetCurrentAnimatorStateInfo(0).IsName("ANI_Idle") || currentSoldier.anim.GetCurrentAnimatorStateInfo(0).IsName("ANI_Idle_BigGun") || currentSoldier.anim.GetCurrentAnimatorStateInfo(0).IsName("ANI_Idle_SmallGun"))
         {
             if (!spawnedWeapon && GetComponent<Animator>().GetBool("Closed"))
             {
+                TeamManager.instance.turnTime += timeBuffer;
                 GetComponent<Animator>().SetBool("Open", true);
                 GetComponent<Animator>().SetBool("Closed", false);
                 GetComponentInChildren<WeaponCrateWeaponAnimBool>().GetComponent<Animator>().SetBool("Opened", true);

@@ -19,6 +19,8 @@ public class Tank : InteractableObject {
     private Weapon previousWeapon;
     public Camera thirdPersonCamera;
 
+    public float timeBuffer = 10;
+
     [Header("Clamp properties")]
     public bool clamp;
     public float clampX;
@@ -113,8 +115,9 @@ public class Tank : InteractableObject {
             }
 
 
-            if (Input.GetKeyDown("e") && !currentSoldier.canShoot)
+            if (Input.GetKeyDown("e") && !currentSoldier.canShoot && TeamManager.instance.turnTime > 0.1F && currentSoldier.anim.GetCurrentAnimatorStateInfo(0).IsName("ANI_Idle") || currentSoldier.anim.GetCurrentAnimatorStateInfo(0).IsName("ANI_Idle_BigGun") || currentSoldier.anim.GetCurrentAnimatorStateInfo(0).IsName("ANI_Idle_SmallGun"))
             {
+                TeamManager.instance.turnTime += timeBuffer;
                 previousWeapon = currentSoldier.equippedWeapon;
 
                 soldierOutsidePos = currentSoldier.gameObject.transform.position;
@@ -131,13 +134,13 @@ public class Tank : InteractableObject {
                
             }
         }
-        else if (soldierInside)
-        {
-            if (Input.GetKeyDown("e") && !currentSoldier.canShoot)
-            {
-                ExitTank();
-            }
-        }
+        //else if (soldierInside)
+        //{
+        //    if (Input.GetKeyDown("e") && !currentSoldier.canShoot)
+        //    {
+        //        ExitTank();
+        //    }
+        //}
     }
 
     public void ExitTank()
