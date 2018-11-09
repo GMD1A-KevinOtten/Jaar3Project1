@@ -96,7 +96,7 @@ public class Soldier : MonoBehaviour {
 
     public void CombatToggle()
     {
-        
+        print("test.exe");
             if (canShoot == false && !UIManager.instance.settingsOpen)
             {
                 canShoot = true;
