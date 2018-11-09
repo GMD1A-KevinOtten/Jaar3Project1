@@ -166,7 +166,10 @@ public class TeamManager : MonoBehaviour {
         if (combatTimer)
         {
             print("test2");
-            activeSoldier.CombatToggle();
+            if(activeSoldier != null)
+            {
+                activeSoldier.CombatToggle();
+            }
         }
         lastTeamIndex = teamIndex;
         if(!gameOver)
