@@ -19,27 +19,32 @@ public class IKControl : MonoBehaviour {
 
 	void OnAnimatorIK(int layerIndex)
     {
-		if(GetComponent<Soldier>())
+		if(GetComponent<Soldier>() != null)
 		{
-            if (!(GetComponent<Soldier>().equippedWeapon.isTank)){
-                if (GetComponent<Soldier>().equippedWeapon.iKPositionLeft)
+            if(GetComponent<Soldier>().equippedWeapon != null)
+            {
+                if (!(GetComponent<Soldier>().equippedWeapon.isTank))
                 {
-                    leftHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionLeft;
-                }
-                else
-                {
-                    leftHandObj = null;
-                }
+                    if (GetComponent<Soldier>().equippedWeapon.iKPositionLeft)
+                    {
+                        leftHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionLeft;
+                    }
+                    else
+                    {
+                        leftHandObj = null;
+                    }
 
-                if (GetComponent<Soldier>().equippedWeapon.iKPositionRight)
-                {
-                    rightHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionRight;
-                }
-                else
-                {
-                    rightHandObj = null;
+                    if (GetComponent<Soldier>().equippedWeapon.iKPositionRight)
+                    {
+                        rightHandObj = GetComponent<Soldier>().equippedWeapon.iKPositionRight;
+                    }
+                    else
+                    {
+                        rightHandObj = null;
+                    }
                 }
             }
+          
 			
 		}
 		if(animator)
