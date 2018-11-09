@@ -330,4 +330,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletHoleSprites:
   - {fileID: 21300000, guid: 7160fb95235da0446bcbfb52e4346629, type: 3}
-  defaultDamage: 25
+  defaultDamage: 30

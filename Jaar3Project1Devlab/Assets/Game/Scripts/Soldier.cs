@@ -50,6 +50,7 @@ public class Soldier : MonoBehaviour {
 
     void Start()
     {
+        colorToUse = Color.red;
         Movement = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         maxHealth = health;
@@ -96,8 +97,7 @@ public class Soldier : MonoBehaviour {
 
     public void CombatToggle()
     {
-        if(Camera.main.GetComponent<CameraMovement>().cameraState != CameraMovement.CameraStates.Topview)
-        {
+        
             if (canShoot == false && !UIManager.instance.settingsOpen)
             {
                 canShoot = true;
@@ -136,8 +136,6 @@ public class Soldier : MonoBehaviour {
                 }
                 anim.ResetTrigger("Shoot");
             }
-        }
-     
     }
 
     public void SpecialFunctionalityAnimationToggel()
