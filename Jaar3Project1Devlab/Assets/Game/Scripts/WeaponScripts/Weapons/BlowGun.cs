@@ -70,8 +70,6 @@ public class BlowGun : Weapon {
 
     public void InvokeFunction()
     {
-        print("test2");
-
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview)
         {
             SpecialFunctionalityToggle();
