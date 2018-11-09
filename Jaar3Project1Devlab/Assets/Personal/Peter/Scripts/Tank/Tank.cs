@@ -68,7 +68,7 @@ public class Tank : InteractableObject {
                 currentSoldier.CombatToggle();
                 thirdPersonCamera.depth = -1;
                 Camera.main.depth = 1;
-                GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
+                GetComponentInChildren<Explosive>().SpecialFunctionalityToggle();
             }
         }
     }
@@ -123,8 +123,8 @@ public class Tank : InteractableObject {
                 currentSoldier.soldierMovement.canMoveAndRotate = false;
 
                 soldierInside = true;
-                currentSoldier.equippedWeapon = GetComponentInChildren<Weapon>();
-                GetComponentInChildren<Weapon>().mySoldier = currentSoldier;
+                currentSoldier.equippedWeapon = GetComponentInChildren<Explosive>();
+                GetComponentInChildren<Explosive>().mySoldier = currentSoldier;
 
                 thirdPersonCamera.depth = 1;
                 Camera.main.depth = -1;
@@ -150,9 +150,9 @@ public class Tank : InteractableObject {
 
         currentSoldier.equippedWeapon = previousWeapon;
         previousWeapon = null;
-        GetComponentInChildren<Weapon>().mySoldier = null;
+        GetComponentInChildren<Explosive>().mySoldier = null;
 
-        GetComponentInChildren<Weapon>().SpecialFunctionalityToggle();
+        GetComponentInChildren<Explosive>().SpecialFunctionalityToggle();
         thirdPersonCamera.depth = -1;
         Camera.main.depth = 1;
         soldierInside = false;

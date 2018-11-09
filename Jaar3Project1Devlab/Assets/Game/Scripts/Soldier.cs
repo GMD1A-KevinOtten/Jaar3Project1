@@ -99,7 +99,10 @@ public class Soldier : MonoBehaviour {
         if(canShoot == false  && !UIManager.instance.settingsOpen)
         {   
             canShoot = true;
-            anim.SetBool("IsAiming", true);
+            if (!equippedWeapon.isTank)
+            {
+                anim.SetBool("IsAiming", true);
+            }
             soldierMovement.canMove = false;
             TeamManager.instance.combatTimer = true;
             TeamManager.instance.turnTime = TeamManager.instance.combatTurnTime;
