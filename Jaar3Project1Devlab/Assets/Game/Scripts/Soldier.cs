@@ -225,6 +225,8 @@ public class Soldier : MonoBehaviour {
             equippedWeapon = availableWeapons[currentWeaponIndex].GetComponent<Weapon>();
             availableWeapons[currentWeaponIndex].SetActive(true);
             anim.SetInteger("WeaponID", equippedWeapon.gunID);
+
+            UIManager.instance.UpdateWeaponIcons(equippedWeapon);
         }
      
     }
@@ -324,7 +326,6 @@ public class Soldier : MonoBehaviour {
 
             if(previouseWeaponIndex != currentWeaponIndex)
             {
-                print("Check");
                 anim.SetTrigger("Switch");
             }
             else

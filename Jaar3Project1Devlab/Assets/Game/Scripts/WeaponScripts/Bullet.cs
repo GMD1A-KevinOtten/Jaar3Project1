@@ -41,7 +41,6 @@ public class Bullet : MonoBehaviour {
     public virtual void HitEnvironment(Collision gotHit)
     {
         string materialName = gotHit.transform.tag;
-        print(materialName);
 
         switch (materialName)
         {

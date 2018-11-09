@@ -294,7 +294,6 @@ public class TeamManager : MonoBehaviour {
     {
         if(!gameOver)
         {
-            print("infinity test 1");
             ResetTimer();
 
             if(activeSoldier != null)

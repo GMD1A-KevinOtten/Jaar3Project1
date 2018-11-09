@@ -135,6 +135,21 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void UpdateWeaponIcons(Weapon equippedWeapon)
+    {
+        for (int i = 0; i < weaponIcons.Count; i++)
+        {
+            if (weaponIcons[i].GetChild(0).GetComponent<Image>().sprite.name == equippedWeapon.weaponSprite.name)
+            {
+                weaponIcons[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                weaponIcons[i].GetComponent<Image>().color = new Color(0.7f, 0.7f, 0.7f, 1);
+            }
+        }
+    }
+
     /// <summary>
     /// Shows a buttons for every team.
     /// </summary>

@@ -122,7 +122,6 @@ public class Weapon : MonoBehaviour {
         {
             EffectsManager.instance.PlayAudio3D(shotSound,transform.position);
             EffectsManager.instance.PlayParticle(EffectsManager.instance.FindParticle("Muzzle Flash"), barrelExit.position, barrelExit.forward);
-            print("Set");
             mySoldier.anim.SetTrigger("Shoot");
 
             newGameObject = Instantiate(bulletPrefab, barrelExit.position, barrelExit.rotation);
