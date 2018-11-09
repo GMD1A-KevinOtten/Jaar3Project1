@@ -35,13 +35,6 @@ public class Blunderbus : Weapon
                     mySoldier.CombatToggle();
                 }
             }
-            if(Input.GetButtonDown("R"))
-            {
-                if(currentClip != clipMax)
-                {
-                    Reload();
-                }
-            }
         }
     }
 
@@ -61,7 +54,10 @@ public class Blunderbus : Weapon
         yield return new WaitForSeconds(4);
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle)
         {
-            mySoldier.CombatToggle();
+            if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
+            {
+                mySoldier.CombatToggle();
+            }
             mySoldier.canSwitch = true;
             mySoldier.soldierMovement.canMove = true;
             TeamManager.instance.lastTeamIndex = TeamManager.instance.teamIndex;

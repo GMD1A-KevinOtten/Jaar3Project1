@@ -165,6 +165,7 @@ public class TeamManager : MonoBehaviour {
     {
         if (combatTimer)
         {
+            print("test2");
             activeSoldier.CombatToggle();
         }
         lastTeamIndex = teamIndex;
@@ -240,7 +241,11 @@ public class TeamManager : MonoBehaviour {
         if(turnTime <= 0)
         {
             lastTeamIndex = teamIndex;
-            activeSoldier.CombatToggle();
+            if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
+            {
+                print("test1");
+                activeSoldier.CombatToggle();
+            }
             NextTeam();
             if(endTurn != null)
             {
@@ -440,6 +445,10 @@ public class TeamManager : MonoBehaviour {
                 Soldier soldier = allTeams[teamIndex].allSoldiers[allTeams[teamIndex].soldierIndex];
                 soldier.soldierMovement.canMoveAndRotate = true;
                 soldier.isActive = true;
+                if(activeSoldier != null)
+                {
+                    activeSoldier.anim.SetBool("IsMoving", false);
+                }
                 activeSoldier = soldier;
                 activeSoldier.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 mainCamera.xRotInput = mainCamera.baseXRotInput;
