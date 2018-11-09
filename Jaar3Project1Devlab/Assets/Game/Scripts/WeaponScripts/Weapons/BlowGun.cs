@@ -55,7 +55,7 @@ public class BlowGun : Weapon {
         }
         gameObject.transform.SetParent(null);
         blowGunCam.transform.SetParent(null);
-        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,500));
+        gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0,0,500));
         mySoldier.canShoot = false;
         mySoldier.currentWeaponIndex = 0;
         mySoldier.EquipWeapon();

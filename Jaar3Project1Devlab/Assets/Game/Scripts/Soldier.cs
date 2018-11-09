@@ -7,7 +7,7 @@ public class Soldier : MonoBehaviour {
     /// <summary>
     /// PlayerCamPos is always the first child of the object that contains the Soldier Class
     /// </summary>
-    private Color colorToUse;
+    private Color32 colorToUse;
     public int myTeam;
     public Transform thirdPersonCamPos;
     public Transform combatCameraPosition;
@@ -142,7 +142,7 @@ public class Soldier : MonoBehaviour {
     {
         damageTurns -= 1;
         print("damage overtime");
-        colorToUse = Color.green;
+        colorToUse = new Color32(83, 6, 119, 1);
         TakeDamage(damageOverTime, new Vector3(0,0,0));
     }
     public void SetDamageOverTime(int turns, int damge)
@@ -154,6 +154,7 @@ public class Soldier : MonoBehaviour {
     {
         if(isDead == false)
         {
+            print("damage");
             TextMeshProUGUI txt = Instantiate(takeDamageText);
             txt.transform.SetParent(myCanvas.transform);
             txt.GetComponent<RectTransform>().transform.localPosition = Vector2.zero;
