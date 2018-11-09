@@ -17,8 +17,10 @@ public class EffectsManager : MonoBehaviour {
     [Header("Audio")]
     public AudioMixer audioMixer;
     public CustomAudioClip[] allAudioclips;
+    public CustomAudioClip[] buttonSounds;
     public List<AudioSource> audioSources = new List<AudioSource>();
     public int defaultAudiosourcesAmount;
+    private int buttonSoundIndex;
 
     [Header("Particles")]
     public CustomParticle[] allParticles;
@@ -42,6 +44,15 @@ public class EffectsManager : MonoBehaviour {
             Destroy(gameObject);
         }
 
+
+        foreach(AudioSource a in audioSources)
+        {
+            if (a != null)
+            {
+                Destroy(a.gameObject);
+            }
+        }
+        audioSources.Clear();
         for (int i = 0; i < defaultAudiosourcesAmount; i++)
         {
             AudioSource source = CreateAudioSource();
@@ -63,6 +74,18 @@ public class EffectsManager : MonoBehaviour {
         source.volume = toPlay.defaultVolume;
         source.transform.position = Vector3.zero;
         source.spatialBlend = 0;
+
+        source.Play();
+    }
+
+    public void PlayAudio2D(CustomAudioClip toPlay, bool loop)
+    {
+        AudioSource source = GetEmptyAudiosource();
+        source.clip = toPlay.clip;
+        source.volume = toPlay.defaultVolume;
+        source.transform.position = Vector3.zero;
+        source.spatialBlend = 0;
+        source.loop = loop;
 
         source.Play();
     }
@@ -129,6 +152,20 @@ public class EffectsManager : MonoBehaviour {
 
         Debug.LogError("There is no audioclip named: " + clipName);
         return new CustomAudioClip();
+    }
+
+    public void PlayButtonSound()
+    {
+        PlayAudio2D(buttonSounds[buttonSoundIndex]);
+
+        if (buttonSoundIndex + 1 < buttonSounds.Length)
+        {
+            buttonSoundIndex += 1;
+        }
+        else
+        {
+            buttonSoundIndex = 0;
+        }
     }
 
     /// <summary>

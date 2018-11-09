@@ -24940,6 +24940,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114702557361243784, guid: 48797550a5435b742a030e19be68935f,
+        type: 2}
+      propertyPath: audioSources.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4692957485070518, guid: 48797550a5435b742a030e19be68935f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 46.82779
@@ -24971,31 +24976,6 @@ Prefab:
     - target: {fileID: 4692957485070518, guid: 48797550a5435b742a030e19be68935f, type: 2}
       propertyPath: m_RootOrder
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114702557361243784, guid: 48797550a5435b742a030e19be68935f,
-        type: 2}
-      propertyPath: maxActiveBulletholes
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114702557361243784, guid: 48797550a5435b742a030e19be68935f,
-        type: 2}
-      propertyPath: bulletHoleColors.Array.data[1].bulletholeColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114702557361243784, guid: 48797550a5435b742a030e19be68935f,
-        type: 2}
-      propertyPath: bulletHoleColors.Array.data[2].bulletholeColor.g
-      value: 0.69541657
-      objectReference: {fileID: 0}
-    - target: {fileID: 114702557361243784, guid: 48797550a5435b742a030e19be68935f,
-        type: 2}
-      propertyPath: bulletHoleColors.Array.data[2].bulletholeColor.b
-      value: 0.500623
-      objectReference: {fileID: 0}
-    - target: {fileID: 114702557361243784, guid: 48797550a5435b742a030e19be68935f,
-        type: 2}
-      propertyPath: bulletHoleColors.Array.data[2].bulletholeColor.r
-      value: 0.8490566
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48797550a5435b742a030e19be68935f, type: 2}

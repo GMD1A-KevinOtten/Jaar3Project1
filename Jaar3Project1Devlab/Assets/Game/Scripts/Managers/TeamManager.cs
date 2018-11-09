@@ -211,6 +211,7 @@ public class TeamManager : MonoBehaviour {
         {
             mainCamera.cantMoveCamera = true;
             GameManager.Instance.GameOverEvent(livingTeam.allSoldiers[0].myTeam += 1);
+
         }
 	}
 

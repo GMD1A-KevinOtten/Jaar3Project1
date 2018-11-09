@@ -189,6 +189,7 @@ public class UIManager : MonoBehaviour {
                 b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers, teams[delegateIndex].thisTeamColor, -1); });
             }
 
+            b.onClick.AddListener(delegate { EffectsManager.instance.PlayButtonSound(); });
 
             teamButtons.Add(b);
         }
@@ -247,6 +248,7 @@ public class UIManager : MonoBehaviour {
 
             delegateIndex = i;
             b.onClick.AddListener(delegate { SetActiveSoldierStatus(soldiersToShow[delegateIndex], teamColor); });
+            b.onClick.AddListener(delegate { EffectsManager.instance.PlayButtonSound(); });
             soldiersInTeamButtons.Add(b);
         }
 
@@ -406,6 +408,7 @@ public class UIManager : MonoBehaviour {
         winnerText.text = "Team " + victoriousTeam + " won!";
         Time.timeScale = 0;
 
+        EffectsManager.instance.PlayAudio2D(EffectsManager.instance.FindAudioClip("Victory Music"));
     }
 
     public void OpenSettings(bool open)

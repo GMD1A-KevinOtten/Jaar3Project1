@@ -9,4 +9,12 @@ public class CustomAudioClip : ScriptableObject
     public AudioClip clip;
     [Range(0, 1)]
     public float defaultVolume;
+
+    private void Awake()
+    {
+        if (clipName == null && clip != null)
+        {
+            clipName = clip.name;
+        }
+    }
 }

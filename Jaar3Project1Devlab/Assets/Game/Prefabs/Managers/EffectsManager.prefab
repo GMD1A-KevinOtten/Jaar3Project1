@@ -71,6 +71,25 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 17e5998b525408349b04de3e48525ffd, type: 2}
   - {fileID: 11400000, guid: 3a5b96dd6ab473c498bc678ce9552108, type: 2}
   - {fileID: 11400000, guid: 1bff273c5f8904644b5def82596742f8, type: 2}
+  - {fileID: 11400000, guid: 76c8b776a9d623b4e88d7505bef04d3f, type: 2}
+  - {fileID: 11400000, guid: 8f3b4532f612ddb4091a456ebc57b1da, type: 2}
+  buttonSounds:
+  - {fileID: 11400000, guid: 53f389572b68ba24abe7fc8be1adb575, type: 2}
+  - {fileID: 11400000, guid: f82789829d484e447b9298cf13e22b70, type: 2}
+  - {fileID: 11400000, guid: 090c49db9bafc814189e12819d0b450a, type: 2}
+  - {fileID: 11400000, guid: ddda13774e927e845b9883c71e7b51c0, type: 2}
+  - {fileID: 11400000, guid: 0cbe17e19330451438f91ebe4e97debe, type: 2}
+  - {fileID: 11400000, guid: de63a5d004ae9a440a0e29d65613ce44, type: 2}
+  - {fileID: 11400000, guid: 96da2f2ede405b94d9b504c86618a814, type: 2}
+  - {fileID: 11400000, guid: 8bec41e8e0aae554b84f96f59ac678e9, type: 2}
+  - {fileID: 11400000, guid: bee8db07c49a6a24fad412f9ef958056, type: 2}
+  - {fileID: 11400000, guid: 07c76f068d3ae4943b53658e28129007, type: 2}
+  - {fileID: 11400000, guid: f7106efe493d43c4097e8086692bc1d5, type: 2}
+  - {fileID: 11400000, guid: 12ea91666f6b83b41bf04085db9e3c1b, type: 2}
+  - {fileID: 11400000, guid: ab0868f975326ae448cd33e1722d869e, type: 2}
+  - {fileID: 11400000, guid: 78608da32f2f05641a262c586b9788c3, type: 2}
+  - {fileID: 11400000, guid: 86c0cd8ea7bad084babe19d35a2f2a76, type: 2}
+  - {fileID: 11400000, guid: e3929c3796763d54e8bc2bbe00678cf2, type: 2}
   audioSources: []
   defaultAudiosourcesAmount: 5
   allParticles:
@@ -89,8 +108,8 @@ MonoBehaviour:
   - materialName: Sand
     bulletholeColor: {r: 0.6981132, g: 0.6047796, b: 0.1745283, a: 1}
   - materialName: Metal
-    bulletholeColor: {r: 0.36078432, g: 0.41960788, b: 0.45098042, a: 0}
+    bulletholeColor: {r: 0.36078432, g: 0.41960788, b: 0.45098042, a: 1}
   - materialName: Wood
-    bulletholeColor: {r: 0.63529414, g: 0.34509805, b: 0.16078432, a: 1}
+    bulletholeColor: {r: 0.8490566, g: 0.69541657, b: 0.500623, a: 1}
   activeBulletHoles: []
-  maxActiveBulletholes: 0
+  maxActiveBulletholes: 100

@@ -84,7 +84,6 @@ public class Soldier : MonoBehaviour {
             {
                 if(TeamManager.instance.mainCamera.cameraState == CameraMovement.CameraStates.CombatVieuw)
                 {
-                    print("correct state");
                     equippedWeapon.ShowCrosshair();
                 }
             }
@@ -219,7 +218,8 @@ public class Soldier : MonoBehaviour {
 
     public void EquipWeapon()
     {
-        //play SwitchSound
+        EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Weapon Switch"), transform.position);
+
         if(health > 0)
         {
             canSwitch = true;
