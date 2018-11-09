@@ -68,7 +68,7 @@ public class TeamManager : MonoBehaviour {
         turnTimerCircle.color = circleStartColor;
 
 
-        UIManager.instance.InstantiateStatusButtons(allTeams);
+        UIManager.instance.InstantiateStatusButtons(allTeams, teamIndex);
         UIManager.instance.ShowMessageOnUI("Press TAB to hide the status panel", 5);
         UIManager.instance.ShowMessageOnUI("Press Enter to start the battle!", 5);
 
@@ -374,6 +374,8 @@ public class TeamManager : MonoBehaviour {
         //UIManager.instance.ToggleWorldSpaceStatuses(true);
         UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, false);
         UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
+        UIManager.instance.DeleteSoldierButtons();
+        UIManager.instance.InstantiateStatusButtons(allTeams, teamIndex);
 
         if (activeSoldier != null)
         {

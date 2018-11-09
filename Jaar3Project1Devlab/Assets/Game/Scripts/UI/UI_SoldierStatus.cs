@@ -22,18 +22,22 @@ public class UI_SoldierStatus : MonoBehaviour {
 
     public void UpdateStatus(Soldier mySoldier, Color teamColor)
     {
-        if(TeamManager.instance.teamIndex == mySoldier.myTeam)
+        if (nextSoldierDot != null)
         {
-            nextSoldierDot.color = teamColor;
-            if(TeamManager.instance.allTeams[mySoldier.myTeam].allSoldiers[TeamManager.instance.allTeams[mySoldier.myTeam].soldierIndex] == transform.root.GetComponent<Soldier>())
+            if (TeamManager.instance.teamIndex == mySoldier.myTeam)
             {
-                nextSoldierDot.gameObject.SetActive(true);
+                nextSoldierDot.color = teamColor;
+                if (TeamManager.instance.allTeams[mySoldier.myTeam].allSoldiers[TeamManager.instance.allTeams[mySoldier.myTeam].soldierIndex] == transform.root.GetComponent<Soldier>())
+                {
+                    nextSoldierDot.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                nextSoldierDot.gameObject.SetActive(false);
             }
         }
-        else
-        {
-            nextSoldierDot.gameObject.SetActive(false);
-        }
+
 
         if (!soldierIcon.gameObject.activeInHierarchy)
             soldierIcon.gameObject.SetActive(true);

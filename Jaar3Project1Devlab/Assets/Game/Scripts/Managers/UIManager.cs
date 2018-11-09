@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour {
 
     private List<RectTransform> activeWindows = new List<RectTransform>();
     private List<Button> soldiersInTeamButtons = new List<Button>();
+    public List<Button> teamButtons = new List<Button>();
     public List<UI_SoldierStatus> worldSpaceStatuses = new List<UI_SoldierStatus>();
 
     [HideInInspector]
@@ -138,8 +139,19 @@ public class UIManager : MonoBehaviour {
     /// Shows a buttons for every team.
     /// </summary>
     /// <param name="teams"></param>
-    public void InstantiateStatusButtons(List<Team> teams)
+    public void InstantiateStatusButtons(List<Team> teams, int nextTeam)
     {
+        if (teamButtons.Count > 0)
+        {
+            foreach(Button b in teamButtons)
+            {
+                Destroy(b.gameObject);
+            }
+
+            teamButtons.Clear();
+        }
+
+
         for (int i = 0; i < teams.Count; i++)
         {
             int delegateIndex = 0;
@@ -152,7 +164,41 @@ public class UIManager : MonoBehaviour {
             text.text = "Team " + (i + 1);
 
             delegateIndex = i;
-            b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers, teams[delegateIndex].thisTeamColor); }); 
+
+            if (i == nextTeam)
+            {
+                b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers, teams[delegateIndex].thisTeamColor, teams[nextTeam].soldierIndex); });
+            }
+            else
+            {
+                b.onClick.AddListener(delegate { ShowSoldierButtons(teams[delegateIndex].allSoldiers, teams[delegateIndex].thisTeamColor, -1); });
+            }
+
+
+            teamButtons.Add(b);
+        }
+
+        UpdateTeamButtons(teamButtons, nextTeam);
+    }
+
+
+    /// <summary>
+    /// Updates the team buttons. Shows the next team that will have a turn by making the button brighter.
+    /// </summary>
+    /// <param name="teamButtons"></param>
+    /// <param name="teamIndex"></param>
+    public void UpdateTeamButtons(List<Button> teamButtons, int teamIndex)
+    {
+        for (int i = 0; i < teamButtons.Count; i++)
+        {
+            if (i == teamIndex)
+            {
+                teamButtons[i].gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                teamButtons[i].gameObject.GetComponent<Image>().color = new Color(0.7f, 0.7f, 0.7f, 1);
+            }
         }
     }
 
@@ -161,7 +207,7 @@ public class UIManager : MonoBehaviour {
     /// </summary>
     /// <param name="soldiersToShow"></param>
     /// <param name="teamColor"></param>
-    public void ShowSoldierButtons(List<Soldier> soldiersToShow, Color teamColor)
+    public void ShowSoldierButtons(List<Soldier> soldiersToShow, Color teamColor, int soldierIndex)
     {
         if (soldiersInTeamButtons.Count > 0)
         {
@@ -188,6 +234,52 @@ public class UIManager : MonoBehaviour {
             b.onClick.AddListener(delegate { SetActiveSoldierStatus(soldiersToShow[delegateIndex], teamColor); });
             soldiersInTeamButtons.Add(b);
         }
+
+        UpdateSoldierButtons(soldiersInTeamButtons, soldierIndex);
+    }
+
+    public void DeleteSoldierButtons()
+    {
+        if (soldiersInTeamButtons.Count > 0)
+        {
+            foreach (Button b in soldiersInTeamButtons)
+            {
+                Destroy(b.gameObject);
+            }
+
+            soldiersInTeamButtons.Clear();
+        }
+    }
+
+    /// <summary>
+    /// Updates the soldier buttons. Shows the next Soldier that will have a turn by making the button brighter.
+    /// </summary>
+    /// <param name="soldierButtons"></param>
+    /// <param name="nextSoldierIndex"></param>
+    public void UpdateSoldierButtons(List<Button> soldierButtons, int nextSoldierIndex)
+    {
+        if (nextSoldierIndex >= 0)
+        {
+            for (int i = 0; i < soldierButtons.Count; i++)
+            {
+                if (i == nextSoldierIndex)
+                {
+                    soldierButtons[i].gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                }
+                else
+                {
+                    soldierButtons[i].gameObject.GetComponent<Image>().color = new Color(0.7f, 0.7f, 0.7f, 1);
+                }
+            }
+        }
+        else
+        {
+            foreach(Button soldierButton in soldierButtons)
+            {
+                soldierButton.gameObject.GetComponent<Image>().color = new Color(0.7f, 0.7f, 0.7f, 1);
+            }
+        }
+
     }
     
     /// <summary>
