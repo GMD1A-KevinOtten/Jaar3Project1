@@ -96,44 +96,48 @@ public class Soldier : MonoBehaviour {
 
     public void CombatToggle()
     {
-        if(canShoot == false  && !UIManager.instance.settingsOpen)
-        {   
-            canShoot = true;
-            if (!equippedWeapon.isTank)
+        if(Camera.main.GetComponent<CameraMovement>().cameraState != CameraMovement.CameraStates.Topview)
+        {
+            if (canShoot == false && !UIManager.instance.settingsOpen)
             {
-                anim.SetBool("IsAiming", true);
-            }
-            soldierMovement.canMove = false;
-            TeamManager.instance.combatTimer = true;
-            TeamManager.instance.turnTime = TeamManager.instance.combatTurnTime;
-            DisableMovementAnimation();
-            GetComponent<IKControl>().activateIK = true;
-            if(anim.GetBool("BigGun") == true)
-            {
+                canShoot = true;
                 if (!equippedWeapon.isTank)
                 {
-                    TeamManager.instance.ToCombatVieuw();
+                    anim.SetBool("IsAiming", true);
+                }
+                soldierMovement.canMove = false;
+                TeamManager.instance.combatTimer = true;
+                TeamManager.instance.turnTime = TeamManager.instance.combatTurnTime;
+                DisableMovementAnimation();
+                GetComponent<IKControl>().activateIK = true;
+                if (anim.GetBool("BigGun") == true)
+                {
+                    if (!equippedWeapon.isTank)
+                    {
+                        TeamManager.instance.ToCombatVieuw();
+                    }
+                }
+                else
+                {
+                    Camera.main.GetComponent<Camera>().fieldOfView = 40;
                 }
             }
             else
             {
-                Camera.main.GetComponent<Camera>().fieldOfView = 40;
+                canShoot = false;
+                anim.SetBool("IsAiming", false);
+                soldierMovement.canMove = true;
+                Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
+                TeamManager.instance.combatTimer = false;
+                GetComponent<IKControl>().activateIK = false;
+                if (equippedWeapon.specialFunctionality == true)
+                {
+                    equippedWeapon.SpecialFunctionalityToggle();
+                }
+                anim.ResetTrigger("Shoot");
             }
         }
-        else
-        {
-            canShoot = false;
-            anim.SetBool("IsAiming", false);
-            soldierMovement.canMove = true;
-            Camera.main.GetComponent<Camera>().fieldOfView = baseFOV;
-            TeamManager.instance.combatTimer = false;
-            GetComponent<IKControl>().activateIK = false;
-            if(equippedWeapon.specialFunctionality == true)
-            {   
-                equippedWeapon.SpecialFunctionalityToggle();
-            }
-            anim.ResetTrigger("Shoot");
-        }
+     
     }
 
     public void SpecialFunctionalityAnimationToggel()
