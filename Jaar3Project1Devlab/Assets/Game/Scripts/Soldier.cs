@@ -283,6 +283,7 @@ public class Soldier : MonoBehaviour {
             if (rid != transform.GetComponent<Rigidbody>())
             {
                 rid.isKinematic = false;
+                Invoke("TurnOffRagdolls", 5);
             }
         }
         if(hitBone != null)
@@ -294,6 +295,17 @@ public class Soldier : MonoBehaviour {
             if(team.SoldierCheck(this) == true)
             {
                 break;
+            }
+        }
+    }
+
+    public void TurnOffRagdolls()
+    {
+        foreach (Rigidbody rid in GetComponentsInChildren<Rigidbody>())
+        {
+            if (rid != transform.GetComponent<Rigidbody>())
+            {
+                rid.isKinematic = true;
             }
         }
     }
