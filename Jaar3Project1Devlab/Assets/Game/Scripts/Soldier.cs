@@ -163,6 +163,7 @@ public class Soldier : MonoBehaviour {
             txt.text = "" + toDamage;
             txt.GetComponent<Animator>().Play("ANI_TakeDamageText", 0);
             
+            Destroy(txt, 2);
             //if (!takingDamage)
             //{
             //    takeDamageTextAnim.SetBool("TakeDamage", true);
