@@ -9,6 +9,8 @@ public class Sniper : Weapon {
     public Camera cameraScope;
     public bool aiming;
     public bool alreadyShot;
+    public float timeToHoldBreath;
+    public float holdBreathSpeed;
 
     public override void Inputs()
     {
@@ -41,8 +43,24 @@ public class Sniper : Weapon {
                 }
             }
         }
+        if(Input.GetButton("Shift"))
+        {
+            SlowAimingAniamtion();
+        }
+        if(Input.GetButtonUp("Shift"))
+        {
+            ResetAimingAnimation();
+        }
     }
 
+    public void SlowAimingAniamtion()
+    {
+        mySoldier.anim.SetFloat("SniperHoldBreath", holdBreathSpeed);
+    }
+    public void ResetAimingAnimation()
+    {
+        mySoldier.anim.SetFloat("SniperHoldBreath", 1);
+    }
     
 
     public override void SpecialFunctionalityToggle()
