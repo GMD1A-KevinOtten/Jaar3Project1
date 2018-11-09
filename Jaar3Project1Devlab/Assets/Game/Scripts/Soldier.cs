@@ -260,6 +260,8 @@ public class Soldier : MonoBehaviour {
         weapon.GetComponent<Rigidbody>().useGravity = false;
         weapon.GetComponent<Weapon>().mySoldier = this;
         weapon.SetActive(false);
+
+        UIManager.instance.InstantiateWeaponIcons(availableWeapons);
     }
 
     public void Die(Vector3 push)
