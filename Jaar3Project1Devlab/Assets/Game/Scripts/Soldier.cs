@@ -155,16 +155,6 @@ public class Soldier : MonoBehaviour {
         if(isDead == false)
         {
             print("damage");
-            TextMeshProUGUI txt = Instantiate(takeDamageText);
-            txt.transform.SetParent(myCanvas.transform);
-            txt.GetComponent<RectTransform>().transform.localPosition = Vector2.zero;
-            //kleur van text zet ik onderaan deze functie terug naar basis kleur en in damage over time naar groen voor poison effect
-            txt.color = colorToUse;
-
-            txt.text = "" + toDamage;
-            txt.GetComponent<Animator>().Play("ANI_TakeDamageText", 0);
-            
-            Destroy(txt, 2);
             //if (!takingDamage)
             //{
             //    takeDamageTextAnim.SetBool("TakeDamage", true);
@@ -175,10 +165,20 @@ public class Soldier : MonoBehaviour {
             //    takeDamageTextAnim.SetBool("TakeDamage", true);
             //}
            //StartCoroutine(DamageTextGoAway());
-            GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
             anim.SetTrigger("Hit");
             health -= toDamage;
+            GetComponentInChildren<UI_SoldierStatus>().UpdateStatus(this, teamColor);
 
+            TextMeshProUGUI txt = Instantiate(takeDamageText);
+            txt.transform.SetParent(myCanvas.transform);
+            txt.GetComponent<RectTransform>().transform.localPosition = Vector2.zero;
+            //kleur van text zet ik onderaan deze functie terug naar basis kleur en in damage over time naar groen voor poison effect
+            txt.color = colorToUse;
+
+            txt.text = "" + toDamage;
+            txt.GetComponent<Animator>().Play("ANI_TakeDamageText", 0);
+            
+            Destroy(txt, 2);
             //base kleur van de tekst pas aan als je niet rood wilt. Ik pas de kleur aan in damage over time voor poison damage feedback
             colorToUse = Color.red;
 
