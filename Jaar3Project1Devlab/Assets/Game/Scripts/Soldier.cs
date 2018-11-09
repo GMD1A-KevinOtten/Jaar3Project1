@@ -268,6 +268,7 @@ public class Soldier : MonoBehaviour {
         weapon.SetActive(false);
 
         UIManager.instance.InstantiateWeaponIcons(availableWeapons);
+        UIManager.instance.UpdateWeaponIcons(equippedWeapon);
     }
 
     public void Die(Vector3 push)

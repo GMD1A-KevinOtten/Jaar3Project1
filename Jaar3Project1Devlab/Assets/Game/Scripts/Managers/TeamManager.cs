@@ -353,12 +353,15 @@ public class TeamManager : MonoBehaviour {
         //pakt de positie waar de camera heen moet gaan
         int soldierIndex = allTeams[teamIndex].soldierIndex;
         Transform playerCamPos = allTeams[teamIndex].allSoldiers[soldierIndex].thirdPersonCamPos;
+        Soldier soldier = allTeams[teamIndex].allSoldiers[soldierIndex].GetComponent<Soldier>();
         mainCamera.transform.parent.SetParent(playerCamPos);
 
         UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, false);
        // UIManager.instance.ToggleWorldSpaceStatuses(false);
         UIManager.instance.InstantiateWeaponIcons(allTeams[teamIndex].allSoldiers[soldierIndex].availableWeapons);
         UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, true);
+        UIManager.instance.UpdateWeaponIcons(soldier.equippedWeapon);
+        
 
         StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
     }
