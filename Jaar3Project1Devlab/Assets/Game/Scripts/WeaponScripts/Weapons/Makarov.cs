@@ -12,7 +12,7 @@ public class Makarov : Weapon {
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                if(mySoldier.canShoot == true)
+                if(!reloading)
                 {
                     ShootBullet();
                 }
@@ -57,7 +57,6 @@ public class Makarov : Weapon {
     public override void Reload()
     {
         reloading = true;
-        mySoldier.canShoot = false;
         FillClip();
         mySoldier.anim.SetTrigger("Reload");
     }
@@ -65,6 +64,5 @@ public class Makarov : Weapon {
     public override void SpecialFunctionalityToggle()
     {
         reloading = false;
-        mySoldier.canShoot = true;
     }
 }

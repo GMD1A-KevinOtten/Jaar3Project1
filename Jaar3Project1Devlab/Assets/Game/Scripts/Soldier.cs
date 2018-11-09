@@ -96,7 +96,6 @@ public class Soldier : MonoBehaviour {
 
     public void CombatToggle()
     {
-        print("test.exe");
             if (canShoot == false && !UIManager.instance.settingsOpen)
             {
                 canShoot = true;
@@ -123,6 +122,7 @@ public class Soldier : MonoBehaviour {
             }
             else
             {
+                print("test.exe");
                 canShoot = false;
                 anim.SetBool("IsAiming", false);
                 soldierMovement.canMove = true;
