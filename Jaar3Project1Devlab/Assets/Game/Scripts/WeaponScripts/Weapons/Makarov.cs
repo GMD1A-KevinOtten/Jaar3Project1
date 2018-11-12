@@ -52,6 +52,8 @@ public class Makarov : Weapon {
             EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Empty Clip"), transform.position);
             Reload();
         }
+
+        UIManager.instance.UpdateAmmo(currentClip, clipMax);
     }
 
     public override void Reload()

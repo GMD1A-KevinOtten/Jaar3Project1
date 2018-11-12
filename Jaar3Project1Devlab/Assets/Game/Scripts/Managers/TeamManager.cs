@@ -58,6 +58,8 @@ public class TeamManager : MonoBehaviour {
         Camera.main.transform.parent.position = cameraPositionSky.position;
         Camera.main.transform.parent.rotation = Quaternion.Euler(Camera.main.transform.parent.eulerAngles.x,cameraPositionSky.eulerAngles.y,cameraPositionSky.eulerAngles.z);
         Camera.main.transform.rotation = Quaternion.Euler(cameraPositionSky.transform.eulerAngles.x,mainCamera.transform.eulerAngles.y,mainCamera.transform.eulerAngles.z);
+
+
     }
 
     private void Start()
@@ -75,6 +77,7 @@ public class TeamManager : MonoBehaviour {
         StartCoroutine(UIUpdateDelay());
 
         UIManager.instance.ToggleMouse();
+        UIManager.instance.ToggleFeedback(false);
     }
 
     private IEnumerator UIUpdateDelay()
@@ -370,7 +373,9 @@ public class TeamManager : MonoBehaviour {
         UIManager.instance.InstantiateWeaponIcons(allTeams[teamIndex].allSoldiers[soldierIndex].availableWeapons);
         UIManager.instance.ToggleWindow(UIManager.instance.weaponIconWindow, true);
         UIManager.instance.UpdateWeaponIcons(soldier.equippedWeapon);
-        
+        UIManager.instance.UpdateAmmo(soldier.equippedWeapon.currentClip, soldier.equippedWeapon.clipMax);
+        UIManager.instance.UpdateHealth(soldier.health, soldier.maxHealth);
+        UIManager.instance.ToggleFeedback(true);
 
         StartCoroutine(MoveCam(playerCamPos.position, playerCamPos.rotation, CameraMovement.CameraStates.ThirdPerson));
     }
@@ -387,6 +392,7 @@ public class TeamManager : MonoBehaviour {
         UIManager.instance.ToggleWindow(UIManager.instance.soldierStatusWindow, true);
         UIManager.instance.DeleteSoldierButtons();
         UIManager.instance.InstantiateStatusButtons(allTeams, teamIndex);
+        UIManager.instance.ToggleFeedback(false);
 
         if (activeSoldier != null)
         {

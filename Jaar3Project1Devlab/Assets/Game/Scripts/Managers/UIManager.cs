@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour {
     public RectTransform soldierStatusWindow;
     public RectTransform weaponIconWindow;
     public UI_Message messageWindow;
+    public PlayerFeedback feedbackWindow;
 
     [Header("Prefabs")]
     public GameObject teamButtonPrefab;
@@ -133,6 +134,21 @@ public class UIManager : MonoBehaviour {
             weaponIcon.sprite = availableWeapons[i].GetComponent<Weapon>().weaponSprite;
             weaponIcons.Add(newObject.transform);
         }
+    }
+
+    public void UpdateAmmo(int currrent, int total)
+    {
+        feedbackWindow.UpdateAmmo(currrent, total);
+    }
+
+    public void UpdateHealth(float health, float totalHealth)
+    {
+        feedbackWindow.UpdateHealth(health, totalHealth);
+    }
+
+    public void ToggleFeedback(bool toggle)
+    {
+        feedbackWindow.ToggleFeedback(toggle);
     }
 
     public void UpdateWeaponIcons(Weapon equippedWeapon)

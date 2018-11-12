@@ -118,6 +118,7 @@ public class Weapon : MonoBehaviour {
 
     public virtual void ShootBullet()
     {
+        print(currentClip);
         if(currentClip > 0)
         {
             EffectsManager.instance.PlayAudio3D(shotSound,transform.position);
@@ -144,6 +145,8 @@ public class Weapon : MonoBehaviour {
             }
             EffectsManager.instance.PlayAudio3D(EffectsManager.instance.FindAudioClip("Empty Clip"), transform.position);
         }
+
+        UIManager.instance.UpdateAmmo(currentClip, clipMax);
     }
 
     public Vector2 CalculatedBulletSpread()
@@ -201,6 +204,7 @@ public class Weapon : MonoBehaviour {
     public void FillClip()
     {
         currentClip = clipMax;
+        UIManager.instance.UpdateAmmo(currentClip, clipMax);
     }
 
     public virtual IEnumerator AferReloadTeamSwitch(float time)

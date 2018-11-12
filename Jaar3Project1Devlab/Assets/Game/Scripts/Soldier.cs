@@ -232,8 +232,10 @@ public class Soldier : MonoBehaviour {
             anim.SetInteger("WeaponID", equippedWeapon.gunID);
 
             UIManager.instance.UpdateWeaponIcons(equippedWeapon);
+            print(equippedWeapon.currentClip);
+            print(equippedWeapon.clipMax);
+            UIManager.instance.UpdateAmmo(equippedWeapon.currentClip, equippedWeapon.clipMax);
         }
-     
     }
 
     public void InstantiateStarterWeapons()
@@ -271,6 +273,7 @@ public class Soldier : MonoBehaviour {
 
         UIManager.instance.InstantiateWeaponIcons(availableWeapons);
         UIManager.instance.UpdateWeaponIcons(equippedWeapon);
+        UIManager.instance.UpdateAmmo(equippedWeapon.currentClip, equippedWeapon.clipMax);
     }
 
     public void Die(Vector3 push)

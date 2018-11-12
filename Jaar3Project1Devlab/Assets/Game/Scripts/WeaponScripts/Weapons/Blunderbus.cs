@@ -51,6 +51,7 @@ public class Blunderbus : Weapon
     public override IEnumerator AferReloadTeamSwitch(float time)
     {
         print("blunderbus ienum");
+        UIManager.instance.UpdateAmmo(currentClip, clipMax);
         yield return new WaitForSeconds(4);
         if(TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Topview || TeamManager.instance.mainCamera.cameraState != CameraMovement.CameraStates.Idle)
         {
